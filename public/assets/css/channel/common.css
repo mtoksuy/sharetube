@@ -1,0 +1,238 @@
+/***************
+
+*****************/
+.second_navi {
+	display: none;
+}
+
+.sidebar {
+    float: left;
+}
+.main_contents {
+    float: right;
+}
+
+
+
+/****************/
+
+
+.card_article li {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #e7e7e7, 0 2px 0 1px #e7e7e7;
+    box-sizing: border-box;
+    float: left;
+    list-style: outside none none;
+    margin: 15px 0 26px;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.card_article li:hover {
+    box-shadow: 0 0 0 1px #e1e1e1, 0 2px 0 1px #e1e1e1;
+}
+
+
+.card_article li, .card_article ul {
+    margin: 0;
+}
+
+
+
+.card_article_contents {
+    width: 62%;
+}
+.card_article_contents {
+    box-sizing: border-box;
+    float: right;
+    margin: 0;
+    padding: 0 0 0 10px;
+    right: 10px;
+    width: 75%;
+}
+.card_article_contents h1 {
+    font-size: 100%;
+}
+
+.card_article_contents_summary {
+    display: none;
+}
+.card_article_contents_time {
+    bottom: 5px;
+    left: 10px;
+    right: auto;
+}
+.card_article figure {
+    width: 25%;
+}
+.card_article figure {
+    margin: 0 0 24px;
+}
+.category_band, .second_navi {
+    display: none;
+}
+
+
+
+
+
+
+/*********
+ページング
+*********/
+.paging {
+    clear: both;
+    color: #3a3a3a;
+    margin: 30px 0 41.6px;
+}
+.paging ul {
+    margin: 0;
+}
+ul {
+    color: #3a3a3a;
+}
+.paging li {
+    float: left;
+    list-style: outside none none;
+    margin: 10px 10px 10px 0;
+}
+.paging span {
+    color: #292f33;
+    padding: 5px 10px;
+}
+.paging a {
+    background-color: #fcfcfc;
+    border: 1px solid #e7e7e7;
+    border-radius: 2px;
+    color: #7f7f7f;
+    font-size: 94%;
+    padding: 5px 12px;
+    transition: all 0.3s ease 0s;
+}
+
+
+
+/*****************
+プロフィールカード
+*****************/
+/*
+article.cssにも移植されているので更新するときは両方する
+*/
+
+.profile_card {
+
+
+}
+.profile_card_content {
+    background-color: #ffffff;
+/*
+    border: 1px solid #e7e7e7;
+*/
+    border-radius: 2px;
+		box-shadow: 0 0 0 1px #e7e7e7;
+    padding: 15px;
+}
+
+
+.profile_card_content_data {
+
+}
+.profile_card_content_data_left {
+    float: left;
+		margin: 0 15px 0 0;
+}
+.profile_card_content_data_left img {
+	border-radius:2px;
+}
+.profile_card_content_data_right {
+    float: left;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.profile_card_content_data_right_top {
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 10px;
+    padding: 0 0 10px;
+}
+.profile_card_content_data_right_top_summary {
+    color: #292f33;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    margin-bottom: -1px;
+}
+.profile_card_content_data_right_top_matome_create_number {
+
+
+}
+.profile_card_content_data_right_bottom {
+
+}
+.profile_card_content_data_right_bottom_summary {
+    color: #292f33;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    margin-bottom: -1px;
+}
+.profile_card_content_data_right_bottom_all_page_view {
+
+}
+.profile_card_content_name {
+	 margin: 10px 0 15px;
+}
+.profile_card_content_name a {
+    color: #292f33;
+}
+/*
+.profile_card_content_name a:link {
+	text-decoration: underline;
+}
+.profile_card_content_name a:hover {
+	text-decoration: none;
+}
+*/
+
+.profile_card_content_summary {
+
+}
+.profile_card_content_site {
+
+}
+.profile_card_content_site a {
+    color: #292f33;
+    font-size: 94%;
+}
+.profile_card_content_site a .typcn-home-outline {
+    margin: 0 2px 0 0;
+    position: relative;
+    top: -1px;
+}
+
+
+
+
+/**********
+
+**********/
+@media screen and (min-width:0px)and (max-width:1023px) {
+	.sidebar {
+	    display: block;
+	    float: none;
+	    margin: 0 0 30px;
+	    width: 100%;
+	}
+}
+@media screen and (min-width:0px)and (max-width:768px) {
+	.main {
+	    margin: 0 auto;
+	    overflow: hidden;
+	    padding: 91px 0 0;
+	}
+}
+@media screen and (min-width:0px)and (max-width:320px) {
+
+
+}

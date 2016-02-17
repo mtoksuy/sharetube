@@ -1,0 +1,232 @@
+#wrapper {
+    background-color: #ffffff;
+}
+body {
+    background-color: #ffffff;
+}
+
+.main {
+    background-color: #ffffff;
+
+}
+.main {
+    padding: 50px 0 0;
+}
+
+
+
+
+/*********************
+ピックアップギャラリー
+*********************/
+.main_gallery_title {
+   text-align: left;
+	 margin: 0 0 15px;
+}
+.main_gallery_title .typcn {
+
+}
+.main_gallery_title .typcn-star-outline {
+    top: -2px;
+    position: relative;
+}
+
+.main_gallery_title .typcn-document-text {
+    top: -1px;
+    position: relative;
+}
+
+
+
+
+
+.main_gallery_title span {
+    font-size: 145%;
+}
+
+
+
+.main_gallery {
+    height: 0px;
+    overflow: hidden;
+		margin: 0 0 60px;
+}
+
+
+.gallery-cell {
+	width: 25%;
+	margin-right: 0px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.gallery-cell_contents {
+	position: relative;
+}
+.gallery-cell_contents ul {
+    margin: 0;
+    padding: 0;
+}
+.gallery-cell_contents li {
+   list-style: outside none none;
+}
+.gallery-cell_contents a {
+	position: relative;
+}
+.gallery-cell_contents a figure {
+	margin: 0;
+
+}
+.gallery-cell_contents a figure img {
+    height: auto;
+    width: 100%;
+}
+.gallery-cell_contents a .gallery-cell_summary {
+	position: relative;
+/*
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+*/
+}
+
+.gallery-cell_contents a .gallery-cell_summary h1 {
+	font-size: 100%;
+}
+.gallery-cell_contents a .gallery-cell_summary .gallery-cell_summary_time {	
+    color: #b8b8b8;
+    font-size: 80%;
+		line-height: 115%;
+}
+
+
+
+
+/*****************/
+
+/*
+.card_article {
+margin: 50px 0 0;
+
+}
+.card_article li {
+    background-color: transparent;
+    border-radius: 0px;
+    box-shadow: 0 0 0 0px #e7e7e7, 0 0px 0 0px #e7e7e7;
+    box-sizing: padding-box;
+    float: left;
+		height: 470px;
+    list-style: outside none none;
+    margin: 15px 0 26px;
+    padding: 15px;
+    position: relative;
+    width: 25%;}
+
+.card_article li article {
+
+}
+.card_article figure {
+    float: none;
+    margin: 0;
+    width: 100%;
+}
+.card_article img {
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 0 0 0 #e7e7e7, 0 0 0 0 #e7e7e7;
+    box-sizing: border-box;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+.card_article_contents {
+    box-sizing: border-box;
+    float: right;
+    margin: 125px 0 0;
+    padding: 0;
+    right: 0;
+    width: auto;
+}
+
+.category_band {
+	right: 0;
+	left: 15px;
+}
+
+.card_article_contents_time {
+    bottom: 10px;
+    color: #b8b8b8;
+    font-size: 80%;
+    left: 20px;
+    position: static;
+    text-align: left;
+}
+*/
+
+
+
+
+/**************/
+
+.main_contents {
+
+}
+
+.sidebar {
+
+}
+
+/************************
+メディアクエリ設定 0〜768
+************************/
+@media screen and (min-width: 0px) and (max-width: 768px) {
+
+	/*********************
+	ピックアップギャラリー
+	*********************/
+	.main_gallery_title {
+	    margin: 21px 0 15px;
+	}
+	.main_gallery_title span {
+	    font-size: 125%;
+	}
+	.gallery-cell_contents a .gallery-cell_summary h1 {
+		font-size: 100%;
+	}
+	.gallery-cell {
+		width: 67%;
+		margin-right: 0px;
+/*
+		padding-left: 15px;
+*/
+	  -webkit-box-sizing: border-box;
+	  box-sizing: border-box;
+	}
+}
+
+/************************
+メディアクエリ設定 0〜320
+************************/
+@media screen and (min-width: 0px) and (max-width: 320px) {
+	/***
+	main
+	***/
+	.main {
+	    padding: 15px 0 0;
+	}
+	/*********************
+	ピックアップギャラリー
+	*********************/
+	.main_gallery_title {
+	    margin: 0px 0 15px 10px;
+	}
+}
+
+
+
+
+
+

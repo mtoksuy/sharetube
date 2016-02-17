@@ -1,0 +1,123 @@
+
+/*********
+header設定
+*********/
+#header {
+    background-color: #00BF8F;
+}
+.header_contents {
+    background-color: #00BF8F;
+}
+.nav {
+    margin: 34px 0 0 15px;
+}
+/*********
+記事リスト
+*********/
+.article_list {
+    margin: 0 auto 60px;
+    max-width: 600px;
+}
+.video {
+    margin: 0 auto;
+    max-width: 600px;
+    padding-bottom: 100%;
+}
+.video iframe {
+    display: block !important;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    font-size: 100%;
+    font-weight: normal;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+
+}
+
+
+
+
+
+/************************
+メディアクエリ設定 0〜768
+************************/
+@media screen and (min-width: 0px) and (max-width: 768px) {
+	/*********
+	header設定
+	*********/
+	#header {
+		margin: 0;
+	}
+	.header_contents {
+		max-width: 768px;
+		position: fixed;
+		width: 100%;
+		z-index: 7;
+	}
+	.logo {
+		margin: 10px 15px 3px 0;
+	}
+	.nav {
+		margin: 30px 0 0 15px;
+	}
+	/*******
+	main設定
+	*******/
+	.main {
+	  padding: 100px 0 0 0;
+    overflow: hidden;
+    margin: 0 auto;
+    min-width: 100%;
+    width: 100%;
+    z-index: 6;
+	}
+	/***********
+	ドロワー設定
+	***********/
+
+	/***********
+	フッター設定
+	***********/
+	.footer_contents {
+    margin: 0 auto;
+    min-width: 100%;
+    overflow: hidden;
+    width: 100%;
+    z-index: 6;
+	}
+}
+
+/************************
+メディアクエリ設定 0〜480
+************************/
+@media screen and (min-width: 0px) and (max-width: 480px) {
+	/*************
+	シェボタン設定
+	*************/
+	.social_share a {
+	  font-size: 16px;
+		padding: 10px 0;
+	}
+}
+/************************
+メディアクエリ設定 0〜320
+************************/
+@media screen and (min-width: 0px) and (max-width: 320px) {
+	/*******
+	main設定	
+	*******/
+	.main {
+
+	}
+	.main_contents {
+		margin: 0;
+	}
+	/*********
+	記事リスト
+	*********/
+	.article_list {
+		margin-bottom: 40px;
+	}
+}
