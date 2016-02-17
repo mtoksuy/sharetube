@@ -1,0 +1,52 @@
+
+/************************
+メディアクエリ設定 0〜320
+************************/
+@media screen and (min-width: 0px) and (max-width: 320px) {
+	/*********
+	header設定
+	*********/
+	.nav {
+		margin: 19px 0 0 5px;
+	}
+	/*******
+	main設定	
+	*******/
+	.main {
+		padding: 15px 0 0 0;
+	}
+	.main_contents {
+		margin: 0;
+	}
+
+	/*********
+	記事リスト
+	*********/
+	.article_list {
+		margin-bottom: 40px;
+	}
+	.article_list_contents h1 {
+	    display: block;
+	    margin: 0 15px;
+			font-size: 20px;
+			line-height: 120%;
+	}
+	.article_list_contents time {
+	    margin: 0 0 8px 15px;
+	}
+	.social_share a {
+	    font-size: 14px;
+	}
+	.message {
+		font-size: 14px;
+	}
+	/**********
+	ajax_loader
+	**********/
+	.ajax_loader {
+		margin: 0 auto 0px;
+	}
+	#copy {
+		margin: 140px 0 0;
+	}
+}

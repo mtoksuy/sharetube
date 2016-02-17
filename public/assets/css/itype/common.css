@@ -1,0 +1,204 @@
+/***
+main
+***/
+.main {
+    background-color: #F1F1F1;
+    border-bottom: 0px solid #E9E9E9;
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.00);
+}
+.main_contents {
+    float: left;
+    margin: 0;
+    max-width: 724px;
+}
+/***********
+ヘッダー設定
+***********/
+#header {
+	background-color: #FCFCFC;
+	position: relative;
+}
+.header_contents {
+	background-color: #FCFCFC;
+}
+/**********
+ad
+**********/
+.ad {
+
+}
+.ad_contents {
+	margin: 30px auto 0;
+	position: relative;
+	max-width: 768px;
+}
+.ad_left {
+	float: left;
+	width: 468px;
+}
+.ad_right {
+	float: left;
+ width: 300px;
+}
+/************
+ad Pickup記事
+************/
+.ad_pickup_article {
+
+
+}
+.ad_pickup_article_content {
+    border-radius: 2px 2px 2px 2px;
+    position: relative;
+    word-wrap: break-word;
+}
+.ad_pickup_article_header {
+    border-bottom: 1px solid #555555;
+    color: #555555;
+    font-weight: bold;
+    margin: 0 1% 5px;
+    padding: 0 0 5px;
+		font-size: 100%;
+}
+.ad_pickup_article ul {
+	margin: 0;
+    padding: 0;
+}
+.ad_pickup_article li {
+    background-color: #FCFCFC;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    float: left;
+    list-style: none outside none;
+    margin: 5px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+		width: 92%;
+}
+.ad_pickup_article img {
+    border-radius: 2px;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+}
+.ad_pickup_article_contents_title {
+    background-color: #FCFBF9;
+    bottom: 0;
+    box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.05);
+    left: 10px;
+    position: absolute;
+    right: 10px;
+}
+.ad_pickup_article_contents_title h1 {
+    font-size: 92%;
+    padding: 5px;
+    text-align: left;
+}
+
+
+/************************
+メディアクエリ設定 0〜768
+************************/
+@media screen and (min-width: 0px) and (max-width: 768px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+			width: 45.9%;
+	}
+}
+
+
+
+/************************
+メディアクエリ設定 0〜740
+************************/
+@media screen and (min-width: 0px) and (max-width: 740px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+			width: 45.5%;
+	}
+}
+
+/************************
+メディアクエリ設定 0〜680
+************************/
+@media screen and (min-width: 0px) and (max-width: 680px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+			width: 45.4%;
+	}
+}
+
+
+/************************
+メディアクエリ設定 0〜640
+************************/
+@media screen and (min-width: 0px) and (max-width: 640px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+	    width: 95.1%;
+	}
+}
+/************************
+メディアクエリ設定 0〜600
+************************/
+@media screen and (min-width: 0px) and (max-width: 600px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+	    width: 95.2%;
+	}
+}
+/************************
+メディアクエリ設定 0〜540
+************************/
+@media screen and (min-width: 0px) and (max-width: 540px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+	    width: 94.5%;
+	}
+}
+/************************
+メディアクエリ設定 0〜480
+************************/
+@media screen and (min-width: 0px) and (max-width: 480px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+	    width: 93.6%;
+	}
+}/***********************
+メディアクエリ設定 0〜400
+************************/
+@media screen and (min-width: 0px) and (max-width: 400px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+	    width: 92.3%;
+	}
+}
+/************************
+メディアクエリ設定 0〜320
+************************/
+@media screen and (min-width: 0px) and (max-width: 320px) {
+	/*****************
+	カード形式表示記事
+	*****************/
+	.card_article li {
+	    width: 90.2%;
+	}
+}

@@ -1,0 +1,168 @@
+<?php
+/*
+* 記事コントローラー
+* 
+* 
+* 
+* 
+*/
+
+class Controller_Article extends Controller_Article_Template {
+	// ルーター
+	public function router($method, $params) {
+		// セグメント審査と軽い記事審査
+		if (!$params && preg_match('/^[0-9]+$/', $method, $method_array)) {
+			$is_article = Model_Info_Basis::is_article($method);
+			// 記事がある場合
+			if($is_article) {
+				return $this->action_index($method);
+			}
+				// エラー
+				else {
+					return $this->action_404();
+				}
+		}
+			// エラー
+			else {
+				 return $this->action_404();
+			}
+	}
+	// 親のbefore実行
+	public function before() {
+		parent::before();
+	}
+	//----------
+	//アクション
+	//----------
+	public function action_index($method) {
+		// intに戻す
+		$method = (int)$method;
+		// ユーザー情報取得
+		$user_data_array = Model_Info_Basis::user_data_get();
+		// 変数をエンティティ化する
+		$user_data_array = Library_Security_Basis::variable_security_entity($user_data_array);
+
+		// 記事データ取得
+		$article_res = Model_Article_Basis::article_get('article', $method);
+
+		// 一番ややこしい場所なのでまたトラブルがあるかもしれないので監視をする 2015.08.25 松岡
+		// アクセスDB追加 & all_page_view & pay_pv をプラス & アクセスサマリー書き込み
+		Model_Article_Basis::article_access_writing_and_all_page_view_plus($method, $user_data_array, $article_res);
+
+
+		// スマホ用サムネイルHTML生成
+		$sp_thumbnail_html = Model_Article_Html::sp_thumbnail_html_create($article_res);
+
+		// sp_thumbnailデータセット
+		$this->article_template->view_data["sp_thumbnail"]->set('sp_thumbnail_data', array(
+			'sp_thumbnail_html' => $sp_thumbnail_html,
+		), false);
+		// 記事のHTML生成
+		$article_data_array = Model_Article_Html::article_html_create($article_res);
+		// 記事のメタ生成
+		$meta_html          = Model_Article_Html::article_meta_html_create($article_data_array, 168);
+		// 記事メタセット
+		$this->article_template->view_data["meta"]->set('meta_data', array(
+			'meta_html' => $meta_html,
+		), false);
+
+		// 記事タイトルセット
+		$this->article_template->view_data["title"] = $article_data_array["article_title"];
+		// 記事コンテンツセット
+		$this->article_template->view_data["content"]->set('content_data', array(
+			'article_html' => $article_data_array["article_html"],
+		), false);
+
+		// 人気記事HTML生成
+		$article_access_1_res  = Model_Article_Basis::article_access_get(1,10);
+		$article_access_7_res  = Model_Article_Basis::article_access_get(7,10);
+		$article_access_30_res = Model_Article_Basis::article_access_get(30,10);
+		$popular_html       = Model_Article_Html::article_popular_html_create($article_access_1_res, $article_access_7_res, $article_access_30_res, 'article');
+
+		// 関連記事データ取得
+//		list($related_res, $related_count) = Model_Article_Basis::article_related_get($article_data_array, 'article');
+		// 関連記事HTML生成
+//		$related_html                      = Model_Article_Html::article_related_html_create($related_res, $related_count);
+
+		// シャッフル記事データ取得 
+//		$shuffle_res = Model_Article_Basis::article_shuffle_get($method, 'article', 4);
+		// シャッフル記事HTML生成
+//		$shuffle_html = Model_Article_Html::article_shuffle_html_create($shuffle_res, 'article');
+		// シャッフル記事データ取得
+		$shuffle_res = Model_Article_Basis::article_shuffle_get($method, 'article', 1);
+		// シャッフルボタン記事link生成
+		$shuffle_article_link = Model_Article_Html::article_shuffle_button_link_create($shuffle_res);
+		// シャッフルボタン記事linkセット
+		$this->article_template->view_data["header"]->set('header_data', array(
+			'shuffle_article_url' => $shuffle_article_link,
+		), false);
+
+
+
+		// sharetube_id取得
+		foreach($article_res as $key => $value) {
+			$sharetube_id = $value["sharetube_id"];
+		}
+		// Sharetubeのユーザーデータ取得
+		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($sharetube_id);
+		// Sharetubeユーザーの書いた記事数を取得
+		$article_count = Model_Info_Basis::sharetube_user_article_count_get($sharetube_id);
+		// profile_cardHTML生成
+		$profile_card_html = Model_Channel_Html::profile_card_html_create($sharetube_user_data_array, $article_count);
+
+
+
+		// サイドバーコンテンツセット
+		$this->article_template->view_data["sidebar"]->set('sidebar_data', array(
+			'popular_html' => $popular_html,
+			'related_html' => '',
+			'shuffle_html' => '',
+			'profile_card_html' => $profile_card_html,
+		),false);
+
+		// 追加コンテンツ コンテンツセット
+		$this->article_template->view_data["plus_add"]->set('plus_add_data', array(
+			'social_share_html' => $article_data_array["social_share_html"], 
+		),false);
+
+		// アーカイブデータ取得
+		list($first_article_res, $last_article_res) = Model_Archive_Basis::archive_first_last_data_get();
+		// アーカイブHTML生成
+		$archive_li_html = Model_Archive_Html::archive_list_html_create($first_article_res, $last_article_res);
+		// アーカイブコンテンツセット
+		$this->article_template->view_data["footer"]->set('footer_data', array(
+			'archive_html' => $archive_li_html,
+		), false);
+
+	}
+	//------------
+	//エラーページ
+	//------------
+	public function action_404() {
+//		var_dump($this);
+		// 404ステータスにする
+	$this->response_status                                      = 404;
+	$this->active_request->response->status                     = 404;
+	$this->active_request->controller_instance->response_status = 404;
+		// 記事メタセット
+		$this->article_template->view_data["meta"]->set('meta_data', array(
+			'meta_html' => '<meta name="robots" content="noindex">',
+		), false);
+
+		// sp_thumbnailデータセット
+		$this->article_template->view_data["sp_thumbnail"]->set('sp_thumbnail_data', array(
+			'sp_thumbnail_html' => '',
+		), false);
+
+		// 記事コンテンツセット
+		$this->article_template->view_data["content"]->set('content_data', array(
+			'article_html' => 'エラーページ<br><br><br><br><br><br><br><br><br>',
+		), false);
+
+		// サイドバーコンテンツセット
+		$this->article_template->view_data["sidebar"] = '';
+		// スクリプトコンテンツセット
+		$this->article_template->view_data["script"] = '';
+
+	}
+}
