@@ -3820,6 +3820,12 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 @media screen and (min-width: 0px) and (max-width: 640px) {
+   .mobile_orverlay_ad_content {
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    z-index: 7;
+  }
   .article_inside_related_article li, .article_inside_related_article li:hover {
     box-shadow: 0 0 0 0 #e7e7e7,0 0 0 0 #e7e7e7;
   }
