@@ -83,7 +83,6 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043107'."'".'
 </script>';
 
 
-
 		// mobile版広告群
 		$fluct_mobile_middle_1_ad_html = '<!--      Fluct グループ名「Sharetube（スマホ）_300x250_Web_インライン_ミドル_1」      -->
 <script type="text/javascript" src="http://sh.adingo.jp/?G=1000027798&guid=ON"></script>
@@ -276,19 +275,101 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043119'."'".'
 			}
 		return $ad_html;
 	}
+	//----------------------
+	//テクノアルカディア広告
+	//----------------------
+	public static function techno_arcadia_ad_html_create($detect, $pc_type = "サイドバー右上", $mobile_type = "ミドル_1") {
+		$techno_arcadia_mobile_orverlay_ad_html = '
+			<!-- テクノアルカディア広告 -->
+			<script src="http://dsg.hgigs.info/js/sharetube.js" type="text/javascript" charset="utf-8"></script>';
 
+		// テクノアルカディア広告タグ群array
+		$techno_arcadia_ad_array = array(
+			'pc'     => array('サイドバー右上' => '', 
+												'サイドバー右下' => '',
+												'ミドル左'       => '',
+												'ミドル右'       => '',	
+												'記事下'         => '',
+												'none'           => '',
+								),
+			'mobile' => array('ミドル_1'     => '', 
+												'ミドル_2'     => '', 
+												'ミドル_3'     => '', 
+												'ミドル_4'     => '', 
+												'ミドル_5'     => '', 
+												'ヘッダー'     => '', 
+												'オーバーレイ' => $techno_arcadia_mobile_orverlay_ad_html, 
+												'none'         => '',
+									),
+		);
+//		var_dump($techno_arcadia_ad_array);
+		if($detect->isMobile() | $detect->isTablet()) {
+			switch($mobile_type) {
+				case 'ミドル_1':
+					$ad_html = $techno_arcadia_ad_array["mobile"]["ミドル_1"];
+				break;
+				case 'ミドル_2':
+					$ad_html = $techno_arcadia_ad_array["mobile"]["ミドル_2"];
+				break;
+				case 'ミドル_3':
+					$ad_html = $techno_arcadia_ad_array["mobile"]["ミドル_3"];
+				break;
+				case 'ミドル_4':
+					$ad_html = $techno_arcadia_ad_array["mobile"]["ミドル_4"];
+				break;
+				case 'ミドル_5':
+					$ad_html = $techno_arcadia_ad_array["mobile"]["ミドル_5"];
+				break;
+				case 'ヘッダー':
+					$ad_html = $techno_arcadia_ad_array["mobile"]["ヘッダー"];
+				break;
+				case 'オーバーレイ':
+					$ad_html = $techno_arcadia_ad_array["mobile"]["オーバーレイ"];
+				break;
+				case 'none':
+					$ad_html = $techno_arcadia_ad_array["mobile"]["none"];
+				break;
 
-
+				default:
+					$ad_html = $techno_arcadia_ad_array["mobile"]["ミドル_1"];
+				break;
+			}
+		}
+			else {
+				switch($pc_type) {
+					case 'サイドバー右上':
+						$ad_html = $techno_arcadia_ad_array["pc"]["サイドバー右上"];
+					break;
+					case 'サイドバー右下':
+						$ad_html = $techno_arcadia_ad_array["pc"]["サイドバー右下"];
+					break;
+					case 'ミドル左':
+						$ad_html = $techno_arcadia_ad_array["pc"]["ミドル左"];
+					break;
+					case 'ミドル右':
+						$ad_html = $techno_arcadia_ad_array["pc"]["ミドル右"];
+					break;
+					case '記事下':
+						$ad_html = $techno_arcadia_ad_array["pc"]["記事下"];
+					break;
+					case 'none':
+						$ad_html = $techno_arcadia_ad_array["pc"]["none"];
+					break;
+	
+					default:
+						$ad_html = $techno_arcadia_ad_array["pc"]["サイドバー右上"];
+					break;
+				}
+			}
+		return $ad_html;
+	}
 	//----------------
 	//広告指定配信関数
 	//----------------
 	public static function ad_html_create($detect, $ad_network = 'i-mobile', $type = 'レクタングル') {
 
-
 		// fluctの広告array
 		$fluct_array = array();
-
-
 
 		// genieeの広告array
 		$geniee_rectangle_array = array(
@@ -342,6 +423,12 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043119'."'".'
 	    imobile_height = 250;
 	</script>
 	<script type="text/javascript" src="http://spdeliver.i-mobile.co.jp/script/ads.js?20101001"></script>',);
+
+
+
+
+
+
 
 		if($ad_network == 'i-mobile') {
 			if($detect->isMobile()) {
