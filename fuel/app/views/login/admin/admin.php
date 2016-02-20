@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.10<br>
+						<p>Sharetube version 5.4.11<br>
 <!--※お手数かけますが、新機能をご利用するためにこのページと「まとめ作成」ページにてスーパーリロードお願い致します。</p>
 -->
 
@@ -47,8 +47,7 @@
 
 					<h3 class="h3_heading_1">実装予定表</h3>
 					<p class="m_0">・タグ実装見直し&タグ紐付けページ実装</p>
-					<p class="m_0">・まとめ作成ツールアイテム:画像に引用元情報追加実装</p>
-					<p>・デスクトップ・スマホで継続ログイン(クッキー保存)実装</p>
+					<p>・まとめ作成ツールアイテム:画像に引用元情報追加実装</p>
 
 
 
@@ -62,6 +61,21 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年02月20日：Var.5.4.11</pre>
+					</dt>
+					<dd>
+						<pre>・デスクトップ・スマホで継続ログイン(クッキー保存)実装</pre>
+					</dd>
+				</dl>
+			</li>
+
+
 
 
 
