@@ -154,7 +154,7 @@ class Model_Login_Incentive_Html extends Model {
 	//------------------
 	//支払画面のHTML生成
 	//------------------
-	public static function incentive_payrequest_thml_create($sharetube_user_data_array, $incentive_data_array) {
+	public static function incentive_payrequest_html_create($sharetube_user_data_array, $incentive_data_array) {
 		$pay_money_int  = (int)($sharetube_user_data_array["pay_pv"]*$incentive_data_array["rate"]);
 		$pay_money      = number_format($pay_money_int);
 		$pay_check      = false;
@@ -196,7 +196,7 @@ class Model_Login_Incentive_Html extends Model {
 						'.$bank_message.'
 					</div>';
 			}
-		$incentive_payrequest_thml = '
+		$incentive_payrequest_html = '
 		  <h1>インセンティブ 報酬申請</h1>
 			<!-- incentive_data -->
 		 	<div class="incentive_data">
@@ -215,7 +215,7 @@ class Model_Login_Incentive_Html extends Model {
 			</div> <!-- incentive_data -->
 			'.$incentive_payrequest_error_html.'
 			';
-		return $incentive_payrequest_thml;
+		return $incentive_payrequest_html;
 	}
 	//------------------------------------
 	//インセンティブチケットリストHTML生成

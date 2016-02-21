@@ -24,7 +24,7 @@ if($content_data["complete"] == true) {
 }
 	// payrequest
 	else if($content_data["payrequest"] == true) {
-			echo $content_data["incentive_payrequest_thml"];
+			echo $content_data["incentive_payrequest_html"];
 	}
 		// index
 		else {

@@ -189,6 +189,149 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
+	//----------------------------------------------------------
+	//インセンティブチケットが発行されたらユーザー側に送るメール
+	//----------------------------------------------------------
+	public static function incentive_ticket_issuance_mail($sharetube_user_data_array, $incentive_data_array, $incentive_ticket_number) {
+		// 振込金額
+		$pay_money_int  = (int)($incentive_data_array["rate"]*$sharetube_user_data_array["pay_pv"]);
+		$pay_money      = number_format($pay_money_int);
+
+		// time関連取得
+		$now_time = time();
+		$now_date = date('Y年m月d日', $now_time);
+		$now_2day_date = date('Y年m月d日', $now_time+(86400*4));
+
+		$message = ("Sharetubeをご利用くださいましてありがとうございます。
+
+インセンティブチケットが発行されましたので
+レポートを送りいたします。
+
+
+[インセンティブチケット発行レポート]
+Sharetube_id：".$sharetube_user_data_array['sharetube_id']."
+
+チケット_id：".$incentive_ticket_number."
+
+振込予定日：".$now_date."〜".$now_2day_date."
+
+支払額：".$pay_money."円
+------------------------
+
+口座情報はメールにてセキュリティーの観点から記述できません。
+トラブルを無くすためSharetubeにログインして口座情報をお確かめください。
+また、振込予定日を過ぎても振込が無い場合はお手数かけますが、お問い合わせよりご連絡ください。
+
+では、引き続きよろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+		$post_array = array(
+			'from'    => 'info@sharetube.jp',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => 'Sharetube[インセンティブチケットが発行されました]',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+	//-------------------------------------------------------------
+	// 支払いチケットコンプリートした主旨をユーザーにメールで伝える
+	//-------------------------------------------------------------
+	public static function incentive_ticket_complete_mail($ticket_primary_id) {
+		// チケット情報取得
+		$ticket_primary_id_res = DB::query("
+			SELECT *
+			FROM incentive_paid_ticket
+			WHERE primary_id = ".$ticket_primary_id."")->execute();
+		foreach($ticket_primary_id_res as $key => $value) {
+			$ticket_complete_array['sharetube_id'] = $value['sharetube_id'];
+			$ticket_complete_array['pay_money']    = $value['pay_money'];
+			$ticket_complete_array['pay_pv']       = $value['pay_pv'];
+			$ticket_complete_array['rate']         = $value['rate'];
+			$ticket_complete_array['create_time']  = $value['create_time'];
+		}
+		// Sharetubeのユーザーデータ取得
+		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($ticket_complete_array['sharetube_id']);
+		// 振込金額
+		$pay_money_int  = (int)$ticket_complete_array['pay_money'];
+		$pay_money      = number_format($pay_money_int);
+
+		$message = ("Sharetubeをご利用くださいましてありがとうございます。
+
+インセンティブの支払いが完了いたしました。
+ご確認よろしくお願い致します。
+
+[インセンティブ支払いレポート]
+Sharetube_id：".$sharetube_user_data_array['sharetube_id']."
+
+チケット_id：".$ticket_primary_id."
+
+支払額：".$pay_money."円
+------------------------
+
+
+では、引き続きよろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+		$post_array = array(
+			'from'    => 'info@sharetube.jp',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => 'Sharetube[インセンティブを振り込みました]',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//--------------------------------------------------------------------------
 		//コンタクトformメール送信(PEARを利用した関数。一応サンプルとして残しておく)
 		//--------------------------------------------------------------------------

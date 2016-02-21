@@ -48,7 +48,7 @@ class Model_Login_Incentive_Basis extends Model {
 	//--------------------------------
 	public static function incentive_paid_ticket_issue($sharetube_user_data_array, $incentive_data_array) {	
 		$pay_money_int  = (int)($incentive_data_array["rate"]*$sharetube_user_data_array["pay_pv"]);
-		DB::query("
+		$incentive_ticket_query = DB::query("
 			INSERT INTO 
 				incentive_paid_ticket (
 					sharetube_id, 
@@ -63,12 +63,14 @@ class Model_Login_Incentive_Basis extends Model {
 				'".$incentive_data_array["rate"]."'
 				)
 		")->execute();
+		$$incentive_ticket_number = $incentive_ticket_query[0];
 		// pay_pvを0にする
 		DB::query("
 			UPDATE user
 				SET
 					pay_pv = 0
 				WHERE primary_id = ".$sharetube_user_data_array["primary_id"]."")->execute();
+		return $incentive_ticket_number;
 	}
 	//----------------------------
 	//インセンティブチケット全取得
@@ -108,7 +110,7 @@ class Model_Login_Incentive_Basis extends Model {
 				UPDATE incentive_paid_ticket 
 					SET complete = 1
 					WHERE primary_id = ".$ticket_primary_id."")->execute();
-			// 
+			// コンプリートしたチケットをレポートに追加する
 			DB::query("
 				INSERT INTO
 					incentive_paid_report (
@@ -128,22 +130,17 @@ class Model_Login_Incentive_Basis extends Model {
 
 			header('Location: '.HTTP.'login/admin/incentiveticket/');
 			exit;
-		}
-
-/*
-		DB::query("
-			UPDATE incentive_paid_ticket 
-				SET complete = 1
-				WHERE primary_id = ".$ticket_primary_id."")->execute();
-*/
-
-
-
-
-
-
-
-
-
+		} // if($incentive_paid_ticket_check) {
 	}
+
+
+
+
+
+
+
+
+
+
+
 }
