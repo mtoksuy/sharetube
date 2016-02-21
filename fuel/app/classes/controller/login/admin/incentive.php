@@ -92,10 +92,10 @@ class Controller_Login_Admin_Incentive extends Controller_Login_Template {
 		// インセンティブのデータ取得
 		$incentive_data_array      = Model_Login_Incentive_Basis::incentive_data_get();
 		// 支払画面のHTML生成
-		$incentive_payrequest_thml = Model_Login_Incentive_Html::incentive_payrequest_thml_create($sharetube_user_data_array, $incentive_data_array);
+		$incentive_payrequest_html = Model_Login_Incentive_Html::incentive_payrequest_html_create($sharetube_user_data_array, $incentive_data_array);
 			// コンテンツ挿入
 			$login_admin_template->view_data["content"]->set('content_data',array(
-				'incentive_payrequest_thml' => $incentive_payrequest_thml,
+				'incentive_payrequest_html' => $incentive_payrequest_html,
 				'sharetube_user_data_array' => $sharetube_user_data_array,
 				'incentive_data_array'      => $incentive_data_array,
 				'payrequest'                => true,
@@ -126,8 +126,7 @@ class Controller_Login_Admin_Incentive extends Controller_Login_Template {
 		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"]);
 		// インセンティブのデータ取得
 		$incentive_data_array      = Model_Login_Incentive_Basis::incentive_data_get();
-
-
+		// 支払いチェック
 		$pay_money_int  = (int)($incentive_data_array["rate"]*$sharetube_user_data_array["pay_pv"]);
 		$pay_check      = false;
 		$bank_check     = false;
@@ -151,7 +150,10 @@ class Controller_Login_Admin_Incentive extends Controller_Login_Template {
 		if($pay_check == true && $bank_check == true) {
 			$error_check = true;
 			// インセンティブ支払いチケット発行
-			Model_Login_Incentive_Basis::incentive_paid_ticket_issue($sharetube_user_data_array, $incentive_data_array);
+			$incentive_ticket_number = Model_Login_Incentive_Basis::incentive_paid_ticket_issue($sharetube_user_data_array, $incentive_data_array);
+			// インセンティブチケットが発行されたらユーザー側に送るメール
+			Model_Mail_Basis::incentive_ticket_issuance_mail($sharetube_user_data_array, $incentive_data_array, $incentive_ticket_number);
+			// メール
 		}
 			// エラー
 			else {
@@ -159,7 +161,7 @@ class Controller_Login_Admin_Incentive extends Controller_Login_Template {
 			}
 			// コンテンツ挿入
 			$login_admin_template->view_data["content"]->set('content_data',array(
-				'incentive_payrequest_thml' => $incentive_payrequest_thml,
+				'incentive_payrequest_html' => $incentive_payrequest_html,
 				'sharetube_user_data_array' => $sharetube_user_data_array,
 				'incentive_data_array'      => $incentive_data_array,
 				'payrequest'                => false,
