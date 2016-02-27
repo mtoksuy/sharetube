@@ -1072,17 +1072,9 @@ border-bottom: 2px dotted #888;
 
 
 				</div><!-- facebook_like_please_left -->
-
-
-
-
-
 				<div class="facebook_like_please_right">
-					<div class="facebook_like_please_right_body">
-						<img width="79" height="91" src="'.HTTP.'assets/img/character/character_3_body.png" alt="お名前募集中です" title="お名前募集中です">
-					</div>
-					<div class="facebook_like_please_right_arm">
-						<img width="19" height="15" src="'.HTTP.'assets/img/character/character_3_arm.png" alt="お名前募集中です" title="お名前募集中です">
+					<div class="facebook_like_please_right_character">
+						<img width="79" height="99" src="'.HTTP.'assets/img/character/character_4.png" alt="お名前募集中です" title="お名前募集中です">
 					</div>
 				</div>
 			</div>
