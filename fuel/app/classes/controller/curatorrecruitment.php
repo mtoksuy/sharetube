@@ -8,6 +8,24 @@
  */
 
 class Controller_Curatorrecruitment extends Controller_Basic_Template {
+	// ルーター
+	public function router($method, $params) {
+			if($method == 'index') {
+				return $this->action_index();
+			}
+				else if($method == 'lp') {
+					return $this->action_lp();
+				}
+			// エラー
+			else {
+				 return $this->action_404();
+			}
+	}
+
+
+
+
+
 	// 親before実行
 	public function before() {
 		parent::before();
@@ -69,5 +87,14 @@ class Controller_Curatorrecruitment extends Controller_Basic_Template {
 
 		// scriptデータセット
 		$this->basic_template->view_data["script"] = View::forge('permalink/script');
+	}
+
+
+	// アクション
+	public function action_lp() {
+		// html取得
+		$lp_html = View::forge('permalink/curatorrecruitment/lp');
+		// lpHTMLセット
+		$this->basic_template = $lp_html;
 	}
 }

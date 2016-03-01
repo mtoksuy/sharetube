@@ -1,0 +1,148 @@
+.signup {
+width: 437px;
+	float: right;
+}
+.main {
+    max-width: none;
+}
+.main_contents {
+    float: none;
+		max-width: none;
+		width: auto;
+}
+/***************
+
+****************/
+.bottom_line {
+    border-radius: 0;
+    box-shadow: 0px -5px 0px 0px rgba(237, 72, 45, 1) inset;
+    padding-bottom: 5px;
+    font-style: normal;
+}
+.first_view_block {
+/*
+	background-image: url(http://localhost/sharetube/assets/img/curatorrecruitment/lp/porigon_1.jpg);
+	background-image: url(http://localhost/sharetube/assets/img/curatorrecruitment/lp/fabric_pattern/2.png);
+	background-image: url(http://localhost/sharetube/assets/img/curatorrecruitment/lp/ml-catchall-backgrounds/jpg/pattern1.jpg);
+*/
+/*
+  background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at right bottom , #fefdfe 5%, #f8cdda 25%, #1d2b64 80%, #0e153a 98%) repeat scroll 0 0;
+*/
+/*
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+*/
+/*
+    width: 100vw;
+    height: 100vh;
+*/
+
+}
+.first_view_block_content {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+
+.left_block {
+	float: left;
+	width: 50%;
+	margin: 50px 0 0 0;
+}
+.left_block ol {
+   list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.left_block li {
+}
+.left_block dl {
+}
+.left_block dt {
+font-weight: bold;
+}
+.left_block dd {
+  margin: 0 0 0 15px;
+}
+
+
+
+
+.registration_button {
+    width: 500px;
+    margin: 50px auto;
+}
+.registration_button a {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: chartreuse;
+    border-radius: 3px;
+    text-align: center;
+    display: block;
+
+    background-color: rgba(237, 72, 45, 0.99);
+    border: 1px solid rgba(237, 72, 45, 0.99);
+    cursor: pointer;
+    border-radius: 2px;
+    color: #FCFCFC;
+    font-weight: bold;
+    position: relative;
+}
+
+
+
+
+.appeal_block {
+	width: 1024px;
+	margin: 50px auto;
+}
+.appeal_block h2 {
+	text-align: center;
+}
+.appeal_block p {
+    margin: 0 auto 15px;
+    width: 609px;
+}
+
+
+
+
+.appeal_block_image_1 {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    width: 70%;
+}
+.appeal_block_image_2 {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+}
+.appeal_block_image_3 {
+    display: block;
+    float: left;
+    height: auto;
+		margin: 0 0 0 123px;
+    text-align: center;
+    width: 180px;
+}
+.appeal_block_image_4 {
+    display: block;
+    float: right;
+    height: auto;
+		margin: 0 40px 0 0;
+    text-align: center;
+    width: 626px;
+}
+
+
+.footer_contents {
+	min-height: none;
+}
+
+
