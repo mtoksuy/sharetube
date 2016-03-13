@@ -45,7 +45,15 @@
 		-webkit-appearance: none;
 }
 .signup_content input:focus {
-	box-shadow: 0 0 0 1px rgba(237, 72, 45, 0.88);
+/*
+	box-shadow: 0 0 0 1px rgba(237, 72, 45, 0.18);
+*/
+/*
+	box-shadow: 0 0 0 1px rgba(237, 72, 45, 0.9);
+*/
+    border: 1px solid rgba(237, 72, 45, 0.99);
+
+
 }
 
 .signup_content input[type="text"] {
@@ -55,11 +63,11 @@
 
 }
 .signup_content button[type="submit"] {
-    background-color: rgba(237, 72, 45, 0.35);
-    border: 1px solid rgba(237, 72, 45, 0.50);
-		cursor: pointer;
+    background-color: rgba(237, 72, 45, 0.99);
+    border: 1px solid rgba(237, 72, 45, 1);
     border-radius: 2px;
-    color: #474747;
+    color: #fcfcfc;
+    cursor: pointer;
     float: right;
     font-weight: bold;
     height: 30px;

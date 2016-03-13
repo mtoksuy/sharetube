@@ -123,6 +123,7 @@ class Model_Signup_Basis {
 			$password_hidden_string = Model_Signup_Basis::password_hidden_string($post);
 			// ユーザーへ登録完了メール送信
 			Model_Mail_Basis::new_account_contact_mail($post, $password_hidden_string);
+			// ユーザー登録された主旨のレポートメールを受け取る
 			Model_Mail_Basis::new_account_report_mail($post, $password_hidden_string);
 	}
 }
