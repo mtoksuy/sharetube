@@ -63,10 +63,13 @@
 
 	<!-- キュレーター募集 -->
 	<div class="curator_recruitment o_8 m_t_30">
-		<a href="http://sharetube.jp/curatorrecruitment/" target="blank">
-			<img src="http://sharetube.jp/assets/img/curatorrecruitment/curator_recruitment_6.png" width="300" height="443">
+		<a href="<?php echo HTTP; ?>curatorrecruitment/lp/" target="blank">
+			<img src="<?php echo HTTP; ?>assets/img/curatorrecruitment/curator_recruitment_7.png" width="300" height="443">
 		</a>
 	</div>
+
+
+
 
 	<!-- サイト情報 -->
 	<div class="site_info_box clearfix">
