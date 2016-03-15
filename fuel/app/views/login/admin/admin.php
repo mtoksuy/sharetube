@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.12<br>
+						<p>Sharetube version 5.4.13<br>
 <!--※お手数かけますが、新機能をご利用するためにこのページと「まとめ作成」ページにてスーパーリロードお願い致します。</p>
 -->
 
@@ -61,6 +61,17 @@
 	<div class="matome_content_block_timeline">
 		<ol>
 
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年03月14日：Var.5.4.13</pre>
+					</dt>
+					<dd>
+						<pre>・まとめ作成ユーザー獲得するためのLP作成</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
