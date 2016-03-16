@@ -23,7 +23,7 @@ class Controller_Root extends Controller_Basic_Template {
 			$this->basic_template->view_data["external_css"] = View::forge('root/externalcss');
 			$this->basic_template->view_data["script"]       = View::forge('root/script');
 			// ピックアップデータ取得
-			$pickup_res  = Model_Article_Basis::pickup_get(array(1247,1235,1242,1225,1183,1218,1203,1163,868,1029));
+			$pickup_res  = Model_Article_Basis::pickup_get(array(1447,1342,1436,1417,1378,1269,12681247,1235,1242));
 
 			// ピックアップHTML生成
 			$pickup_html = Model_Article_Html::pickup_html_create($pickup_res);

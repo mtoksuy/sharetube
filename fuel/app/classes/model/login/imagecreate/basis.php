@@ -130,7 +130,7 @@ class Model_Login_Imagecreate_Basis extends Model {
 						imagegif($canvas, $create_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_path, 0);
+						imagepng($canvas, $create_path, 6);
 					break;
 					default:
 					break;
@@ -188,7 +188,7 @@ class Model_Login_Imagecreate_Basis extends Model {
 							imagegif($canvas, $create_path);
 						break;
 						case 'png':
-							imagepng($canvas, $create_path, 0);
+							imagepng($canvas, $create_path, 6);
 						break;
 						default:
 						break;
