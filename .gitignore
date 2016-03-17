@@ -2,9 +2,6 @@
 fuel/app/logs/*/*/*
 fuel/app/cache/*/*
 fuel/app/config/db.php
-fuel/app/config/development/*
-fuel/app/config/production/*
-fuel/app/config/staging/*
 public/assets/img/article/*
 public/assets/img/creators/*
 public/assets/img/draft/*
@@ -14,3 +11,4 @@ public/assets/img/vine/*
 public/user/*
 public/feed.xml
 public/sitemap.xml
+!.gitkeep
