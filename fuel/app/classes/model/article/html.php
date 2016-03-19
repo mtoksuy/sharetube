@@ -82,7 +82,10 @@ class Model_Article_Html extends Model {
 		$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
 		// HTMLタグを取り除く
 		$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
+		// 追加を取り除く
+		$article_contests = preg_replace('/追加/', '', $article_contests);
 //		var_dump($article_contests);
+
 		// 本文を168文字に丸める
 		$summary_contents = mb_strimwidth($article_contests, 0, 168, "...", 'utf8');
 
