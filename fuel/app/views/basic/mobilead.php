@@ -6,7 +6,7 @@
 		$ad_mobile_deader_html   = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ヘッダー');
 		$ad_mobile_orverlay_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'オーバーレイ');
 		// 2月20日スタート 3月30日エンド
-		$ad_mobile_orverlay_html = Model_Ad_Html::techno_arcadia_ad_html_create($detect, 'none', 'オーバーレイ');
+//		$ad_mobile_orverlay_html = Model_Ad_Html::techno_arcadia_ad_html_create($detect, 'none', 'オーバーレイ');
 //		var_dump($ad_mobile_orverlay_html);
 
 		// 記事内トップ広告分け
