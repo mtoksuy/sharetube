@@ -17,7 +17,7 @@
 				<!-- block -->
 				<div class="block">
 					<p class="m_0">
-						<label for="user_login">ユーザー名
+						<label for="user_login">ユーザー名 or メールアドレス
 					</p>
 							<input type="text" class="input" id="user_login" name="login_user" value="" size="20">
 						</label>

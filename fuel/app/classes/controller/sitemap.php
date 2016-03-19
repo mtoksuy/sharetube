@@ -31,32 +31,14 @@ class Controller_Sitemap extends Controller_Permalink_Template {
 		$this->permalink_template->view_data["title"] = 'サイトマップ | '.TITLE;
 		// サイトマップリスト取得
 		$category_all_article_array = Model_Sitemap_Basis::sitemap_list_get();
-		// サイトマップリストHTML生成
+		// サイトマップまとめ一覧HTML生成
 		$sitemap_list_mastar_html = Model_Sitemap_Html::sitemap_list_html_create($category_all_article_array);
+		// サイトマップHTML生成
+		$sitemap_html = Model_Sitemap_Html::sitemap_html_create($sitemap_list_mastar_html);
 
 		// コンテンツデータセット
 		$this->permalink_template->view_data["content"]->set('content_data', array(
-			'content_html' => '
-				<div class="article_list">
-					<div class="article_list_contents">
-						<div class="sitemap">
-							<a href="http://sharetube.jp/sitemap/"><h1>サイトマップ</h1></a>
-							<p>自動で最新のサイトマップに更新されます。</p>
-							<ul class="sitemap_content">
-								<h2 class="heading_3">トップページ</h2>
-								<li class="sitemap_content_home"><span class="typcn typcn-home-outline"></span><a href="http://sharetube.jp/">Sharetube</a></li>
-								<h2 class="heading_3">Sharetubeについて</h2>
-								<li><span class="typcn typcn-document-text"></span><a href="http://sharetube.jp/about/">Sharetubeについて</a></li>
-								<li><span class="typcn typcn-document-text"></span><a href="http://sharetube.jp/contact/">お問い合わせ</a></li>
-								<li><span class="typcn typcn-document-text"></span><a href="http://sharetube.jp/permalink/recruitment_ads.php">Sharetube基本情報と広告タイプ 一覧表</a></li>
-								<li><span class="typcn typcn-document-text"></span><a href="http://sharetube.jp/authorrecruiting/">ライター募集中</a></li>
-								<li><span class="typcn typcn-document-text"></span><a href="http://sharetube.jp/permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
-								<h2 class="heading_3">コンテンツ</h2>
-								'.$sitemap_list_mastar_html.'
-							</ul>
-						</div>
-					</div>
-				</div>',
+			'content_html' => $sitemap_html
 		), false);
 
 		// 人気記事HTML生成

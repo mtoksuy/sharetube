@@ -38,10 +38,11 @@ class Controller_Login_Admin_Incentiveticket extends Controller_Login_Template {
 			}
 				else if($incentive_array_data["method"] == 'complete') {
 					$ticket_primary_id = $incentive_array_data["params"];
-					// 支払いチケットコンプリート
-					Model_Login_Incentive_Basis::incentive_ticket_complete($ticket_primary_id);
 					// 支払いチケットコンプリートした主旨をユーザーにメールで伝える
 					Model_Mail_Basis::incentive_ticket_complete_mail($ticket_primary_id);
+					// 支払いチケットコンプリート
+					Model_Login_Incentive_Basis::incentive_ticket_complete($ticket_primary_id);
+
 				}
 			// インセンティブチケット全取得
 			$incentive_paid_ticket_all_res = Model_Login_Incentive_Basis::incentive_paid_ticket_all_get();

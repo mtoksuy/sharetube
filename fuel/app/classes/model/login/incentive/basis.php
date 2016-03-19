@@ -63,7 +63,7 @@ class Model_Login_Incentive_Basis extends Model {
 				'".$incentive_data_array["rate"]."'
 				)
 		")->execute();
-		$$incentive_ticket_number = $incentive_ticket_query[0];
+		$incentive_ticket_number = $incentive_ticket_query[0];
 		// pay_pvを0にする
 		DB::query("
 			UPDATE user

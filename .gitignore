@@ -12,3 +12,9 @@ public/assets/img/itunes/*
 public/assets/img/twitter/*
 public/assets/img/vine/*
 public/user/*
+public/feed.xml
+public/sitemap.xml
+!.gitkeep
+
+public/git_test/*
+!.gitkeep

@@ -82,7 +82,10 @@ class Model_Article_Html extends Model {
 		$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
 		// HTMLタグを取り除く
 		$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
+		// 追加を取り除く
+		$article_contests = preg_replace('/追加/', '', $article_contests);
 //		var_dump($article_contests);
+
 		// 本文を168文字に丸める
 		$summary_contents = mb_strimwidth($article_contests, 0, 168, "...", 'utf8');
 
@@ -1072,17 +1075,9 @@ border-bottom: 2px dotted #888;
 
 
 				</div><!-- facebook_like_please_left -->
-
-
-
-
-
 				<div class="facebook_like_please_right">
-					<div class="facebook_like_please_right_body">
-						<img width="79" height="91" src="'.HTTP.'assets/img/character/character_3_body.png" alt="お名前募集中です" title="お名前募集中です">
-					</div>
-					<div class="facebook_like_please_right_arm">
-						<img width="19" height="15" src="'.HTTP.'assets/img/character/character_3_arm.png" alt="お名前募集中です" title="お名前募集中です">
+					<div class="facebook_like_please_right_character">
+						<img width="79" height="99" src="'.HTTP.'assets/img/character/character_4.png" alt="お名前募集中です" title="お名前募集中です">
 					</div>
 				</div>
 			</div>

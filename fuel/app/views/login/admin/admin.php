@@ -4,23 +4,24 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.12<br>
+						<p>Sharetube version 5.4.13<br>
 <!--※お手数かけますが、新機能をご利用するためにこのページと「まとめ作成」ページにてスーパーリロードお願い致します。</p>
 -->
 
 					</div>
 
+					<h3 class="h3_heading_1">現在書いて欲しいまとめ一覧</h3>
+					<p class="m_0">・漫画、アニメ、映画、芸能人のまとめ</p>
+					<p class="m_0">・生活に役立つ知恵のまとめ</p>
+					<p class="m_0">・ポジティブなまとめ</p>
+					<p class="m_0">・新しい言葉のまとめ</p>
+					<p>・検索を意識したまとめ</p>
+
+
 					<h3 class="h3_heading_1">ヘルプ</h3>
-
-
-
-
 					<h4 class="h4_heading_1">[まとめ作成ツールの使い方]</h4>
 					<p class="m_0">まとめ作成ツール使い方講座！動画で細かく教えていくよ</p>
 					<p><a href="http://sharetube.jp/article/1071/" target="_blank">http://sharetube.jp/article/1071/</a></p>
-
-
-
 
 
 					<h4 class="h4_heading_1">[まとめ記事の書き方]</h4>
@@ -47,20 +48,44 @@
 
 					<h3 class="h3_heading_1">実装予定表</h3>
 					<p class="m_0">・タグ実装見直し&タグ紐付けページ実装</p>
-					<p>・まとめ作成ツールアイテム:画像に引用元情報追加実装</p>
-
-
+					<p class="m_0">・まとめ作成ツールアイテム:画像に引用元情報追加実装</p>
+					<p>・検索機能をget仕様にする</p>
 
 					<h3 class="h3_heading_1">バグリスト</h3>
-					<p class="m_0">・トップページ・カテゴリーページ記事表示内の概要表示にて「追加」という裏の文字が表示される</p>
 					<p class="m_0">・まとめ作成ツールにて投稿ボタンを2回押すと2回投稿されてしまう</p>
-					<p>・まとめ作成ツールアイテム：引用にてリンクなしの引用出典ができない(見ているページurlのリンクが貼られてしまう)</p>
-
 
 				<h3 class="m_t_30 m_b_15 h3_heading_1">更新情報</h3>
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年03月20日：Var.5.4.13.1</pre>
+					</dt>
+					<dd>
+						<pre>・記事一覧の概要表示にて「追加」という裏の文字が表示されるバグ修正
+・まとめ作成ツールアイテム：引用にてリンクなしの引用出典ができない(見ているページurlのリンクが貼られてしまう)バグ修正</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年03月14日：Var.5.4.13</pre>
+					</dt>
+					<dd>
+						<pre>・まとめ作成ユーザー獲得するためのLP作成</dd>
+				</dl>
+			</li>
+
+
+
 
 
 
@@ -75,6 +100,7 @@
 					</dd>
 				</dl>
 			</li>
+
 
 
 			<li class="clearfix">

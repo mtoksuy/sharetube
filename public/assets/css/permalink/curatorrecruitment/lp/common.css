@@ -1,0 +1,338 @@
+
+#wrapper {
+
+}
+
+
+
+/***
+ロゴ
+***/
+.logo {
+    float: left;
+    margin: 14px 5px 5px 15px;
+}
+/*******
+基本設定
+*******/
+.signup {
+width: 437px;
+	float: right;
+}
+.main {
+    max-width: none;
+}
+.main_contents {
+    float: none;
+		max-width: none;
+		width: auto;
+}
+/***************
+ファーストビュー
+****************/
+.bottom_line {
+    border-radius: 0;
+    box-shadow: 0px -5px 0px 0px rgba(237, 72, 45, 1) inset;
+    padding-bottom: 5px;
+    font-style: normal;
+}
+.first_view_block {
+
+
+/*
+	background-image: url(http://localhost/sharetube/assets/img/curatorrecruitment/lp/porigon_1.jpg);
+	background-image: url(http://localhost/sharetube/assets/img/curatorrecruitment/lp/fabric_pattern/2.png);
+	background-image: url(http://localhost/sharetube/assets/img/curatorrecruitment/lp/ml-catchall-backgrounds/jpg/pattern1.jpg);
+*/
+/*
+  background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at right bottom , #fefdfe 5%, #f8cdda 25%, #1d2b64 80%, #0e153a 98%) repeat scroll 0 0;
+*/
+/*
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+*/
+/*
+    width: 100vw;
+    height: 100vh;
+*/
+
+}
+.first_view_block_content {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+
+.left_block {
+	float: left;
+	width: 50%;
+	margin: 50px 0 0 0;
+}
+.left_block ol {
+   list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.left_block li {
+}
+.left_block dl {
+}
+
+.left_block dt {
+font-weight: bold;
+}
+.left_block dt img {
+    height: auto;
+    margin: 0 5px 5px -20px;
+    width: 20px;
+}
+
+
+.left_block dd {
+  margin: 0 0 0 15px;
+}
+
+
+
+
+.registration_button {
+    width: 500px;
+    margin: 50px auto;
+}
+.registration_button a {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: chartreuse;
+    border-radius: 3px;
+    text-align: center;
+    display: block;
+
+    background-color: rgba(237, 72, 45, 0.99);
+    border: 1px solid rgba(237, 72, 45, 0.99);
+    cursor: pointer;
+    border-radius: 2px;
+    color: #FCFCFC;
+    font-weight: bold;
+    position: relative;
+}
+/***************
+アピールブロック
+***************/
+.appeal_block {
+	width: 1024px;
+	margin: 50px auto;
+}
+.appeal_block h2 {
+	text-align: center;
+}
+.appeal_block p {
+    margin: 0 auto 15px;
+    width: 609px;
+}
+.appeal_block p.appeal_p_4 {
+    width: 575px;
+}
+.appeal_block_image_1 {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    width: 70%;
+}
+.appeal_block_image_2 {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+}
+.appeal_block_image_3 {
+    display: block;
+    float: left;
+    height: auto;
+		margin: 0 0 0 123px;
+    text-align: center;
+    width: 180px;
+}
+.appeal_block_image_4 {
+    display: block;
+    float: right;
+    height: auto;
+		margin: 0 40px 0 0;
+    text-align: center;
+    width: 626px;
+}
+
+
+.appeal_float_block {
+
+}
+.appeal_float_block_left {
+    float: left;
+    margin: 5px 98px 0 154px;
+}
+.appeal_float_block_right {
+	float: left;
+}
+/********
+フッター
+********/
+.footer_contents {
+	min-height: 0;
+}
+.footer_contents_box {
+    box-sizing: border-box;
+    float: none;
+    margin: 50px 0;
+    padding: 0px;
+    position: relative;
+    text-align: left;
+    width: 50%;
+    z-index: 12;
+}
+
+.footer_contents_box li {
+    color: #71655d;
+    float: left;
+    font-size: 89%;
+    list-style: outside none none;
+    margin: 0 15px 0 0;
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+
+
+.main_contents {
+    margin: 0 10px;
+}
+	.first_view_block_content {
+	    width: auto;
+	}
+.left_block {
+    float: none;
+    margin: 50px auto;
+    width: 260px;
+}
+
+.signup {
+    float: none;
+    margin: 0 auto;
+    width: 300px;
+}
+.signup_content input {
+    width: 267px;
+}
+.registration_button {
+    width: 80%;
+}
+.appeal_block {
+    width: auto;
+}
+
+.appeal_block p,
+.appeal_block p.appeal_p_4 {
+    width: auto;
+}
+
+.appeal_block_image_3 {
+    width: 20%;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0 0 0 15px;
+}
+.appeal_block_image_4 {
+    width: 80%;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0 15px 0 0;
+}
+
+
+
+
+
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 768px) {
+.logo {
+    margin: 5px 0 2px 10px;
+}
+	.logo img {
+	    height: auto;
+	    width: 136px;
+	}
+.first_view_block_content h1 {
+	font-size: 142%;
+}
+.bottom_line {
+    box-shadow: 0 -3px 0 0 rgba(237, 72, 45, 1) inset;
+}
+
+
+
+.appeal_block_image_1 {
+    width: 100%;
+}
+.appeal_float_block_left {
+    float: none;
+    margin: 0 auto;
+}
+.appeal_float_block_right {
+    float: none;
+    margin: 0 auto;
+}
+.appeal_float_block_right h3 {
+	text-align: center;
+}
+.footer_contents {
+    min-height: 0;
+    padding: 0 10px;
+}
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 420px) {
+
+
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 360px) {
+
+
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+	.main {
+	    padding: 76px 0 0;
+	}
+.first_view_block_content h1 {
+	font-size: 142%;
+}
+.registration_button {
+    width: 100%;
+}
+.registration_button a {
+    padding: 10px;
+}
+
+
+}
+
+
+
+
+
+
+
