@@ -19,6 +19,15 @@ ini_set('display_errors', 1);
 		error_reporting(0);
 		ini_set('display_errors', 1);
 
+/*******
+独自関数
+*******/
+function pre_var_dump($data = '') {
+	echo '<pre>';
+	var_dump($data);
+	echo '</pre>';
+}
+
 /**
  * ローカルと本番環境のpathを吸収
  */
