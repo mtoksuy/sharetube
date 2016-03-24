@@ -23,20 +23,19 @@ class Controller_Root extends Controller_Basic_Template {
 			$this->basic_template->view_data["external_css"] = View::forge('root/externalcss');
 			$this->basic_template->view_data["script"]       = View::forge('root/script');
 			// ピックアップデータ取得
-			$pickup_res  = Model_Article_Basis::pickup_get(array(1447,1342,1436,1417,1378,1269,12681247,1235,1242));
-
-			// ピックアップHTML生成
-			$pickup_html = Model_Article_Html::pickup_html_create($pickup_res);
+			$pickup_res  = Model_Article_Basis::pickup_get(array(1833,1832,1820,1684,1447,1342,1436,1417,1378,1269));
+			// flickityピックアップHTML生成
+//			$pickup_html = Model_Article_Html::flickity_pickup_html_create($pickup_res);
+			// flexsliderピックアップHTML生成
+//			$pickup_html = Model_Article_Html::flexslider_pickup_html_create($pickup_res);
 		}
 			else {
 				$pickup_html = '';
 			}
-
 		// sp_thumbnailデータセット
 		$this->basic_template->view_data["sp_thumbnail"]->set('sp_thumbnail_data', array(
 			'sp_thumbnail_html' => '',
 		));
-
 		// 記事一覧データ取得
 		$list_query        = Model_Article_Basis::list_get($segment_info_get_array, 30);
 		// 記事一覧HTML生成
@@ -47,7 +46,6 @@ class Controller_Root extends Controller_Basic_Template {
 			'pickup_html'  => $pickup_html,
 			'content_html' => $article_list_html,
 		), false);
-
 
 		// 人気記事HTML生成
 		$article_access_1_res  = Model_Article_Basis::article_access_get(1,10);

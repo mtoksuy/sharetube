@@ -5,8 +5,44 @@
 			<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/common/common.js"></script>
 			<!-- ajaxローダープラグイン -->
 			<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/ajax/articleloader.js"></script>
-
+			<!-- flickityプラグイン -->
 			<script src="<?php echo HTTP; ?>assets/js/library/flickity.1.1.1/flickity.pkgd.min.js"></script>
+			<!-- flexsliderプラグイン -->
+			<script src="<?php echo HTTP; ?>assets/js/library/FlexSlider.2/jquery.flexslider.js"></script>
+
+		<style>
+		.flexslider {
+	    line-height: 280%;
+			overflow: hidden;
+		}
+		.flexslider figure {
+			margin: 0;
+		}
+
+
+
+
+
+		</style>
+
+		<script>
+			$(window).load(function() {
+				$('.flexslider').flexslider( {
+					animation      : 'slide',
+					prevText       : '',
+					nextText       : '',
+					slideshow      : true,
+					pauseOnAction  : false,
+					pasneOnHover   : true,
+					useCSS         : true,
+					slideshowSpeed : 5000,
+					animationSpeed : 400,
+		//			video          : true,
+					controlNav     : false,
+		//			directionNav   : false,
+				});
+			});
+		</script>
 
 		<!-- ピックアップ -->
 		<script>
