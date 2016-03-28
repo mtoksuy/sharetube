@@ -35,7 +35,7 @@ function pre_var_dump($data = '') {
 if($_SERVER["HTTP_HOST"] == 'localhost') {
 	// デフォルト変数生成
 	define('HTTP', 'http://localhost/sharetube/');
-	define('PATH', '/Volumes/Macintosh HD'.$_SERVER["DOCUMENT_ROOT"].'/sharetube/');
+	define('PATH', '/Volumes/2016_ssd_media'.$_SERVER["DOCUMENT_ROOT"].'/sharetube/');
 	define('INTERNAL_PATH', str_replace('sharetube/', '', PATH).'fuelphp/sharetube/');
 	define('TITLE', 'Sharetube [伝えたい情報をシェアする] キュレーションプラットフォームサービス');
 	define('VINE_TITLE', 'Sharetube@Vine');
