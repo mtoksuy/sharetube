@@ -28,6 +28,10 @@ class Controller_Root extends Controller_Basic_Template {
 //			$pickup_html = Model_Article_Html::flickity_pickup_html_create($pickup_res);
 			// flexsliderピックアップHTML生成
 //			$pickup_html = Model_Article_Html::flexslider_pickup_html_create($pickup_res);
+		$pickup_html = 
+			'<div class="main_gallery_title">
+				<span class="typcn typcn-document-text"></span><span>新着まとめ</span>
+			</div>';
 		}
 			else {
 				$pickup_html = '';
