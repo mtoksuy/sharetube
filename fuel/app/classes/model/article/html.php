@@ -409,6 +409,9 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 	//タグHTML生成
 	//------------
 	static function article_tag_html_create($tag) {
+		// 全角空白を半角空白に置換
+		$pattern = '/　/';
+		$tag = preg_replace($pattern, ' ', $tag);
 		// タグarray
 		$tag_array = explode(' ', $tag);
 		$tag_li = '';
