@@ -422,8 +422,8 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			break;
 			default:
 				foreach($tag_array as $key => $value) {
-					$tag_li .= '
-											<li><a>'.$value.'</a></li>';
+					$tag_li .= 
+						'<li><a>'.$value.'</a></li>';
 				}
 			break;
 		}
