@@ -4,9 +4,8 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.13<br>
-<!--※お手数かけますが、新機能をご利用するためにこのページと「まとめ作成」ページにてスーパーリロードお願い致します。</p>
--->
+						<p>Sharetube version 5.4.14<br>
+※お手数かけますが、タグ命名はまとめキーワードが大枠・中枠・小枠と分けまして、大枠・中枠のキーワードのみでお願いいたします。イメージ的にはネイバーまとめがつけているようなトピックと同等のような実装にしていきます。</p>
 
 					</div>
 
@@ -46,7 +45,6 @@
 					<p class="m_0">マツオカソウヤのTwitter</p>
 					<p><a target="_blank" href="https://twitter.com/mtoksuy">https://twitter.com/mtoksuy</a></p>	
 
-
 					<h3 class="h3_heading_1">キャッシュ設定表</h3>
 					<p class="m_0">・記事：15分</p>
 					<p class="m_0">・記事一覧：15分</p>
@@ -57,8 +55,10 @@
 					<p class="m_0">・ユーザーページ：15分</p>
 					<p>・サイトマップ：1日</p>
 
-
 					<h3 class="h3_heading_1">実装予定表</h3>
+					<p class="m_0">・ユーザー様に公式からメールを送る機能実装</p>
+					<p class="m_0">・公式からのメール拒否機能実装</p>
+					<p class="m_0">・キュレーター一覧</p>
 					<p class="m_0">・タグ実装見直し&タグ紐付けページ実装</p>
 					<p class="m_0">・まとめ作成ツールアイテム:画像に引用元情報追加実装</p>
 					<p>・検索機能をget仕様にする</p>
@@ -75,6 +75,19 @@
 			<li class="clearfix">
 				<dl>
 					<dt>
+						<pre>2016年04月06日：Var.5.4.14</pre>
+					</dt>
+					<dd>
+						<pre>・タグ入力で半角空白だけではなく全角半角にも対応</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
 						<pre>2016年03月20日：Var.5.4.13.1</pre>
 					</dt>
 					<dd>
@@ -83,7 +96,6 @@
 					</dd>
 				</dl>
 			</li>
-
 
 
 			<li class="clearfix">
@@ -95,10 +107,6 @@
 						<pre>・まとめ作成ユーザー獲得するためのLP作成</dd>
 				</dl>
 			</li>
-
-
-
-
 
 
 
