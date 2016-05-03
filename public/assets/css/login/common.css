@@ -3,6 +3,12 @@
 body {
 	background-color: #F0F0F0;
 }
+/*
+*/
+textarea {
+    font-family: "游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+
+}
 
 /***********
 ログイン設定
@@ -617,20 +623,35 @@ font-weight: bold;
 .mail .mail_inner {
 
 }
+.mail .mail_inner input[type=text] {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin: 0 0 15px;
+    padding: 15px;
+    width: 100%;
+}
 .mail .mail_inner textarea {
     border: 1px solid #ddd;
     border-radius: 2px;
     box-sizing: border-box;
+		font-size: 94%;
     height: 300px;
     padding: 15px;
     width: 100%;
 }
-.mail .mail_inner .mail_submit  {
+.mail .mail_inner .mail_submit,
+.mail .mail_inner input[type=submit] {
     background-color: #ff5555;
+    border: 0 solid #fff;
+    border-radius: 2px;
     color: #fcfcfc;
     cursor: pointer;
-    padding: 10px;
+    display: block;
+    margin: 15px 0 0;
+    padding: 15px;
     text-align: center;
+    width: 100%;
 }
 
 
