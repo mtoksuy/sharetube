@@ -527,7 +527,17 @@ $('.matome').on( {
 				var image_url   = $(this).parents('.matome_content_block').find('.article_content_left p a').attr('href');
 				var image_title = $(this).parents('.matome_content_block').find('.article_content_right h3').html();
 				var image_word  = $(this).parents('.matome_content_block').find('.article_content_right pre').html();
+				var image_title = $(this).parents('.matome_content_block').find('.article_content_right h3').html();
+				var image_word  = $(this).parents('.matome_content_block').find('.article_content_right pre').html();
+				var quote_url   = $(this).parents('.matome_content_block').find('.article_content_left .image_quote a').attr('href');
+				var quote_title = $(this).parents('.matome_content_block').find('.article_content_left .image_quote a').html();
 				var check = true;
+				if(quote_url == undefined) {
+					quote_url = '';
+				}
+				if(quote_title == undefined) {
+					quote_title = '';
+				}
 				$(this).parents('.matome_content_block').before('<div class="image_add clearfix">\
 	<div class="image_add_content">\
 		<div class="image_add_content_left">\
@@ -542,6 +552,8 @@ $('.matome').on( {
 		<div class="image_add_content_right clearfix">\
 			<input type="text" value="'+image_title+'" placeholder="画像のタイトルを入力" class="image_add_content_title">\
 			<textarea placeholder="画像の紹介コメントを入力" class="image_add_content_word">'+image_word+'</textarea>\
+			<input type="text" placeholder="引用の出典元URLを入力 フォーカスを外すと自動でタイトルが入力されます" value="'+quote_url+'" class="image_add_content_quote_url">\
+			<input type="text" placeholder="引用の出典を入力" value="'+quote_title+'" class="image_add_content_quote_title">\
 		</div>\
 		<div class="image_add_content_button clearfix">\
 			<div class="image_add_content_button_left">\

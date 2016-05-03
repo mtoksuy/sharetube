@@ -39,7 +39,16 @@ $(function() {
 	/*******
 	画像HTML	
 	*******/
-	function image_html_2(image_url, title, word) {
+	function image_html_2(image_url, title, word, quote_url, quote_tile) {
+		if(quote_url && quote_tile) {
+			var quote_html = 
+				'<div class="image_quote">\
+					<p class="blockquote_font text_right m_b_0">出典:<cite><a target="_blank" href="'+quote_url+'">'+quote_tile+'</a></cite></p>\
+				</div>';
+		}
+			else {
+				var quote_html = '';
+			}
 		// 画像HTML
 		var image_html = ('<div class="matome_content_block">\
 	<div class="matome_content_block_image">\
@@ -52,6 +61,7 @@ $(function() {
 						</a>\
 					</p>\
 				</div>\
+				'+quote_html+'\
 			</div>\
 			<div class="article_content_right">\
 				<h3>'+title+'</h3>\
@@ -119,7 +129,9 @@ $('.matome').on( {
 					image_array.push(data["image_url"]);
 					// タイトル・紹介コメントHTML挿入
 					image_add.find('.upload_button').after('<input type="text" class="image_add_content_title" placeholder="画像のタイトルを入力" value="">\
-<textarea class="image_add_content_word" placeholder="画像の紹介コメントを入力"></textarea>');
+						<textarea class="image_add_content_word" placeholder="画像の紹介コメントを入力"></textarea>\
+						<input type="text" placeholder="引用の出典元URLを入力 フォーカスを外すと自動でタイトルが入力されます" value="" class="image_add_content_quote_url">\
+						<input type="text" placeholder="引用の出典を入力" value="" class="image_add_content_quote_title">');
 					// アップロードボタン削除
 					image_add.find('.upload_button').remove();
 					// 画像HTML表示
@@ -145,6 +157,44 @@ $('.matome').on( {
 		} // for(var i = 0; i > files_length; i++) {
 	}
 }, '.image_add_content_file');
+/****************************
+アイテム 画像の引用元情報取得
+****************************/
+$('.matome').on( {
+	'change' : function() {
+		 var image_add = $(this).parents('.image_add');
+		var val    = $(this).val();
+		var j_this = $(this);
+		var re     = /https|http/;
+		var test = val.match(re);
+		// 正しいURLか検査
+		if(test) {
+			// Ajaxを走らせる
+			$.ajax( {
+				type: 'POST', 
+				url: http+'ajax/matome/urltitleget/',
+				data: {
+					url: val,
+				},
+				dataType: 'json',
+				cache: false,
+				// Ajax完了後の挙動
+			  success: function(data) {
+					// チェック判別
+					if(data['check'] == true) {
+						j_this.next().val(data['title']);
+					}
+			  },
+			  error: function(data) {
+
+			  },
+			  complete: function(data) {
+
+			  }
+			}); // $.ajax( {
+		}
+	}
+}, '.image_add_content_quote_url');
 /************
 画像追加 保存
 ************/
@@ -160,6 +210,9 @@ $('.matome').on( {
 			var image_url  = image_add.find('.great_image_set_100 p a').attr('href');
 			var title      = image_add.find('.image_add_content_title').val();
 			var word       = image_add.find('.image_add_content_word').val();
+			var quote_url  = image_add.find('.image_add_content_quote_url').val();
+			var quote_tile = image_add.find('.image_add_content_quote_title').val();
+
 			// クラスネーム取得
 			var class_name = $(this).parents('.image_add').next().attr('class');
 			// ビトウィーン取得
@@ -170,7 +223,7 @@ $('.matome').on( {
 				$(this).parents('.image_add').before(item_add_between_html);
 			}
 			// 画像追加
-			$(this).parents('.image_add').before(image_html_2(image_url, title, word));
+			$(this).parents('.image_add').before(image_html_2(image_url, title, word, quote_url, quote_tile));
 
 			if(class_name != 'item_add_between') {
 				// ヴィトウィーン追加
