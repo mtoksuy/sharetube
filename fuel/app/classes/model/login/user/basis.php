@@ -49,5 +49,22 @@ class Model_Login_User_Basis extends Model {
 					 primary_id = ".(int)$_SESSION["primary_id"]."")->execute();
 //					var_dump($res);
 	}
-
+	//--------------------------
+	//ユーザーアカウント設定編集
+	//--------------------------
+	public static function user_account_setup_edit($post) {
+		$user_mail_delivery_ok = 0;
+		if($post['user_mail_delivery_ok']) {
+			$user_mail_delivery_ok = 1;
+		}
+			else {
+				$user_mail_delivery_ok = 0;
+			}
+		DB::query("
+			UPDATE user
+				SET
+					mail_delivery_ok = ".$user_mail_delivery_ok."
+				WHERE 
+					primary_id  = ".(int)$_SESSION["primary_id"]."")->execute();
+	}
 }
