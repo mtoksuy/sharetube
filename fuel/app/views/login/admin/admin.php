@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.15<br>
+						<p>Sharetube version 5.4.16<br>
 ※お手数かけますが、タグ命名はまとめキーワードが大枠・中枠・小枠と分けまして、大枠・中枠のキーワードのみでお願いいたします。イメージ的にはネイバーまとめがつけているようなトピックと同等のような実装にしていきます。</p>
 					</div>
 
@@ -55,10 +55,8 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p class="m_0">・公式からのメール拒否機能実装</p>
 					<p class="m_0">・キュレーター一覧</p>
 					<p class="m_0">・タグ実装見直し&タグ紐付けページ実装</p>
-					<p class="m_0">・まとめ作成ツールアイテム:画像に引用元情報追加実装</p>
 					<p>・検索機能をget仕様にする</p>
 
 					<h3 class="h3_heading_1">バグリスト</h3>
@@ -68,6 +66,20 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年05月04日：Var.5.4.16</pre>
+					</dt>
+					<dd>
+						<pre>・公式からのメール拒否機能実装
+・まとめ作成ツールアイテム:画像に引用元情報追加実装</pre>
+					</dd>
+				</dl>
+			</li>
+
 
 			<li class="clearfix">
 				<dl>
