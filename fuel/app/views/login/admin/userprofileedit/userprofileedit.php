@@ -14,14 +14,14 @@
 		<div class="control_group">
 		  <label for="user_name">ユーザー名</label>
 		  <div class="controls">
-		    <input id="user_name" maxlength="64" name="name" type="text" value="<?php echo $content_data["user_data"]["name"];?>">
+		    <input id="user_name" maxlength="64" name="name" type="text" placeholder="好きな名前を付けれます" value="<?php echo $content_data["user_data"]["name"];?>">
 		  </div>
 		</div> <!-- control_group -->
 
 		<div class="control_group">
 		  <label for="user_site">運営サイトURL</label>
 		  <div class="controls">
-		    <input id="user_site" maxlength="64" name="management_site_url" type="text" value="<?php echo $content_data["user_data"]["management_site_url"];?>">
+		    <input id="user_site" maxlength="64" name="management_site_url" type="text" placeholder="運営しているサイトを表示できます" value="<?php echo $content_data["user_data"]["management_site_url"];?>">
 		  </div>
 		</div> <!-- control_group -->
 
@@ -45,14 +45,14 @@
 		<div class="control_group">
 		  <label for="user_twitter">Twitter_id</label>
 		  <div class="controls">
-		    <input id="user_twitter" name="twitter_id" type="text" value="<?php echo $content_data["user_data"]["twitter_id"];?>">
+		    <input id="user_twitter" name="twitter_id" type="text" placeholder="Twitterリンクを表示できます" value="<?php echo $content_data["user_data"]["twitter_id"];?>">
 		  </div>
 		</div> <!-- control_group -->
 
 		<div class="control_group">
 		  <label for="user_facebook">Facebook_id</label>
 		  <div class="controls">
-		    <input id="user_facebook" name="facebook_id" type="text" value="<?php echo $content_data["user_data"]["facebook_id"];?>">
+		    <input id="user_facebook" name="facebook_id" type="text" placeholder="Facebookリンクを表示できます" value="<?php echo $content_data["user_data"]["facebook_id"];?>">
 		  </div>
 		</div> <!-- control_group -->
 

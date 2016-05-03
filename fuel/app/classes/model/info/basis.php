@@ -356,6 +356,7 @@ class Model_Info_Basis extends Model {
 			$sharetube_user_data_array["account_type"]        = $value["account_type"];
 			$sharetube_user_data_array["branch_code"]         = $value["branch_code"];
 			$sharetube_user_data_array["account_number"]      = $value["account_number"];
+			$sharetube_user_data_array["mail_delivery_ok"]    = $value["mail_delivery_ok"];
 		}
 		return $sharetube_user_data_array;
 	}
