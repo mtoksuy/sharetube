@@ -135,7 +135,7 @@ echo '</pre>';
 							<div class="postbox">
 								<h3>タグ</h3>
 								<div class="postbox_contents">
-									<input class="matome_tag" type="text" name="tag" value="<?php echo $post_data["post"]["tag"]; ?>" placeholder="タグを入力(半角空白を挟んで複数のタグを入力)">
+									<input class="matome_tag" type="text" name="tag" value="<?php echo $post_data["post"]["tag"]; ?>" placeholder="タグを入力(全角or半角空白を挟んで複数のタグを入力)">
 								</div>
 							</div> <!-- postbox -->
 							<!-- postbox -->

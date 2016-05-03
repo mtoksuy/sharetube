@@ -36,11 +36,18 @@ function quote_form_html(between) {
 引用HTML
 *******/
 function quote_html(quote, url, title, word) {
+// urlなしでタイトルだけあった場合
+if(url  == '' && title) {
+		quote_link_title = '<p class="blockquote_font text_right m_b_0">出典:<cite>'+title+'</cite></p>';	
+}
+	else {
+		quote_link_title = '<p class="blockquote_font text_right m_b_0">出典:<cite><a href="'+url+'" target="_blank">'+title+'</a></cite></p>';	
+	}
 	// 見出しHTML
 	var quote_html = ('<div class="matome_content_block">\
 	<div class="matome_content_block_quote">\
 		<pre>'+quote+'</pre>\
-		<p class="blockquote_font text_right m_b_0">出典:<cite><a href="'+url+'" target="_blank">'+title+'</a></cite></p>\
+ 		'+quote_link_title+'\
 	<pre class="author_word">'+word+'</pre>\
 	</div>\
 </div>');

@@ -82,7 +82,10 @@ class Model_Article_Html extends Model {
 		$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
 		// HTMLタグを取り除く
 		$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
+		// 追加を取り除く
+		$article_contests = preg_replace('/追加/', '', $article_contests);
 //		var_dump($article_contests);
+
 		// 本文を168文字に丸める
 		$summary_contents = mb_strimwidth($article_contests, 0, 168, "...", 'utf8');
 
@@ -406,6 +409,9 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 	//タグHTML生成
 	//------------
 	static function article_tag_html_create($tag) {
+		// 全角空白を半角空白に置換
+		$pattern = '/　/';
+		$tag = preg_replace($pattern, ' ', $tag);
 		// タグarray
 		$tag_array = explode(' ', $tag);
 		$tag_li = '';
@@ -416,8 +422,8 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			break;
 			default:
 				foreach($tag_array as $key => $value) {
-					$tag_li .= '
-											<li><a>'.$value.'</a></li>';
+					$tag_li .= 
+						'<li><a>'.$value.'</a></li>';
 				}
 			break;
 		}
@@ -1149,10 +1155,10 @@ border-bottom: 2px dotted #888;
 		</div> <!-- article_bottom_like_box -->';
 		return $article_bottom_like_box_html;
 	}
-	//------------------------
-	//ピックアップ記事HTML生成
-	//------------------------
-	Public static function pickup_html_create($pickup_res) {
+	//---------------------------------
+	//flickity ピックアップ記事HTML生成
+	//---------------------------------
+	Public static function flickity_pickup_html_create($pickup_res) {
 		foreach($pickup_res as $key_1 => $value_1) {
 			foreach($pickup_res[$key_1] as $key_2 => $value_2) {
 				// 記事データ取得
@@ -1201,6 +1207,65 @@ border-bottom: 2px dotted #888;
 		'<div class="main_gallery">
 			'.$cell_html.'
 		</div>';
+		// 追加合体
+		$pickup_html = 
+		'<div class="main_gallery_title">
+			<span class="typcn typcn-star-outline"></span><span>ピックアップ</span>
+		</div>
+		'.$pickup_html.'
+		<div class="main_gallery_title">
+			<span class="typcn typcn-document-text"></span><span>新着まとめ</span>
+		</div>';
+		return $pickup_html;
+	}
+	//-----------------------------------
+	//flexslider ピックアップ記事HTML生成
+	//-----------------------------------
+	Public static function flexslider_pickup_html_create($pickup_res) {
+		foreach($pickup_res as $key_1 => $value_1) {
+			foreach($pickup_res[$key_1] as $key_2 => $value_2) {
+				// 記事データ取得
+				$article_author       = $value_2["sharetube_id"];
+				$unix_time            = strtotime($value_2["create_time"]);
+				$local_time           = date('Y-m-d', $unix_time);
+				$local_japanese_time  = date('Y年m月d日', $unix_time);
+				$article_year_time    = date('Y', $unix_time);
+	
+				// エンティティを戻す
+				$title        = htmlspecialchars_decode($value_2["title"], ENT_NOQUOTES);
+				// タイトルを文字に丸める
+				$title = mb_strimwidth($title, 0, 40, "...", 'utf8');
+
+
+				// カテゴリー情報取得
+				$category_info_array = Model_Info_Basis::category_info_get($value_2["category"]);
+				// ターゲット画像
+				$targetImage = (PATH.'assets/img/'.$article_type.'/'.$article_year_time.'/facebook_ogp/'.$value_2["thumbnail_image"]);
+				// コピー元画像のファイルサイズを取得
+				list($image_w, $image_h) = getimagesize($targetImage);
+					$image_reito = ($image_h / $image_w);
+					$new_image_h = (int)(200 * $image_reito);
+				$cell_html .= 
+					'<li>
+								<a href="'.HTTP.'article/'.$value_2["link"].'/" class="clearfix">
+									<figure>
+										<img width="'.$image_w.'" height="'.$image_w.'" alt="'.$title.'" title="'.$title.'" src="'.HTTP.'assets/img/article/'.$article_year_time.'/facebook_ogp_half/'.$value_2["thumbnail_image"].'">
+									</figure>
+									<div class="gallery-cell_summary clearfix">
+										<h1>'.$title.'</h1>
+										<div class="gallery-cell_summary_time">'.$local_time.'</div>
+									</div>
+								</a>
+							</li>';
+			}
+		}
+		// 合体
+		$pickup_html = 
+			'<div class="flexslider">
+				<ul class="slides">
+					'.$cell_html.'
+				</ul>
+			</div>';
 		// 追加合体
 		$pickup_html = 
 		'<div class="main_gallery_title">

@@ -43,8 +43,10 @@
 							<li><a href="<?php echo HTTP; ?>signup/">Sharetubeアカウント作成</a></li>
 							<li><a href="<?php echo HTTP; ?>login/" target="_blank">ログイン</a></li>
 							<li><a href="<?php echo HTTP; ?>curatorrecruitment/">キュレーター募集</a></li>
-							<li><a href="<?php echo HTTP; ?>curatorrecruitment/">まとめインセンティブについて</a></li>
+							<li><a href="<?php echo HTTP; ?>curatorrecruitment/lp/">業界NO.1のインセンティブ報酬</a></li>
+<!--
 							<li><a href="<?php echo HTTP; ?>authorrecruiting/">ライター募集</a></li>
+-->
 							<li><a href="<?php echo HTTP; ?>permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
 						</ul>
 					</div> <!--  -->
@@ -66,7 +68,7 @@
 					</div> <!--  -->
 					<!--  -->
 					<div class="footer_contents_box clearfix">
-						<h5>サイトをフォローする</h5>
+						<h5>Sharetubeをフォローする</h5>
 						<ul>
 					  	<li><a href="https://www.facebook.com/pages/Sharetube/621756284545794" target="_blank">Facebook</a></li>
 					  	<li><a href="https://twitter.com/Sharetube_jp" target="_blank">Twitter</a></li>

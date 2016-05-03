@@ -217,7 +217,7 @@ class Model_Login_Post_Basis extends Model {
 						imagegif($canvas, $create_dir.'facebook_ogp_reseve/'.$image_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_dir.'facebook_ogp_reseve/'.$image_path, 0);
+						imagepng($canvas, $create_dir.'facebook_ogp_reseve/'.$image_path, 6);
 					break;
 					default:
 					break;
@@ -294,7 +294,7 @@ class Model_Login_Post_Basis extends Model {
 						imagegif($canvas, $create_dir.'facebook_ogp/'.$image_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_dir.'facebook_ogp/'.$image_path, 0);
+						imagepng($canvas, $create_dir.'facebook_ogp/'.$image_path, 6);
 					break;
 					default:
 					break;
@@ -343,7 +343,7 @@ class Model_Login_Post_Basis extends Model {
 						imagegif($canvas, $create_dir.'facebook_ogp/'.$image_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_dir.'facebook_ogp/'.$image_path, 0);
+						imagepng($canvas, $create_dir.'facebook_ogp/'.$image_path, 6);
 					break;
 					default:
 					break;
@@ -378,7 +378,7 @@ class Model_Login_Post_Basis extends Model {
 							imagegif($canvas, $create_dir.'facebook_ogp/'.$image_path);
 						break;
 						case 'png':
-							imagepng($canvas, $create_dir.'facebook_ogp/'.$image_path, 0);
+							imagepng($canvas, $create_dir.'facebook_ogp/'.$image_path, 6);
 						break;
 						default:
 						break;
@@ -394,7 +394,7 @@ class Model_Login_Post_Basis extends Model {
 							imagegif($canvas, $create_dir.'facebook_ogp/'.$image_path);
 						break;
 						case 'png':
-							imagepng($canvas, $create_dir.'facebook_ogp/'.$image_path, 0);
+							imagepng($canvas, $create_dir.'facebook_ogp/'.$image_path, 6);
 						break;
 						default:
 						break;
@@ -449,7 +449,7 @@ class Model_Login_Post_Basis extends Model {
 					imagegif($canvas, $create_dir.'facebook_ogp_half/'.$image_path);
 				break;
 				case 'png':
-					imagepng($canvas, $create_dir.'facebook_ogp_half/'.$image_path, 0);
+					imagepng($canvas, $create_dir.'facebook_ogp_half/'.$image_path, 6);
 				break;
 				default:
 				break;
@@ -486,7 +486,7 @@ class Model_Login_Post_Basis extends Model {
 					imagegif($canvas, $create_dir.'facebook_ogp_half_half/'.$image_path);
 				break;
 				case 'png':
-					imagepng($canvas, $create_dir.'facebook_ogp_half_half/'.$image_path, 0);
+					imagepng($canvas, $create_dir.'facebook_ogp_half_half/'.$image_path, 6);
 				break;
 				default:
 				break;
@@ -536,7 +536,7 @@ class Model_Login_Post_Basis extends Model {
 						imagegif($canvas, $create_dir.'detail/'.$image_2x_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_dir.'detail/'.$image_2x_path, 0);
+						imagepng($canvas, $create_dir.'detail/'.$image_2x_path, 6);
 					break;
 					default:
 					break;
@@ -569,7 +569,7 @@ class Model_Login_Post_Basis extends Model {
 						imagegif($canvas, $create_dir.'detail/'.$image_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_dir.'detail/'.$image_path, 0);
+						imagepng($canvas, $create_dir.'detail/'.$image_path, 6);
 					break;
 					default:
 					break;
@@ -604,7 +604,7 @@ class Model_Login_Post_Basis extends Model {
 						imagegif($canvas, $create_dir.'thumbnail/'.$image_2x_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_dir.'thumbnail/'.$image_2x_path, 0);
+						imagepng($canvas, $create_dir.'thumbnail/'.$image_2x_path, 6);
 					break;
 					default:
 					break;
@@ -637,7 +637,7 @@ class Model_Login_Post_Basis extends Model {
 						imagegif($canvas, $create_dir.'thumbnail/'.$image_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_dir.'thumbnail/'.$image_path, 0);
+						imagepng($canvas, $create_dir.'thumbnail/'.$image_path, 6);
 					break;
 					default:
 					break;
@@ -671,7 +671,7 @@ class Model_Login_Post_Basis extends Model {
 						imagegif($canvas, $create_dir.'square/'.$image_path);
 					break;
 					case 'png':
-						imagepng($canvas, $create_dir.'square/'.$image_path, 0);
+						imagepng($canvas, $create_dir.'square/'.$image_path, 6);
 					break;
 					default:
 					break;
@@ -728,7 +728,7 @@ class Model_Login_Post_Basis extends Model {
 							imagegif($canvas, $create_dir.'square_200px/'.$image_path);
 						break;
 						case 'png':
-							imagepng($canvas, $create_dir.'square_200px/'.$image_path, 0);
+							imagepng($canvas, $create_dir.'square_200px/'.$image_path, 6);
 						break;
 						default:
 						break;
@@ -763,7 +763,7 @@ class Model_Login_Post_Basis extends Model {
 							imagegif($canvas, $create_dir.'square_120px/'.$image_path);
 						break;
 						case 'png':
-							imagepng($canvas, $create_dir.'square_120px/'.$image_path, 0);
+							imagepng($canvas, $create_dir.'square_120px/'.$image_path, 6);
 						break;
 						default:
 						break;

@@ -30,6 +30,43 @@ class Model_Mail_Basis extends Model {
 			// 送信
 			$return_flag = $mail ->send();
 	}
+	//-----------------------------------------------------
+	//メール配信許可があるsharetubeユーザー全員へメール送信
+	//-----------------------------------------------------
+	public static function mail_delivery_ok_sharetube_id_uses_mail_send($post, $mail_delivery_ok_sharetube_id_uses_data_res) {
+		$mail_message = $post['mail_message'];
+		$bottom_fixed_phrase = "
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.";
+		// 合体
+		$message = $mail_message.$bottom_fixed_phrase;
+//		pre_var_dump($message);
+		foreach($mail_delivery_ok_sharetube_id_uses_data_res as $key => $value) {
+			$post_array = array(
+				'from'    => 'info@sharetube.jp',
+				'to'      => $value['email'],
+//				'subject' => '良いキュレーターになるためのSharetubeマガジン Vol.1',
+				'subject' => $post['mail_title'],
+				'message' => $message,
+				'param'   => array(
+					'host'     => 'localhost',
+					'port'     => 25,
+					'from'     => 'info@sharetube.jp', 
+					'protocol' => 'SMTP',
+					'user'     => '',
+					'pass'     => '',),
+			);
+//			pre_var_dump($post_array);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+		}
+	}
 	//--------------------------------------------------
 	//ユーザーがログインしたらお知らせのメールを送信する
 	//--------------------------------------------------
