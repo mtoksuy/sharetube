@@ -285,7 +285,12 @@ margin: 30px;
 	color: #474747;
 }
 
-
+.control_h2 {
+    border-left: 5px solid #e5e5e5;
+    font-size: 125%;
+		margin: 0 0 15px;
+    padding: 0 0 0 10px;
+}
 .control_group {
 	margin: 0 0 30px;
 }

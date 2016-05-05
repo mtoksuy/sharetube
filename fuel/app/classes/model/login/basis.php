@@ -36,6 +36,7 @@ class Model_Login_Basis extends Model {
 			$_SESSION["all_page_view"]       = $value["all_page_view"];
 			$_SESSION["creation_time"]       = $value["creation_time"];
 			$_SESSION["update_time"]         = $value["update_time"];
+
 			// クッキー生成(一ヶ月有効)
 			setcookie('sharetube_id', $value["sharetube_id"], time() + 2592000, '/');
 			setcookie('sharetube_login_key', md5($post["login_pass"]), time() + 2592000, '/');

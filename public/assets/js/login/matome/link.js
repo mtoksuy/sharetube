@@ -36,14 +36,22 @@ $(function() {
 	リンクHTML
 	*********/
 	function link_html(image_url, image_title, image_description, word) {
+		var re                  = /sharetube/;
+		var internal_link_check = image_url.match(re);
+		if(internal_link_check) {
+			var target_attr = '';
+		}
+			else {
+				var target_attr = 'target="_blank"';
+			}
 		// リンクHTML
 		var link_html = ('<div class="matome_content_block">\
 	<div class="matome_content_block_link">\
 		<p class="matome_content_block_link_title">\
-			<a href="'+image_url+'" target="_blank">'+image_title+'</a>\
+			<a href="'+image_url+'" '+target_attr+'>'+image_title+'</a>\
 		</p>\
 		<p class="matome_content_block_link_url">\
-			<a href="'+image_url+'" target="_blank">'+image_url+'</a>\
+			<a href="'+image_url+'" '+target_attr+'>'+image_url+'</a>\
 		</p>\
 		<p class="matome_content_block_link_description">\
 			'+image_description+'\
@@ -95,13 +103,21 @@ function link_html_create(link_add) {
 				cache: false,
 				// Ajax完了後の挙動
 			  success: function(data) {
+					var re                  = /sharetube/;
+					var internal_link_check = data['url'].match(re);
+					if(internal_link_check) {
+						var target_attr = '';
+					}
+						else {
+							var target_attr = 'target="_blank"';
+						}
 					// 追加
 					link_add.find('.link_add_content_check_box').before('<div class="matome_content_block_link" style="margin:0;">\
 		<p class="matome_content_block_link_title">\
-			<a href="'+data["url"]+'" target="_blank">'+data["title"]+'</a>\
+			<a href="'+data["url"]+'" '+target_attr+'>'+data["title"]+'</a>\
 		</p>\
 		<p class="matome_content_block_link_url">\
-			<a href="'+data["url"]+'" target="_blank">'+data["url"]+'</a>\
+			<a href="'+data["url"]+'" '+target_attr+'>'+data["url"]+'</a>\
 		</p>\
 		<p class="matome_content_block_link_description">\
 			'+data["description"]+'\

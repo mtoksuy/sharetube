@@ -20,12 +20,6 @@
 					<a href="<?php echo Uri::base(); ?>channel/<?php echo $_SESSION['sharetube_id']; ?>/" target="_blank">マイページ</a>
 				</div>
 
-
-
-
-
-
-
 				<!--  -->
 				<div class="admin_left_menu">
 					<ol>
@@ -57,6 +51,7 @@
 
 								<dt>アカウント</dt>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/userprofileedit/">プロフィール編集</a></dd>
+								<dd><a href="<?php echo Uri::base(); ?>login/admin/usersetupedit/">アカウント設定</a></dd>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/userbankedit/">振込先編集</a></dd>
 
 

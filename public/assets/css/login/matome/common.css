@@ -882,7 +882,6 @@ body {
 	width: 100%;
   font-family: "游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
     font-size: 94%;
-
 }
 
 .upload_button {
@@ -920,7 +919,6 @@ body {
     border: 1px solid #cfcfcf;
     border-radius: 2px;
     box-sizing: border-box;
-		font-weight: bold;
     color: #606060;
     font-size: 82%;
     padding: 5px;
@@ -944,6 +942,15 @@ body {
 }
 .image_add_content_word {
 
+}
+.image_add_content_quote_title {
+	margin: 0 0 5px;
+}
+.image_quote {
+
+}
+.image_quote .blockquote_font {
+	line-height: 155%;
 }
 .image_add_content_button {
 
