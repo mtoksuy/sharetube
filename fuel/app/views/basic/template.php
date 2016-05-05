@@ -17,7 +17,6 @@
 		<link rel="apple-touch-icon" href="<?php echo Uri::base(); ?>assets/img/icon/apple_touch_icon_1.png" />
 		<link rel="apple-touch-icon-precomposed" href="<?php echo Uri::base(); ?>assets/img/icon/apple_touch_icon_1.png" />
 
-
 		<?php echo $view_data["external_css"]; ?>
 	</head>
 	<body>
