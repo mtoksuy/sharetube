@@ -6,7 +6,7 @@
 			<!-- ajaxローダープラグイン -->
 			<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/ajax/articleloader.js"></script>
 			<!-- flexsliderプラグイン -->
-			<script src="<?php echo HTTP; ?>assets/js/library/FlexSlider.2/jquery.flexslider.js"></script>
+			<script src="<?php echo HTTP; ?>assets/js/library/flexslider.2/jquery.flexslider.js"></script>
 
 
 			<!-- FBページプラグイン -->

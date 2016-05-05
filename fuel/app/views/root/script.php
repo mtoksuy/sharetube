@@ -8,7 +8,7 @@
 			<!-- flickityプラグイン -->
 			<script src="<?php echo HTTP; ?>assets/js/library/flickity.1.1.1/flickity.pkgd.min.js"></script>
 			<!-- flexsliderプラグイン -->
-			<script src="<?php echo HTTP; ?>assets/js/library/FlexSlider.2/jquery.flexslider.js"></script>
+			<script src="<?php echo HTTP; ?>assets/js/library/flexslider.2/jquery.flexslider.js"></script>
 
 		<style>
 		.flexslider {
