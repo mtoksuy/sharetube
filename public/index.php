@@ -28,6 +28,18 @@ function pre_var_dump($data = '') {
 	echo '</pre>';
 }
 
+
+$okane     = 17;
+$ayu       = 2.5;
+$tomoko    = 1.5;
+$seikatuhi = 5;
+$hentai    = 6;
+$biyoushitu = 1.2;
+//echo $okane-$ayu-$tomoko-$seikatuhi-$hentai-$biyoushitu;
+
+
+
+
 /**
  * ローカルと本番環境のpathを吸収
  */
