@@ -84,10 +84,12 @@
 			<li><a href="<?php echo HTTP; ?>sitemap/">サイトマップ</a></li>
 			<li><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></li>
 
+
+
 			<li><a href="<?php echo HTTP; ?>signup/">Sharetubeアカウント作成</a></li>
 			<li><a href="<?php echo HTTP; ?>login/" target="_blank">ログイン</a></li>
 
-
+			<li><a href="<?php echo HTTP; ?>curatorlist/">キュレーターリスト</a></li>
 
 			<li><a href="<?php echo HTTP; ?>curatorrecruitment/">キュレーター募集</a></li>
 			<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
