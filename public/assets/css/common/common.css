@@ -2925,7 +2925,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     border: 0 none;
     border-radius: 2px;
     box-shadow: 0 0 0 0 #e7e7e7, 0 0 0 0 #e7e7e7;
-    box-sizing: padding-box;
+    box-sizing: border-box;
     display: block;
     height: auto;
     margin: 0 auto;

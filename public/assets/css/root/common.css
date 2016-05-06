@@ -114,7 +114,7 @@ margin: 50px 0 0;
     background-color: transparent;
     border-radius: 0px;
     box-shadow: 0 0 0 0px #e7e7e7, 0 0px 0 0px #e7e7e7;
-    box-sizing: padding-box;
+    box-sizing: border-box;
     float: left;
 		height: 470px;
     list-style: outside none none;
