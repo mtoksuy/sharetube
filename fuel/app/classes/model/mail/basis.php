@@ -14,7 +14,8 @@ class Model_Mail_Basis extends Model {
 //			$mail = & new Qdmail(); ??
 			$mail = new Qdmail();
 
-//			var_dump($mail);
+//			pre_var_dump($mail);
+//exit;
 			$mail->smtp(true);
 
 			// param設定
@@ -27,6 +28,10 @@ class Model_Mail_Basis extends Model {
 			$mail ->from($post_array["from"]);
 			// 本文挿入
 			$mail ->text($post_array["message"]);
+//			$mail ->html($post_array["message"]);
+			// 自動テキスト生成機能はOFF
+			$mail -> autoBoth(false);
+
 			// 送信
 			$return_flag = $mail ->send();
 	}
@@ -46,10 +51,22 @@ http://sharetube.jp/
 COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.";
 		// 合体
 		$message = $mail_message.$bottom_fixed_phrase;
+		// デコード
+		$message = htmlspecialchars_decode($message);
+/*
+/ ヘッダー情報
+$headers = '';
+$headers .= 'Content-Type: multipart/alternative; boundary="' . $boundary . '"' . "\r\n";
+$headers .= 'Content-Transfer-Encoding: binary' . "\r\n";
+$headers .= 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+$headers .= "From: " . mb_encode_mimeheader($mail_from_name) . "<" . $mail_from . ">" . "\r\n";
+// 送信者名を指定しない場合は次のよう
+*/
 //		pre_var_dump($message);
 		foreach($mail_delivery_ok_sharetube_id_uses_data_res as $key => $value) {
 			$post_array = array(
-				'from'    => 'info@sharetube.jp',
+				'from'    => 'Sharetube <info@sharetube.jp>',
 				'to'      => $value['email'],
 //				'subject' => '良いキュレーターになるためのSharetubeマガジン Vol.1',
 				'subject' => $post['mail_title'],
@@ -184,7 +201,7 @@ http://sharetube.jp/
 お問合せ: http://sharetube.jp/contact/
 COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 		$post_array = array(
-			'from'    => 'info@sharetube.jp',
+			'from'    => 'Sharetube <info@sharetube.jp>',
 			'to'      => ''.$post["email"].'',
 			'subject' => ''.$post['sharetube_id'].'さん Sharetubeへようこそ',
 			'message' => $message,
@@ -269,7 +286,7 @@ http://sharetube.jp/
 お問合せ: http://sharetube.jp/contact/
 COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 		$post_array = array(
-			'from'    => 'info@sharetube.jp',
+			'from'    => 'Sharetube <info@sharetube.jp>',
 			'to'      => $sharetube_user_data_array['email'],
 			'subject' => 'Sharetube[インセンティブチケットが発行されました]',
 			'message' => $message,
@@ -330,7 +347,7 @@ http://sharetube.jp/
 お問合せ: http://sharetube.jp/contact/
 COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 		$post_array = array(
-			'from'    => 'info@sharetube.jp',
+			'from'    => 'Sharetube <info@sharetube.jp>',
 			'to'      => $sharetube_user_data_array['email'],
 			'subject' => 'Sharetube[インセンティブを振り込みました]',
 			'message' => $message,
