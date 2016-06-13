@@ -29,6 +29,11 @@
 
 
 					<h3 class="h3_heading_1">ヘルプ</h3>
+					<h4 class="h4_heading_1">[まとめを書くにあたっての必要な事]</h4>
+					<p class="m_0">[まとめ職人に捧ぐ] PVを集めるために絶対に必要な7つのルール</p>
+					<p><a href="http://sharetube.jp/article/2814/" target="_blank">http://sharetube.jp/article/2814/</a></p>
+
+
 					<h4 class="h4_heading_1">[まとめ作成ツールの使い方]</h4>
 					<p class="m_0">まとめ作成ツール使い方講座！動画で細かく教えていくよ</p>
 					<p><a href="http://sharetube.jp/article/1071/" target="_blank">http://sharetube.jp/article/1071/</a></p>
@@ -41,8 +46,9 @@
 
 					<h4 class="h4_heading_1">[困った事や質問はこちらへ気軽にください]</h4>
 					
-					<p class="m_0">マツオカソウヤのTwitter</p>
-					<p><a target="_blank" href="https://twitter.com/mtoksuy">https://twitter.com/mtoksuy</a></p>	
+					<p class="m_0">お問い合わせ | Sharetube [伝えたい情報をシェアする]キュレーションプラットフォーム</p>
+					<p><a target="_blank" href="http://sharetube.jp/contact/">http://sharetube.jp/contact/</a></p>
+
 
 					<h3 class="h3_heading_1">キャッシュ設定表</h3>
 					<p class="m_0">・記事：15分</p>
@@ -67,6 +73,20 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年06月07日：Var.5.4.16.1</pre>
+					</dt>
+					<dd>
+						<pre>・バグフィックス
+</pre>
+					</dd>
+				</dl>
+			</li>
+
 
 
 			<li class="clearfix">
