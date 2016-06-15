@@ -25,13 +25,22 @@ class Controller_Root extends Controller_Basic_Template {
 			// ピックアップデータ取得
 			$pickup_res  = Model_Article_Basis::pickup_get(array(1833,1832,1820,1684,1447,1342,1436,1417,1378,1269));
 			// flickityピックアップHTML生成
-//			$pickup_html = Model_Article_Html::flickity_pickup_html_create($pickup_res);
+//		$pickup_html = Model_Article_Html::flickity_pickup_html_create($pickup_res);
 			// flexsliderピックアップHTML生成
 //			$pickup_html = Model_Article_Html::flexslider_pickup_html_create($pickup_res);
+
 		$pickup_html = 
 			'<div class="main_gallery_title">
 				<span class="typcn typcn-document-text"></span><span>新着まとめ</span>
 			</div>';
+		// 注目まとめ一覧データ取得
+		$recommend_article_array = Model_Article_Basis::recommend_html_list_get(200,1);
+//var_dump($recommend_article_array);
+		// 注目まとめ一覧HTML生成
+		$recommend_article_html = Model_Article_Html::recommend_html_list_html_create($recommend_article_array);
+
+
+
 		}
 			else {
 				$pickup_html = '';
@@ -47,6 +56,7 @@ class Controller_Root extends Controller_Basic_Template {
 
 		// コンテンツデータセット
 		$this->basic_template->view_data["content"]->set('content_data', array(
+			'recommend_html' => $recommend_article_html,
 			'pickup_html'  => $pickup_html,
 			'content_html' => $article_list_html,
 		), false);
@@ -55,7 +65,7 @@ class Controller_Root extends Controller_Basic_Template {
 		$article_access_1_res  = Model_Article_Basis::article_access_get(1,10);
 		$article_access_7_res  = Model_Article_Basis::article_access_get(7,10);
 		$article_access_30_res = Model_Article_Basis::article_access_get(30,10);
-		$popular_html       = Model_Article_Html::article_popular_html_create($article_access_1_res, $article_access_7_res, $article_access_30_res, 'article');
+		$popular_html          = Model_Article_Html::article_popular_html_create($article_access_1_res, $article_access_7_res, $article_access_30_res, 'article');
 
 		// シャッフル記事データ取得 
 //		$shuffle_res = Model_Article_Basis::article_shuffle_get(0, 'article', 4);

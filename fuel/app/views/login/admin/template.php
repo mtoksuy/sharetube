@@ -36,11 +36,9 @@
 								<dt>インセンティブ</dt>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/incentive/">インセンティブ</a></dd>
 
-
-
-
 								<?php if($_SESSION["sharetube_id"] == 'mtoksuy') { echo '<dt>マスター専用</dt>';} ?>
 								<?php if($_SESSION["sharetube_id"] == 'mtoksuy') { echo '<dd><a href="'.Uri::base().'login/admin/mail/">メール送信</a></dd>'; } ?>
+								<?php if($_SESSION["sharetube_id"] == 'mtoksuy') { echo '<dd><a href="'.Uri::base().'login/admin/recommendarticle/">注目まとめ追加</a></dd>'; } ?>
 								<?php if($_SESSION["sharetube_id"] == 'mtoksuy') { echo '<dd><a href="'.Uri::base().'login/admin/decoration/">装飾CSSコピー</a></dd>'; } ?>
 								<?php if($_SESSION["sharetube_id"] == 'mtoksuy') { echo '<dd><a href="'.Uri::base().'permalink/image_html_generate.php/">連続画像HTML生成</a></dd>'; } ?>
 								<?php if($_SESSION["sharetube_id"] == 'mtoksuy') { echo '<dd><a href="'.Uri::base().'login/admin/imageupload/">画像アップロード</a></dd>'; } ?>

@@ -447,4 +447,38 @@ class Model_Article_Basis extends Model {
 		}
 		return $pickup_res;
 	}
+	//----------------------
+	//注目まとめのリスト取得
+	//----------------------
+	public static function recommend_html_list_get($get_num = 10, $page_num = 1) {
+		$recommend_article_array = array();
+		$recommend_article_res = DB::query("
+			SELECT *
+			FROM recommend_article
+			ORDER BY article_id DESC
+			LIMIT 0, ".$get_num."")->execute();
+		foreach($recommend_article_res as $key => $value) {
+			$article_res = DB::query("
+				SELECT primary_id, sharetube_id, category, title, sub_text, tag, thumbnail_image, sp_thumbnail, link, matome_frg, create_time, update_time
+				FROM article
+				WHERE primary_id = ".$value['article_id']."
+				AND del = 0")->execute();
+			foreach($article_res as $article_key => $article_value) {
+				$recommend_article_array[$key] = $article_value;
+			}
+		} // foreach($recommend_article_res as $key => $value) {
+		return $recommend_article_array;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1277,6 +1277,91 @@ border-bottom: 2px dotted #888;
 		</div>';
 		return $pickup_html;
 	}
+	//----------------------
+	//注目まとめ一覧HTML生成
+	//----------------------
+	public static function recommend_html_list_html_create($recommend_article_array, $article_type = 'article') {
+		foreach($recommend_article_array as $key => $value) {
+			// 記事データ取得
+			$article_author       = $value["sharetube_id"];
+			$unix_time            = strtotime($value["create_time"]);
+			$local_time           = date('Y-m-d', $unix_time);
+			$local_japanese_time  = date('Y年m月d日', $unix_time);
+			$article_year_time    = date('Y', $unix_time);
+			// 改行を消す&タブ削除
+			$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
+			// HTMLタグを取り除く
+			$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
+			// 追加を取り除く
+			$article_contests = preg_replace('/追加/', '', $article_contests);
+			// 本文を168文字に丸める
+			$summary_contents = mb_strimwidth($article_contests, 0, 168, "...", 'utf8');
+			// エンティティを戻す
+			$title        = htmlspecialchars_decode($value["title"], ENT_NOQUOTES);
+			// カテゴリー情報取得
+			$category_info_array = Model_Info_Basis::category_info_get($value["category"]);
+			// ターゲット画像
+			$targetImage = (PATH.'assets/img/'.$article_type.'/'.$article_year_time.'/facebook_ogp_half_half/'.$value["thumbnail_image"]);
+			// コピー元画像のファイルサイズを取得
+			list($image_w, $image_h) = getimagesize($targetImage);
+				$image_reito = ($image_h / $image_w);
+				$new_image_h = (int)(200 * $image_reito);
+			 $recommend_article_li .=
+			 '<li class="o_8">
+				<article>
+					<a href="'.HTTP.'article/'.$value['link'].'/" class="clearfix">
+						<div class="card_article_contents clearfix">
+							<h1>'.$value['title'].'</h1>
+							<div class="card_article_contents_summary">'.$summary_contents.'</div>
+							<div class="card_article_contents_time">'.$local_time.'</div>
+						</div>
+						<figure>
+							<img class="" src="'.HTTP.'assets/img/'.$article_type.'/'.$article_year_time.'/facebook_ogp_half_half/'.$value["thumbnail_image"].'" width="200" height="'.$new_image_h.'" title="'.$value["title"].'" alt="'.$value["title"].'">
+						</figure>
+						<div class="category_band '.$category_info_array["category_color"].'">'.$value["category"].'</div>
+					</a>
+				</article>
+			</li>';
+		}
+		// 合体
+		$recommend_article_html = 
+			'<div class="card_article">
+				<div class="card_article_content">
+					<div class="card_article_header">
+						<span class="typcn typcn-document-text"></span><span>注目まとめ</span>
+					</div>
+					<ul class="clearfix">
+						'.$recommend_article_li.'
+					</ul>
+				</div>
+			</div>';
+		return $recommend_article_html;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
