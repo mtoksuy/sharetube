@@ -1280,7 +1280,7 @@ border-bottom: 2px dotted #888;
 	//----------------------
 	//注目まとめ一覧HTML生成
 	//----------------------
-	public static function recommend_html_list_html_create($recommend_article_array, $article_type = 'article') {
+	public static function recommend_article_list_html_create($recommend_article_array, $article_type = 'article') {
 		foreach($recommend_article_array as $key => $value) {
 			// 記事データ取得
 			$article_author       = $value["sharetube_id"];
@@ -1337,7 +1337,99 @@ border-bottom: 2px dotted #888;
 			</div>';
 		return $recommend_article_html;
 	}
+	//------------------------------
+	//注目まとめのページングHTML生成
+	//------------------------------
+	public static function recommend_article_paging_html_create($recommend_article_paging_data_array) {
+//		var_dump($recommend_article_paging_data_array);
+/*
+	array(4) { ["last_num"]=> int(922) ["list_num"]=> int(10) ["paging_num"]=> int(1) ["max_paging_num"]=> int(93) } 
+*/
 
+// prev作成
+if($recommend_article_paging_data_array['max_paging_num'] > 2 && $recommend_article_paging_data_array['paging_num'] >= 2) {
+	$prev_num = $recommend_article_paging_data_array['paging_num']-1;
+	$paging_prev_li = '<li><a href="'.HTTP.'recommend_article/'.$prev_num.'/">Prev</a></li>';
+}
+// next作成
+if($recommend_article_paging_data_array['paging_num'] < $recommend_article_paging_data_array['max_paging_num']) {
+	$next_num = $recommend_article_paging_data_array['paging_num']+1;
+	$paging_next_li = '<li><a href="'.HTTP.'recommend_article/'.$next_num.'/">Next</a></li>';
+}
+/*
+<div class="recommend_article_paging">
+	<div class="recommend_article_paging_inner">
+		<ul class="clearfix">
+			<li><a href="http://programmerbox.com/1/">Prev</a></li>
+			<li><a href="http://programmerbox.com/1/">1</a></li>
+			<li><span>2</span></li>
+			<li><a href="http://programmerbox.com/3/">3</a></li>
+			<li><a href="http://programmerbox.com/4/">4</a></li>
+			<li><a href="http://programmerbox.com/5/">5</a></li>
+			<li><a href="http://programmerbox.com/3/">6</a></li>
+			<li><a href="http://programmerbox.com/4/">7</a></li>
+			<li><a href="http://programmerbox.com/5/">8</a></li>
+			<li><a href="http://programmerbox.com/5/">9</a></li>
+			<li><a href="http://programmerbox.com/5/">10</a></li>
+
+			<li><a href="http://programmerbox.com/3/">Next</a></li>
+		</ul>
+	</div>
+</div>
+*/
+
+
+
+
+if($recommend_article_paging_data_array['max_paging_num'] < 10) {
+
+}
+	//////
+	//通常
+	//////
+	else {
+		if($recommend_article_paging_data_array['paging_num'] < 6) {
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+		if($recommend_article_paging_data_array['paging_num'] < 5) {
+			for($i = 0; $i < 10; $i++) {
+				if($recommend_article_paging_data_array['paging_num'] == $i) {
+					$paging_li .= '<li><span>'.$recommend_article_paging_data_array['paging_num'].'</span></li>';
+				}
+					else {
+//						$paging_li .= '<li><a href="'.HTTP.'recommend_article/'..'/">10</a></li>';
+					}
+			}
+		}
+			else if($recommend_article_paging_data_array['paging_num'] < 10) {
+		
+			}
+	}
+
+
+
+
+
+
+
+
+		foreach($recommend_article_paging_data_array['max_paging_num'] as $key => $value) {
+
+		}
+	}
 
 
 

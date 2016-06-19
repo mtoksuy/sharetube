@@ -34,10 +34,40 @@ class Controller_Root extends Controller_Basic_Template {
 				<span class="typcn typcn-document-text"></span><span>新着まとめ</span>
 			</div>';
 		// 注目まとめ一覧データ取得
-		$recommend_article_array = Model_Article_Basis::recommend_html_list_get(200,1);
+		$recommend_article_array = Model_Article_Basis::recommend_article_list_get(10,1);
 //var_dump($recommend_article_array);
 		// 注目まとめ一覧HTML生成
-		$recommend_article_html = Model_Article_Html::recommend_html_list_html_create($recommend_article_array);
+		$recommend_article_html = Model_Article_Html::recommend_article_list_html_create($recommend_article_array);
+
+$recommend_article_html = $recommend_article_html.'
+<div class="recommend_article_paging">
+	<div class="recommend_article_paging_inner">
+		<ul class="clearfix">
+			<li><a href="http://programmerbox.com/1/">Prev</a></li>
+			<li><a href="http://programmerbox.com/1/">1</a></li>
+			<li><span>2</span></li>
+			<li><a href="http://programmerbox.com/3/">3</a></li>
+			<li><a href="http://programmerbox.com/4/">4</a></li>
+			<li><a href="http://programmerbox.com/5/">5</a></li>
+			<li><a href="http://programmerbox.com/3/">6</a></li>
+			<li><a href="http://programmerbox.com/4/">7</a></li>
+			<li><a href="http://programmerbox.com/5/">8</a></li>
+			<li><a href="http://programmerbox.com/5/">9</a></li>
+			<li><a href="http://programmerbox.com/5/">10</a></li>
+
+			<li><a href="http://programmerbox.com/3/">Next</a></li>
+		</ul>
+	</div>
+</div>
+';
+
+		// 注目まとめページングデータ取得
+		$recommend_article_paging_data_array = Model_Article_Basis::recommend_article_paging_data_get(10, 1);
+		// 注目まとめページングHTML生成
+		Model_Article_Html::recommend_article_paging_html_create($recommend_article_paging_data_array);
+
+
+		
 
 
 

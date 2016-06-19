@@ -450,7 +450,7 @@ class Model_Article_Basis extends Model {
 	//----------------------
 	//注目まとめのリスト取得
 	//----------------------
-	public static function recommend_html_list_get($get_num = 10, $page_num = 1) {
+	public static function recommend_article_list_get($get_num = 10, $page_num = 1) {
 		$recommend_article_array = array();
 		$recommend_article_res = DB::query("
 			SELECT *
@@ -468,6 +468,29 @@ class Model_Article_Basis extends Model {
 			}
 		} // foreach($recommend_article_res as $key => $value) {
 		return $recommend_article_array;
+	}
+	//------------------------------
+	//注目まとめページングデータ取得
+	//------------------------------
+	public static function recommend_article_paging_data_get($list_num, $paging_num) {
+		// last_num取得
+		$max_res = DB::query("
+			SELECT MAX(primary_id)
+			FROM recommend_article
+			WHERE del = 0")->execute();
+		foreach($max_res as $key => $value) {
+			$last_num = (int)$value['MAX(primary_id)'];
+		}
+		// 最大ページング数取得
+		$max_paging_num = (int)ceil($last_num/$list_num);
+		// recommend_article_paging_data生成
+		$recommend_article_paging_data_array = array(
+			'last_num'       => $last_num,
+			'list_num'       => $list_num,
+			'paging_num'     => $paging_num,
+			'max_paging_num' => $max_paging_num,
+		);
+		return $recommend_article_paging_data_array;
 	}
 
 

@@ -2973,13 +2973,33 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     top: -20px;
     width: 70px;
 }
+/**********
+注目jまとめ
+**********/
+.recommend_article_paging {
 
+}
+.recommend_article_paging .recommend_article_paging_inner {
+	margin: 0 0 30px 15px;
+}
+.recommend_article_paging .recommend_article_paging_inner ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.recommend_article_paging .recommend_article_paging_inner ul li {
+	float: left;
+	margin: 0 15px 0 0;
+}
+.recommend_article_paging .recommend_article_paging_inner ul li span {
 
-
-
-
-
-
+}
+.recommend_article_paging .recommend_article_paging_inner ul li a {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 5px 8px;
+		color: #4285f4;
+}
 /******
 
 ********/
