@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="<?php echo Uri::base(); ?>assets/css/matome/common.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/library/typicons.2.0.7/font/typicons.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo Uri::base(); ?>assets/css/library/flickity.1.1.1/flickity.css" type="text/css" media="screen">
-		<link rel="stylesheet" href="<?php echo Uri::base(); ?>assets/js/library/FlexSlider.2/flexslider.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="<?php echo Uri::base(); ?>assets/js/library/flexslider.2/flexslider.css" type="text/css" media="screen">
 		<link rel="apple-touch-icon" href="<?php echo Uri::base(); ?>assets/img/icon/apple_touch_icon_1.png" />
 		<link rel="apple-touch-icon-precomposed" href="<?php echo Uri::base(); ?>assets/img/icon/apple_touch_icon_1.png" />
 

@@ -447,4 +447,65 @@ class Model_Article_Basis extends Model {
 		}
 		return $pickup_res;
 	}
+	//----------------------
+	//注目まとめのリスト取得
+	//----------------------
+	public static function recommend_article_list_get($get_num = 10, $page_num = 1) {
+		// 取得する場所取得
+		$start_list_num = ($page_num*$get_num)-$get_num;
+		$recommend_article_array = array();
+		$recommend_article_res = DB::query("
+			SELECT *
+			FROM recommend_article
+			ORDER BY article_id DESC
+			LIMIT ".$start_list_num.", ".$get_num."")->execute();
+
+
+		foreach($recommend_article_res as $key => $value) {
+			$article_res = DB::query("
+				SELECT primary_id, sharetube_id, category, title, sub_text, tag, thumbnail_image, sp_thumbnail, link, matome_frg, create_time, update_time
+				FROM article
+				WHERE primary_id = ".$value['article_id']."
+				AND del = 0")->execute();
+			foreach($article_res as $article_key => $article_value) {
+				$recommend_article_array[$key] = $article_value;
+			}
+		} // foreach($recommend_article_res as $key => $value) {
+		return $recommend_article_array;
+	}
+	//------------------------------
+	//注目まとめページングデータ取得
+	//------------------------------
+	public static function recommend_article_paging_data_get($list_num, $paging_num) {
+		// last_num取得
+		$max_res = DB::query("
+			SELECT MAX(primary_id)
+			FROM recommend_article
+			WHERE del = 0")->execute();
+		foreach($max_res as $key => $value) {
+			$last_num = (int)$value['MAX(primary_id)'];
+		}
+		// 最大ページング数取得
+		$max_paging_num = (int)ceil($last_num/$list_num);
+		// recommend_article_paging_data生成
+		$recommend_article_paging_data_array = array(
+			'last_num'       => $last_num,
+			'list_num'       => $list_num,
+			'paging_num'     => $paging_num,
+			'max_paging_num' => $max_paging_num,
+		);
+		return $recommend_article_paging_data_array;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 }

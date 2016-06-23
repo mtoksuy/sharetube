@@ -313,7 +313,7 @@ body
 
 }
 .matome_content_block_amazon .amazon_link_image {
-    box-sizing: padding-box;
+    box-sizing: border-box;
     float: left;
 		margin: 0 15px 0 0;
     width: 30%;

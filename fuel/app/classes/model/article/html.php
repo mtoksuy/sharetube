@@ -78,23 +78,28 @@ class Model_Article_Html extends Model {
 			$local_japanese_time  = date('Y年m月d日', $unix_time);
 			$article_year_time    = date('Y', $unix_time);
 
-		// 改行を消す&タブ削除
-		$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
-		// HTMLタグを取り除く
-		$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
-		// 追加を取り除く
-		$article_contests = preg_replace('/追加/', '', $article_contests);
+			// Sharetubeのユーザーデータ取得
+			$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($article_author);
+
+			// 改行を消す&タブ削除
+			$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
+			// HTMLタグを取り除く
+			$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
+			// 追加を取り除く
+			$article_contests = preg_replace('/追加/', '', $article_contests);
 //		var_dump($article_contests);
-
-		// 本文を168文字に丸める
-		$summary_contents = mb_strimwidth($article_contests, 0, 168, "...", 'utf8');
-
-			// エンティティを戻す
+	
+			// 本文を168文字に丸める
+			$summary_contents = mb_strimwidth($article_contests, 0, 168, "...", 'utf8');
+			// タイトルのエンティティを戻す
 			$title        = htmlspecialchars_decode($value["title"], ENT_NOQUOTES);
+			// タイトルを82文字に丸める
+			$title = mb_strimwidth($title, 0, 82, "...", 'utf8');
+
 			// カテゴリー情報取得
 			$category_info_array = Model_Info_Basis::category_info_get($value["category"]);
 			// ターゲット画像
-			$targetImage = (PATH.'assets/img/'.$article_type.'/'.$article_year_time.'/facebook_ogp_half_half/'.$value["thumbnail_image"]);
+			$targetImage = (PATH.'assets/img/'.$article_type.'/'.$article_year_time.'/square_120px/'.$value["thumbnail_image"]);
 			// コピー元画像のファイルサイズを取得
 			list($image_w, $image_h) = getimagesize($targetImage);
 				$image_reito = ($image_h / $image_w);
@@ -109,12 +114,13 @@ class Model_Article_Html extends Model {
 						<article data-article_number="'.$value["primary_id"].'" data-article_year="'.$article_year_time.'">
 							<a class="clearfix" href="'.HTTP.''.$article_type.'/'.$value["link"].'/">
 								<div class="card_article_contents clearfix">
-									<h1>'.$value["title"].'</h1>
+									<h1>'.$title.'</h1>
 									<div class="card_article_contents_summary">'.$summary_contents.'</div>
+									<div class="card_article_contents_author">'.$sharetube_user_data_array['name'].'さん</div>
 									<div class="card_article_contents_time">'.$local_time.'</div>
 								</div>
 								<figure>
-									<img class="" src="'.HTTP.'assets/img/'.$article_type.'/'.$article_year_time.'/facebook_ogp_half_half/'.$value["thumbnail_image"].'" width="200" height="'.$new_image_h.'" title="'.$value["title"].'" alt="'.$value["title"].'">
+									<img class="" src="'.HTTP.'assets/img/'.$article_type.'/'.$article_year_time.'/square_120px/'.$value["thumbnail_image"].'" width="200" height="'.$new_image_h.'" title="'.$value["title"].'" alt="'.$value["title"].'">
 								</figure>
 								<div class="category_band '.$category_info_array["category_color"].'">'.$value["category"].'</div>
 							</a>
@@ -593,6 +599,12 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 		list($image_w, $image_h) = getimagesize($targetImage);
 			$image_reito = ($image_h / $image_w);
 			$new_image_h = (int)(200 * $image_reito);
+			// タイトルのエンティティを戻す
+			$title        = htmlspecialchars_decode($value["title"], ENT_NOQUOTES);
+			// タイトルを82文字に丸める
+			$title = mb_strimwidth($title, 0, 74, "...", 'utf8');
+
+
 
 
 //				var_dump($value["primary_id"]);
@@ -604,7 +616,7 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 							<div class="inner clearfix">
 								<img class="" src="'.HTTP.'assets/img/'.$article_type.'/'.$article_year_time.'/facebook_ogp_half_half/'.$value["thumbnail_image"].'" width="200" height="'.$new_image_h.'" title="'.$value["title"].'" alt="'.$value["title"].'">
 								<div class="shuffle_article_contents_title clearfix">
-									<span>'.$value["title"].'</span>
+									<span>'.$title.'</span>
 								</div>
 							</div>
 						</a>
@@ -1277,6 +1289,205 @@ border-bottom: 2px dotted #888;
 		</div>';
 		return $pickup_html;
 	}
+	//----------------------
+	//注目まとめ一覧HTML生成
+	//----------------------
+	public static function recommend_article_list_html_create($recommend_article_array, $article_type = 'article') {
+		foreach($recommend_article_array as $key => $value) {
+			// 記事データ取得
+			$article_author       = $value["sharetube_id"];
+			$unix_time            = strtotime($value["create_time"]);
+			$local_time           = date('Y-m-d', $unix_time);
+			$local_japanese_time  = date('Y年m月d日', $unix_time);
+			$article_year_time    = date('Y', $unix_time);
+
+			// Sharetubeのユーザーデータ取得
+			$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($article_author);
+
+			// 改行を消す&タブ削除
+			$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
+			// HTMLタグを取り除く
+			$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
+			// 追加を取り除く
+			$article_contests = preg_replace('/追加/', '', $article_contests);
+			// 本文を168文字に丸める
+			$summary_contents = mb_strimwidth($article_contests, 0, 168, "...", 'utf8');
+			// エンティティを戻す
+			$title        = htmlspecialchars_decode($value["title"], ENT_NOQUOTES);
+			// タイトルを82文字に丸める
+			$title = mb_strimwidth($title, 0, 82, "...", 'utf8');
+
+			// カテゴリー情報取得
+			$category_info_array = Model_Info_Basis::category_info_get($value["category"]);
+			// ターゲット画像
+			$targetImage = (PATH.'assets/img/'.$article_type.'/'.$article_year_time.'/square_120px/'.$value["thumbnail_image"]);
+			// コピー元画像のファイルサイズを取得
+			list($image_w, $image_h) = getimagesize($targetImage);
+				$image_reito = ($image_h / $image_w);
+				$new_image_h = (int)(200 * $image_reito);
+			 $recommend_article_li .=
+			 '<li class="o_8">
+				<article>
+					<a href="'.HTTP.'article/'.$value['link'].'/" class="clearfix">
+						<div class="card_article_contents clearfix">
+							<h1>'.$title.'</h1>
+							<div class="card_article_contents_summary">'.$summary_contents.'</div>
+							<div class="card_article_contents_author">'.$sharetube_user_data_array['name'].'さん</div>
+							<div class="card_article_contents_time">'.$local_time.'</div>
+						</div>
+						<figure>
+							<img class="" src="'.HTTP.'assets/img/'.$article_type.'/'.$article_year_time.'/square_120px/'.$value["thumbnail_image"].'" width="200" height="'.$new_image_h.'" title="'.$value["title"].'" alt="'.$value["title"].'">
+						</figure>
+						<div class="category_band '.$category_info_array["category_color"].'">'.$value["category"].'</div>
+					</a>
+				</article>
+			</li>';
+		}
+		// 合体
+		$recommend_article_html = 
+			'<div class="card_article">
+				<div class="card_article_content">
+					<div class="card_article_header">
+						<span class="typcn typcn-document-text"></span><span>注目まとめ</span>
+					</div>
+					<ul class="clearfix">
+						'.$recommend_article_li.'
+					</ul>
+				</div>
+			</div>';
+		return $recommend_article_html;
+	}
+	//------------------------------
+	//注目まとめのページングHTML生成
+	//------------------------------
+	public static function recommend_article_paging_html_create($recommend_article_paging_data_array) {
+//		var_dump($recommend_article_paging_data_array);
+/*
+	array(4) { ["last_num"]=> int(922) ["list_num"]=> int(10) ["paging_num"]=> int(1) ["max_paging_num"]=> int(93) } 
+*/
+
+// prev作成
+if($recommend_article_paging_data_array['max_paging_num'] > 2 && $recommend_article_paging_data_array['paging_num'] >= 2) {
+	$prev_num = $recommend_article_paging_data_array['paging_num']-1;
+	$paging_prev_li = '<li class="sp_left"><a href="'.HTTP.'recommendarticle/'.$prev_num.'/">Prev</a></li>';
+}
+// next作成
+if($recommend_article_paging_data_array['paging_num'] < $recommend_article_paging_data_array['max_paging_num']) {
+	$next_num = $recommend_article_paging_data_array['paging_num']+1;
+	$paging_next_li = '<li class="sp_right"><a href="'.HTTP.'recommendarticle/'.$next_num.'/">Next</a></li>';
+}
+// チェック
+if(($recommend_article_paging_data_array['paging_num'] - 5) > 0) { $left_check = true; } else {$left_check = false; }
+// チェック
+if(($recommend_article_paging_data_array['paging_num'] + 5) <= $recommend_article_paging_data_array['max_paging_num']) { $right_check = true; } else {$right_check = false; }
+/*
+<div class="recommend_article_paging">
+	<div class="recommend_article_paging_inner">
+		<ul class="clearfix">
+			<li><a href="http://programmerbox.com/1/">Prev</a></li>
+			<li><a href="http://programmerbox.com/1/">1</a></li>
+			<li><span>2</span></li>
+			<li><a href="http://programmerbox.com/3/">3</a></li>
+			<li><a href="http://programmerbox.com/4/">4</a></li>
+			<li><a href="http://programmerbox.com/5/">5</a></li>
+			<li><a href="http://programmerbox.com/3/">6</a></li>
+			<li><a href="http://programmerbox.com/4/">7</a></li>
+			<li><a href="http://programmerbox.com/5/">8</a></li>
+			<li><a href="http://programmerbox.com/5/">9</a></li>
+			<li><a href="http://programmerbox.com/5/">10</a></li>
+
+			<li><a href="http://programmerbox.com/3/">Next</a></li>
+		</ul>
+	</div>
+</div>
+*/
+
+
+/*
+	array(4) { ["last_num"]=> int(922) ["list_num"]=> int(10) ["paging_num"]=> int(1) ["max_paging_num"]=> int(93) } 
+*/
+// 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+
+$left_brink_num = $recommend_article_paging_data_array['paging_num'] - 1;
+//$left_brink_num = 3 - 1;
+$right_brink_num = $recommend_article_paging_data_array['max_paging_num'] - $recommend_article_paging_data_array['paging_num'];
+//$right_brink_num = $recommend_article_paging_data_array['max_paging_num'] - 90;
+
+$starting_point = 0;
+$end_point  = 0;
+/////////////
+// 起点と終点
+/////////////
+if($left_check) {
+	$starting_point = $recommend_article_paging_data_array['paging_num'] - 5;
+}
+	else {
+		$starting_point = 1;
+	}
+if($right_check) {
+	$end_point = $starting_point +9;
+}
+	else {
+		$end_point = $recommend_article_paging_data_array['paging_num'] + $right_brink_num;
+		$starting_point = $end_point -9;
+	}
+/*
+var_dump($left_check);
+var_dump($right_check);
+var_dump($left_brink_num);
+var_dump($right_brink_num);
+
+echo('<br><br>');
+
+var_dump($starting_point);
+var_dump($end_point);
+*/
+
+		for($starting_point = $starting_point; $starting_point <= $end_point; $starting_point++) {
+			if($starting_point == $recommend_article_paging_data_array['paging_num']) {
+				$paging_li_html .= '<li class="sp_hidden"><span>'.$starting_point.'</span></li>';
+			}
+				else {
+					$paging_li_html .= '<li class="sp_hidden"><a href="'.HTTP.'recommendarticle/'.$starting_point.'/">'.$starting_point.'</a></li>';
+				}
+		}
+	$paging_html = 
+		'<div class="recommend_article_paging">
+			<div class="recommend_article_paging_inner">
+				<ul class="clearfix">
+					'.$paging_prev_li.'
+					'.$paging_li_html.'
+					'.$paging_next_li.'
+				</ul>
+			</div>
+		</div>';
+		return $paging_html;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

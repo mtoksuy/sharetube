@@ -71,6 +71,7 @@
 			$post = Library_Security_Basis::post_security();
 			// メール配信許可があるsharetubeユーザーのresを取得
 			$mail_delivery_ok_sharetube_id_uses_data_res = Model_Login_Mail_Basis::mail_delivery_ok_sharetube_id_uses_data_res_get();
+			// メール送信許可があるSharetubeユーザーにメール送信
 			Model_Mail_Basis::mail_delivery_ok_sharetube_id_uses_mail_send($post, $mail_delivery_ok_sharetube_id_uses_data_res);
 
 			return $this->login_admin_template;

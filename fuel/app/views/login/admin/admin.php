@@ -4,8 +4,9 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.16<br>
-※お手数かけますが、タグ命名はまとめキーワードが大枠・中枠・小枠と分けまして、大枠・中枠のキーワードのみでお願いいたします。イメージ的にはネイバーまとめがつけているようなトピックと同等のような実装にしていきます。</p>
+						<p>Sharetube version 5.4.17<br>
+1記事からの全引用は禁止です。<br><br>
+高品質まとめは公式FBページで紹介させていただきます。</p>
 					</div>
 
 					<h3 class="h3_heading_1">現在書いて欲しいまとめ一覧</h3>
@@ -29,6 +30,11 @@
 
 
 					<h3 class="h3_heading_1">ヘルプ</h3>
+					<h4 class="h4_heading_1">[まとめを書くにあたっての必要な事]</h4>
+					<p class="m_0">[まとめ職人に捧ぐ] PVを集めるために絶対に必要な7つのルール</p>
+					<p><a href="http://sharetube.jp/article/2814/" target="_blank">http://sharetube.jp/article/2814/</a></p>
+
+
 					<h4 class="h4_heading_1">[まとめ作成ツールの使い方]</h4>
 					<p class="m_0">まとめ作成ツール使い方講座！動画で細かく教えていくよ</p>
 					<p><a href="http://sharetube.jp/article/1071/" target="_blank">http://sharetube.jp/article/1071/</a></p>
@@ -41,8 +47,9 @@
 
 					<h4 class="h4_heading_1">[困った事や質問はこちらへ気軽にください]</h4>
 					
-					<p class="m_0">マツオカソウヤのTwitter</p>
-					<p><a target="_blank" href="https://twitter.com/mtoksuy">https://twitter.com/mtoksuy</a></p>	
+					<p class="m_0">お問い合わせ | Sharetube [伝えたい情報をシェアする]キュレーションプラットフォーム</p>
+					<p><a target="_blank" href="http://sharetube.jp/contact/">http://sharetube.jp/contact/</a></p>
+
 
 					<h3 class="h3_heading_1">キャッシュ設定表</h3>
 					<p class="m_0">・記事：15分</p>
@@ -55,9 +62,10 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
+					<p class="m_0">・まとめ規約作成</p>
+					<p class="m_0">・人気記事アルゴリズム変更</p>
 					<p class="m_0">・タグ実装見直し&タグ紐付けページ実装</p>
 					<p class="m_0">・検索機能をget仕様にする</p>
-					<p class="m_0">・注目まとめ機能実装</p>
 					<p>・まとめをお気に入りにする機能実装</p>
 
 					<h3 class="h3_heading_1">バグリスト</h3>
@@ -67,6 +75,37 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年06月24日：Var.5.4.17</pre>
+					</dt>
+					<dd>
+						<pre>・注目まとめ機能実装
+・注目まとめページング機能実装
+・注目まとめ登録機能実装(管理人のみ使用可)
+・トップページまとめ表示デザイン変更
+・サイドバーまとめ表示 タイトルの文字数制限実装</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年06月07日：Var.5.4.16.1</pre>
+					</dt>
+					<dd>
+						<pre>・バグフィックス
+</pre>
+					</dd>
+				</dl>
+			</li>
+
 
 
 			<li class="clearfix">

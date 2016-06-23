@@ -659,6 +659,46 @@ font-weight: bold;
     width: 100%;
 }
 
+/*********************
+注目まとめ追加フォーム
+*********************/
+.recommend_article {
+
+}
+.recommend_article .recommend_article_inner {
+
+}
+.recommend_article .recommend_article_inner input[type=text] {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin: 0 0 15px;
+    padding: 15px;
+    width: 100%;
+}
+.recommend_article .recommend_article_inner textarea {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+		font-size: 94%;
+    height: 300px;
+    padding: 15px;
+    width: 100%;
+}
+.recommend_article .recommend_article_inner .recommend_article_submit,
+.recommend_article .recommend_article_inner input[type=submit] {
+    background-color: #ff5555;
+    border: 0 solid #fff;
+    border-radius: 2px;
+    color: #fcfcfc;
+    cursor: pointer;
+    display: block;
+    margin: 15px 0 0;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
 
 
 
