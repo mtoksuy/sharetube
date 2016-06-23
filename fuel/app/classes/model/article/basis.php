@@ -451,12 +451,16 @@ class Model_Article_Basis extends Model {
 	//注目まとめのリスト取得
 	//----------------------
 	public static function recommend_article_list_get($get_num = 10, $page_num = 1) {
+		// 取得する場所取得
+		$start_list_num = ($page_num*$get_num)-$get_num;
 		$recommend_article_array = array();
 		$recommend_article_res = DB::query("
 			SELECT *
 			FROM recommend_article
 			ORDER BY article_id DESC
-			LIMIT 0, ".$get_num."")->execute();
+			LIMIT ".$start_list_num.", ".$get_num."")->execute();
+
+
 		foreach($recommend_article_res as $key => $value) {
 			$article_res = DB::query("
 				SELECT primary_id, sharetube_id, category, title, sub_text, tag, thumbnail_image, sp_thumbnail, link, matome_frg, create_time, update_time

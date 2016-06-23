@@ -336,7 +336,7 @@ class Model_Info_Basis extends Model {
 		$sharetube_user_data_res = DB::query("
 			SELECT *
 			FROM user 
-			WHERE sharetube_id = '".$sharetube_id."'")->execute();
+			WHERE sharetube_id = '".$sharetube_id."'")->cached(86400)->execute();
 		foreach($sharetube_user_data_res as $key => $value) {
 			$sharetube_user_data_array["primary_id"]          = $value["primary_id"];
 			$sharetube_user_data_array["sharetube_id"]        = $value["sharetube_id"];
@@ -469,5 +469,13 @@ if($detect->isMobile() || $detect->isTablet()) {
 		}
 		return $REMOTE_HOST;
 	}
-
+	//----------------------------------
+	//注目まとめのページングがあるか審査
+	//----------------------------------
+	public static function is_recommendarticle($method) {
+		// 注目まとめページングデータ取得
+		$recommend_article_paging_data_array = Model_Article_Basis::recommend_article_paging_data_get(10, $method);
+		if($recommend_article_paging_data_array['max_paging_num'] >= $recommend_article_paging_data_array['paging_num']) { $is_recommendarticle = true; } else { $is_recommendarticle = false; }
+		return $is_recommendarticle;
+	}
 }

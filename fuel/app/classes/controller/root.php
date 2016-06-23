@@ -14,13 +14,15 @@ class Controller_Root extends Controller_Basic_Template {
 	public function action_index() {
 		// セグメント情報取得
 		$segment_info_get_array = Model_Info_Basis::segment_info_get();
+//pre_var_dump($segment_info_get_array);
 		// タイトルセット
 		$this->basic_template->view_data["title"] = $segment_info_get_array["title_segment"].TITLE;
+		// CSSセット
+		$this->basic_template->view_data["external_css"] = View::forge('root/externalcss');
 
 		// トップのみ
 		if($segment_info_get_array["top_judgment"] == true) {
 			$this->basic_template->view_data["meta"]         = View::forge('root/meta');
-			$this->basic_template->view_data["external_css"] = View::forge('root/externalcss');
 			$this->basic_template->view_data["script"]       = View::forge('root/script');
 			// ピックアップデータ取得
 			$pickup_res  = Model_Article_Basis::pickup_get(array(1833,1832,1820,1684,1447,1342,1436,1417,1378,1269));
@@ -39,6 +41,8 @@ class Controller_Root extends Controller_Basic_Template {
 		// 注目まとめ一覧HTML生成
 		$recommend_article_html = Model_Article_Html::recommend_article_list_html_create($recommend_article_array);
 
+
+/*
 $recommend_article_html = $recommend_article_html.'
 <div class="recommend_article_paging">
 	<div class="recommend_article_paging_inner">
@@ -58,19 +62,15 @@ $recommend_article_html = $recommend_article_html.'
 			<li><a href="http://programmerbox.com/3/">Next</a></li>
 		</ul>
 	</div>
-</div>
-';
+</div>';
+*/
+
 
 		// 注目まとめページングデータ取得
 		$recommend_article_paging_data_array = Model_Article_Basis::recommend_article_paging_data_get(10, 1);
 		// 注目まとめページングHTML生成
-		Model_Article_Html::recommend_article_paging_html_create($recommend_article_paging_data_array);
-
-
-		
-
-
-
+		$paging_html = Model_Article_Html::recommend_article_paging_html_create($recommend_article_paging_data_array);
+		$recommend_article_html = $recommend_article_html.$paging_html;
 		}
 			else {
 				$pickup_html = '';
@@ -80,7 +80,7 @@ $recommend_article_html = $recommend_article_html.'
 			'sp_thumbnail_html' => '',
 		));
 		// 記事一覧データ取得
-		$list_query        = Model_Article_Basis::list_get($segment_info_get_array, 30);
+		$list_query        = Model_Article_Basis::list_get($segment_info_get_array, 10);
 		// 記事一覧HTML生成
 		$article_list_html = Model_Article_Html::itype_list_html_create($list_query);
 

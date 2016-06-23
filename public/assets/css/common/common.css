@@ -1564,7 +1564,13 @@ a:hover {
 
 .card_article_header {
     font-size: 145%;
-    padding: 0 0 30px;
+
+}
+.card_article_header .typcn-document-text {
+    color: #e3452b;
+    margin: 0 5px 0 0;
+    position: relative;
+    top: -1px;
 }
 
 .card_article ul {
@@ -1573,26 +1579,34 @@ a:hover {
 }
 
 .card_article li {
+/*
   background-color: #FCFCFC;
-  border-radius: 2px;
   box-shadow: 0 0 0 1px #E7E7E7, 0 2px 0 1px #E7E7E7;
+*/
+	border-bottom: 1px solid #eee;
   box-sizing: border-box;
   float: left;
   list-style: none;
-  margin: 15px 0 26px;
-  padding: 10px;
+  margin: 0;
+  padding: 15px;
   position: relative;
   width: 100%;
 }
 
 .card_article li:hover {
+/*
   box-shadow: -1px -1px 0 0 #C7C7C7, 1px 0 0 0 #C7C7C7, 0 2px 0 0 #ED482D;
+*/
+	border-bottom: 1px solid #ED482D;
+
+
+
 }
 
 .card_article figure {
   float: left;
   margin: 0 0 34px;
-  width: 45%;
+  width: 10%;
 }
 
 .card_article img {
@@ -1602,7 +1616,7 @@ a:hover {
   display: block;
   height: auto;
   margin: 0 auto;
-  padding: 5px;
+  padding: 2px;
   width: 100%;
 }
 
@@ -1616,29 +1630,43 @@ a:hover {
   margin: 0;
   padding: 0 0 0 10px;
   right: 10px;
-  width: 55%;
+  width: 90%;
 }
 
 .card_article_contents h1 {
-  font-size: 125%;
-  text-align: left;
+    font-size: 115%;
+    font-weight: normal;
 }
 
 .card_article_contents_summary {
-  margin: 10px 0 0;
-  word-break: break-all;
-  word-wrap: break-word;
-  color: #3a3a3a;
+    color: #545454;
+    font-size: 83%;
+    line-height: 145%;
+    margin: 10px 0 24px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.card_article_contents_author {
+    bottom: 10px;
+    color: #b8b8b8;
+    font-size: 80%;
+    left: 94px;
+    position: absolute;
+    text-align: right;
 }
 
 .card_article_contents_time {
   bottom: 10px;
   color: #B8B8B8;
   font-size: 80%;
-  left: 20px;
+  left: 10px;
   position: absolute;
   text-align: right;
 }
+
+
+
 
 .article_list {
   background-color: #FCFCFC;
@@ -1850,6 +1878,7 @@ a:hover {
 }
 
 .category_band {
+	display: none;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   bottom: 100%;
@@ -2973,14 +3002,14 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     top: -20px;
     width: 70px;
 }
-/**********
-注目jまとめ
-**********/
+/*********
+注目まとめ
+*********/
 .recommend_article_paging {
 
 }
 .recommend_article_paging .recommend_article_paging_inner {
-	margin: 0 0 30px 15px;
+	margin: 17px 0 30px 15px;
 }
 .recommend_article_paging .recommend_article_paging_inner ul {
     list-style: outside none none;
@@ -2997,8 +3026,8 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 .recommend_article_paging .recommend_article_paging_inner ul li a {
     border: 1px solid #ddd;
     border-radius: 2px;
-    padding: 5px 8px;
-		color: #4285f4;
+    padding: 7px 14px;
+		color: #589be5;
 }
 /******
 
@@ -3777,6 +3806,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     left: 10px;
     right: auto;
   }
+  .card_article_contents_author {
+    bottom: 5px;
+  }
   .card_article figure {
     margin: 0 0 24px;
   }
@@ -3796,6 +3828,21 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
   .footer_contents_box {
     width: 50%;
   }
+	/*********
+	注目まとめ
+	*********/
+	.recommend_article_paging .recommend_article_paging_inner {
+		margin: 0;
+	}
+	.recommend_article_paging .recommend_article_paging_inner ul li {
+		margin: 30px 15px 5px;
+	}
+	.recommend_article_paging .recommend_article_paging_inner ul li.sp_right {
+		float: right;
+	}
+	.recommend_article_paging .recommend_article_paging_inner ul li.sp_hidden {
+		display: none;
+	}
 }
 
 @media screen and (min-width: 0px) and (max-width: 720px) {
@@ -3931,6 +3978,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     padding: 0 0 0 5px;
     font-weight: 400;
   }
+	.card_article_contents h1 {
+	    margin: 0 0 13px;
+	}
 }
 
 @media screen and (min-width: 0px) and (max-width: 620px) {
@@ -3944,10 +3994,10 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     font-size: 100%;
   }
   .card_article_contents {
-    width: 62%;
+    width: 90%;
   }
   .card_article figure {
-    width: 38%;
+    width: 10%;
   }
   .card_article_contents_summary {
     display: none;
@@ -3967,13 +4017,20 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 @media screen and (min-width: 0px) and (max-width: 480px) {
+
+
+  .card_article_contents {
+    width: 85%;
+  }
+  .card_article figure {
+    width: 15%;
+  }
+	.card_article img {
+	    padding: 2px;
+	}
 	/***
 	広告
 	***/
-
-
-
-
   .social_share a {
     font-size: 72%;
     padding: 13px 0;
@@ -4047,6 +4104,10 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     top: -30px;
     width: 140px;
 	}
+
+
+
+
 
 
 }
@@ -4224,6 +4285,11 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     padding: 5px;
     text-align: left;
   }
+	.recommend_article_paging {
+	    border-bottom: 1px solid #eee;
+	    margin: 0 0 15px;
+	    padding: 0 0 15px;
+	}
 	/*********
 	ギャラリー
 	**********/

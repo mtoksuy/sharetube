@@ -4,8 +4,9 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.16<br>
-※お手数かけますが、タグ命名はまとめキーワードが大枠・中枠・小枠と分けまして、大枠・中枠のキーワードのみでお願いいたします。イメージ的にはネイバーまとめがつけているようなトピックと同等のような実装にしていきます。</p>
+						<p>Sharetube version 5.4.17<br>
+1記事からの全引用は禁止です。<br><br>
+高品質まとめは公式FBページで紹介させていただきます。</p>
 					</div>
 
 					<h3 class="h3_heading_1">現在書いて欲しいまとめ一覧</h3>
@@ -61,9 +62,10 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
+					<p class="m_0">・まとめ規約作成</p>
+					<p class="m_0">・人気記事アルゴリズム変更</p>
 					<p class="m_0">・タグ実装見直し&タグ紐付けページ実装</p>
 					<p class="m_0">・検索機能をget仕様にする</p>
-					<p class="m_0">・注目まとめ機能実装</p>
 					<p>・まとめをお気に入りにする機能実装</p>
 
 					<h3 class="h3_heading_1">バグリスト</h3>
@@ -73,6 +75,23 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年06月24日：Var.5.4.17</pre>
+					</dt>
+					<dd>
+						<pre>・注目まとめ機能実装
+・注目まとめページング機能実装
+・注目まとめ登録機能実装(管理人のみ使用可)
+・トップページまとめ表示デザイン変更
+・サイドバーまとめ表示 タイトルの文字数制限実装</pre>
+					</dd>
+				</dl>
+			</li>
+
 
 
 			<li class="clearfix">

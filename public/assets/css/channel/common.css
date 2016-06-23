@@ -49,7 +49,7 @@
     margin: 0;
     padding: 0 0 0 10px;
     right: 10px;
-    width: 75%;
+    width: 90%;
 }
 .card_article_contents h1 {
     font-size: 100%;
@@ -63,8 +63,13 @@
     left: 10px;
     right: auto;
 }
+.card_article_contents_author {
+    bottom: 5px;
+}
+
+
 .card_article figure {
-    width: 25%;
+    width: 10%;
 }
 .card_article figure {
     margin: 0 0 24px;
@@ -231,8 +236,15 @@ article.cssにも移植されているので更新するときは両方する
 	    overflow: hidden;
 	    padding: 91px 0 0;
 	}
+	.card_article_contents h1 {
+	    margin: 0 0 21px;
+	}
 }
 @media screen and (min-width:0px)and (max-width:320px) {
-
-
+	.card_article_contents {
+	    width: 85%;
+	}
+	.card_article figure {
+	    width: 15%;
+	}
 }
