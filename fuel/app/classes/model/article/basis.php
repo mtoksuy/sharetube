@@ -320,9 +320,21 @@ class Model_Article_Basis extends Model {
 		// クエリが長時間になるための応急処置 2015.01.23 松岡
 		// 最新記事のprimary_id取得
 		$article_latest_data_array = Model_Article_Basis::article_latest_get();
+		// 最新記事primari_id取得
 		$latest_article_number = (int)$article_latest_data_array["primary_id"];
 		// クエリ時間がきになるが再調整 50から200に変更 2016.01.11 松岡
 		$add_and = "AND article_id > ".($latest_article_number - 200)."";
+		// 新しいadd_and作成 2016.06.24 松岡
+		$recommend_article_200_res = DB::query("
+			SELECT * 
+			FROM recommend_article 
+			ORDER BY article_id DESC
+			LIMIT 0, 200")->cached(86400)->execute();
+		foreach($recommend_article_200_res as $key => $value) {
+			$add_and_2 .= ''.$value['article_id'].',';
+		}
+		$add_and_2 = substr($add_and_2, 0, -1);
+		$add_and_2 = 'AND article_id IN ('.$add_and_2.')';
 
 		// whereを空にする
 		if($access_day_date === NULL) {
@@ -382,11 +394,11 @@ class Model_Article_Basis extends Model {
 				SELECT article_id,SUM(access_summary.count)
 				FROM access_summary 
 					".$where."
-					".$add_and."
+					".$add_and_2."
 				GROUP BY article_id
 				ORDER BY SUM(access_summary.count) DESC
 				LIMIT 0, ".$get_num."")->cached($cached_time)->execute();
-//			var_dump($access_sum_res);
+//			pre_var_dump($access_sum_res);
 			$article_access_list = '';
 			// 記事リスト作成
 			foreach($access_sum_res as $key => $value) {
