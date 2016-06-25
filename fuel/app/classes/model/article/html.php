@@ -1420,19 +1420,33 @@ $end_point  = 0;
 // 起点と終点
 /////////////
 if($left_check) {
-	$starting_point = $recommend_article_paging_data_array['paging_num'] - 5;
+	$starting_point = $recommend_article_paging_data_array['paging_num'] - $left_brink_num;
 }
 	else {
-		$starting_point = 1;
+		$starting_point = $recommend_article_paging_data_array['paging_num'] - $left_brink_num;
 	}
 if($right_check) {
-	$end_point = $starting_point +9;
+	$end_point = $recommend_article_paging_data_array['paging_num'] + $right_brink_num;
 }
 	else {
 		$end_point = $recommend_article_paging_data_array['paging_num'] + $right_brink_num;
-		$starting_point = $end_point -9;
 	}
 /*
+pre_var_dump($left_brink_num);
+pre_var_dump($right_brink_num);
+$recommend_article_paging_data_array['paging_num'];
+pre_var_dump($left_check);
+pre_var_dump($right_check);
+pre_var_dump($starting_point);
+pre_var_dump($end_point);
+*/
+
+
+
+/*
+
+
+
 var_dump($left_check);
 var_dump($right_check);
 var_dump($left_brink_num);
