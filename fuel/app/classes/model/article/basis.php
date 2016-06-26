@@ -139,8 +139,8 @@ class Model_Article_Basis extends Model {
 	//アクセスDB書き込み &  all_page_viewをプラス
 	//-------------------------------------------
 	static function article_access_writing_and_all_page_view_plus($method, $user_data_array, $article_res) {
-//		var_dump($method);
-//		var_dump($user_data_array);
+//		pre_var_dump($method);
+//		pre_var_dump($user_data_array);
 		$is_access = true;
 		// アクセス禁止名
 		$save_array = array(
