@@ -469,16 +469,16 @@ class Model_Article_Basis extends Model {
 		$recommend_article_res = DB::query("
 			SELECT *
 			FROM recommend_article
+			WHERE del = 0
 			ORDER BY article_id DESC
-			LIMIT ".$start_list_num.", ".$get_num."")->execute();
-
+			LIMIT ".$start_list_num.", ".$get_num."")->cached(10800)->execute();
 
 		foreach($recommend_article_res as $key => $value) {
 			$article_res = DB::query("
 				SELECT primary_id, sharetube_id, category, title, sub_text, tag, thumbnail_image, sp_thumbnail, link, matome_frg, create_time, update_time
 				FROM article
 				WHERE primary_id = ".$value['article_id']."
-				AND del = 0")->execute();
+				AND del = 0")->cached(86400)->execute();
 			foreach($article_res as $article_key => $article_value) {
 				$recommend_article_array[$key] = $article_value;
 			}
@@ -493,7 +493,7 @@ class Model_Article_Basis extends Model {
 		$max_res = DB::query("
 			SELECT MAX(primary_id)
 			FROM recommend_article
-			WHERE del = 0")->execute();
+			WHERE del = 0")->cached(10800)->execute();
 		foreach($max_res as $key => $value) {
 			$last_num = (int)$value['MAX(primary_id)'];
 		}
@@ -508,16 +508,4 @@ class Model_Article_Basis extends Model {
 		);
 		return $recommend_article_paging_data_array;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 }
