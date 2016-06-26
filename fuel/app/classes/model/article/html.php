@@ -1366,8 +1366,9 @@ border-bottom: 2px dotted #888;
 	array(4) { ["last_num"]=> int(922) ["list_num"]=> int(10) ["paging_num"]=> int(1) ["max_paging_num"]=> int(93) } 
 */
 
+//var_dump($recommend_article_paging_data_array);
 // prev作成
-if($recommend_article_paging_data_array['max_paging_num'] > 2 && $recommend_article_paging_data_array['paging_num'] >= 2) {
+if($recommend_article_paging_data_array['max_paging_num'] >= 2 && $recommend_article_paging_data_array['paging_num'] >= 2) {
 	$prev_num = $recommend_article_paging_data_array['paging_num']-1;
 	$paging_prev_li = '<li class="sp_left"><a href="'.HTTP.'recommendarticle/'.$prev_num.'/">Prev</a></li>';
 }
@@ -1420,13 +1421,16 @@ $end_point  = 0;
 // 起点と終点
 /////////////
 if($left_check) {
-	$starting_point = $recommend_article_paging_data_array['paging_num'] - $left_brink_num;
+	$starting_point = $recommend_article_paging_data_array['paging_num'] - 5;
 }
 	else {
 		$starting_point = $recommend_article_paging_data_array['paging_num'] - $left_brink_num;
 	}
 if($right_check) {
-	$end_point = $recommend_article_paging_data_array['paging_num'] + $right_brink_num;
+	$end_point = ($starting_point + 9);
+	if($recommend_article_paging_data_array['max_paging_num'] < $end_point) {
+		$end_point = $recommend_article_paging_data_array['max_paging_num'];
+	}
 }
 	else {
 		$end_point = $recommend_article_paging_data_array['paging_num'] + $right_brink_num;
@@ -1434,7 +1438,8 @@ if($right_check) {
 /*
 pre_var_dump($left_brink_num);
 pre_var_dump($right_brink_num);
-$recommend_article_paging_data_array['paging_num'];
+$max_id = $recommend_article_paging_data_array['paging_num']+$right_brink_num;
+pre_var_dump($max_id);
 pre_var_dump($left_check);
 pre_var_dump($right_check);
 pre_var_dump($starting_point);

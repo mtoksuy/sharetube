@@ -26,9 +26,15 @@ class Model_Login_List_Basis extends Model {
 	//記事を削除
 	//----------
 	public static function article_delete($method) {
+		// まとめ削除
 		$article_list_get_res = DB::query("
 			UPDATE article 
 			SET del = 1
 			WHERE primary_id = ".$method."")->execute();
+		// 注目まとめ削除
+		$article_list_get_res = DB::query("
+			UPDATE recommend_article 
+			SET del = 1
+			WHERE article_id = ".$method."")->execute();
 	}
 }
