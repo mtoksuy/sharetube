@@ -328,8 +328,9 @@ class Model_Article_Basis extends Model {
 		$recommend_article_200_res = DB::query("
 			SELECT * 
 			FROM recommend_article 
+			WHERE del = 0
 			ORDER BY article_id DESC
-			LIMIT 0, 200")->cached(86400)->execute();
+			LIMIT 0, 100")->cached(86400)->execute();
 		foreach($recommend_article_200_res as $key => $value) {
 			$add_and_2 .= ''.$value['article_id'].',';
 		}
@@ -491,11 +492,11 @@ class Model_Article_Basis extends Model {
 	public static function recommend_article_paging_data_get($list_num, $paging_num) {
 		// last_num取得
 		$max_res = DB::query("
-			SELECT MAX(primary_id)
+			SELECT COUNT(primary_id)
 			FROM recommend_article
 			WHERE del = 0")->cached(10800)->execute();
 		foreach($max_res as $key => $value) {
-			$last_num = (int)$value['MAX(primary_id)'];
+			$last_num = (int)$value['COUNT(primary_id)'];
 		}
 		// 最大ページング数取得
 		$max_paging_num = (int)ceil($last_num/$list_num);

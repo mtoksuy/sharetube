@@ -354,7 +354,8 @@ article.cssに大元がある
 	margin: 30px 0 30px 0;
 }
 .article_bottom_like_box_contents {
-	background-color: #2D2D2A;
+	background-color: #ffffff;
+box-shadow: 0 0 0 1px #e7e7e7;
 	position: relative;
     border-radius: 4px 3px 3px 4px;
 }
@@ -381,7 +382,7 @@ article.cssに大元がある
 	margin: 15px 0 10px 0;
 }
 .article_bottom_like_box_contents_right_text p {
-	color: #fcfcfc;
+	color: #292f33;
 	margin:0;
 }
 .article_bottom_like_box_contents_right_button {
@@ -397,15 +398,10 @@ article.cssに大元がある
    margin: 34px 0 0 0;
 }
 .article_bottom_like_box_contents_right_foot p {
-	color: #fcfcfc;
+	color: #292f33;
 	font-size: 82%;
 	margin:0;
 }
-
-
-
-
-
 
 
 

@@ -331,12 +331,12 @@ class Model_Info_Basis extends Model {
 	//-----------------------------
 	//Sharetubeのユーザーデータ取得
 	//-----------------------------
-	static function sharetube_user_data_get($sharetube_id) {
+	static function sharetube_user_data_get($sharetube_id, $cached = 900) {
 		$sharetube_user_data_array  = array();
 		$sharetube_user_data_res = DB::query("
 			SELECT *
 			FROM user 
-			WHERE sharetube_id = '".$sharetube_id."'")->cached(86400)->execute();
+			WHERE sharetube_id = '".$sharetube_id."'")->cached($cached)->execute();
 		foreach($sharetube_user_data_res as $key => $value) {
 			$sharetube_user_data_array["primary_id"]          = $value["primary_id"];
 			$sharetube_user_data_array["sharetube_id"]        = $value["sharetube_id"];
@@ -360,6 +360,11 @@ class Model_Info_Basis extends Model {
 		}
 		return $sharetube_user_data_array;
 	}
+
+
+
+
+
 	//-------------------------------------
 	//Sharetubeユーザーの書いた記事数を取得
 	//-------------------------------------

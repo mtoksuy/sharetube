@@ -29,7 +29,7 @@ class Controller_Login_Admin_Userbankedit extends Controller_Login_Template {
 					$user_data_edit_complete_text = '';
 				}
 			// ログインユーザーデータ取得
-			$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"]);
+			$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"], 0);
 //			var_dump($sharetube_user_data_array);
 			// コンテンツ挿入
 			$this->login_admin_template->view_data["content"]->set('content_data',array(
