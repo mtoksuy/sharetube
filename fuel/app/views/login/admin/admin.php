@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.18<br>
+						<p>Sharetube version 5.4.18.1<br>
 利用規約が出来ました。<br>
 <a href="<?php echo HTTP; ?>rule/rule">利用規約</a>
 					</div>
@@ -77,6 +77,20 @@
 
 
 
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年07月08日：Var.5.4.18.1</pre>
+					</dt>
+					<dd>
+						<pre>・ユーザー情報編集ページでキャッシュ情報が表示されているのを修正
+・まとめ作成 iPad・iPhone対応実装</pre>
+					</dd>
+				</dl>
+			</li>
+
 			<li class="clearfix">
 				<dl>
 					<dt>
@@ -85,8 +99,7 @@
 					<dd>
 						<pre>・人気記事アルゴリズム変更
 ・利用規約作成
-・まとめ作成後、まとめページ1回目のアクセスがやたら重い(1分〜2分)のを修正
-・ユーザー情報編集ページでキャッシュ情報が表示されているのを修正</pre>
+・まとめ作成後、まとめページ1回目のアクセスがやたら重い(1分〜2分)のを修正</pre>
 					</dd>
 				</dl>
 			</li>
