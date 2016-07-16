@@ -212,7 +212,7 @@
 -->
 					</ol>
 					<section class="drawer_nav_copy">
-						<p>&copy; 2014 <a href="">Sharetube</a></p>
+						<p>&copy; 2016 <a href="">Sharetube</a></p>
 					</section>
 				</nav>
 			<!-- main -->
@@ -242,7 +242,7 @@
 					</dl>
 				</div>
 						<div class="release_date_time">
-							<span>Release Date：</span><time datetime="2014-10-02" pubdate="pubdate">2014年10月02日</time>
+							<span>Release Date：</span><time datetime="2016-07-14" pubdate="pubdate">2016年07月14日</time>
 						</div>
 						<div class="social_button_list clearfix">
 			<ul>
@@ -275,8 +275,6 @@
 			</ul>
 		</div>
 						
-
-
 						
 						<div class="article_list_contents_sub_text">
 
@@ -287,30 +285,32 @@
 <p class="m_0">様々なタイプの広告をご用意致しましたので</p>
 <p class="m_0">ご検討の程宜しくお願い致します。</p>
 
-<h2 class="heading_3">Sharetube基本情報（2014年09月版）</h2>
-<p>・PV数：222,365</p>
+<h2 class="heading_3">Sharetube基本情報（2016年06月版）</h2>
+<p>・PV数：1,837,970</p>
 
-<p>・訪問者数：168,723</p>
+<p>・訪問者数：1,690,543</p>
+
+<p>・平均ページ滞在時間：00:03:45</p>
 
 <p class="m_0">・直近一ヶ月PC率、スマホ率</p>
-<p class="m_0">　mobile：70.70%</p>
-<p class="m_0">　desktop：25.51%</p>
-<p class="m_0">　tablet：3.78%</p>
+<p class="m_0">　mobile：76.69%</p>
+<p class="m_0">　desktop：17.94%</p>
+<p class="m_0">　tablet：5.37%</p>
 <p class="m_0">モバイルの内訳は</p>
-<p>Apple iPhoneが53.58%で、その他の200程の機種で46%となってます。</p>
+<p>Apple iPhoneが58%で、その他の200程の機種で42%となってます。</p>
 
 <h3 class="heading_3h_1">年代別・男女比率</h3>
 <p class="m_0">
-	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_2747.jpg">
-		<img class="great_image_100 o_8" src="http://sharetube.jp/assets/img/article/image/image_2747.jpg" width="640" height="400" alt="" title="">
+	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_14879.png">
+		<img class="great_image_100 o_8" src="http://sharetube.jp/assets/img/article/image/image_14879.png" width="640" height="400" alt="" title="">
 	</a>
 </p>
 <p class="blockquote_font text_right">画像をクリックで拡大</p>
 
 <h3 class="heading_3h_1">シェアされるソーシャル別の割合</h3>
 <p class="m_0">
-	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_2748.jpg">
-		<img class="great_image_100 o_8" src="http://sharetube.jp/assets/img/article/image/image_2748.jpg" width="640" height="400" alt="" title="">
+	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_14880.png">
+		<img class="great_image_100 o_8" src="http://sharetube.jp/assets/img/article/image/image_14880.png" width="640" height="400" alt="" title="">
 	</a>
 </p>
 <p class="blockquote_font text_right">画像をクリックで拡大</p>
@@ -318,11 +318,25 @@
 
 
 
+<h2 class="heading_3">まとめ広告(ネイティブ広告)</h2>
+<p>通常まとめの1.5倍以上のボリューム&質でまとめを書かせて頂きます。NGネタはアダルト関連と違法商品でそれ以外であれば引き受けたいと考えています。サイトの性質上、まとめ形式で記事を仕上げる事になります。</p>
+
+<p>なお、まとめ広告(ネイティブ広告)は掲載から一ヶ月間オススメまとめとして全記事からのリンクが張られます。</p>
+
+<p class="m_0">［広告仕様］</p>
+<p class="m_0">・まとめは無期限で公開</p>
+<p class="m_0">・まとめの宣伝は公開された日から一ヶ月間</p>
+<p>・クライアント様自身がまとめを制作した場合、制作料は無料となります</p>
+
+<p class="f_s_150">まとめ制作料：50,000円〜150,000円</p>
+<p class="f_s_150">全まとめから表示する広告料：150,000円</p>
+
+
 
 <h2 class="heading_3">スマホ用ヘッダートップ広告（320×60）</h2>
 <p class="m_0">
-	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_2742.jpg">
-		<img class="great_image_50 o_8" src="http://sharetube.jp/assets/img/article/image/image_2742.jpg" width="640" height="400" alt="" title="">
+	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_14881.png">
+		<img class="great_image_50 o_8" src="http://sharetube.jp/assets/img/article/image/image_14881.png" width="640" height="400" alt="" title="">
 	</a>
 </p>
 <p class="blockquote_font text_right">画像をクリックで拡大</p>
@@ -351,15 +365,35 @@
 <p class="m_0">［広告仕様］</p>
 <p>・300×250固定</p>
 
-<p class="f_s_150">一ヶ月掲載料：12,000円</p>
+<p class="f_s_150">一ヶ月掲載料：120,000円</p>
+
+
+
+
+<h2 class="heading_3">スマホ用人気まとめ直下広告（300×250）</h2>
+<p class="m_0">
+	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_14883.png">
+		<img class="great_image_50 o_8" src="http://sharetube.jp/assets/img/article/image/image_14883.png" width="640" height="400" alt="" title="">
+	</a>
+</p>
+<p class="blockquote_font text_right">画像をクリックで拡大</p>
+
+<p>人気まとめ直下で表示される広告です。まとめを読んで満足したユーザーが他のコンテンツを探しているのでクリック率が高いのが特徴。</p>
+
+<p class="m_0">［広告仕様］</p>
+<p>・300×250固定</p>
+
+<p class="f_s_150">一ヶ月掲載料：80,000円</p>
+
+
 
 
 <h2 class="heading_3">記事直下レスポンシブ広告</h2>
 
 <h3 class="heading_3h_1">スマホ表示</h3>
 <p class="m_0">
-	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_2743.jpg">
-		<img class="great_image_50 o_8" src="http://sharetube.jp/assets/img/article/image/image_2743.jpg" width="640" height="400" alt="" title="">
+	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_14882.png">
+		<img class="great_image_50 o_8" src="http://sharetube.jp/assets/img/article/image/image_14882.png" width="640" height="400" alt="" title="">
 	</a>
 </p>
 <p class="blockquote_font text_right">画像をクリックで拡大</p>
@@ -377,14 +411,14 @@
 <p class="m_0">・レスポンシブの特性上、二つのバナー画像をご用意して頂く必要がある</p>
 <p>・スマホの300×250は固定</p>
 
-<p class="f_s_150">一ヶ月掲載料：15,000円</p>
+<p class="f_s_150">一ヶ月掲載料：100,000円</p>
 
 
 
 <h2 class="heading_3">サイドバートップ広告（300×250）</h2>
 <p class="m_0">
-	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_2746.jpg">
-		<img class="great_image_100 o_8" src="http://sharetube.jp/assets/img/article/image/image_2746.jpg" width="640" height="400" alt="" title="">
+	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_14884.png">
+		<img class="great_image_100 o_8" src="http://sharetube.jp/assets/img/article/image/image_14884.png" width="640" height="400" alt="" title="">
 	</a>
 </p>
 <p class="blockquote_font text_right">画像をクリックで拡大</p>
@@ -395,13 +429,13 @@
 <p class="m_0">［広告仕様］</p>
 <p>・300×250は固定</p>
 
-<p class="f_s_150">一ヶ月掲載料：12,000円</p>
+<p class="f_s_150">一ヶ月掲載料：50,000円</p>
 
 
 <h2 class="heading_3">サイドバーボトム広告（300×600）</h2>
 <p class="m_0">
-	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_2745.jpg">
-		<img class="great_image_100 o_8" src="http://sharetube.jp/assets/img/article/image/image_2745.jpg" width="640" height="400" alt="" title="">
+	<a target="_blank" href="http://sharetube.jp/assets/img/article/image/image_14885.png">
+		<img class="great_image_100 o_8" src="http://sharetube.jp/assets/img/article/image/image_14885.png" width="640" height="400" alt="" title="">
 	</a>
 </p>
 <p class="blockquote_font text_right">画像をクリックで拡大</p>
@@ -412,18 +446,7 @@
 <p class="m_0">［広告仕様］</p>
 <p>・300×は固定、縦の600に関しては+-200くらいは許容範囲</p>
 
-<p class="f_s_150">一ヶ月掲載料：10,000円</p>
-
-
-<h2 class="heading_3">記事広告 or ネイティブ広告</h2>
-<p>通常記事の1.5倍以上のボリュームor 質で記事を書かせて頂きます。NGネタはアダルト関連と違法商品でそれ以外であれば引き受けたいと考えています。サイトの性質上、まとめ形式で記事を仕上げる事になります。</p>
-
-<p>なお、記事広告 or ネイティブ広告は掲載から一ヶ月間オススメ記事として全記事からのリンクが張られます。</p>
-
-<p class="m_0">［広告仕様］</p>
-<p>・掲載されたら想定外のクレームが無い限り記事は無期限で公開</p>
-
-<p class="f_s_150">1記事制作料：30,000円</p>
+<p class="f_s_150">一ヶ月掲載料：30,000円</p>
 
 
 <h2 class="heading_3">【個人向け】テキストリンク広告（nofollow）</h2>
@@ -439,17 +462,19 @@
 
 <p>場所は記事内のボトムでリンクメニューです。現在は「サーバ代を補ってくれたサイト」でリンクを表示しようかと考えています。この文言は不定期で変更されます。</p>
 
-<p>広告で遊びましょ。</p>
 
 <p class="m_0">［広告仕様］</p>
-<p>・文字数は常識範囲内で（サイト名以外は受け付けません）</p>
+<p class="m_0">・サイト名のテキストリンク表示</p>
+<p>・全まとめページで表示</p>
 
-<p class="f_s_150">一ヶ月掲載料：2,000円</p>
+<p class="f_s_150">一ヶ月掲載料：5,000円</p>
+
+
+
 
 <h2 class="heading_3">最後に</h2>
 <p>現在の価格は毎月のPV数やインプレッション単価で変動致します。効果が高くて広告費が安いと感じてくれるような広告を目指してまいりますので広告主さまになってくれる企業、個人の方がいらっしゃれば是非<a href="http://sharetube.jp/contact/" target="_blank">コンタクト</a>からご連絡宜しくお願い致します。</p>
 
-<p>まだまだ小さなサイトではありますが、近いうちにブログ式のサイトではなく、まとめサービスにバージョンアップしてまいります。では、ご連絡お待ちしております。</p>
 
 
 

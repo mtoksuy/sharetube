@@ -2,6 +2,7 @@
 	<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<meta name='robots' content='noindex,nofollow'>
 		<title><?php echo $view_data["title"]; ?></title>
 		<link rel="stylesheet" href="<?php echo Uri::base(); ?>assets/css/common/common.css" type="text/css">

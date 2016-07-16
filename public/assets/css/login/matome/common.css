@@ -2428,3 +2428,40 @@ border-radius: 30px;
 .editbar .delete {
 	margin: 0 0 0 5px;
 }
+
+
+
+
+/*******
+iPad対応
+*******/
+@media screen and (min-width:0px)and (max-width:1200px) {
+	.columns_2 {
+	    margin-left: 23px;
+	    margin-right: 30px;
+	}
+	.new_post_contents {
+	    margin: 0;
+	    width: 100%;
+	}
+	.new_post {
+	    float: none;
+	}
+	.postboxs {
+	    bottom: 0;
+	    float: none;
+	    position: relative;
+	    width: 100%;
+	}
+	.postbox {
+	    margin: 30px 0;
+	}
+}
+@media screen and (min-width:0px)and (max-width:640px) {
+	.text_design_tool {
+	    display: none;
+	}
+	.admin_right {
+	    margin-left: 0;
+	}
+}

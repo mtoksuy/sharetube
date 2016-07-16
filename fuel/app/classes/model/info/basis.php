@@ -331,12 +331,12 @@ class Model_Info_Basis extends Model {
 	//-----------------------------
 	//Sharetubeのユーザーデータ取得
 	//-----------------------------
-	static function sharetube_user_data_get($sharetube_id) {
+	static function sharetube_user_data_get($sharetube_id, $cached = 900) {
 		$sharetube_user_data_array  = array();
 		$sharetube_user_data_res = DB::query("
 			SELECT *
 			FROM user 
-			WHERE sharetube_id = '".$sharetube_id."'")->cached(86400)->execute();
+			WHERE sharetube_id = '".$sharetube_id."'")->cached($cached)->execute();
 		foreach($sharetube_user_data_res as $key => $value) {
 			$sharetube_user_data_array["primary_id"]          = $value["primary_id"];
 			$sharetube_user_data_array["sharetube_id"]        = $value["sharetube_id"];
@@ -360,6 +360,11 @@ class Model_Info_Basis extends Model {
 		}
 		return $sharetube_user_data_array;
 	}
+
+
+
+
+
 	//-------------------------------------
 	//Sharetubeユーザーの書いた記事数を取得
 	//-------------------------------------
@@ -458,10 +463,19 @@ if($detect->isMobile() || $detect->isTablet()) {
 	//1アクセス前のREMOTE_HOST取得
 	//----------------------------
 	public static function one_before_remote_host_get($method) {
+		// 現在の時間表記を取得
+		$now_date = Model_Info_Basis::now_date_get();
+		// 現在のtimeを取得
+		$now_time = time();
+		$one_week_before_time = $now_time - 604800; // 一週間差し引く
+		$one_week_before_date = date('Y-m-d H:i:s', $one_week_before_time);
+
 		$access_res = DB::query("
 			SELECT * 
 			FROM access 
 			WHERE article_id = ".$method."
+ 			AND access_time > '".$one_week_before_date."'
+ 			AND access_time < '".$now_date."'
 			ORDER BY primary_id DESC 
 			LIMIT 0, 1")->execute();
 		foreach($access_res as $key => $value) {
@@ -477,5 +491,13 @@ if($detect->isMobile() || $detect->isTablet()) {
 		$recommend_article_paging_data_array = Model_Article_Basis::recommend_article_paging_data_get(10, $method);
 		if($recommend_article_paging_data_array['max_paging_num'] >= $recommend_article_paging_data_array['paging_num']) { $is_recommendarticle = true; } else { $is_recommendarticle = false; }
 		return $is_recommendarticle;
+	}
+	//--------------------
+	//現在の時間表記を取得
+	//--------------------
+	public static function now_date_get($denoted = 'Y-m-d H:i:s') {
+		$now_time          = time();
+		$now_date          = date($denoted, $now_time);
+		return $now_date;
 	}
 }

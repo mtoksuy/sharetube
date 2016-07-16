@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name='robots' content='noindex,nofollow'>
+
 		<title><?php echo $view_data["title"]; ?></title>
 		<link rel="stylesheet" href="<?php echo Uri::base(); ?>assets/css/common/common.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo Uri::base(); ?>assets/css/login/common.css" type="text/css">

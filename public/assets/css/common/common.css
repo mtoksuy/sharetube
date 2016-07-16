@@ -1409,7 +1409,9 @@ a:hover {
   margin: 0 0 0 15px;
   padding: 5px 0 5px 10px;
   width: 283px;
-  -webkit-appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 .search_window_form input[type=submit] {
@@ -1527,7 +1529,9 @@ a:hover {
   display: block;
   padding: 5px;
   width: 138px;
-  -webkit-appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 .li_clear {
@@ -3026,7 +3030,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 .recommend_article_paging .recommend_article_paging_inner ul li a {
     border: 1px solid #ddd;
     border-radius: 2px;
-    padding: 7px 14px;
+    padding: 6px 10px;
 		color: #589be5;
 }
 /******

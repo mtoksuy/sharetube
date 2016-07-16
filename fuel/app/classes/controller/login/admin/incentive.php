@@ -39,7 +39,8 @@ class Controller_Login_Admin_Incentive extends Controller_Login_Template {
 				'content' => View::forge('login/admin/incentive/incentive'),
 		);
 		// Sharetubeのユーザーデータ取得
-		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"]);
+		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"], 0);
+
 		// インセンティブのデータ取得
 		$incentive_data_array      = Model_Login_Incentive_Basis::incentive_data_get();
 
@@ -88,7 +89,7 @@ class Controller_Login_Admin_Incentive extends Controller_Login_Template {
 				'content' => View::forge('login/admin/incentive/incentive'),
 			);
 		// Sharetubeのユーザーデータ取得
-		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"]);
+		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"], 0);
 		// インセンティブのデータ取得
 		$incentive_data_array      = Model_Login_Incentive_Basis::incentive_data_get();
 		// 支払画面のHTML生成
@@ -123,7 +124,7 @@ class Controller_Login_Admin_Incentive extends Controller_Login_Template {
 				'content' => View::forge('login/admin/incentive/incentive'),
 			);
 		// Sharetubeのユーザーデータ取得
-		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"]);
+		$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($_SESSION["sharetube_id"], 0);
 		// インセンティブのデータ取得
 		$incentive_data_array      = Model_Login_Incentive_Basis::incentive_data_get();
 		// 支払いチェック

@@ -43,8 +43,8 @@ class Controller_Login_Admin_List_Delete extends Controller_Login_Template {
 		if($login_check) {
 			// まとめデータ取得
 			$article_data_array = Model_Info_Basis::article_data_get($method);
-			// まとめを書いた本人なら削除
-			if($_SESSION['sharetube_id'] == $article_data_array['sharetube_id']) {
+			// まとめを書いた本人・管理人なら削除
+			if($_SESSION['sharetube_id'] == $article_data_array['sharetube_id'] || $_SESSION['sharetube_id'] == 'mtoksuy') {
 				// まとめを削除
 				Model_Login_List_Basis::article_delete($method);
 				header('Location: '.HTTP.'login/admin/list/');

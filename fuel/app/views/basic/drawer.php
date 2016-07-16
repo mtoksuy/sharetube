@@ -58,6 +58,7 @@
 								<dd>
 									<ul>
 										<li><a href="<?php echo HTTP; ?>about/">Sharetubeについて</a></li>
+										<li><a href="<?php echo HTTP; ?>rule/rule">利用規約</a></li>
 										<li><a href="<?php echo HTTP; ?>contact/">お問い合わせ</a></li>
 										<li><a href="<?php echo HTTP; ?>sitemap/">サイトマップ</a></li>
 										<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>

@@ -139,8 +139,8 @@ class Model_Article_Basis extends Model {
 	//アクセスDB書き込み &  all_page_viewをプラス
 	//-------------------------------------------
 	static function article_access_writing_and_all_page_view_plus($method, $user_data_array, $article_res) {
-//		var_dump($method);
-//		var_dump($user_data_array);
+//		pre_var_dump($method);
+//		pre_var_dump($user_data_array);
 		$is_access = true;
 		// アクセス禁止名
 		$save_array = array(
@@ -320,9 +320,22 @@ class Model_Article_Basis extends Model {
 		// クエリが長時間になるための応急処置 2015.01.23 松岡
 		// 最新記事のprimary_id取得
 		$article_latest_data_array = Model_Article_Basis::article_latest_get();
+		// 最新記事primari_id取得
 		$latest_article_number = (int)$article_latest_data_array["primary_id"];
 		// クエリ時間がきになるが再調整 50から200に変更 2016.01.11 松岡
 		$add_and = "AND article_id > ".($latest_article_number - 200)."";
+		// 新しいadd_and作成 2016.06.24 松岡
+		$recommend_article_200_res = DB::query("
+			SELECT * 
+			FROM recommend_article 
+			WHERE del = 0
+			ORDER BY article_id DESC
+			LIMIT 0, 100")->cached(86400)->execute();
+		foreach($recommend_article_200_res as $key => $value) {
+			$add_and_2 .= ''.$value['article_id'].',';
+		}
+		$add_and_2 = substr($add_and_2, 0, -1);
+		$add_and_2 = 'AND article_id IN ('.$add_and_2.')';
 
 		// whereを空にする
 		if($access_day_date === NULL) {
@@ -382,11 +395,11 @@ class Model_Article_Basis extends Model {
 				SELECT article_id,SUM(access_summary.count)
 				FROM access_summary 
 					".$where."
-					".$add_and."
+					".$add_and_2."
 				GROUP BY article_id
 				ORDER BY SUM(access_summary.count) DESC
 				LIMIT 0, ".$get_num."")->cached($cached_time)->execute();
-//			var_dump($access_sum_res);
+//			pre_var_dump($access_sum_res);
 			$article_access_list = '';
 			// 記事リスト作成
 			foreach($access_sum_res as $key => $value) {
@@ -457,16 +470,16 @@ class Model_Article_Basis extends Model {
 		$recommend_article_res = DB::query("
 			SELECT *
 			FROM recommend_article
+			WHERE del = 0
 			ORDER BY article_id DESC
-			LIMIT ".$start_list_num.", ".$get_num."")->execute();
-
+			LIMIT ".$start_list_num.", ".$get_num."")->cached(10800)->execute();
 
 		foreach($recommend_article_res as $key => $value) {
 			$article_res = DB::query("
 				SELECT primary_id, sharetube_id, category, title, sub_text, tag, thumbnail_image, sp_thumbnail, link, matome_frg, create_time, update_time
 				FROM article
 				WHERE primary_id = ".$value['article_id']."
-				AND del = 0")->execute();
+				AND del = 0")->cached(86400)->execute();
 			foreach($article_res as $article_key => $article_value) {
 				$recommend_article_array[$key] = $article_value;
 			}
@@ -479,11 +492,11 @@ class Model_Article_Basis extends Model {
 	public static function recommend_article_paging_data_get($list_num, $paging_num) {
 		// last_num取得
 		$max_res = DB::query("
-			SELECT MAX(primary_id)
+			SELECT COUNT(primary_id)
 			FROM recommend_article
-			WHERE del = 0")->execute();
+			WHERE del = 0")->cached(10800)->execute();
 		foreach($max_res as $key => $value) {
-			$last_num = (int)$value['MAX(primary_id)'];
+			$last_num = (int)$value['COUNT(primary_id)'];
 		}
 		// 最大ページング数取得
 		$max_paging_num = (int)ceil($last_num/$list_num);
@@ -496,16 +509,4 @@ class Model_Article_Basis extends Model {
 		);
 		return $recommend_article_paging_data_array;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 }

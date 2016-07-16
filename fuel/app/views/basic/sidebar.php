@@ -76,6 +76,7 @@
 		<ul>
 			<li>© <?php echo date('Y'); ?> Sharetube</li>
 			<li><a href="<?php echo HTTP; ?>about/">Sharetubeについて</a></li>
+			<li><a href="<?php echo HTTP; ?>rule/rule">利用規約</a></li>
 <!--
 			<li><a href="<?php echo HTTP; ?>/">ヘルプ</a></li>
 			<li><a href="<?php echo HTTP; ?>/">規約</a></li>
@@ -83,48 +84,16 @@
 			<li><a href="<?php echo HTTP; ?>contact/">お問い合わせ</a></li>
 			<li><a href="<?php echo HTTP; ?>sitemap/">サイトマップ</a></li>
 			<li><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></li>
-
-
-
 			<li><a href="<?php echo HTTP; ?>signup/">Sharetubeアカウント作成</a></li>
 			<li><a href="<?php echo HTTP; ?>login/" target="_blank">ログイン</a></li>
-
-			<li><a href="<?php echo HTTP; ?>curatorlist/">キュレーターリスト</a></li>
-
-			<li><a href="<?php echo HTTP; ?>curatorrecruitment/">キュレーター募集</a></li>
-			<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
-
 			<li><a href="<?php echo HTTP; ?>curatorrecruitment/">まとめインセンティブについて</a></li>
+			<li><a href="<?php echo HTTP; ?>curatorrecruitment/lp/">業界NO.1のインセンティブ報酬</a></li>
+			<li><a href="<?php echo HTTP; ?>curatorlist/">キュレーターリスト</a></li>
+			<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
 <!--
 
 			<li><a href="<?php echo HTTP; ?>/">採用情報</a></li>
 -->
 		</ul>
 	</div>
-
-
-
-
-
-
-
-<!--
-	<div class="curator_recruitment o_8 m_t_30">
-		<a href="http://sharetube.jp/curatorrecruitment/" target="blank">
-			<div  class="curator_recruitment_content">
-				<h3><span class="typcn typcn-pencil"></span>キュレーターを募集しています</h3>
-				<p class="m_t_15 m_b_0">シェアしたい情報を集めてまとめを作成してみませんか？誰でも簡単に作れる事が可能です。業界No.1のインセティブも魅力の一つ！新規登録も1分以内に完了！あなたのまとめ力を必要としています。
-<!--
-				<h3><span class="typcn typcn-pencil"></span>まとめ記事作りたい人募集</h3>
-				<p class="m_t_15 m_b_0">シェアしたい情報を集めたい方優先、業界No.1のインセティブを支払います。お小遣い稼ぎにぴったり！毎月3万以上、稼ごう♪くわしくはこちらSharetubeはキュレーターを募集しています。好きな情報をまとめて、お小遣い稼ぎしよう
--->
-<!--
-
-				</p>
-			</div>
-		</a>
-	</div>
--->
-
-
 </div>
