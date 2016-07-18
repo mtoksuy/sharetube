@@ -500,4 +500,19 @@ if($detect->isMobile() || $detect->isTablet()) {
 		$now_date          = date($denoted, $now_time);
 		return $now_date;
 	}
+	//------------------------------
+	//テーマがあるかどうかを検査する
+	//------------------------------
+	public static function is_theme($method) {
+		$is_article = false;
+		$res = DB::query(
+			"SELECT *
+				FROM theme
+				WHERE primary_id = ".$method."
+				AND del = 0")->cached(3600)->execute();
+		foreach($res as $key => $value) {
+			$is_article = true;
+		}
+		return $is_article;
+	}
 }

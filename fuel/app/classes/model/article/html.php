@@ -418,8 +418,24 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 		// 全角空白を半角空白に置換
 		$pattern = '/　/';
 		$tag = preg_replace($pattern, ' ', $tag);
+		// 、を半角空白に置換
+		$pattern = '/、/';
+		$tag = preg_replace($pattern, ' ', $tag);
+		// ,を半角空白に置換
+		$pattern = '/,/';
+		$tag = preg_replace($pattern, ' ', $tag);
+
 		// タグarray
 		$tag_array = explode(' ', $tag);
+		$null_array = array();
+		foreach($tag_array as $key => $value) {
+			if($value) {
+				$null_array[] = $value;
+			}
+		}
+		// タグarrayを戻す
+		$tag_array = $null_array;
+
 		$tag_li = '';
 		// タグありとなしの場合
 		switch($tag) {
@@ -428,17 +444,28 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			break;
 			default:
 				foreach($tag_array as $key => $value) {
-					$tag_li .= 
-						'<li><a>'.$value.'</a></li>';
+
+
+					// テーマres取得
+					$theme_res = Model_Theme_Basis::tag_name_in_theme_res_get($value);
+					foreach($theme_res as $theme_key => $theme_value) {
+						$tag_li .= 
+							'<li><a href="'.HTTP.'theme/'.$theme_value['primary_id'].'/">'.$theme_value['theme_name'].'</a></li>';
+					}
 				}
 			break;
 		}
 		// タグHTML生成
 		$tag_html = ('
 			<div class="tag">
+<!--
 				<span class="typcn typcn-tags clearfix"></span>
+				<span class="typcn typcn-pin-outline"></span>
+				<span class="typcn typcn-attachment-outline"></span>
+-->
+				<span class="typcn typcn-document-add clearfix"></span>
 				<ul class="clearfix">
-					<li>Tag To：</li>
+					<li>Theme To：</li>
 						'.$tag_li.
 				'</ul>
 			</div>');

@@ -2711,6 +2711,17 @@ a:hover {
   top: 17px;
 }
 
+.tag .typcn-document-add {
+    color: #888;
+    float: left;
+    font-size: 17px;
+    line-height: 100%;
+    margin-right: 4px;
+    position: relative;
+    top: 15px;
+}
+
+
 .author_word {
   border-left: 2px solid #ddd;
   margin: 10px 0 15px;

@@ -12,6 +12,71 @@ class Controller_Root extends Controller_Basic_Template {
 	}
 	// 基本アクション
 	public function action_index() {
+
+
+/*
+// allタグ取得
+$all_tag_res = DB::query("
+	SELECT tag 
+	FROM article 
+	WHERE del = 0
+	ORDER BY article.primary_id ASC")->execute();
+$i = 0;
+
+// テーマ登録
+foreach($all_tag_res as $key => $value) {
+//	pre_var_dump($value);
+	// tag_array取得
+	list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value['tag']);
+	// 検査
+	foreach($tag_array as $tag_key => $tag_value) {
+		$tag_check_res = DB::query("
+			SELECT *
+			FROM theme
+			WHERE theme_name = '".$tag_value."'
+			AND del = 0")->execute();
+		$theme_check = false;
+		// すでにあったらtrue
+		foreach($tag_check_res as $tag_check_key => $tag_check_value) {
+			$theme_check = true;
+		}
+		// なかったらテーマ登録
+		if(!$theme_check) {
+			$tag_insert_res = DB::query("
+				INSERT INTO
+				theme (
+					theme_name,
+					theme_link_name,
+					theme_summary
+				)	
+				VALUES (
+					'".$tag_value."',
+					'',
+					''
+				)
+			")->execute();
+			// create62Hash
+			$tag_link_name = Model_Login_Twitterscraping_Basis::create62Hash($tag_insert_res[0]);
+			// 
+			DB::query("
+				UPDATE theme
+				SET theme_link_name = '".$tag_link_name."'
+				WHERE primary_id = '".$tag_insert_res[0]."'")->execute();
+		}
+	}
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
 		// セグメント情報取得
 		$segment_info_get_array = Model_Info_Basis::segment_info_get();
 //pre_var_dump($segment_info_get_array);
