@@ -11,17 +11,24 @@ class Controller_Theme extends Controller_Theme_Template {
 	// ルーター
 	public function router($method, $params) {
 		// セグメント審査と軽い記事審査
-		if (!$params && preg_match('/^[0-9]+$/', $method, $method_array)) {
+		if($params[1] == null && preg_match('/^[0-9]+$/', $method, $method_array)) {
 			$method = (int)$method;
 			// テーマがあるかどうかを検査する
 			$is_theme = Model_Info_Basis::is_theme($method);
-			// 記事がある場合
-			if($is_theme) {
-				return $this->action_index($method);
+			// テーマページング
+			if($is_theme && $params[0]) {
+						return $this->action_index($method, $params);
 			}
-				// エラー
+				// テーマトップページ
 				else {
-					return $this->action_404();
+					// テーマがある場合
+					if($is_theme) {
+						return $this->action_index($method);
+					}
+						// エラー
+						else {
+							return $this->action_404();
+						}
 				}
 		}
 			// エラー
@@ -36,13 +43,23 @@ class Controller_Theme extends Controller_Theme_Template {
 	//----------
 	//アクション
 	//----------
-	public function action_index($method) {
+	public function action_index($method, $params) {
+		// テーマの名前取得
+		$theme_name = Model_Theme_Basis::theme_name_get($method);
+		// ページングメソッド&タイトルセット
+		if($params[0]) { $paging_method = (int)$params[0]; $this->theme_template->view_data['title'] = $paging_method.'ページ目'.'｜'.'「'.$theme_name.'」の人気まとめ一覧'.'｜'.TITLE;} else { $paging_method = 1; $this->theme_template->view_data['title'] = '「'.$theme_name.'」の人気まとめ一覧'.'｜'.TITLE; }
 		// テーマres取得
 		$theme_res = Model_Theme_Basis::theme_res_get($method);
 		// テーマ一覧HTML生成
-		$theme_list_html = Model_Theme_Html::theme_list_html_create($theme_res);
+		$theme_list_html = Model_Theme_Html::theme_list_html_create($theme_res, $paging_method);
+		// テーマページングデータ取得
+		$theme_paging_data_array = Model_Theme_Basis::theme_paging_data_get($theme_res, 10, $paging_method);
+		// テーマページングHTML生成
+		$paging_html = Model_Theme_Html::theme_paging_html_create($theme_res, $theme_paging_data_array);
 		// テーマのまとめ数HTML生成
 		$theme_count_html = Model_Theme_Html::theme_count_html_create($theme_res);
+		// 
+		$theme_list_html = $theme_list_html.$paging_html;
 		// コンテンツセット
 		$this->theme_template->view_data["content"]->set('content_data', array(
 			'theme_count_html' => $theme_count_html,

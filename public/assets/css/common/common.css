@@ -2675,12 +2675,13 @@ a:hover {
 }
 
 .tag li {
+/*
   background-color: #F7F7F7;
-  border: 1px solid #EEEFEF;
-  color: #888;
+*/
+  border: 1px solid #e7e7e7;
+  color: #666;
   float: left;
   list-style: none;
-  padding: 0 5px;
 }
 
 .tag li:first-child {
@@ -2692,14 +2693,26 @@ a:hover {
   list-style: none;
   padding: 0;
 }
-
 .tag li:hover {
-  border: 1px solid #D6D7D7;
+  border: 1px solid #c0c1c1;
+	background-color: #fafafa;
 }
-
 .tag li:first-child:hover {
   border: none;
 }
+
+.tag li a {
+ padding: 8px 5px;
+  color: #666;
+}
+
+.tag li a .typcn-folder {
+	font-size: 125%;
+}
+
+
+
+
 
 .tag .typcn-tags {
   color: #888;

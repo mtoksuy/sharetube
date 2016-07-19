@@ -444,13 +444,11 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			break;
 			default:
 				foreach($tag_array as $key => $value) {
-
-
 					// テーマres取得
 					$theme_res = Model_Theme_Basis::tag_name_in_theme_res_get($value);
 					foreach($theme_res as $theme_key => $theme_value) {
 						$tag_li .= 
-							'<li><a href="'.HTTP.'theme/'.$theme_value['primary_id'].'/">'.$theme_value['theme_name'].'</a></li>';
+							'<li><a href="'.HTTP.'theme/'.$theme_value['primary_id'].'/"><span class="typcn typcn-folder"></span>'.$theme_value['theme_name'].'</a></li>';
 					}
 				}
 			break;
