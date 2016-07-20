@@ -51,14 +51,14 @@ class Controller_Theme extends Controller_Theme_Template {
 		// テーマres取得
 		$theme_res = Model_Theme_Basis::theme_res_get($method);
 		// テーマ一覧HTML生成
-		$theme_list_html = Model_Theme_Html::theme_list_html_create($theme_res, $paging_method);
-		// テーマページングデータ取得
-		$theme_paging_data_array = Model_Theme_Basis::theme_paging_data_get($theme_res, 10, $paging_method);
+		list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, $paging_method);
+	// テーマページングデータ取得
+		$theme_paging_data_array = Model_Theme_Basis::theme_paging_data_get($theme_article_data_array, 10, $paging_method);
 		// テーマページングHTML生成
 		$paging_html = Model_Theme_Html::theme_paging_html_create($theme_res, $theme_paging_data_array);
 		// テーマのまとめ数HTML生成
-		$theme_count_html = Model_Theme_Html::theme_count_html_create($theme_res);
-		// 
+		$theme_count_html = Model_Theme_Html::theme_count_html_create($theme_paging_data_array, $theme_article_data_array);
+		// 合体
 		$theme_list_html = $theme_list_html.$paging_html;
 		// コンテンツセット
 		$this->theme_template->view_data["content"]->set('content_data', array(

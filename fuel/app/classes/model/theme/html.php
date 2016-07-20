@@ -43,27 +43,29 @@ class Model_Theme_Html extends Model {
 	public static function theme_list_html_create($theme_res, $paging_method) {
 		foreach($theme_res as $key => $value) {
 			// テーマ一覧res取得
-			$theme_list_res = Model_Theme_Basis::theme_list_res_get($value['theme_name'], '10', $paging_method);
+			list($theme_list_res, $theme_article_data_array) = Model_Theme_Basis::theme_list_res_get($value['theme_name'], '10', $paging_method);
 			// 記事一覧HTML生成
 			$theme_list_html = Model_Article_Html::itype_list_html_create($theme_list_res);
 		}
-		return $theme_list_html;
+		return array($theme_list_html, $theme_article_data_array);
 	}
 	//------------------------
 	//テーマのまとめ数HTML生成
 	//------------------------
-	public static function theme_count_html_create($theme_res) {
+	public static function theme_count_html_create($theme_paging_data_array, $theme_article_data_array) {
+/*
 		foreach($theme_res as $key => $value) {
 			// テーマまとめ数res取得
 			$theme_count_res = Model_Theme_Basis::theme_count_res_get($value['theme_name']);
 			foreach($theme_count_res as $theme_count_key => $theme_count_value) {
 				$theme_count_num = $theme_count_value['COUNT(*)'];
 			}
+*/
+
 			$theme_count_html = '
-<div class="theme_count">
-	テーマ 「<h2>'.$value['theme_name'].'</h2>」のまとめ<span class="theme_count_number">'.$theme_count_num.'</span>件
-</div>';
-		}
+				<div class="theme_count">
+					テーマ 「<h2>'.$theme_article_data_array['theme_name'].'</h2>」のまとめ<span class="theme_count_number">'.$theme_paging_data_array['last_num'].'</span>件
+				</div>';
 		return $theme_count_html;
 	}
 	//------------------------
