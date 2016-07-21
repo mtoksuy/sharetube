@@ -50,6 +50,8 @@ if($post["draft"]) {
 		$article_create_data_array["thumbnail_image"] = $image_path;
 		// 下書きを上書きする
 		 Model_Login_Post_Draft_Basis::article_draft_update($article_create_data_array);
+		// テーマエントリー
+		Model_Login_Matome_Theme_Basis::theme_entry($article_create_data_array);
 	} // if($post["draft_save"]) {
 	////////////////////
 	// 下書き保存（初回）
@@ -70,6 +72,9 @@ if($post["draft"]) {
 
 		// 記事下書き保存
 		$draft_primary_id = Model_Login_Post_Draft_Basis::article_draft_save($article_create_data_array, true);
+		// テーマエントリー
+		Model_Login_Matome_Theme_Basis::theme_entry($article_create_data_array);
+
 		$post["draft_primary_id"] = $draft_primary_id;
 		// 初回足跡つけ
 		$post["draft_save"] = true;

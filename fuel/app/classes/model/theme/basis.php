@@ -27,12 +27,12 @@ class Model_Theme_Basis extends Model {
 	//----------------
 	//テーマの名前取得
 	//----------------
-	public static function theme_name_get($method) {
+	public static function theme_name_get($method, $cached = 900) {
 		$theme_res = DB::query("
 			SELECT *
 			FROM theme
 			WHERE primary_id = ".$method."
-			AND del = 0")->execute();
+			AND del = 0")->cached($cached)->execute();
 		foreach($theme_res as $key => $value) {
 			$theme_name = $value['theme_name'];
 		}
@@ -41,31 +41,31 @@ class Model_Theme_Basis extends Model {
 	//-----------------------
 	//テーマ名でテーマres取得
 	//-----------------------
-	public static function tag_name_in_theme_res_get($tag) {
+	public static function tag_name_in_theme_res_get($tag, $cached = 900) {
 		$theme_res = DB::query("
 			SELECT *
 			FROM theme
 			WHERE theme_name = '".$tag."'
 			AND del = 0
 			ORDER BY primary_id ASC
-			LIMIT 0, 1")->execute();
+			LIMIT 0, 1")->cached($cached)->execute();
 		return $theme_res;
 	}
 	//-------------
 	//テーマres取得
 	//-------------
-	public static function theme_res_get($method) {
+	public static function theme_res_get($method, $cached = 900) {
 		$theme_res = DB::query("
 			SELECT *
 			FROM theme
 			WHERE primary_id = ".$method."
-			AND del = 0")->execute();
+			AND del = 0")->cached($cached)->execute();
 		return $theme_res;
 	}
 	//-----------------
 	//テーマ一覧res取得
 	//-----------------
-	public static function theme_list_res_get($theme_name, $get_number = 10, $page = 0) {
+	public static function theme_list_res_get($theme_name, $get_number = 10, $page = 0, $cached = 900) {
 		// テーマの名前でライククエリ生成
 		$where_like_query = Model_Theme_Basis::theme_name_like_query_create($theme_name);
 		// 
@@ -87,11 +87,12 @@ class Model_Theme_Basis extends Model {
 				FROM article
 				".$where_like_query."
 				AND del = 0
-			ORDER BY article.primary_id DESC")->execute();
+			ORDER BY article.primary_id DESC")->cached($cached)->execute();
 
 		foreach($theme_article_res as $key => $value) {
-			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value['tag']);
-			foreach($tag_array as $tag_array_key => $tag_array_value) {
+			// テーマarray生成
+			$theme_array = Model_Theme_Basis::theme_array_create($value['tag']);
+			foreach($theme_array as $tag_array_key => $tag_array_value) {
 				if($tag_array_value == $theme_name) {
 					$theme_article_data_array['theme_article'][$i] = $value['primary_id'];
 					$i++;
@@ -118,7 +119,7 @@ class Model_Theme_Basis extends Model {
 					FROM article
 					WHERE primary_id IN(".$get_article_list.")
 					AND del = 0
-				ORDER BY article.primary_id DESC")->execute();
+				ORDER BY article.primary_id DESC")->cached($cached)->execute();
 		}
 			else {
 				$theme_article_res = '';
@@ -129,37 +130,20 @@ class Model_Theme_Basis extends Model {
 	//-----------------------
 	//テーマカウント数res取得
 	//-----------------------
-	public static function theme_count_res_get($theme_name) {
+	public static function theme_count_res_get($theme_name, $cached = 900) {
 		// テーマの名前でライククエリ生成
 		$where_like_query = Model_Theme_Basis::theme_name_like_query_create($theme_name);
 		$theme_count_res = DB::query("
 			SELECT COUNT(*)
 			FROM article
 			".$where_like_query."
-			AND del = 0")->execute();
+			AND del = 0")->cached($cached)->execute();
 		return $theme_count_res;
 	}
 	//--------------------------
 	//テーマページングデータ取得
 	//--------------------------
 	public static function theme_paging_data_get($theme_article_data_array, $list_num, $paging_num) {
-/*
-		foreach($theme_res as $key => $value) {
-			$theme_name = $value['theme_name'];
-		}
-		// テーマの名前でライククエリ生成
-		$where_like_query = Model_Theme_Basis::theme_name_like_query_create($theme_name);
-
-		// last_num取得
-		$max_res = DB::query("
-			SELECT COUNT(primary_id)
-			FROM article
-			".$where_like_query."
-			AND del = 0")->cached(10800)->execute();
-		foreach($max_res as $key => $value) {
-			$last_num = (int)$value['COUNT(primary_id)'];
-		}
-*/
 		// 最大ページング数取得
 		$max_paging_num = (int)ceil($theme_article_data_array['list_num']/$list_num);
 		// recommend_article_paging_data生成
@@ -170,5 +154,87 @@ class Model_Theme_Basis extends Model {
 			'max_paging_num' => $max_paging_num,
 		);
 		return $theme_paging_data_array;
+	}
+	//---------------
+	//テーマarray生成
+	//---------------
+	static function theme_array_create($theme_data) {
+//pre_var_dump($theme_data);
+		// 全角空白を半角空白に置換
+		$pattern = '/　/';
+		$theme_data = preg_replace($pattern, ' ', $theme_data);
+		// 、を半角空白に置換
+		$pattern = '/、/';
+		$theme_data = preg_replace($pattern, ' ', $theme_data);
+		// ,を半角空白に置換
+		$pattern = '/,/';
+		$theme_data = preg_replace($pattern, ' ', $theme_data);
+
+		// タグarray
+		$theme_array = explode(' ', $theme_data);
+		$null_array = array();
+		foreach($theme_array as $key => $value) {
+			if($value) {
+				$null_array[] = $value;
+			}
+		}
+		// タグarrayを戻す
+		$theme_array = $null_array;
+		return $theme_array;
+	}
+	//-------------------
+	//関連テーマarray取得
+	//-------------------
+	public static function theme_relation_array_get($theme_res) {
+		$theme_relation_array = array();
+		$theme_relation_2_array = array();
+		$i = 0;
+		$check = false;
+		foreach($theme_res as $key => $value) {
+			$theme_name = $value['theme_name'];
+		}
+		$theme_relation_res = DB::query("
+			SELECT tag
+			FROM article
+			WHERE tag LIKE '%".$theme_name."%'
+			AND del = 0
+			ORDER BY primary_id DESC")->cached(259200)->execute();
+		foreach($theme_relation_res as $theme_relation_key => $theme_relation_value) {
+			// テーマarray生成
+			$theme_array = Model_Theme_Basis::theme_array_create($theme_relation_value['tag']);
+//			pre_var_dump($theme_array);
+			foreach($theme_array as $theme_array_key => $theme_array_value) {
+				$theme_relation_array[$i] = $theme_array_value;
+				$i++;
+				foreach($theme_relation_array as $theme_relation_key => $theme_relation_value) {
+					if($theme_relation_value == $theme_array_value) {
+						if($theme_relation_2_array[$theme_relation_key]['count'] == null) {
+							$theme_relation_2_array[$theme_relation_key]['theme_name'] = $theme_array_value;
+							$theme_relation_2_array[$theme_relation_key]['count'] = 1;
+						}
+							else {
+								$theme_relation_2_array[$theme_relation_key]['theme_name'] = $theme_array_value;
+								$theme_relation_2_array[$theme_relation_key]['count']++;
+							}
+						break;
+					}
+						else {
+
+						}
+				}
+			}
+		}
+		foreach ($theme_relation_2_array as $key_2 => $value_2) {
+		  $key_id[$key_2]    = $value_2['theme_name'];
+		  $key_count[$key_2] = $value_2['count'];
+		}
+		$theme_relation_2_array_check = array_multisort($key_count , SORT_DESC , $theme_relation_2_array);
+//pre_var_dump($theme_relation_2_array);
+		if($theme_relation_2_array_check) {
+			return $theme_relation_2_array;
+		}
+			else {
+				return $theme_relation_2_array = '';
+			}
 	}
 }

@@ -4,9 +4,11 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.18.1<br>
-利用規約が出来ました。<br>
-<a href="<?php echo HTTP; ?>rule/rule">利用規約</a>
+						<p>Sharetube version 5.4.19<br>
+
+快適にまとめを作成できるようにサーバ移転の準備を始めます。
+
+
 					</div>
 
 					<h3 class="h3_heading_1">現在書いて欲しいまとめ一覧</h3>
@@ -62,7 +64,6 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p class="m_0">・タグ実装見直し&タグ紐付けページ実装</p>
 					<p class="m_0">・検索機能をget仕様にする</p>
 					<p>・まとめをお気に入りにする機能実装</p>
 
@@ -73,6 +74,23 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年07月21日：Var.5.4.19</pre>
+					</dt>
+					<dd>
+						<pre>・新機能テーマ実装
+・タグはテーマという名称に変更
+・テーマ(タグ)未入力のまま下書きしてプレビュー時にエラーになるバグを修正</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 

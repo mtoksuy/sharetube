@@ -17,7 +17,11 @@ class Controller_Theme extends Controller_Theme_Template {
 			$is_theme = Model_Info_Basis::is_theme($method);
 			// テーマページング
 			if($is_theme && $params[0]) {
-						return $this->action_index($method, $params);
+				// 1の場合テーマトップページに遷移
+				if($params[0] == '1') {
+					header('location:'.HTTP.'theme/'.$method.'/'); exit;
+				}
+				return $this->action_index($method, $params);
 			}
 				// テーマトップページ
 				else {
@@ -45,19 +49,19 @@ class Controller_Theme extends Controller_Theme_Template {
 	//----------
 	public function action_index($method, $params) {
 		// テーマの名前取得
-		$theme_name = Model_Theme_Basis::theme_name_get($method);
+		$theme_name = Model_Theme_Basis::theme_name_get($method, 3600);
 		// ページングメソッド&タイトルセット
 		if($params[0]) { $paging_method = (int)$params[0]; $this->theme_template->view_data['title'] = $paging_method.'ページ目'.'｜'.'「'.$theme_name.'」の人気まとめ一覧'.'｜'.TITLE;} else { $paging_method = 1; $this->theme_template->view_data['title'] = '「'.$theme_name.'」の人気まとめ一覧'.'｜'.TITLE; }
 		// テーマres取得
-		$theme_res = Model_Theme_Basis::theme_res_get($method);
+		$theme_res = Model_Theme_Basis::theme_res_get($method, 3600);
 		// テーマ一覧HTML生成
-		list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, $paging_method);
+		list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, $paging_method, 3600);
 	// テーマページングデータ取得
 		$theme_paging_data_array = Model_Theme_Basis::theme_paging_data_get($theme_article_data_array, 10, $paging_method);
 		// テーマページングHTML生成
 		$paging_html = Model_Theme_Html::theme_paging_html_create($theme_res, $theme_paging_data_array);
 		// テーマのまとめ数HTML生成
-		$theme_count_html = Model_Theme_Html::theme_count_html_create($theme_paging_data_array, $theme_article_data_array);
+		$theme_count_html = Model_Theme_Html::theme_count_html_create($theme_paging_data_array, $theme_article_data_array, 3600);
 		// 合体
 		$theme_list_html = $theme_list_html.$paging_html;
 		// コンテンツセット
@@ -77,9 +81,15 @@ class Controller_Theme extends Controller_Theme_Template {
 
 		// テーマデータHTML生成
 		$theme_data_html = Model_Theme_Html::theme_data_html_create($theme_res);
+		// 関連テーマarray取得
+		$theme_relation_2_array = Model_Theme_Basis::theme_relation_array_get($theme_res);
+		// 関連テーマHTML生成
+		$theme_relation_html = Model_Theme_Html::theme_relation_html_create($theme_res, $theme_relation_2_array);
+
 		// サイドバーコンテンツセット
 		$this->theme_template->view_data["sidebar"]->set('sidebar_data', array(
-			'theme_data_html' => $theme_data_html,
+			'theme_data_html'      => $theme_data_html,
+			'theme_relation_html'  => $theme_relation_html,
 		),false);
 
 

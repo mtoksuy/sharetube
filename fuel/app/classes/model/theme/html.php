@@ -40,10 +40,10 @@ class Model_Theme_Html extends Model {
 	//------------------
 	//テーマ一覧HTML生成
 	//------------------
-	public static function theme_list_html_create($theme_res, $paging_method) {
+	public static function theme_list_html_create($theme_res, $paging_method, $cached = 900) {
 		foreach($theme_res as $key => $value) {
 			// テーマ一覧res取得
-			list($theme_list_res, $theme_article_data_array) = Model_Theme_Basis::theme_list_res_get($value['theme_name'], '10', $paging_method);
+			list($theme_list_res, $theme_article_data_array) = Model_Theme_Basis::theme_list_res_get($value['theme_name'], '10', $paging_method, $cached);
 			// 記事一覧HTML生成
 			$theme_list_html = Model_Article_Html::itype_list_html_create($theme_list_res);
 		}
@@ -53,15 +53,6 @@ class Model_Theme_Html extends Model {
 	//テーマのまとめ数HTML生成
 	//------------------------
 	public static function theme_count_html_create($theme_paging_data_array, $theme_article_data_array) {
-/*
-		foreach($theme_res as $key => $value) {
-			// テーマまとめ数res取得
-			$theme_count_res = Model_Theme_Basis::theme_count_res_get($value['theme_name']);
-			foreach($theme_count_res as $theme_count_key => $theme_count_value) {
-				$theme_count_num = $theme_count_value['COUNT(*)'];
-			}
-*/
-
 			$theme_count_html = '
 				<div class="theme_count">
 					テーマ 「<h2>'.$theme_article_data_array['theme_name'].'</h2>」のまとめ<span class="theme_count_number">'.$theme_paging_data_array['last_num'].'</span>件
@@ -159,5 +150,41 @@ var_dump($end_point);
 			</div>
 		</div>';
 		return $paging_html;
+	}
+	//------------------
+	//関連テーマHTML生成
+	//------------------
+	public static function theme_relation_html_create($theme_res, $theme_relation_2_array, $cached = 900) {
+		foreach($theme_res as $key => $value) {
+			$theme_name = $value['theme_name'];
+		}
+		$i = 0;
+		foreach($theme_relation_2_array as $key_2 => $value_2) {
+//pre_var_dump($value_2['count']);
+			if($value_2['theme_name'] != $theme_name && $i < 25) {
+				$i++;
+					// テーマres取得
+					$theme_res = Model_Theme_Basis::tag_name_in_theme_res_get($value_2['theme_name'], $cached);
+					foreach($theme_res as $theme_key => $theme_value) {
+						// テーマ一覧HTML生成
+						list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, 1, 0);
+						// テーマカウント数res取得
+						$theme_count_res = Model_Theme_Basis::theme_count_res_get($theme_value['theme_name'], $cached);
+						foreach($theme_count_res as $theme_count_key => $theme_count_value) {
+							$theme_li .= 
+								'<li><a href="'.HTTP.'theme/'.$theme_value['primary_id'].'/"><span class="typcn typcn-folder"></span>'.$theme_value['theme_name'].'('.$theme_article_data_array['list_num'].')</a></li>';
+						}
+					}
+			}
+		}
+		// 関連テーマHTML生成
+		$theme_relation_html = ('
+			<div class="theme_relation">
+				<h2>関連テーマ</h2>
+				<ul class="clearfix">
+						'.$theme_li.
+				'</ul>
+			</div>');
+		return $theme_relation_html;
 	}
 }

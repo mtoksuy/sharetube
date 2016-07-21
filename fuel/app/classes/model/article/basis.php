@@ -101,24 +101,30 @@ class Model_Article_Basis extends Model {
     foreach ($article_data_array["tag_array"] as $key => $keyword) {
         $keywords[$key] = "tag like ".("'%".$keyword."%' AND primary_id != ".$article_data_array["article_primary_id"]." AND del = 0")."";
     }
-		// or文でくっつけていく
-    $sql .= join(' OR ', $keywords);
-
-	// sql文を完成させる
-    $sql = $sql.'
-			ORDER BY primary_id DESC
-			LIMIT 0 , 9';
-//		var_dump($sql);
-		// res取得
-		$related_res = DB::query("".$sql."")->cached(3600)->execute();
-		// sql文で取得した記事の数を取得
-		foreach($related_res as $key => $value) {
-			$related_count = $key;
-		}
-		// 奇数なら1減らす
-		if(!($related_count % 2) == 0) {
-			// 2015.09.27 奇数でも関連記事を表示するようにする 松岡
-//			$related_count--;
+		if($keywords) {
+			// or文でくっつけていく
+	    $sql .= join(' OR ', $keywords);
+		// sql文を完成させる
+	    $sql = $sql.'
+				ORDER BY primary_id DESC
+				LIMIT 0 , 9';
+//			var_dump($sql);
+	/*
+	string(128) "SELECT * FROM article WHERE tag like '%たぐう%' AND primary_id != 2247 AND del = 0 ORDER BY primary_id DESC LIMIT 0 , 9" 
+	string(71) "SELECT * FROM article WHERE ORDER BY primary_id DESC LIMIT 0 , 9" 
+	
+	*/
+			// res取得
+	//		$related_res = DB::query("".$sql."")->cached(3600)->execute();
+			// sql文で取得した記事の数を取得
+			foreach($related_res as $key => $value) {
+				$related_count = $key;
+			}
+			// 奇数なら1減らす
+			if(!($related_count % 2) == 0) {
+				// 2015.09.27 奇数でも関連記事を表示するようにする 松岡
+	//			$related_count--;
+			}
 		}
 		return array($related_res, $related_count);
 	}

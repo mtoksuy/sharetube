@@ -14,7 +14,7 @@ class Controller_Theme_Template extends Controller {
 	}
 	// テンプレート
 	public function before() {
-		$this->theme_template            = View::forge('basic/template');
+		$this->theme_template            = View::forge('channel/template');
 		$this->theme_template->view_data = array(
 			'title'        => TITLE,
 			'meta'         => View::forge('basic/meta'),
@@ -28,6 +28,19 @@ class Controller_Theme_Template extends Controller {
 			'footer'       => View::forge('basic/footer'),
 			'script'       => View::forge('article/script'),
 		);
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 	// 最後に値を渡す
 	public function after($response) {

@@ -63,8 +63,10 @@ class Controller_Ajax_Matome_Edit extends Controller {
 								$article_create_data_array["thumbnail_image"] = $thumbnail_name;
 								// まとめ記事編集
 								Model_Login_List_Edit_Basis::matome_article_edit($article_create_data_array);
+								// テーマエントリー
+								Model_Login_Matome_Theme_Basis::theme_entry($article_create_data_array);			
 
-								// ディレクトリ配下のファイルを削除するディレクトリパス
+					// ディレクトリ配下のファイルを削除するディレクトリパス
 //								$cache_db_path = INTERNAL_PATH.'fuel/app/cache/db/';
 								// ディレクトリー内のファイルを全削除(cache削除)
 //								Library_Dir_Basis::dir_file_all_del($cache_db_path);

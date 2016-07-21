@@ -13,10 +13,10 @@ class Model_Login_Matome_Theme_Basis extends Model {
 	//テーマエントリー
 	//----------------
 	static function theme_entry($article_create_data_array) {
-		// タグHTML生成
-		list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($article_create_data_array["tag"]);
+		// テーマarray生成
+		$theme_array = Model_Theme_Basis::theme_array_create($article_create_data_array['tag']);
 		// 検査
-		foreach($tag_array as $tag_key => $tag_value) {
+		foreach($theme_array as $tag_key => $tag_value) {
 			$tag_check_res = DB::query("
 				SELECT *
 				FROM theme
