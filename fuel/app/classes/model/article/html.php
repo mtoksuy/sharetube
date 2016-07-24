@@ -273,7 +273,7 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			$article_bottom_like_box_html = Model_Article_Html::article_bottom_like_box_html_create($value, $year_time, $preview_frg);
 
 			// タグHTML生成
-			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"], 0);
+			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"], 3600);
 //			var_dump($tag_array);
 //			var_dump($tag_html);
 			// オリジナルHTML生成

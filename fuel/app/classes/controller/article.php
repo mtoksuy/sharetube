@@ -49,7 +49,6 @@ class Controller_Article extends Controller_Article_Template {
 		// アクセスDB追加 & all_page_view & pay_pv をプラス & アクセスサマリー書き込み
 		Model_Article_Basis::article_access_writing_and_all_page_view_plus($method, $user_data_array, $article_res);
 
-
 		// スマホ用サムネイルHTML生成
 		$sp_thumbnail_html = Model_Article_Html::sp_thumbnail_html_create($article_res);
 

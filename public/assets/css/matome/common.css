@@ -259,6 +259,12 @@ body
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+.image_quote {
+
+}
+.image_quote .blockquote_font {
+	line-height: 155%;
+}
 /**************
 まとめ内 リンク
 **************/

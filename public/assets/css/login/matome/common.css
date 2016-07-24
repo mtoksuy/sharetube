@@ -946,12 +946,6 @@ body {
 .image_add_content_quote_title {
 	margin: 0 0 5px;
 }
-.image_quote {
-
-}
-.image_quote .blockquote_font {
-	line-height: 155%;
-}
 .image_add_content_button {
 
 }
@@ -1815,6 +1809,12 @@ body {
     margin: 0 0 15px;
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+.image_quote {
+
+}
+.image_quote .blockquote_font {
+	line-height: 155%;
 }
 /**************
 まとめ内 リンク

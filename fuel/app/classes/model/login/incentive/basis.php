@@ -20,6 +20,22 @@ class Model_Login_Incentive_Basis extends Model {
 		foreach($incentive_res as $key => $value) {
 			$incentive_data_array["rate"] = (float)$value["rate"];
 		}
+		// 個別指定
+		if($_SESSION["sharetube_id"] == 'photo2016essay') {
+			$incentive_data_array["rate"] = (float)'0.060';
+
+
+
+
+
+
+
+
+
+
+
+
+		}
 		return $incentive_data_array;
 	}
 	//----------------------------------
