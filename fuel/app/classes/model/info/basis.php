@@ -500,6 +500,13 @@ if($detect->isMobile() || $detect->isTablet()) {
 		$now_date          = date($denoted, $now_time);
 		return $now_date;
 	}
+	//--------------------------------------
+	//現在の時間表記をマイクロ秒も含めて取得
+	//--------------------------------------
+	public static function now_micro_date_get() {
+		$arrTime = explode('.',microtime(true));
+		return date('Y-m-d H:i:s', $arrTime[0]) . '.' .$arrTime[1];
+	}
 	//------------------------------
 	//テーマがあるかどうかを検査する
 	//------------------------------
