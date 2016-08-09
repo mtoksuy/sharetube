@@ -1104,7 +1104,7 @@ border-bottom: 2px dotted #888;
 				</div><!-- facebook_like_please_left -->
 				<div class="facebook_like_please_right">
 					<div class="facebook_like_please_right_character">
-						<img width="79" height="99" src="'.HTTP.'assets/img/character/character_4.png" alt="お名前募集中です" title="お名前募集中です">
+						<img width="79" height="99" src="'.HTTP.'assets/img/character/character_5.png" alt="お名前募集中です" title="お名前募集中です">
 					</div>
 				</div>
 			</div>
