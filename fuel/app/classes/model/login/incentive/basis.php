@@ -20,21 +20,18 @@ class Model_Login_Incentive_Basis extends Model {
 		foreach($incentive_res as $key => $value) {
 			$incentive_data_array["rate"] = (float)$value["rate"];
 		}
-		// 個別指定
+		// 個別指定 photo2016essayさん
+		/*
+		Sharetubeアナリティクス：1026pv
+		アナリティクス；637pv
+		変動率：0.6208577
+		
+		稼ぎ：0.13円
+		通常レート：0.091円
+		変動率レート：0.05649805円
+		*/
 		if($_SESSION["sharetube_id"] == 'photo2016essay') {
-			$incentive_data_array["rate"] = (float)'0.060';
-
-
-
-
-
-
-
-
-
-
-
-
+			$incentive_data_array["rate"] = (float)'0.0564';
 		}
 		return $incentive_data_array;
 	}
