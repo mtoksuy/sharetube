@@ -23,7 +23,8 @@ $tweet_url_array[0] = str_replace("\n", "", $tweet_url_array[0]);
 
 // tweetスクレイピング&HTML生成
 foreach($tweet_url_array[0] as $key => $value) {
-	$tweet_data_array  = Model_Login_Twitterscraping_Basis::Twitter_scraping($value);
+	// なぜか本番でしかスクレイピングできないからミラーソースコードでテスト
+	$tweet_data_array  = Model_Login_Twitterscraping_Mirror_Basis::Twitter_scraping($value);
 	$tweet_html       .= Model_Login_Twitterscraping_Html::tweet_html_create($tweet_data_array);
 }
 ?>

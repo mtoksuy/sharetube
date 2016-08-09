@@ -273,7 +273,7 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			$article_bottom_like_box_html = Model_Article_Html::article_bottom_like_box_html_create($value, $year_time, $preview_frg);
 
 			// タグHTML生成
-			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"]);
+			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"], 3600);
 //			var_dump($tag_array);
 //			var_dump($tag_html);
 			// オリジナルHTML生成
@@ -414,12 +414,9 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 	//------------
 	//タグHTML生成
 	//------------
-	static function article_tag_html_create($tag) {
-		// 全角空白を半角空白に置換
-		$pattern = '/　/';
-		$tag = preg_replace($pattern, ' ', $tag);
-		// タグarray
-		$tag_array = explode(' ', $tag);
+	static function article_tag_html_create($tag, $cached = 900) {
+		// テーマarray生成
+		$theme_array = Model_Theme_Basis::theme_array_create($tag);
 		$tag_li = '';
 		// タグありとなしの場合
 		switch($tag) {
@@ -427,22 +424,37 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 				$tag_li = '';
 			break;
 			default:
-				foreach($tag_array as $key => $value) {
-					$tag_li .= 
-						'<li><a>'.$value.'</a></li>';
+				foreach($theme_array as $key => $value) {
+					// テーマres取得
+					$theme_res = Model_Theme_Basis::tag_name_in_theme_res_get($value, $cached);
+					foreach($theme_res as $theme_key => $theme_value) {
+						// テーマ一覧HTML生成
+						list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, 1, 0);
+						// テーマカウント数res取得
+						$theme_count_res = Model_Theme_Basis::theme_count_res_get($theme_value['theme_name'], $cached);
+						foreach($theme_count_res as $theme_count_key => $theme_count_value) {
+							$tag_li .= 
+								'<li><a href="'.HTTP.'theme/'.$theme_value['primary_id'].'/"><span class="typcn typcn-folder"></span>'.$theme_value['theme_name'].'('.$theme_article_data_array['list_num'].')</a></li>';
+						}
+					}
 				}
 			break;
 		}
 		// タグHTML生成
 		$tag_html = ('
 			<div class="tag">
+<!--
 				<span class="typcn typcn-tags clearfix"></span>
+				<span class="typcn typcn-pin-outline"></span>
+				<span class="typcn typcn-attachment-outline"></span>
+-->
+				<span class="typcn typcn-document-add clearfix"></span>
 				<ul class="clearfix">
-					<li>Tag To：</li>
+					<li>Theme To：</li>
 						'.$tag_li.
 				'</ul>
 			</div>');
-		return array($tag_array, $tag_html);
+		return array($theme_array, $tag_html);
 	}
 	//------------------
 	//オリジナルHTML生成
@@ -1092,7 +1104,7 @@ border-bottom: 2px dotted #888;
 				</div><!-- facebook_like_please_left -->
 				<div class="facebook_like_please_right">
 					<div class="facebook_like_please_right_character">
-						<img width="79" height="99" src="'.HTTP.'assets/img/character/character_4.png" alt="お名前募集中です" title="お名前募集中です">
+						<img width="79" height="99" src="'.HTTP.'assets/img/character/character_5.png" alt="お名前募集中です" title="お名前募集中です">
 					</div>
 				</div>
 			</div>

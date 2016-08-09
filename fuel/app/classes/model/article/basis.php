@@ -101,24 +101,30 @@ class Model_Article_Basis extends Model {
     foreach ($article_data_array["tag_array"] as $key => $keyword) {
         $keywords[$key] = "tag like ".("'%".$keyword."%' AND primary_id != ".$article_data_array["article_primary_id"]." AND del = 0")."";
     }
-		// or文でくっつけていく
-    $sql .= join(' OR ', $keywords);
-
-	// sql文を完成させる
-    $sql = $sql.'
-			ORDER BY primary_id DESC
-			LIMIT 0 , 9';
-//		var_dump($sql);
-		// res取得
-		$related_res = DB::query("".$sql."")->cached(3600)->execute();
-		// sql文で取得した記事の数を取得
-		foreach($related_res as $key => $value) {
-			$related_count = $key;
-		}
-		// 奇数なら1減らす
-		if(!($related_count % 2) == 0) {
-			// 2015.09.27 奇数でも関連記事を表示するようにする 松岡
-//			$related_count--;
+		if($keywords) {
+			// or文でくっつけていく
+	    $sql .= join(' OR ', $keywords);
+		// sql文を完成させる
+	    $sql = $sql.'
+				ORDER BY primary_id DESC
+				LIMIT 0 , 9';
+//			var_dump($sql);
+	/*
+	string(128) "SELECT * FROM article WHERE tag like '%たぐう%' AND primary_id != 2247 AND del = 0 ORDER BY primary_id DESC LIMIT 0 , 9" 
+	string(71) "SELECT * FROM article WHERE ORDER BY primary_id DESC LIMIT 0 , 9" 
+	
+	*/
+			// res取得
+	//		$related_res = DB::query("".$sql."")->cached(3600)->execute();
+			// sql文で取得した記事の数を取得
+			foreach($related_res as $key => $value) {
+				$related_count = $key;
+			}
+			// 奇数なら1減らす
+			if(!($related_count % 2) == 0) {
+				// 2015.09.27 奇数でも関連記事を表示するようにする 松岡
+	//			$related_count--;
+			}
 		}
 		return array($related_res, $related_count);
 	}
@@ -167,14 +173,203 @@ class Model_Article_Basis extends Model {
 			'compatible',
 			'ZendHttpClient',
 			'ApacheBench',
+			'K135224.ppp.dion.ne.jp',
+			'MetaURI API/2.0 +metauri.com',
+			'static.138.150.243.136.clients.your-server.de',
+			'static.95.154.243.136.clients.your-server.de',
+			'static.102.154.243.136.clients.your-server.de',
+			'ntchba022101.chba.nt.ngn.ppp.infoweb.ne.jp',
+			'p14n12.trendiction.de',
+			'14-133-119-115.nagoya1.commufa.jp',
+			'HRDfb-01p3-103.ppp11.odn.ad.jp',
+			'sp1-66-99-229.msc.spmode.ne.jp',
+			'p76edd101.sigant01.ap.so-net.ne.jp',
+			'i220-220-218-157.s41.a013.ap.plala.or.jp',
+			'103.5.140.157',
+			'202.238.51.121',
+			'59.106.163.181',
+			'h3-fbs01-s.eset.com',
+			'h3-fbs02-v.eset.com',
+			'h3-fbs03-v.eset.com',
+			'121-84-111-161f1.osk3.eonet.ne.jp',
+			'ShortLinkTranslate',
+			'softbank126074096029.bbtec.net',
+			'sp49-98-144-188.msd.spmode.ne.jp',
+			'zaq3d2e6b74.zaq.ne.jp',
+			'202.229.53.180',
+			'pc1.dm-network-unet.ocn.ne.jp',
+			'202.229.53.181',
+			'p20n12.trendiction.de',
+			'sp49-98-144-188.msd.spmode.ne.jp',
+			'p9n2.trendiction.de',
+			'59.106.163.144',
+			'59.106.163.170',
+			'nttkyo224226.tkyo.nt.ngn2.ppp.infoweb.ne.jp',
+			'opt-203-112-63-39.static.client.pikara.ne.jp',
+			'M106073129032.v4.enabler.ne.jp',
+			'om126204192120.6.openmobile.ne.jp',
+			'sp49-98-138-35.msd.spmode.ne.jp',
+			'sp49-98-167-13.msd.spmode.ne.jp',
+			'sp49-104-13-149.msf.spmode.ne.jp',
+			'42-83-33-85.btvm.ne.jp',
+			'ai126167157121.37.access-internet.ne.jp',
+			'KD182250241006.au-net.ne.jp',
+			'sp1-75-245-192.msb.spmode.ne.jp',
+			'sp1-75-246-65.msb.spmode.ne.jp',
+			'ae190248.dynamic.ppp.asahi-net.or.jp',
+			'sp49-98-157-241.msd.spmode.ne.jp',
+			'KD106161178115.au-net.ne.jp',
+			'user17-net218219023.ayu.ne.jp',
+			'82.251.149.210.rev.vmobile.jp',
+			'sp49-98-155-54.msd.spmode.ne.jp',
+			'nttkyo224226.tkyo.nt.ngn2.ppp.infoweb.ne.jp',
+			'softbank060071108071.bbtec.net',
+			'KD119104104080.au-net.ne.jp',
+			'KD106157067061.ppp-bb.dion.ne.jp',
+			'KD182251242033.au-net.ne.jp',
+			'FL1-118-108-107-241.iba.mesh.ad.jp',
+			'58x13x160x59.ap58.ftth.ucom.ne.jp',
+			'softbank126121235034.bbtec.net',
+			'PPPa2281.e27.eacc.dti.ne.jp',
+			'softbank219035166204.bbtec.net',
+			'softbank126150091247.bbtec.net',
+			'sp1-75-248-152.msb.spmode.ne.jp',
+			'pw126152215034.10.panda-world.ne.jp',
+			'KD036013008070.au-net.ne.jp',
+			'nttnxt2-090.246.ne.jp',
+			'p62042-ipngnfx01marunouchi.tokyo.ocn.ne.jp',
+			'softbank126066079080.bbtec.net',
+			'p14n20.trendiction.de',
+			'p10n12.trendiction.de',
+			'p12n18.trendiction.de',
+			'33-254.ftth.onsbrabantnet.nl',
+			'port-ip-213-211-241-42.sta.reverse.mdcc-fun.de',
+			'101-140-226-106f1.kyt1.eonet.ne.jp',
+			'static.93.154.243.136.clients.your-server.de',
+			'158.127.151.118.st.dtn.ne.jp',
+			's20-02-08.opera-mini.net',
+			'sp1-72-4-118.msc.spmode.ne.jp',
+			'p4n19.trendiction.de',
+			'203.104.134.241',
+			'static.93.154.243.136.clients.your-server.de',
+			'235.196.178.107.gae.googleusercontent.com',
+			'122.223.66.95.ap.gmobb-fix.jp',
+			'p15n15.trendiction.de',
+			'219.100.139.157',
+			'sp1-66-99-58.msc.spmode.ne.jp',
+			'localhost',
+			'sp1-72-8-91.msc.spmode.ne.jp',
+			'sp49-104-45-227.msf.spmode.ne.jp',
+			'li484-218.members.linode.com',
+			'sp49-98-67-149.mse.spmode.ne.jp',
+		); // ふるいやつ
+
+
+		// アクセス禁止名
+		$save_array = array(
+			'bot',
+			'Ruby',
+			'proxy',
+			'Bookmark',
+			'eset.com',
+			'myvps.jp',
+			'dti.ne.jp',
+			'odn.ad.jp',
+			'zaq.ne.jp',
+			'ayu.ne.jp',
+			'bbtec.net',
+			'softlayer',
+			'amazonaws',
+			'localhost',
+			'topsy.com',
+			'compatible',
+			'mesh.ad.jp',
+			'help.yahoo',
+			'ucom.ne.jp',
+			'trendmicro',
+			'commufa.jp',
+			'37.59.67.46',
+			'ap.dream.jp',
+			'btvm.ne.jp',
+			'plala.or.jp',
+			'eonet.ne.jp',
+			'metauri.com',
+			'eonet.ne.jp',
+			'ApacheBench',
+			'pikara.ne.jp',
+//			'spmode.ne.jp',
+			'st.dtn.ne.jp',
+			'sakura.ne.jp',
+//			'so-net.ne.jp',
+			'103.5.140.157',
+			'infoweb.ne.jp',
+			'enabler.ne.jp',
+			'infoweb.ne.jp',
+			'59.106.163.170',
+			'59.106.163.144',
+			'trendiction.de',
+			'opera-mini.net',
+			'trendiction.de',
+			'202.229.53.181',
+			'kng.mesh.ad.jp',
+			'rev.home.ne.jp',
+			'173.252.90.119',
+			'59.106.163.181',
+			'178.33.177.186',
+			'149.102.105.35',
+			'149.102.107.187',
+			'149.102.107.179',
+			'202.238.51.121',
+			'202.229.53.180',
+			'netvigator.com',
+			'ZendHttpClient',
+			'rev.vmobile.jp',
+			'trendiction.de',
+			'219.100.139.157',
+			'crawl.baidu.com',
+			'asahi-net.or.jp',
+			'ap.gmobb-fix.jp',
+			'203.104.134.241',
+//			'tokyo.ocn.ne.jp',
+			'HatenaScreenshot',
+			'onsbrabantnet.nl',
+			'panda-world.ne.jp',
+			'dedicatedpanel.com',
+			'members.linode.com',
+			'ShortLinkTranslate',
+			'facebookexternalhit',
+			'customer-incero.com',
+			'reverse.mdcc-fun.de',
+			'rev.poneytelecom.eu',
+			'nttnxt2-090.246.ne.jp',
+			'access-internet.ne.jp',
+			'clients.your-server.de',
+			'gae.googleusercontent.com',
+			'Dalvik',
+			'Java',
 		);
+/*
+// 文字列が短い順にソートを掛ける(すごい)
+usort($save_array, create_function('$a,$b', 'return mb_strlen($a, "UTF-8") - mb_strlen($b, "UTF-8");'));
+// 新しい順にしたいときに使用するコード
+$yy = array();
+foreach($save_array as $k => $v) {
+	echo("'".$v."',");
+	echo('<br>');
+}
+*/
+// ローカルでテスト用
+//$user_data_array["REMOTE_HOST"] = 'sp49-104-4-249.msf.spmode.ne.jp';
+
 		foreach($save_array as $key => $value) {
 			if(preg_match('/'.$value.'/i', $user_data_array["REMOTE_HOST"])) {
 				$is_access = false;
+				break;
 			}
 				else {
 					if(preg_match('/'.$value.'/i', $user_data_array["HTTP_USER_AGENT"])) {
 						$is_access = false;
+						break;
 					}
 				}
 		}

@@ -1,0 +1,158 @@
+/***
+body
+***/
+#wrapper {
+    background-color: #ffffff;
+}
+body {
+    background-color: #ffffff;
+}
+.main {
+    background-color: #ffffff;
+}
+/***************
+
+*****************/
+.second_navi {
+	display: none;
+}
+
+.sidebar {
+    float: left;
+}
+.main_contents {
+    float: right;
+}
+
+
+
+
+/*****
+テーマ
+*****/
+.theme_data_card {
+
+}
+.theme_data_card_inner {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #e7e7e7;
+    padding: 15px;
+}
+.theme_data_card_inner .theme_auxiliary {
+    color: #c7c7c7;
+    font-size: 82%;
+}
+.theme_data_card_inner .theme_title {
+	font-size: 200%;
+	margin: 0 0 15px;
+}
+.theme_data_card_inner .theme_title a {
+	color: #292f33;
+}
+
+.theme_data_card_inner .theme_summary {
+	line-height: 140%;
+	margin: 0 0 15px;
+}
+.theme_data_card_inner .theme_follow {
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+    border: 1px solid #10a3ff;
+    border-radius: 2px;
+    box-sizing: content-box;
+    color: #10a3ff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1px 5px;
+}
+
+.theme_data_card_inner .theme_follow:hover {
+	background-color: #10a3ff;
+	color: #ffffff;
+}
+.theme_data_card_inner .theme_follow .typcn-plus {
+
+}
+
+.theme_data_card_inner .theme_follow_text {
+    color: #c7c7c7;
+    font-size: 82%;
+}
+/*********
+関連テーマ
+**********/
+.theme_relation {
+	margin: 13px 0 0;
+}
+.theme_relation h2 {
+	font-size: 100%;
+}
+.theme_relation ul {
+    margin: 0;
+    padding: 0;
+}
+.theme_relation ul li {
+    border: 1px solid #e7e7e7;
+    color: #666;
+    float: left;
+    list-style: outside none none;
+    font-size: 75%;
+    margin: 10px 10px 0 0;
+}
+.theme_relation ul li a {
+    color: #666;
+    padding: 8px 5px;
+}
+.theme_relation ul li .typcn-folder {
+	font-size: 125%;
+}
+/********
+
+
+**********/
+.theme_count {
+
+}
+.theme_count h2 {
+	display: inline;
+}
+.theme_count .theme_count_number {
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+
+
+
+
+/**********
+
+**********/
+@media screen and (min-width:0px)and (max-width:1023px) {
+	.sidebar {
+	    display: block;
+	    float: none;
+	    margin: 0 0 30px;
+	    width: 100%;
+	}
+	.theme_relation {
+	    margin: 13px 10px 10px;
+	    padding: 5px;
+	}
+	.theme_count {
+	    margin: 0 0 0 10px;
+	}
+}
+@media screen and (min-width:0px)and (max-width:768px) {
+	.main {
+	    margin: 0 auto;
+	    overflow: hidden;
+	    padding: 91px 0 0;
+	}
+}
+@media screen and (min-width:0px)and (max-width:320px) {
+
+}

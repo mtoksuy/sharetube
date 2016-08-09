@@ -12,6 +12,71 @@ class Controller_Root extends Controller_Basic_Template {
 	}
 	// 基本アクション
 	public function action_index() {
+
+
+/*
+// allタグ取得
+$all_tag_res = DB::query("
+	SELECT tag 
+	FROM article 
+	WHERE del = 0
+	ORDER BY article.primary_id ASC")->execute();
+$i = 0;
+
+// テーマ登録
+foreach($all_tag_res as $key => $value) {
+//	pre_var_dump($value);
+	// tag_array取得
+	list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value['tag']);
+	// 検査
+	foreach($tag_array as $tag_key => $tag_value) {
+		$tag_check_res = DB::query("
+			SELECT *
+			FROM theme
+			WHERE theme_name = '".$tag_value."'
+			AND del = 0")->execute();
+		$theme_check = false;
+		// すでにあったらtrue
+		foreach($tag_check_res as $tag_check_key => $tag_check_value) {
+			$theme_check = true;
+		}
+		// なかったらテーマ登録
+		if(!$theme_check) {
+			$tag_insert_res = DB::query("
+				INSERT INTO
+				theme (
+					theme_name,
+					theme_link_name,
+					theme_summary
+				)	
+				VALUES (
+					'".$tag_value."',
+					'',
+					''
+				)
+			")->execute();
+			// create62Hash
+			$tag_link_name = Model_Login_Twitterscraping_Basis::create62Hash($tag_insert_res[0]);
+			// 
+			DB::query("
+				UPDATE theme
+				SET theme_link_name = '".$tag_link_name."'
+				WHERE primary_id = '".$tag_insert_res[0]."'")->execute();
+		}
+	}
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
 		// セグメント情報取得
 		$segment_info_get_array = Model_Info_Basis::segment_info_get();
 //pre_var_dump($segment_info_get_array);
@@ -40,36 +105,13 @@ class Controller_Root extends Controller_Basic_Template {
 //var_dump($recommend_article_array);
 		// 注目まとめ一覧HTML生成
 		$recommend_article_html = Model_Article_Html::recommend_article_list_html_create($recommend_article_array);
-
-
-/*
-$recommend_article_html = $recommend_article_html.'
-<div class="recommend_article_paging">
-	<div class="recommend_article_paging_inner">
-		<ul class="clearfix">
-			<li><a href="http://programmerbox.com/1/">Prev</a></li>
-			<li><a href="http://programmerbox.com/1/">1</a></li>
-			<li><span>2</span></li>
-			<li><a href="http://programmerbox.com/3/">3</a></li>
-			<li><a href="http://programmerbox.com/4/">4</a></li>
-			<li><a href="http://programmerbox.com/5/">5</a></li>
-			<li><a href="http://programmerbox.com/3/">6</a></li>
-			<li><a href="http://programmerbox.com/4/">7</a></li>
-			<li><a href="http://programmerbox.com/5/">8</a></li>
-			<li><a href="http://programmerbox.com/5/">9</a></li>
-			<li><a href="http://programmerbox.com/5/">10</a></li>
-
-			<li><a href="http://programmerbox.com/3/">Next</a></li>
-		</ul>
-	</div>
-</div>';
-*/
-
-
 		// 注目まとめページングデータ取得
 		$recommend_article_paging_data_array = Model_Article_Basis::recommend_article_paging_data_get(10, 1);
 		// 注目まとめページングHTML生成
 		$paging_html = Model_Article_Html::recommend_article_paging_html_create($recommend_article_paging_data_array);
+
+
+
 		$recommend_article_html = $recommend_article_html.$paging_html;
 		}
 			else {

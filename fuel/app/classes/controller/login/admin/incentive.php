@@ -44,6 +44,7 @@ class Controller_Login_Admin_Incentive extends Controller_Login_Template {
 		// インセンティブのデータ取得
 		$incentive_data_array      = Model_Login_Incentive_Basis::incentive_data_get();
 
+
 		// インセンティブ報酬チケット取得取
 		$incentive_paid_ticket_res = Model_Login_Incentive_Basis::incentive_paid_ticket_get($_SESSION["sharetube_id"]);
 		// 報酬インセンティブチケットHTML生成

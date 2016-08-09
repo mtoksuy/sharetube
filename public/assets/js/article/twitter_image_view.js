@@ -226,7 +226,8 @@ function gallery_box_content_image_rsize_calculation(img) {
 <div class="gallery_overlay">\
 	<div class="gallery_box">\
 		<div class="gallery_box_content">\
-			<img class="great_image_100" src="'+$(this).attr('src')+'" width="640" height="400">\
+			<a class="main_a" href="'+$(this).attr('src')+'" target="_blank"><img class="great_image_100" src="'+$(this).attr('src')+'" width="640" height="400"></a>\
+			<a class="sub_a" href="'+$(this).attr('src')+'" target="_blank">こちらから画像のみ表示できます。</a>\
 			<div class="gallery_box_content_left">\
 				<span class="typcn typcn-media-play-reverse-outline"></span>\
 			</div>\
@@ -268,8 +269,8 @@ function gallery_box_content_image_rsize_calculation(img) {
 
 				}
 						else {
-							$('.gallery_box_content img').remove();
-							$('.gallery_box_content').prepend('<img class="great_image_100" src="'+image_list_object.get(now_number-1).src+'" width="640" height="400">');
+							$('.gallery_box_content a').remove();
+							$('.gallery_box_content').prepend('<a href="'+image_list_object.get(now_number-1).src+'" target="_blank"><img class="great_image_100" src="'+image_list_object.get(now_number-1).src+'" width="640" height="400"></a><a class="sub_a" href="'+image_list_object.get(now_number-1).src+'" target="_blank">こちらから画像のみ表示できます。</a>');
 							var img = new Image();
 							img.src = image_list_object.get(now_number-1).src; 
 							// 画像リサイズ
@@ -294,8 +295,8 @@ function gallery_box_content_image_rsize_calculation(img) {
 
 				}
 						else {
-							$('.gallery_box_content img').remove();
-							$('.gallery_box_content').prepend('<img class="great_image_100" src="'+image_list_object.get(now_number+1).src+'" width="640" height="400">');
+							$('.gallery_box_content a').remove();
+							$('.gallery_box_content').prepend('<a href="'+image_list_object.get(now_number+1).src+'" target="_blank"><img class="great_image_100" src="'+image_list_object.get(now_number+1).src+'" width="640" height="400"></a><a class="sub_a" href="'+image_list_object.get(now_number+1).src+'" target="_blank">こちらから画像のみ表示できます。</a>');
 							var img = new Image();
 							img.src = image_list_object.get(now_number+1).src; 
 							// 画像リサイズ

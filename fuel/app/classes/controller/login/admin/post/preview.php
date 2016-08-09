@@ -13,7 +13,7 @@ class Controller_Login_Admin_Post_Preview extends Controller_Login_Admin_Post_pr
 		$method = (int)$_GET["p"];
 		// ログインチェック
 		$login_check = Model_Login_Basis::login_check();
-		if($login_check) {
+		if($login_check == 'd') {
 			// 下書き記事取得
 			$preview_article_res = Model_Login_Post_Preview_Basis::preview_article_get($method);
 			// スマホ用サムネイルHTML生成
@@ -22,7 +22,8 @@ class Controller_Login_Admin_Post_Preview extends Controller_Login_Admin_Post_pr
 			$this->article_template->view_data["sp_thumbnail"]->set('sp_thumbnail_data', array(
 				'sp_thumbnail_html' => $sp_thumbnail_html,
 			), false);
-//			var_dump($preview_article_res);
+//			pre_var_dump($preview_article_res);
+
 			// 記事のHTML生成
 			$article_data_array = Model_Article_Html::article_html_create($preview_article_res, 'article', true);
 //			var_dump($article_data_array);
