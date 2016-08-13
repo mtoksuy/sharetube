@@ -41,9 +41,9 @@ class Controller_Curatorlist extends Controller_Permalink_Template {
 
 
 		// 人気記事HTML生成
-		$article_access_1_res  = Model_Article_Basis::article_access_get(1,10);
-		$article_access_7_res  = Model_Article_Basis::article_access_get(7,10);
-		$article_access_30_res = Model_Article_Basis::article_access_get(30,10);
+		$article_access_1_res  = Model_Article_Basis::article_access_get(1,8);
+		$article_access_7_res  = Model_Article_Basis::article_access_get(7,8);
+		$article_access_30_res = Model_Article_Basis::article_access_get(30,8);
 		$popular_html       = Model_Article_Html::article_popular_html_create($article_access_1_res, $article_access_7_res, $article_access_30_res, 'article');
 
 		// シャッフル記事データ取得

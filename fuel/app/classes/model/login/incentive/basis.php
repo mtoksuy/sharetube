@@ -29,9 +29,15 @@ class Model_Login_Incentive_Basis extends Model {
 		稼ぎ：0.13円
 		通常レート：0.091円
 		変動率レート：0.05649805円
+
+		1036
+		606
+		0.58494208
+		変動率レート：0.053144円
+
 		*/
 		if($_SESSION["sharetube_id"] == 'photo2016essay') {
-			$incentive_data_array["rate"] = (float)'0.0564';
+			$incentive_data_array["rate"] = (float)'0.053144';
 		}
 		return $incentive_data_array;
 	}
