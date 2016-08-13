@@ -1,0 +1,44 @@
+
+.archive_card {
+
+}
+
+.archive_card_content {
+
+}
+.archive_card_content ul {
+ list-style: outside none none;
+}
+.archive_card_content li {
+ list-style: outside none none;
+}
+
+/**********
+
+**********/
+@media screen and (min-width:0px)and (max-width:1023px) {
+	.sidebar {
+	    display: block;
+	    float: none;
+	    margin: 0 0 30px;
+	    width: 100%;
+	}
+}
+@media screen and (min-width:0px)and (max-width:768px) {
+	.main {
+	    margin: 0 auto;
+	    overflow: hidden;
+	    padding: 91px 0 0;
+	}
+	.card_article_contents h1 {
+	    margin: 0 0 21px;
+	}
+}
+@media screen and (min-width:0px)and (max-width:320px) {
+	.card_article_contents {
+	    width: 85%;
+	}
+	.card_article figure {
+	    width: 15%;
+	}
+}

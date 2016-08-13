@@ -33,10 +33,10 @@
 				</div>
 				<!-- submit -->
 				<p class="submit clearfix">
+					<a class="reissue_link" href="<?php echo HTTP; ?>reissue/">パスワードを忘れた方</a>
 					<input type="submit" class="login_button" name="login_submit" value="ログイン">
 				</p>
 			</form>
-			<!--  -->
 			<!--
 			<p><a href="<?php echo Uri::base(); ?>" title="">&larr; Programmerbox へ戻る</a></p>
 			-->

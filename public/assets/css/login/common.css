@@ -53,6 +53,15 @@ textarea {
 .block {
 	margin: 0 0 15px;
 }
+.reissue_link {
+    float: left;
+    font-size: 82%;
+}
+
+
+
+
+
 /***********
 アドミン設定
 ***********/
