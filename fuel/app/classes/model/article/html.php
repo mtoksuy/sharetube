@@ -744,9 +744,9 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 		$shuffle_article_link = HTTP.'article/'.$shuffle_article_link.'/';
 		return $shuffle_article_link;
 	}
-	//----------------
-	//人気記事HTML生成
-	//----------------
+	//------------------
+	//人気まとめHTML生成
+	//------------------
 	static function article_popular_html_create($article_access_1_res, $article_access_7_res, $article_access_30_res, $article_type = 'article') {
 		// 使用する変数
 		$card_1_li      = '';
@@ -772,7 +772,7 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			<nav class="shuffle_article">
 				<div class="shuffle_article_content">
 					<div class="shuffle_article_header">
-						<span>人気記事</span>
+						<span>人気まとめ</span>
 						<div class="article_access_popular">
 							<span class="article_access_popular_button push" data-article_access_popular_class="article_access_popular_today">今日</span>
 							<span class="article_access_popular_button" data-article_access_popular_class="article_access_popular_week">一週間</span>
@@ -1304,7 +1304,7 @@ border-bottom: 2px dotted #888;
 	//----------------------
 	//注目まとめ一覧HTML生成
 	//----------------------
-	public static function recommend_article_list_html_create($recommend_article_array, $article_type = 'article') {
+	public static function recommend_article_list_html_create($recommend_article_array, $article_type = 'article', $function_type = '注目') {
 		foreach($recommend_article_array as $key => $value) {
 			// 記事データ取得
 			$article_author       = $value["sharetube_id"];
@@ -1360,7 +1360,7 @@ border-bottom: 2px dotted #888;
 			'<div class="card_article">
 				<div class="card_article_content">
 					<div class="card_article_header">
-						<span class="typcn typcn-document-text"></span><span>注目まとめ</span>
+						<span class="typcn typcn-document-text"></span><span>'.$function_type.'まとめ</span>
 					</div>
 					<ul class="clearfix">
 						'.$recommend_article_li.'
@@ -1372,7 +1372,7 @@ border-bottom: 2px dotted #888;
 	//------------------------------
 	//注目まとめのページングHTML生成
 	//------------------------------
-	public static function recommend_article_paging_html_create($recommend_article_paging_data_array) {
+	public static function recommend_article_paging_html_create($recommend_article_paging_data_array, $directory_name = 'recommendarticle') {
 //		var_dump($recommend_article_paging_data_array);
 /*
 	array(4) { ["last_num"]=> int(922) ["list_num"]=> int(10) ["paging_num"]=> int(1) ["max_paging_num"]=> int(93) } 
@@ -1382,12 +1382,12 @@ border-bottom: 2px dotted #888;
 // prev作成
 if($recommend_article_paging_data_array['max_paging_num'] >= 2 && $recommend_article_paging_data_array['paging_num'] >= 2) {
 	$prev_num = $recommend_article_paging_data_array['paging_num']-1;
-	$paging_prev_li = '<li class="sp_left"><a href="'.HTTP.'recommendarticle/'.$prev_num.'/">Prev</a></li>';
+	$paging_prev_li = '<li class="sp_left"><a href="'.HTTP.$directory_name.'/'.$prev_num.'/">Prev</a></li>';
 }
 // next作成
 if($recommend_article_paging_data_array['paging_num'] < $recommend_article_paging_data_array['max_paging_num']) {
 	$next_num = $recommend_article_paging_data_array['paging_num']+1;
-	$paging_next_li = '<li class="sp_right"><a href="'.HTTP.'recommendarticle/'.$next_num.'/">Next</a></li>';
+	$paging_next_li = '<li class="sp_right"><a href="'.HTTP.$directory_name.'/'.$next_num.'/">Next</a></li>';
 }
 // チェック
 if(($recommend_article_paging_data_array['paging_num'] - 5) > 0) { $left_check = true; } else {$left_check = false; }
@@ -1480,7 +1480,7 @@ var_dump($end_point);
 				$paging_li_html .= '<li class="sp_hidden"><span>'.$starting_point.'</span></li>';
 			}
 				else {
-					$paging_li_html .= '<li class="sp_hidden"><a href="'.HTTP.'recommendarticle/'.$starting_point.'/">'.$starting_point.'</a></li>';
+					$paging_li_html .= '<li class="sp_hidden"><a href="'.HTTP.$directory_name.'/'.$starting_point.'/">'.$starting_point.'</a></li>';
 				}
 		}
 	$paging_html = 

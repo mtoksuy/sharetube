@@ -18,11 +18,6 @@
 		.flexslider figure {
 			margin: 0;
 		}
-
-
-
-
-
 		</style>
 
 		<script>

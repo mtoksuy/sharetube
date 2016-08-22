@@ -362,6 +362,45 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
+	//---------------------------------------------------
+	// 再パスワード発行の手順と本人確認のためにメール送信
+	//---------------------------------------------------
+	public static function reissue_authentic_check_mail($mail_address, $hash) {
+
+
+		$message = ("Sharetubeをご利用くださいましてありがとうございます。
+再パスワード設定の発行が行われました。
+ご確認よろしくお願い致します。
+
+[本人確認&再パスワード設定ページ]
+".HTTP."reissue/hash/?hash=".$hash."&trash=trash
+
+なお、本人が操作してない場合はお手数かけますが
+Sharetubeのお問い合わせからご連絡くださいますようよろしくお願い致します。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $mail_address,
+			'subject' => 'Sharetube[再パスワード設定の発行が行われました]',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
 
 
 

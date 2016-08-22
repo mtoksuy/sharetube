@@ -4,9 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.19<br>
-
-快適にまとめを作成できるようにサーバ移転の準備を始めます。
+						<p>Sharetube version 5.4.21.1<br>
 
 
 					</div>
@@ -64,6 +62,10 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
+					<p class="m_0">・テーマの設定で半角を入れても大丈夫な仕様にする</p>
+					<p class="m_0">・テーマ一覧</p>
+					<p class="m_0">・おすすめテーマ一覧</p>
+					<p class="m_0">・人気まとめ機能をフッターのリンクに移動</p>
 					<p class="m_0">・検索機能をget仕様にする</p>
 					<p class="m_0">・まとめをお気に入りにする機能実装</p>
 					<p>・テーマフォロー機能実装</p>
@@ -75,6 +77,61 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年08月22日：Var.5.4.21.1</pre>
+					</dt>
+					<dd>
+						<pre>・パスワード再発行機能実装</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年08月10日：Var.5.4.21</pre>
+					</dt>
+					<dd>
+						<pre>・サーバ移転いたしました。性能的に2倍の同時アクセス数を捌けるようになりました。</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年08月10日：Var.5.4.20</pre>
+					</dt>
+					<dd>
+						<pre>・新着まとめをトップページから切り離し(フッターに移動)
+・新着まとめページング実装
+・注目・新着まとめのページングを1ページ10まとめから20まとめに切り分け
+・アーカイブ独自のページ実装
+・人気記事機能名称変更 人気まとめ へ</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
 
 
 			<li class="clearfix">

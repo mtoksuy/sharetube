@@ -1,23 +1,27 @@
 <?php
 /*
-* 注目まとめページングコントローラー
+* 新着まとめページングコントローラー
 * 
 * 
 * 
 * 
 */
 
-class Controller_Recommendarticle extends Controller_Recommendarticle_Template {
+class Controller_Newarticle extends Controller_Recommendarticle_Template {
 	// ルーター
 	public function router($method, $params) {
+		// 新着トップ
+		if($method == 'index') {
+			return $this->action_index($method);
+		}
 		// セグメント審査と軽い審査
-		if(!$params && preg_match('/^[0-9]+$/', $method, $method_array)) {
+		else if(!$params && preg_match('/^[0-9]+$/', $method, $method_array)) {
 			$method = (int)$method;
-			// 1の場合トップページに遷移
-			if($method == 1) { header('location:'.HTTP); exit; }
-			$is_recommendarticle = Model_Info_Basis::is_recommendarticle($method);
+			// 1の場合新着トップページに遷移
+			if($method == 1) { header('location:'.HTTP.'newarticle/'); exit; }
+			$is_newarticle = Model_Info_Basis::is_newarticle($method);
 			// ページングがある場合
-			if($is_recommendarticle) {
+			if($is_newarticle) {
 				return $this->action_index($method);
 			}
 				// エラー
@@ -38,31 +42,38 @@ class Controller_Recommendarticle extends Controller_Recommendarticle_Template {
 	//アクション
 	//----------
 	public function action_index($method) {
-		// intに戻す
-		$method = (int)$method;
+		switch($method) {
+			// 新着トップ
+			case 'index':
+				// タイトルセット
+				$this->recommendarticle_template->view_data['title'] = '新着まとめ | '.TITLE;
+				$method = 1;
+			break;
+			// 新着ページング
+			default :
+				// タイトルセット
+				$this->recommendarticle_template->view_data['title'] = ''.$method.' | 新着まとめ | '.TITLE;
+				// intに戻す
+				$method = (int)$method;
+			break;
+		}
 		// ユーザー情報取得
 		$user_data_array = Model_Info_Basis::user_data_get();
 		// 変数をエンティティ化する
 		$user_data_array = Library_Security_Basis::variable_security_entity($user_data_array);
-		// タイトルセット
-		$this->recommendarticle_template->view_data['title'] = ''.$method.' | 注目まとめ | '.TITLE;
 
-
-
-		// 注目まとめ一覧データ取得
-		$recommend_article_array = Model_Article_Basis::recommend_article_list_get(20,$method);
-		// 注目まとめ一覧HTML生成
-		$recommend_article_html = Model_Article_Html::recommend_article_list_html_create($recommend_article_array);
-
-		// 注目まとめページングデータ取得
-		$recommend_article_paging_data_array = Model_Article_Basis::recommend_article_paging_data_get(20, $method);
-		// 注目まとめページングHTML生成
-		$paging_html = Model_Article_Html::recommend_article_paging_html_create($recommend_article_paging_data_array);
-
+		// 記事一覧データ取得
+		$new_article_res        = Model_Article_Basis::new_article_list_get(20,$method);
+		// 新着まとめ一覧HTML生成
+		$new_article_html = Model_Article_Html::recommend_article_list_html_create($new_article_res, 'article', '新着');
+		// 新着まとめページングデータ取得
+		$new_article_paging_data_array = Model_Article_Basis::new_article_paging_data_get(20, $method);
+		// 新着まとめページングHTML生成
+		$paging_html = Model_Article_Html::recommend_article_paging_html_create($new_article_paging_data_array, 'newarticle');
 
 		// ページングコンテンツセット
 		$this->recommendarticle_template->view_data["content"]->set('content_data', array(
-			'content_html' => $recommend_article_html.$paging_html,
+			'content_html' => $new_article_html.$paging_html,
 		), false);
 
 		// 人気記事HTML生成
@@ -86,18 +97,6 @@ class Controller_Recommendarticle extends Controller_Recommendarticle_Template {
 			'related_html' => '',
 			'shuffle_html' => '',
 		),false);
-
-
-/*
-		// アーカイブデータ取得
-		list($first_article_res, $last_article_res) = Model_Archive_Basis::archive_first_last_data_get();
-		// アーカイブHTML生成
-		$archive_li_html = Model_Archive_Html::archive_list_html_create($first_article_res, $last_article_res);
-		// アーカイブコンテンツセット
-		$this->recommendarticle_template->view_data["footer"]->set('footer_data', array(
-			'archive_html' => $archive_li_html,
-		), false);
-*/
 	}
 	//------------
 	//エラーページ
