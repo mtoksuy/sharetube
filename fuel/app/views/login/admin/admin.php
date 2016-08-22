@@ -4,9 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.20<br>
-
-快適にまとめを作成できるようにサーバ移転の準備を始めます。
+						<p>Sharetube version 5.4.21<br>
 
 
 					</div>
@@ -80,6 +78,22 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年08月10日：Var.5.4.21</pre>
+					</dt>
+					<dd>
+						<pre>・サーバ移転いたしました。性能的に2倍の同時アクセス数を捌けるようになりました。</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 

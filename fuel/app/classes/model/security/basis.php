@@ -18,6 +18,16 @@ class Model_Security_Basis {
 		}
 		return $post;
 	}
+	//--------------------------------
+	//ゲットの中身をエンティティ化する
+	//--------------------------------
+	public static function get_security() {
+		$get = array();
+		foreach($_GET as $key => $value) {
+			$get[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+		}
+		return $get;
+	}
 	//------------------------
 	//変数をエンティティ化する
 	//------------------------
