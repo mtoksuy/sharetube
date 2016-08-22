@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.21<br>
+						<p>Sharetube version 5.4.21.1<br>
 
 
 					</div>
@@ -62,7 +62,6 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p class="m_0">・パスワード再発行機能実装</p>
 					<p class="m_0">・テーマの設定で半角を入れても大丈夫な仕様にする</p>
 					<p class="m_0">・テーマ一覧</p>
 					<p class="m_0">・おすすめテーマ一覧</p>
@@ -80,6 +79,19 @@
 		<ol>
 
 
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年08月22日：Var.5.4.21.1</pre>
+					</dt>
+					<dd>
+						<pre>・パスワード再発行機能実装</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
