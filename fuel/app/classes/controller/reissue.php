@@ -84,7 +84,7 @@ class Controller_Reissue extends Controller_Reissue_Template {
 		if($post) {
 			if($post['new_password'] === $post['new_password_confirm']) {
 				// ユーザーのパスワードを変更
-				$reissue_res = Model_Reissue_Basis::user_password_change($post);
+				$reissue_res = Model_Reissue_Basis::user_password_change($post, $reissue_array);
 				header('Location: '.HTTP.'reissue/complete/');
 				exit;
 			}

@@ -369,13 +369,14 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 
 
 		$message = ("Sharetubeをご利用くださいましてありがとうございます。
-再パスワード設定の発行が行われました。
+パスワード再設定の発行が行われました。
 ご確認よろしくお願い致します。
 
-[本人確認&再パスワード設定ページ]
+[本人確認&パスワード再設定ページ]
 ".HTTP."reissue/hash/?hash=".$hash."&trash=trash
 
-なお、本人が操作してない場合はお手数かけますが
+なお、パスワード再発行を行っていないにもかかわらず
+このメールが届いた方はお手数かけますが
 Sharetubeのお問い合わせからご連絡くださいますようよろしくお願い致します。
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -388,7 +389,7 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 		$post_array = array(
 			'from'    => 'Sharetube <info@sharetube.jp>',
 			'to'      => $mail_address,
-			'subject' => 'Sharetube[再パスワード設定の発行が行われました]',
+			'subject' => 'Sharetube[パスワード再設定の発行が行われました]',
 			'message' => $message,
 			'param'   => array(
 				'host'     => 'localhost',
