@@ -72,8 +72,7 @@ class Model_Theme_Basis extends Model {
 		$theme_article_data_array = array();
 		$theme_article_data_array['theme_name'] = $theme_name;
 
-
-		$i = 0;
+		$i  = 0;
 		$ii = 0;
 		if(!$page == 0) {
 			$start_number = ($page * 10);
@@ -160,18 +159,23 @@ class Model_Theme_Basis extends Model {
 	//---------------
 	static function theme_array_create($theme_data) {
 //pre_var_dump($theme_data);
-		// 全角空白を半角空白に置換
-		$pattern = '/　/';
-		$theme_data = preg_replace($pattern, ' ', $theme_data);
-		// 、を半角空白に置換
+/*
+[対応区切り文字列]
+全角空白
+、
+,
+*/
+//"大戦争、sekai no owari"
+
+		// 、を全角空白に置換
 		$pattern = '/、/';
-		$theme_data = preg_replace($pattern, ' ', $theme_data);
-		// ,を半角空白に置換
+		$theme_data = preg_replace($pattern, '　', $theme_data);
+		// ,を全角空白に置換
 		$pattern = '/,/';
-		$theme_data = preg_replace($pattern, ' ', $theme_data);
+		$theme_data = preg_replace($pattern, '　', $theme_data);
 
 		// タグarray
-		$theme_array = explode(' ', $theme_data);
+		$theme_array = explode('　', $theme_data);
 		$null_array = array();
 		foreach($theme_array as $key => $value) {
 			if($value) {
