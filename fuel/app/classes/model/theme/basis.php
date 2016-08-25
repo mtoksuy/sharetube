@@ -14,7 +14,7 @@ class Model_Theme_Basis extends Model {
 	//------------------------------
 	public static function theme_name_like_query_create($theme_name) {
 		// テーマ分け文字列群
-		$theme_punctuation_data_array = array(' ', '　', ',', '、');
+		$theme_punctuation_data_array = array('　', ',', '、');
 		// クエリ生成
 		foreach($theme_punctuation_data_array as $key => $value) {
 			if($key == 0) { $where_query = 'WHERE'; } else {$where_query = '||'; }
