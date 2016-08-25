@@ -159,7 +159,7 @@ class Model_Article_Html extends Model {
 		$article_data_array = '';
 		// モバイルからのアクセスなのかどうかを調べる
 		$user_is_mobil = Model_Info_Basis::mobil_is_access_check();
-		// モバイル専用の広告を差し込む（モバイルでなかったら何も差し込まない）
+		// モバイル専用の広告を差し込む（モバイルでなかったら何も差し込まない）(現在使用していない模様 2016.08.26 松岡)
 		$amoad_html = Model_Article_Html::mobil_article_amoad($user_is_mobil, 0, 15, 15);
 		// 広告配信
 		$detect  = Model_info_Basis::mobile_detect_create();
@@ -272,10 +272,11 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			// アーティクルボトムライクボックスHTML生成
 			$article_bottom_like_box_html = Model_Article_Html::article_bottom_like_box_html_create($value, $year_time, $preview_frg);
 
-			// タグHTML生成
+			// テーマHTML生成
 			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"], 3600);
 //			var_dump($tag_array);
 //			var_dump($tag_html);
+
 			// オリジナルHTML生成
 			$original_html = Model_Article_Html::original_html_create($original);
 			// 筆者HTML生成
@@ -1118,6 +1119,7 @@ border-bottom: 2px dotted #888;
 	static function mobil_article_amoad($user_is_mobil, $amoad_num = 0, $top_margin = 0, $botoom_margin = 0) {
 		$amoad_script = '';
 		$amoad_html = '';
+//var_dump($user_is_mobil, $amoad_num, $top_margin, $botoom_margin);
 		switch($amoad_num) {
 			case 0:
 			$amoad_script = '<!-- AMoAd Zone: [インライン_動画メディア_中面ミドル_300×250_Sharetube] -->
