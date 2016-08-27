@@ -101,6 +101,7 @@ class Model_Article_Basis extends Model {
     foreach ($article_data_array["tag_array"] as $key => $keyword) {
         $keywords[$key] = "tag like ".("'%".$keyword."%' AND primary_id != ".$article_data_array["article_primary_id"]." AND del = 0")."";
     }
+//pre_var_dump($keywords);
 		if($keywords) {
 			// or文でくっつけていく
 	    $sql .= join(' OR ', $keywords);
@@ -115,7 +116,7 @@ class Model_Article_Basis extends Model {
 	
 	*/
 			// res取得
-	//		$related_res = DB::query("".$sql."")->cached(3600)->execute();
+			$related_res = DB::query("".$sql."")->cached(3600)->execute();
 			// sql文で取得した記事の数を取得
 			foreach($related_res as $key => $value) {
 				$related_count = $key;
