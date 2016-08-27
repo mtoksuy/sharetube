@@ -86,10 +86,10 @@ class Model_Reissue_Basis extends Model {
 			}
 		return array($reissue_check, $reissue_array);
 	}
-	//-------------------------
+	//--------------------------
 	//ユーザーのパスワードを変更
-	//-------------------------
-	public static function user_password_change($post) {
+	//--------------------------
+	public static function user_password_change($post, $reissue_array) {
 		// 更新
 		DB::query("
 			UPDATE user
@@ -102,11 +102,6 @@ class Model_Reissue_Basis extends Model {
 			SET change_check = 1
 			WHERE primary_id = ".$reissue_array['primary_id']."")->execute();
 	}
-
-
-
-
-
 
 
 

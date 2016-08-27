@@ -522,4 +522,13 @@ if($detect->isMobile() || $detect->isTablet()) {
 		}
 		return $is_article;
 	}
+	//----------------------------------
+	//新着まとめのページングがあるか審査
+	//----------------------------------
+	public static function is_newarticle($method) {
+		// 注目まとめページングデータ取得
+		$recommend_article_paging_data_array = Model_Article_Basis::new_article_paging_data_get(20, $method);
+		if($recommend_article_paging_data_array['max_paging_num'] >= $recommend_article_paging_data_array['paging_num']) { $is_recommendarticle = true; } else { $is_recommendarticle = false; }
+		return $is_recommendarticle;
+	}
 }

@@ -159,60 +159,19 @@ class Model_Article_Html extends Model {
 		$article_data_array = '';
 		// モバイルからのアクセスなのかどうかを調べる
 		$user_is_mobil = Model_Info_Basis::mobil_is_access_check();
-		// モバイル専用の広告を差し込む（モバイルでなかったら何も差し込まない）
+		// モバイル専用の広告を差し込む（モバイルでなかったら何も差し込まない）(現在使用していない模様 2016.08.26 松岡)
 		$amoad_html = Model_Article_Html::mobil_article_amoad($user_is_mobil, 0, 15, 15);
-		// 広告配信
+		// モバイル判別するPHPクラスライブラリを利用した機種判別
 		$detect  = Model_info_Basis::mobile_detect_create();
+		// 広告配信(現在使用していない模様 2016.08.26 松岡)
 		$ad_html = Model_Ad_Html::ad_html_create($detect, 'geniee','レクタングル');
 		// Fluct広告
 		$ad_middle_left_html   = Model_Ad_Html::fluct_ad_html_create($detect, 'ミドル左', 'ミドル_1');
 		$ad_middle_right_html  = Model_Ad_Html::fluct_ad_html_create($detect, 'ミドル右', 'none');
 		$ad_article_under_html = Model_Ad_Html::fluct_ad_html_create($detect, '記事下', 'ミドル_2');
+		// まとめ内広告トップ・ボトム広告HTML生成
+		list($article_top_ad_html, $article_under_ad_html) = Model_Article_Html::matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html);
 
-		// 記事内トップ広告分け
-		if($detect->isMobile()) {
-			$article_top_ad_html = '<div class="m_t_15 m_b_15 text_center">
-				'.$ad_middle_left_html.'
-			</div>';
-		}
-			else if($detect->isTablet()) {
-
-			}
-				else {
-					$article_top_ad_html = 
-						'<div class="m_t_15 m_b_30 text_center clearfix">
-								<div style="float: left; margin: 0 30px 0 17px;">
-									'.$ad_middle_left_html.'
-								</div>
-								<div style="float: left;">
-									'.$ad_middle_right_html.'
-								</div>
-						</div>';
-				}
-		// 記事内ボトム広告分け
-		if($detect->isMobile()) {
-			$article_under_ad_html = '<div class="m_t_30 m_b_30 text_center">
-				'.$ad_article_under_html.'
-			</div>';
-		}
-			else if($detect->isTablet()) {
-
-			}
-				else {
-					$article_under_ad_html = '
-						<div class="m_t_30 m_b_30 text_center clearfix">
-							<div style="float: left; margin: 0 30px 0 17px;">
-
-<script type="text/javascript"><!--
-amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250"; amazon_ad_link_target = "new"; amazon_ad_border = "hide";//--></script>
-<script type="text/javascript" src="http://ir-jp.amazon-adsystem.com/s/ads.js"></script>
-
-							</div>
-							<div style="float: left;">
-								'.$ad_article_under_html.'
-							</div>
-						</div>';
-				}
 		// PCユーザーのみキュレーター募集をかける
 		if($detect->isMobile()) {
 
@@ -272,10 +231,11 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			// アーティクルボトムライクボックスHTML生成
 			$article_bottom_like_box_html = Model_Article_Html::article_bottom_like_box_html_create($value, $year_time, $preview_frg);
 
-			// タグHTML生成
+			// テーマHTML生成
 			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"], 3600);
 //			var_dump($tag_array);
 //			var_dump($tag_html);
+
 			// オリジナルHTML生成
 			$original_html = Model_Article_Html::original_html_create($original);
 			// 筆者HTML生成
@@ -303,13 +263,13 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			);
 
 //			var_dump($related_data_array);
-			// 関連記事データ取得
+			// 関連まとめデータ取得
 			list($related_res, $related_count) = Model_Article_Basis::article_related_get($related_data_array, 'article');
-			// 関連記事HTML生成
+			// 関連まとめHTML生成
 			$related_html                      = Model_Article_Html::article_inside_related_html_create($related_res, $related_count);
 //		var_dump($related_html);
 
-			// 前の記事、次の記事HTML生成
+			// 前のまとめ、次のまとめTML生成
 			$detail_press_bottom_html = Model_Article_Html::article_previous_next_html_create($article_primary_id, $article_type);
 
 			// まとめ記事の場合(重要)
@@ -353,7 +313,7 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 					'.$related_html.'
 					'.$detail_press_bottom_html.'
 				</article>
-');
+			');
 			// article_data_array
 			$article_data_array = array(
 				'article_primary_id'      => (int)$article_primary_id,
@@ -636,15 +596,16 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 				</li>');
 			return $card_li;
 	}
-	//----------------------
-	//記事内関連記事HTML生成
-	//-----------------------
+	//------------------------
+	//記事内関連まとめHTML生成
+	//-------------------------
 	static function article_inside_related_html_create($related_res, $related_count, $article_type = 'article') {
 		// 使用する変数
 		$card_li      = '';
 		$related_html = '';
 		// 回す
 		foreach($related_res as $key => $value) {
+//var_dump($value);
 			// countの分のみ回す
 			if($related_count > 0) {
 				$card_li = Model_Article_Html::article_card_li_html_create($value, $card_li, $article_type);
@@ -657,7 +618,7 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 				<nav class="article_inside_related_article">
 					<div class="article_inside_related_article_content">
 						<div class="article_inside_related_article_header">
-							<span>関連記事</span>
+							<span>関連まとめ</span>
 							<span class="article_inside_related_article_header_line"> </span>
 						</div>
 						<ul class="clearfix">
@@ -793,9 +754,9 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 			</nav>');
 		return $popular_html;
 	}
-	//--------------------------
-	//前の記事、次の記事HTML生成
-	//--------------------------
+	//------------------------------
+	//前のまとめ、次のまとめHTML生成
+	//------------------------------
 	static function article_previous_next_html_create($article_primary_id , $article_type) {
 		// 変数
 		$preview_html = '';
@@ -806,11 +767,11 @@ amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250
 		foreach($article_previous_next_res_array["previous"] as $key => $value) {
 			$preview_html = ('<div class="previous"><a href="'.HTTP.''.$article_type.'/'.$value["link"].'/">
 				<span class="typcn typcn-arrow-left"></span>
-'.$value["title"].'</a></div>');
+'.mb_strimwidth($value["title"], 0,124, '...').'</a></div>');
 		}
 		// 次の記事HTML生成
 		foreach($article_previous_next_res_array["next"] as $key => $value) {
-			$next_html = ('<div class="next"><a href="'.HTTP.''.$article_type.'/'.$value["link"].'/">'.$value["title"].'
+			$next_html = ('<div class="next"><a href="'.HTTP.''.$article_type.'/'.$value["link"].'/">'.mb_strimwidth($value["title"], 0, 124, '...').'
 <span class="typcn typcn-arrow-right"></span>
 </a></div>');
 		}
@@ -1118,6 +1079,7 @@ border-bottom: 2px dotted #888;
 	static function mobil_article_amoad($user_is_mobil, $amoad_num = 0, $top_margin = 0, $botoom_margin = 0) {
 		$amoad_script = '';
 		$amoad_html = '';
+//var_dump($user_is_mobil, $amoad_num, $top_margin, $botoom_margin);
 		switch($amoad_num) {
 			case 0:
 			$amoad_script = '<!-- AMoAd Zone: [インライン_動画メディア_中面ミドル_300×250_Sharetube] -->
@@ -1495,14 +1457,56 @@ var_dump($end_point);
 		</div>';
 		return $paging_html;
 	}
+	//--------------------------------------
+	//まとめ内広告トップ・ボトム広告HTML生成
+	//--------------------------------------
+	public static function matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html) {
+		// 記事内トップ広告分け($article_top_ad_html)
+		if($detect->isMobile()) {
+			$article_top_ad_html = '<div class="m_t_15 m_b_15 text_center">
+				'.$ad_middle_left_html.'
+			</div>';
+		}
+			else if($detect->isTablet()) {
 
+			}
+				// PCの場合広告を2つ表示する
+				else {
+					$article_top_ad_html = 
+						'<div class="m_t_15 m_b_30 text_center clearfix">
+								<div style="float: left; margin: 0 30px 0 17px;">
+									'.$ad_middle_left_html.'
+								</div>
+								<div style="float: left;">
+									'.$ad_middle_right_html.'
+								</div>
+						</div>';
+				}
+		// 記事内ボトム広告分け
+		if($detect->isMobile()) {
+			$article_under_ad_html = '<div class="m_t_30 m_b_30 text_center">
+				'.$ad_article_under_html.'
+			</div>';
+		}
+			else if($detect->isTablet()) {
 
-
-
-
-
-
-
+			}
+				// PCの場合アマゾンとflctの2つを表示
+				else {
+					$article_under_ad_html = '
+						<div class="m_t_30 m_b_30 text_center clearfix">
+							<div style="float: left; margin: 0 30px 0 17px;">
+								<script type="text/javascript"><!--
+								amazon_ad_tag = "sharetube-22"; amazon_ad_width = "300"; amazon_ad_height = "250"; amazon_ad_link_target = "new"; amazon_ad_border = "hide";//--></script>
+								<script type="text/javascript" src="http://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+							</div>
+							<div style="float: left;">
+								'.$ad_article_under_html.'
+							</div>
+						</div>';
+				}
+		return array($article_top_ad_html, $article_under_ad_html);
+	}
 
 
 

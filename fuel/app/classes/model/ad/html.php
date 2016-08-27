@@ -273,6 +273,8 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043119'."'".'
 					break;
 				}
 			}
+//var_dump('ああああああああああああ');
+//var_dump($ad_html);
 		return $ad_html;
 	}
 	//----------------------

@@ -19,7 +19,9 @@ class Controller_Newarticle extends Controller_Recommendarticle_Template {
 			$method = (int)$method;
 			// 1の場合新着トップページに遷移
 			if($method == 1) { header('location:'.HTTP.'newarticle/'); exit; }
+			// 新着まとめのページングがあるか審査
 			$is_newarticle = Model_Info_Basis::is_newarticle($method);
+//$is_newarticle = true;
 			// ページングがある場合
 			if($is_newarticle) {
 				return $this->action_index($method);

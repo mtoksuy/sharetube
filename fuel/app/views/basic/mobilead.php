@@ -3,7 +3,7 @@
 		// 広告配信
 		$detect  = Model_info_Basis::mobile_detect_create();
 		// Fluct広告
-		$ad_mobile_deader_html   = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ヘッダー');
+//		$ad_mobile_deader_html   = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ヘッダー');
 		$ad_mobile_orverlay_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'オーバーレイ');
 		// 2月20日スタート 3月30日エンド
 //		$ad_mobile_orverlay_html = Model_Ad_Html::techno_arcadia_ad_html_create($detect, 'none', 'オーバーレイ');

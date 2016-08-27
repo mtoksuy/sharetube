@@ -44,7 +44,7 @@ class Model_Login_Matome_Theme_Basis extends Model {
 				")->execute();
 				// create62Hash
 				$tag_link_name = Model_Login_Twitterscraping_Basis::create62Hash($tag_insert_res[0]);
-				// 
+				// テーマアップデート
 				DB::query("
 					UPDATE theme
 					SET theme_link_name = '".$tag_link_name."'
