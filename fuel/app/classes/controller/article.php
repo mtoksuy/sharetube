@@ -1,6 +1,6 @@
 <?php
 /*
-* 記事コントローラー
+* まとめコントローラー
 * 
 * 
 * 
@@ -47,7 +47,6 @@ class Controller_Article extends Controller_Article_Template {
 		// 一番ややこしい場所なのでまたトラブルがあるかもしれないので監視をする 2015.08.25 松岡
 		// アクセスDB追加 & all_page_view & pay_pv をプラス & アクセスサマリー書き込み
 		Model_Article_Basis::article_access_writing_and_all_page_view_plus($method, $user_data_array, $article_res);
-
 
 
 		// スマホ用サムネイルHTML生成
@@ -127,12 +126,12 @@ class Controller_Article extends Controller_Article_Template {
 		),false);
 
 		// アーカイブデータ取得
-		list($first_article_res, $last_article_res) = Model_Archive_Basis::archive_first_last_data_get();
+//		list($first_article_res, $last_article_res) = Model_Archive_Basis::archive_first_last_data_get();
 		// アーカイブHTML生成
-		$archive_li_html = Model_Archive_Html::archive_list_html_create($first_article_res, $last_article_res);
+//		$archive_li_html = Model_Archive_Html::archive_list_html_create($first_article_res, $last_article_res);
 		// アーカイブコンテンツセット
 		$this->article_template->view_data["footer"]->set('footer_data', array(
-			'archive_html' => $archive_li_html,
+//			'archive_html' => $archive_li_html,
 		), false);
 	}
 	//------------
