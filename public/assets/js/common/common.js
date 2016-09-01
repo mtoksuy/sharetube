@@ -285,6 +285,52 @@ if (location.host == 'localhost') {
 			scrollTop: 0
 		}, 1000);
 	});
+	//----------------------------
+	//オールヘッダーアド削除ボタン
+	//----------------------------
+	$('#wrapper').on( {
+		'click' : function() {
+			swal({
+			  title: '広告を削除致しますか？',
+			  text: '削除すると1カ月間 表示されません',
+			//  type: "warning",
+			  showCancelButton: true,
+			//  confirmButtonColor: "#DD6B55",
+			  confirmButtonText: '削除する',
+				cancelButtonText: 'キャンセル',
+//			  closeOnConfirm: false
+			},
+				function() {
+					$('.all_header_ad').remove();
+						// 時間設定
+						var expire = new Date();
+						expire.setTime( expire.getTime() + (1000 * 3600 * 24)*30 );
+						// クッキー書き込み
+						document.cookie = 'all_header_ad_delete=false; path=/; expires=' + expire.toUTCString();
+		//				swal("Deleted!", "Your imaginary file has been deleted.", "success");
+				});
+		}
+	}, '.all_header_ad_delete');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

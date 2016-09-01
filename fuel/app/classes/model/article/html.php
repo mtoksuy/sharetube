@@ -1507,7 +1507,35 @@ var_dump($end_point);
 				}
 		return array($article_top_ad_html, $article_under_ad_html);
 	}
+	//--------------------------
+	//オールヘッダーアドHTML生成
+	//--------------------------
+	public static function all_header_ad_html_create() {
+		// モバイル判別するPHPクラスライブラリを利用した機種判別
+		$detect  = Model_info_Basis::mobile_detect_create();
+		// PCのみ表示する
+		if($detect->isMobile()) {
 
+		}
+			else if($detect->isTablet()) {
+
+			}
+				else {
+					if($_COOKIE['all_header_ad_delete']) {
+							$all_header_ad_html = '';
+					}
+						else {
+							$all_header_ad_html = '
+									<div class="all_header_ad">
+										<a class="o_8" href="'.HTTP.'curatorrecruitment/lp/">
+											<img src="'.HTTP.'assets/img/all_header_ad/all_header_ad_sharetube_3.png">
+										</a>
+										<div class="all_header_ad_delete o_8">×</div>
+									</div>';
+						}
+				}
+		return $all_header_ad_html;
+	}
 
 
 

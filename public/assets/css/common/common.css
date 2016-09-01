@@ -2151,6 +2151,20 @@ a:hover {
   width: 24px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+*/
 @media screen and (min-width: 0px) and (max-width: 480px) {
   .account_list_facebook img {
     margin: 13% 0 0 13%;
@@ -3741,6 +3755,42 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
   margin: 30px 0 0;
 }
 
+
+/*****************
+オールヘッダーアド
+*****************/
+.all_header_ad {
+	position: relative;
+}
+.all_header_ad a {
+
+}
+.all_header_ad a img {
+		width:100%;
+		height: auto;
+}
+.all_header_ad .all_header_ad_delete {
+    background-color: #efefef;
+   cursor: pointer;
+    font-size: 150%;
+    font-variant: super;
+    height: 14px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 17px;
+}
+
+
+
+
+
+
+
+/***************
+1024px以下の設定
+***************/
 @media screen and (min-width: 0px) and (max-width: 1024px) {
   html {
     -webkit-text-size-adjust: none;
@@ -3755,7 +3805,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     line-height: 125%;
   }
 }
-
+/***************
+1023px以下の設定
+***************/
 @media screen and (min-width: 0px) and (max-width: 1023px) {
   .search_window {
     display: none;
@@ -3784,7 +3836,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     float: none;
   }
 }
-
+/**************
+768px以下の設定
+**************/
 @media screen and (min-width: 0px) and (max-width: 768px) {
   .category_band, .second_navi {
     display: none;
@@ -3887,7 +3941,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 		display: none;
 	}
 }
-
+/**************
+720px以下の設定
+**************/
 @media screen and (min-width: 0px) and (max-width: 720px) {
   .nav {
     display: block;
@@ -3925,6 +3981,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 
 }
 
+/**************
+640px以下の設定
+**************/
 @media screen and (min-width: 0px) and (max-width: 640px) {
 /*
    .mobile_orverlay_ad_content {
@@ -4026,12 +4085,18 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 	}
 }
 
+/**************
+620px以下の設定
+**************/
 @media screen and (min-width: 0px) and (max-width: 620px) {
   .mobile_ad {
     display: none;
   }
 }
 
+/**************
+568px以下の設定
+**************/
 @media screen and (min-width: 0px) and (max-width: 568px) {
   .card_article_contents h1 {
     font-size: 100%;
@@ -4058,7 +4123,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     min-height: 223px;
   }
 }
-
+/**************
+480px以下の設定
+**************/
 @media screen and (min-width: 0px) and (max-width: 480px) {
 
 
@@ -4155,6 +4222,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 
 }
 
+/**************
+360px以下の設定
+**************/
 @media screen and (min-width: 0px) and (max-width: 360px) {
   .heading_3, .heading_4 {
     padding: 10px;
@@ -4167,6 +4237,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
   }
 }
 
+/**************
+320px以下の設定
+**************/
 @media screen and (min-width: 0px) and (max-width: 320px) {
   .scroll_top, .shuffle_button {
     display: none;
