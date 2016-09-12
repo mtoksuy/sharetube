@@ -328,7 +328,7 @@ class Model_Article_Basis extends Model {
 			'trendiction.de',
 			'219.100.139.157',
 			'crawl.baidu.com',
-			'asahi-net.or.jp',
+//			'asahi-net.or.jp',
 			'ap.gmobb-fix.jp',
 			'203.104.134.241',
 //			'tokyo.ocn.ne.jp',
