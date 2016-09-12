@@ -72,6 +72,8 @@ class Controller_Article extends Controller_Article_Template {
 
 		// オールヘッダーアドHTML生成
 		$all_header_ad_html = Model_Article_Html::all_header_ad_html_create();
+		$all_header_ad_html = '';
+
 		// ヘッダーSharetube宣伝セット
 		$this->article_template->view_data['header']->set('content_data',array(
 			'all_header_ad_html' => $all_header_ad_html,
