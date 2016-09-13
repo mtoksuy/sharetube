@@ -64,6 +64,7 @@
 			$recommend_article_list = $post['recommend_article_list'];
 			// 注目まとめ追加するためのarray生成
 			$recommend_article_list_array = Model_Login_Recommendarticle_Basis::recommend_article_array_get($recommend_article_list);
+//var_dump($recommend_article_list_array);
 			// 注目まとめ登録
 			Model_Login_Recommendarticle_Basis::recommend_article_array_register($recommend_article_list_array);
 			header('location: '.HTTP.'login/admin/');
