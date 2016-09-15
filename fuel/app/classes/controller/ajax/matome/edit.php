@@ -30,15 +30,17 @@ class Controller_Ajax_Matome_Edit extends Controller {
 //			var_dump($post);
 		}
 			//----
-			//投稿
+			//編集
 			//----
 			if($post == true) {
-					// 投稿されたら
+					// 編集されたら
 					if($post["edit"]) {
 						// サムネイルがあったら投稿する
 						if($post["random_key"]) {
 								// 記事データ取得
 								$article_create_data_array = Model_Login_Post_Basis::article_create_data_get($post);
+//var_dump($post);
+//var_dump($article_create_data_array);
 								// エディットなので数字を戻す
 								$article_create_data_array["link"] = $post["edit_primary_id"];
 								// サムネイルの名前取得

@@ -31,7 +31,9 @@ class Controller_Login_Admin_Matome extends Controller_Login_Template {
 	public function before() {
 		parent::before();
 	}
+	/////////////////////////
 	// アクションインデックス
+	/////////////////////////
 	public function action_index($method, $params) {
 		switch($method) {
 			// 新規作成

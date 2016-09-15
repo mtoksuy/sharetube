@@ -75,13 +75,13 @@ class Model_Login_List_Edit_Basis extends Model {
 	//まとめ記事編集
 	//--------------
 	static function matome_article_edit($post) {
-
 		// 変数群
 		$sharetube_id    = $_SESSION["sharetube_id"];
 		$article_id      = (int)$post["link"];
 		$title           = $post["title"];
 		$category        = $post["category"];
-		$sub_text        = htmlspecialchars_decode($post["sub_text"], ENT_COMPAT);
+//		$sub_text        = htmlspecialchars_decode($post["sub_text"], ENT_COMPAT);
+		$sub_text        = $post["sub_text"];
 		$contents        = htmlspecialchars_decode($post["contents"], ENT_COMPAT);
 		$text            = htmlspecialchars_decode($post["text"], ENT_COMPAT);
 		$tag             = $post["tag"];

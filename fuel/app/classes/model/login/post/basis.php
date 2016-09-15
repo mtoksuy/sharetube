@@ -72,6 +72,7 @@ class Model_Login_Post_Basis extends Model {
 			'random_key'        => $post["random_key"],
 			'draft_primary_id' => $post["draft_primary_id"],
 		);
+//var_dump($article_create_data_array);
 		return $article_create_data_array;
 	}
 	

@@ -47,6 +47,8 @@ if($post["draft"]) {
 		} // if($post["random_key"]) {
 		// 記事作成データ取得
 		$article_create_data_array = Model_Login_Post_Basis::article_create_data_get($post);
+//var_dump($post);
+//var_dump($article_create_data_array);
 		$article_create_data_array["thumbnail_image"] = $image_path;
 		// 下書きを上書きする
 		 Model_Login_Post_Draft_Basis::article_draft_update($article_create_data_array);
