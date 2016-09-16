@@ -277,6 +277,85 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043119'."'".'
 //var_dump($ad_html);
 		return $ad_html;
 	}
+	//---------------------
+	//GameFeat広告配信関数
+	//---------------------
+	static function GameFeat_ad_html_create($detect, $pc_type =  "サイドバー右上", $mobile_type = "ミドル_1") {
+//	var_dump($pc_type);
+//	var_dump($mobile_type);
+
+		// 広告群
+		$GameFeat_list_ad_html = '<!-- game feat広告 -->
+<script>
+var _gfwebq = _gfwebq || [];
+_gfwebq.push({
+	site_id: 11760,p_id: "gfweb_jDkMMJevt50",display: "list",order: "best",limit: "10",s_bg_color_0: "#f7f7f7",s_bg_color_1: "#ffffff",s_txt_color: "#01a0da",s_name_color: "#333333",
+});
+</script>
+<div id="gfweb_jDkMMJevt50"></div>
+<script src="https://www.gamefeat.net/js/api/requestAds.v2.js"></script>';
+
+		$GameFeat_ranking_ad_html = '<!-- game feat広告 -->
+<script>
+var _gfwebq = _gfwebq || [];
+_gfwebq.push({
+	site_id: 11760,p_id: "gfweb_ayZWhmGTwzq",display: "rank",order: "best",limit: "10",r_bg_color: "ffffff",r_title_bg_color: "ed482d",r_num_txt_color: "ffffff",r_txt_color: "333333",rank_type: "3",
+});
+</script>
+<div id="gfweb_ayZWhmGTwzq"></div>
+<script src="https://www.gamefeat.net/js/api/requestAds.v2.js"></script>';
+
+		// GameFeat広告タグ群array
+		$GameFeat_ad_array = array(
+			'pc'     => array('サイドバー右上' => '', 
+												'サイドバー右下' => '',
+												'ミドル左'       => '',
+												'ミドル右'       => '',	
+												'記事下'         => '',
+												'none'           => '',
+								),
+			'mobile' => array('ミドル_6'     => $GameFeat_list_ad_html, 
+												'ミドル_7'     => $GameFeat_ranking_ad_html, 
+												'none'         => '',
+									),
+		);
+		if($detect->isMobile() | $detect->isTablet()) {
+			switch($mobile_type) {
+				case 'ミドル_6':
+					$ad_html = $GameFeat_ad_array["mobile"]["ミドル_6"];
+				break;
+				case 'ミドル_7':
+					$ad_html = $GameFeat_ad_array["mobile"]["ミドル_7"];
+				break;
+				case 'none':
+					$ad_html = $GameFeat_ad_array["mobile"]["none"];
+				break;
+
+				default:
+					$ad_html = $GameFeat_ad_array["mobile"]["ミドル_6"];
+				break;
+			}
+		}
+			else {
+				$ad_html = $GameFeat_list_ad_html;
+/*
+				switch($pc_type) {
+					default:
+						$ad_html = $fluct_ad_array["pc"]["サイドバー右上"];
+					break;
+				}
+*/
+			}
+//var_dump('ああああああああああああ');
+//var_dump($ad_html);
+		return $ad_html;
+	}
+
+
+
+
+
+
 	//----------------------
 	//テクノアルカディア広告
 	//----------------------

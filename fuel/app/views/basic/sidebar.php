@@ -53,13 +53,60 @@
 -->
 
 
+
+
+
+
+
+
 <div class="sidebar_ad">
 	<?php // 広告配信
 		$detect = Model_info_Basis::mobile_detect_create();
 //		$ad_html = Model_Ad_Html::ad_html_create($detect, 'geniee','レクタングル');
 		// Fluct広告
 		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'サイドバー右下', 'ミドル_5');
-		echo ($ad_html); ?>
+		echo ($ad_html);
+?>
+</div>
+
+
+<?php
+		// GameFeat広告
+		$ad_html = Model_Ad_Html::GameFeat_ad_html_create($detect, 'none', 'ミドル_6');
+	if($detect->isMobile() | $detect->isTablet()) {
+		echo ('
+			<div class="sidebar_ad">
+				<div class="article_inside_related_article_header">
+					<span>オススメゲームまとめ</span>
+					<span class="article_inside_related_article_header_line"> </span>
+				</div>'.$ad_html.
+			'</div>');
+	}
+?>
+
+<?php
+		// GameFeat広告
+		$ad_html = Model_Ad_Html::GameFeat_ad_html_create($detect, 'none', 'ミドル_7');
+	if($detect->isMobile() | $detect->isTablet()) {
+		echo ('
+			<div class="sidebar_ad">
+				<div class="article_inside_related_article_header">
+					<span>ランキングゲームまとめ</span>
+					<span class="article_inside_related_article_header_line"> </span>
+				</div>'.$ad_html.
+			'</div>');
+	}
+?>
+
+
+
+
+
+
+
+
+
+<div class="sidebar_ad">
 
 	<!-- キュレーター募集 -->
 	<div class="curator_recruitment o_8 m_t_30">
