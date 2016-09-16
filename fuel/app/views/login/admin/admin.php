@@ -78,6 +78,27 @@
 		<ol>
 
 
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年09月16日：Var.5.4.22</pre>
+					</dt>
+					<dd>
+						<pre>・まとめ作成ツールアイテム：コードバグフィックス
+・まとめ作成ツールアイテム：iTunesバグフィックス
+・まとめ作成ツールアイテム：Twitterバグフィックス
+・GameFeat広告配信開始</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
 			<li class="clearfix">
 				<dl>
 					<dt>
