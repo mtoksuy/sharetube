@@ -9,6 +9,8 @@
 			<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/twitterscraping/common.js"></script>
 			<!-- Twitter_image_viewプラグイン -->
 			<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/article/twitter_image_view.js"></script>
+			<!-- sweetalert-devプラグイン -->
+			<script type="text/javascript" src="<?php echo HTTP; ?>assets/library/sweetalert-master/dist/sweetalert-dev.js"></script>
 
 			<!-- 記事のサムネを背景に表示するプラグイン -->
 <!--

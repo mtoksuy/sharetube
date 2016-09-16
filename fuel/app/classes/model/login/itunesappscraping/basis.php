@@ -105,6 +105,25 @@ class Model_Login_Itunesappscraping_Basis extends Model {
 			$rating_html .= $list->plaintext;
 		}
 		$rating_html = substr($rating_html, 0, -1);   //最後の「 」を削除
+		// 評価が集まっていないアプリ用
+		if($rating_html == false) {
+			foreach($simple_html_dom_object->find('.customer-ratings') as $list) {
+				$rating_html .= $list->outertext;
+			}
+			$pattern_half = '/rating-star half/';
+			$pattern_ghost = '/rating-star ghost/';
+			preg_match_all($pattern_half, $rating_html, $rating_half_html_array);
+			preg_match_all($pattern_ghost, $rating_html, $rating_ghost_html_array);
+			$half_i = 0;
+			$ghost_i = 0;
+			foreach($rating_half_html_array[0] as $key => $value) {
+				$half_i++;
+			}
+			foreach($rating_ghost_html_array[0] as $key => $value) {
+				$ghost_i++;
+			}
+			$rating_html = (5-$ghost_i)-($half_i*0.5);
+		}
 
 
 		// 評価カウント取得

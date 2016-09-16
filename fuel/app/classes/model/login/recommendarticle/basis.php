@@ -44,7 +44,7 @@ class Model_Login_Recommendarticle_Basis extends Model {
 			$recommend_article_res = DB::query("
 				SELECT * 
 				FROM recommend_article
-				WHERE article_id = '".$value."'")->cached(86400)->execute();
+				WHERE article_id = '".$value."'")->cached(0)->execute();
 			$res_value_check = false;
 			foreach($recommend_article_res as $res_key => $res_value) {
 				$res_value_check = true;

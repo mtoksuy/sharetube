@@ -88,6 +88,51 @@ http://sato-san.hatenadiary.jp/entry/2013/05/06/155919
 		// URLから
 		$simple_html_dom_object = file_get_html($tweet_url);
 
+
+
+
+
+/***************************************
+
+		// json取得
+		foreach($simple_html_dom_object->find('.json-data') as $list) {
+			 $json_html .= $list->outertext;
+			 $json_html_2 .= $list->{'value'}; // 属性の値を取得
+		}
+
+		// 動画url取得
+		foreach($simple_html_dom_object->find('meta') as $list) {
+			 $meta_property = $list->{'property'}; // 属性の値を取得
+			 if($meta_property == 'og:video:secure_url') {
+				 $meta_property_content .= $list->{'content'}; // 属性の値を取得
+				}
+		}
+		// URLから
+		$simple_html_dom_meta_property_content_object = file_get_html($meta_property_content);
+		// data-config取得
+		foreach($simple_html_dom_meta_property_content_object->find('.player-container') as $list) {
+			$player_container_data_config .= $list->{'data-config'}; // 属性の値を取得
+		}
+		// エンティティー
+		$player_container_data_config = htmlspecialchars_decode($player_container_data_config, ENT_QUOTES);
+		// デコード
+		$decoded = json_decode($player_container_data_config, true);
+		// デコードチェック
+		if (json_last_error() === JSON_ERROR_NONE) {
+		    echo "デコード成功: ".PHP_EOL;
+		//    pre_var_dump($decoded);
+		}
+		else {
+		    echo "デコード失敗: ".PHP_EOL;
+		    echo "エラーコード: ".json_last_error().PHP_EOL;
+		    // PHP 5.5以上はこちらがわかりやすい
+		    // echo "エラーメッセージ: ".json_last_error_msg().PHP_EOL;
+		}
+
+***************************************/
+
+
+
 /*
 		// コンテンツ取得
 		foreach($simple_html_dom_object->find('.permalink-tweet-container') as $list) {
@@ -106,7 +151,7 @@ http://sato-san.hatenadiary.jp/entry/2013/05/06/155919
 		// permalink_tweet_container_object生成
 		$permalink_tweet_container_object = str_get_html($permalink_tweet_container_html, true, true, DEFAULT_TARGET_CHARSET, false);
 		// リツイートコンテンツ取得
-		foreach($permalink_tweet_container_object->find('.QuoteTweet') as $list) {
+		foreach($permalink_tweet_container_object->find('.QuoteTweet-text') as $list) {
 			 $QuoteTweet_html .= $list->outertext;
 		}
 //		var_dump($QuoteTweet_html);
@@ -265,6 +310,7 @@ var.1
 		$twitter_tweet_text = Model_Login_Twitterscraping_Basis::hash_tag_scan_replace($twitter_tweet_text);
 */
 
+//var_dump($subject);
 //		var.2
 		// meta追加
 		$subject .= '<meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">';
@@ -281,7 +327,11 @@ var.1
 //		$twitter_tweet_text = $xpath_text->query('//p[@class="js-tweet-text tweet-text"]')->item(0);
 //		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--max js-tweet-text tweet-text"]')->item(0);
 		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"]')->item(0);
+//pre_var_dump($twitter_tweet_text);
 /*
+
+			<a title="http://sharetube.jp/article/4043/" target="_blank" class="twitter-timeline-link u-hidden" data-expanded-url="http://sharetube.jp/article/4043/" dir="ltr" rel="nofollow" href="https://t.co/sOaKljSato">
+
 
  <p class="TweetTextSize TweetTextSize--28px js-tweet-text tweet-text" lang="ja" data-aria-label-part="0">これでサイコロ作ったらネタになるｗ&#10;…&#10;これぞ「ヘビーメタル」、手のひらサイズで重量1kgもあるタングステン立方体「Forge Solid」&#10;<a href="http://t.co/sxGyTrn0bj" rel="nofollow" dir="ltr" data-expanded-url="http://gigazine.net/news/20150409-forge-solid/" class="twitter-timeline-link" target="_blank" title="http://gigazine.net/news/20150409-forge-solid/" ><span class="tco-ellipsis"></span><span class="invisible">http://</span><span class="js-display-url">gigazine.net/news/20150409-</span><span class="invisible">forge-solid/</span><span class="tco-ellipsis"><span class="invisible">&nbsp;</span>…</span></a></p>
 

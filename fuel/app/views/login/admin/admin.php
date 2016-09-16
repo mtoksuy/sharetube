@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.21.2<br>
+						<p>Sharetube version 5.4.22<br>
 
 
 					</div>
@@ -81,6 +81,39 @@
 
 
 
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年09月16日：Var.5.4.22</pre>
+					</dt>
+					<dd>
+						<pre>・まとめ作成ツールアイテム：コードバグフィックス
+・まとめ作成ツールアイテム：iTunesバグフィックス
+・まとめ作成ツールアイテム：Twitterバグフィックス
+・GameFeat広告配信開始</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年09月13日：Var.5.4.22</pre>
+					</dt>
+					<dd>
+						<pre>・まとめの概要に表示されていた 追加という文字列を削除
+・アクセス(PV)登録プロパイダ一部解放
+・まとめ作成アイテム：amazonバグフィックス</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
 
 
 			<li class="clearfix">
@@ -89,7 +122,7 @@
 						<pre>2016年08月25日：Var.5.4.21.2</pre>
 					</dt>
 					<dd>
-						<pre>・テーマの設定で半角を入れても大丈夫な仕様にする
+						<pre>・テーマの設定で半角を入れても大丈夫な仕様に変更
 ・スマホ用のヘッダー広告非表示に変更
 ・関連まとめ表示されていなかったバグを修正</pre>
 					</dd>

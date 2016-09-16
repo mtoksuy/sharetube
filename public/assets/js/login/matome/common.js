@@ -614,11 +614,17 @@ $('.matome').on( {
 				var amazon_imagelink  = $(this).parents('.matome_content_block').find('.amazon_link_image').html();
 				var amazon_textlink   = $(this).parents('.matome_content_block').find('.amazon_link_text').html();
 
+				// urlのみ取得
+				amazon_textlink  = amazon_textlink.match(/href="(.+?)"/);
+				amazon_textlink = amazon_textlink[1];
+
 			// <、>をエンティティに変換する
 				amazon_title     = text_entity_conversion(amazon_title);
 				amazon_url       = text_entity_conversion(amazon_url);
 				amazon_imagelink = text_entity_conversion(amazon_imagelink);
 				amazon_textlink  = text_entity_conversion(amazon_textlink);
+
+
 
 				var check = true;
 				$(this).parents('.matome_content_block').before('<div class="amazon_add">\

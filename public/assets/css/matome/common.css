@@ -633,6 +633,18 @@ border-radius: 30px;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+.matome_content_block_itunes_app .matome_content_block_itunes_app_word {
+    margin: 15px 0 0;
+}
+.matome_content_block_itunes_app .matome_content_block_itunes_app_word pre {
+    border-left: 2px solid #dddddd;
+    font-family: "游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+    font-size: 94%;
+    margin: 0;
+    padding: 0 0 0 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
 .matome_content_block_itunes_app .matome_content_block_itunes_app_data_screenshots_title {
     font-weight: bold;
     margin: 5px 0 0 0;

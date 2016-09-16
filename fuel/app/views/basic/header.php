@@ -12,6 +12,8 @@
 					</div>
 				</div>
 			</div> <!-- top_header -->
+			<!-- all_header_ad -->
+			<?php echo $content_data['all_header_ad_html']; ?>
 		<!-- header -->
 		<header id="header" class="clearfix">
 			<div class="header_contents clearfix">

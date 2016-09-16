@@ -792,7 +792,6 @@ class Model_Article_Html extends Model {
 		}
 		// 記事概要取得
 		$summary_contents = Model_Article_Html::meta_description_html_create($article_data_array, $description_length);
-//		var_dump($summary_contents);
     $meta_html = ('
 			<!-- Twitter -->
 			<meta name="twitter:card" content="photo"> <!-- カードの種類 -->
@@ -823,6 +822,8 @@ class Model_Article_Html extends Model {
 		$article_contests = str_replace(array("\r\n","\r","\n","\t"), '', $article_data_array["article_contents"]);
 		// HTMLタグを取り除く
 		$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
+		// 追加を取り除く
+		$article_contests = preg_replace('/追加/', '', $article_contests);
 		// 本文を512文字に丸める
 		$summary_contents = mb_strimwidth($article_contests, 0, $description_length, "...", 'utf8');
 //		var_dump($strimwidth_contents);
@@ -1507,7 +1508,35 @@ var_dump($end_point);
 				}
 		return array($article_top_ad_html, $article_under_ad_html);
 	}
+	//--------------------------
+	//オールヘッダーアドHTML生成
+	//--------------------------
+	public static function all_header_ad_html_create() {
+		// モバイル判別するPHPクラスライブラリを利用した機種判別
+		$detect  = Model_info_Basis::mobile_detect_create();
+		// PCのみ表示する
+		if($detect->isMobile()) {
 
+		}
+			else if($detect->isTablet()) {
+
+			}
+				else {
+					if($_COOKIE['all_header_ad_delete']) {
+							$all_header_ad_html = '';
+					}
+						else {
+							$all_header_ad_html = '
+									<div class="all_header_ad">
+										<a class="o_8" href="'.HTTP.'curatorrecruitment/lp/">
+											<img src="'.HTTP.'assets/img/all_header_ad/all_header_ad_sharetube_3.png">
+										</a>
+										<div class="all_header_ad_delete o_8">×</div>
+									</div>';
+						}
+				}
+		return $all_header_ad_html;
+	}
 
 
 

@@ -91,6 +91,12 @@ if (location.host == 'localhost') {
 		else if (location.host == 'www.sharetube.jp') {
 			var http = 'http://sharetube.jp/';
 		}
+//----------------------------------------------------------------------
+//文字列の先頭および末尾の連続する「半角空白・タブ文字・全角空白」を削除
+//----------------------------------------------------------------------
+function tab_space_delete(word) {
+	return word.replace(/^[\s　]+|[\s　]+$/g, "");
+}
 	//----------------
 	//読み込み後の処理
 	//----------------
@@ -285,6 +291,52 @@ if (location.host == 'localhost') {
 			scrollTop: 0
 		}, 1000);
 	});
+	//----------------------------
+	//オールヘッダーアド削除ボタン
+	//----------------------------
+	$('#wrapper').on( {
+		'click' : function() {
+			swal({
+			  title: '広告を削除致しますか？',
+			  text: '削除すると1カ月間 表示されません',
+			//  type: "warning",
+			  showCancelButton: true,
+			//  confirmButtonColor: "#DD6B55",
+			  confirmButtonText: '削除する',
+				cancelButtonText: 'キャンセル',
+//			  closeOnConfirm: false
+			},
+				function() {
+					$('.all_header_ad').remove();
+						// 時間設定
+						var expire = new Date();
+						expire.setTime( expire.getTime() + (1000 * 3600 * 24)*30 );
+						// クッキー書き込み
+						document.cookie = 'all_header_ad_delete=false; path=/; expires=' + expire.toUTCString();
+		//				swal("Deleted!", "Your imaginary file has been deleted.", "success");
+				});
+		}
+	}, '.all_header_ad_delete');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

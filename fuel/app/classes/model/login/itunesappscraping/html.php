@@ -4,7 +4,7 @@ class Model_Login_Itunesappscraping_Html extends Model {
 	//iTunes_app_html生成
 	//-------------------
 	public static function itunes_app_html_create($itunes_app_data_array, $description_check) {
-
+//		var_dump($itunes_app_data_array);
 /*
 		$itunes_app_data_array = array();
 		$itunes_app_data_array['title']        = $title_html;
@@ -52,18 +52,31 @@ foreach($itunes_app_data_array['screen_shots_run'] as $key => $value) {
 ////////////////
 //ratingHTML生成
 ////////////////
-$itunes_app_data_array['rating'] = (int)floor($itunes_app_data_array['rating']);
-//php while
-$rating_i = 5;
+//$itunes_app_data_array['rating'] = (int)floor($itunes_app_data_array['rating']);
+$itunes_app_data_array['rating'] = (int)floor($itunes_app_data_array['rating']*2);
+$rating_i = 10;
 while($rating_i > 0) {
-	$rating_i--;
-	$itunes_app_data_array['rating']--;
-	if($itunes_app_data_array['rating'] >= 0) {
+	if($itunes_app_data_array['rating'] >= 2) {
+		$rating_i--;
+		$rating_i--;
+		$itunes_app_data_array['rating']--;
+		$itunes_app_data_array['rating']--;
 		$rating_html .= '<span class="typcn typcn-star"></span>
 ';
 	}
-		else {
-			$rating_html .= '<span class="typcn typcn-star-outline"></span>
+		else if($itunes_app_data_array['rating'] == 1) {
+			$rating_i--;
+			$rating_i--;
+			$itunes_app_data_array['rating']--;
+			$rating_html .= '<span class="typcn typcn-star-half-outline"></span>
+';
+		}
+			else {
+				$rating_i--;
+				$rating_i--;
+				$itunes_app_data_array['rating']--;
+				$itunes_app_data_array['rating']--;
+				$rating_html .= '<span class="typcn typcn-star-outline"></span>
 ';
 		}
 }
