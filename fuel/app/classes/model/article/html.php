@@ -170,7 +170,10 @@ class Model_Article_Html extends Model {
 		$ad_middle_right_html  = Model_Ad_Html::fluct_ad_html_create($detect, 'ミドル右', 'none');
 		$ad_article_under_html = Model_Ad_Html::fluct_ad_html_create($detect, '記事下', 'ミドル_2');
 		// まとめ内広告トップ・ボトム広告HTML生成
-		list($article_top_ad_html, $article_under_ad_html) = Model_Article_Html::matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html);
+		list($article_top_ad_html, $article_under_ad_html) = Model_Article_Html::matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html, $ad_article_under_html);
+
+//var_dump($article_under_ad_html);
+
 
 		// PCユーザーのみキュレーター募集をかける
 		if($detect->isMobile()) {
@@ -1461,7 +1464,7 @@ var_dump($end_point);
 	//--------------------------------------
 	//まとめ内広告トップ・ボトム広告HTML生成
 	//--------------------------------------
-	public static function matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html) {
+	public static function matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html, $ad_article_under_html) {
 		// 記事内トップ広告分け($article_top_ad_html)
 		if($detect->isMobile()) {
 			$article_top_ad_html = '<div class="m_t_15 m_b_15 text_center">
@@ -1485,6 +1488,7 @@ var_dump($end_point);
 				}
 		// 記事内ボトム広告分け
 		if($detect->isMobile()) {
+//var_dump($ad_article_under_html);
 			$article_under_ad_html = '<div class="m_t_30 m_b_30 text_center">
 				'.$ad_article_under_html.'
 			</div>';
