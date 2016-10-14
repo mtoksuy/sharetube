@@ -165,6 +165,27 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043131'."'".'
 
 
 
+		$fluct_mobile_middle_6_ad_html ='<!--      fluct グループ名「Sharetube（スマホ）_300x250_Web_インライン_ミドル_6」      -->
+<script type="text/javascript" src="https://cdn-fluct.sh.adingo.jp/f.js?G=1000056595"></script>
+<!--      fluct ユニット名「Sharetube（スマホ）_300x250_Web_iOS_インライン_ミドル_6」     -->
+<script type="text/javascript">
+//<![CDATA[
+if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000085601'."'".');
+//]]>
+</script>
+<!--      fluct ユニット名「Sharetube（スマホ）_300x250_Web_Android_インライン_ミドル_6」     -->
+<script type="text/javascript">
+//<![CDATA[
+if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000085602'."'".');
+//]]>
+</script>';
+
+
+
+
+
+
+
 		$fluct_mobile_header_ad_html = '<!--      Fluct グループ名「Sharetube（スマホ）_320x100_Web_インライン_ヘッダー_TOP」      -->
 <script type="text/javascript" src="http://sh.adingo.jp/?G=1000027797&guid=ON"></script>
 <!--      Fluct ユニット名「Sharetube（スマホ）_320x100_Web_iOS_インライン_ヘッダー_TOP」     -->
@@ -210,11 +231,13 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043119'."'".'
 												'ミドル_3'     => $fluct_mobile_middle_3_ad_html, 
 												'ミドル_4'     => $fluct_mobile_middle_4_ad_html, 
 												'ミドル_5'     => $fluct_mobile_middle_5_ad_html, 
+												'ミドル_6'     => $fluct_mobile_middle_6_ad_html, 
 												'ヘッダー'     => $fluct_mobile_header_ad_html, 
 												'オーバーレイ' => $fluct_mobile_orverlay_ad_html, 
 												'none'         => '',
 									),
 		);
+		// 実際に設定する場所
 		if($detect->isMobile() | $detect->isTablet()) {
 			switch($mobile_type) {
 				case 'ミドル_1':
@@ -231,6 +254,9 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043119'."'".'
 				break;
 				case 'ミドル_5':
 					$ad_html = $fluct_ad_array["mobile"]["ミドル_5"];
+				break;
+				case 'ミドル_6':
+					$ad_html = $fluct_ad_array["mobile"]["ミドル_6"];
 				break;
 				case 'ヘッダー':
 					$ad_html = $fluct_ad_array["mobile"]["ヘッダー"];
@@ -285,6 +311,20 @@ if(typeof(adingoFluct)!="undefined") adingoFluct.showAd('."'".'1000043119'."'".'
 //	var_dump($mobile_type);
 
 		// 広告群
+
+		$GameFeat_rectangle_ad_html = '<!-- game feat広告 -->
+<script>
+var _gfwebq = _gfwebq || [];
+_gfwebq.push({
+	site_id: 11760,p_id: "gfweb_KsaN6LDVQVU",display: "rect",order: "best",limit: "1",
+});
+</script>
+<div id="gfweb_KsaN6LDVQVU"></div>
+<script src="https://www.gamefeat.net/js/api/requestAds.v2.js"></script>';
+
+
+
+
 		$GameFeat_list_ad_html = '<!-- game feat広告 -->
 <script>
 var _gfwebq = _gfwebq || [];
@@ -314,8 +354,8 @@ _gfwebq.push({
 												'記事下'         => '',
 												'none'           => '',
 								),
-			'mobile' => array('ミドル_6'     => $GameFeat_list_ad_html, 
-												'ミドル_7'     => $GameFeat_ranking_ad_html, 
+			'mobile' => array('ミドル_6'     => $GameFeat_rectangle_ad_html, 
+												'ミドル_7'     => $GameFeat_rectangle_ad_html, 
 												'none'         => '',
 									),
 		);
@@ -351,11 +391,52 @@ _gfwebq.push({
 		return $ad_html;
 	}
 
+	//------------------------
+	//AdGeneration広告配信関数
+	//------------------------
+	static function AdGeneration_ad_html_create($detect, $pc_type =  "サイドバー右上", $mobile_type = "ミドル_1") {
+		// 広告群
+		$AdGeneration_rectangle_ad_html = '<!--
+ad-generation ミドル_7 48381
+-->
+<script src="http://i.socdm.com/sdk/js/adg-script-loader.js?id=42481&targetID=adg_42481&displayid=3&adType=RECT&async=false&tagver=2.0.0"></script>';
 
+		// AdGeneration広告タグ群array
+		$AdGeneration_ad_array = array(
+			'pc'     => array('サイドバー右上' => '', 
+												'サイドバー右下' => '',
+												'ミドル左'       => '',
+												'ミドル右'       => '',	
+												'記事下'         => '',
+												'none'           => '',
+								),
+			'mobile' => array('ミドル_6'     => $AdGeneration_rectangle_ad_html, 
+												'ミドル_7'     => $AdGeneration_rectangle_ad_html, 
+												'none'         => '',
+									),
+		);
+		if($detect->isMobile() | $detect->isTablet()) {
+			switch($mobile_type) {
+				case 'ミドル_6':
+					$ad_html = $AdGeneration_ad_array["mobile"]["ミドル_6"];
+				break;
+				case 'ミドル_7':
+					$ad_html = $AdGeneration_ad_array["mobile"]["ミドル_7"];
+				break;
+				case 'none':
+					$ad_html = $AdGeneration_ad_array["mobile"]["none"];
+				break;
 
-
-
-
+				default:
+					$ad_html = $AdGeneration_ad_array["mobile"]["ミドル_6"];
+				break;
+			}
+		}
+			else {
+				$ad_html = $AdGeneration_rectangle_ad_html;
+			}
+		return $ad_html;
+	}
 	//----------------------
 	//テクノアルカディア広告
 	//----------------------

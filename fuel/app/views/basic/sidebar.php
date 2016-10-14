@@ -13,9 +13,6 @@
 <?php echo $sidebar_data["profile_card_html"]; ?>
 
 
-<?php echo $sidebar_data["popular_html"]; ?>
-
-
 <?php
 		// モバイルからのアクセスなのかどうかを調べる
 //		$user_is_mobil = Model_Info_Basis::mobil_is_access_check();
@@ -26,9 +23,13 @@
 		$detect = Model_info_Basis::mobile_detect_create();
 		// Fluct広告
 		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ミドル_4');
-		echo $ad_html;
+		echo '<div class="sidebar_ad" style="margin-top: 30px;">'.$ad_html.'</div>';
 ?>
 
+
+
+
+<?php echo $sidebar_data["popular_html"]; ?>
 <?php echo $sidebar_data["related_html"]; ?>
 <?php echo $sidebar_data["shuffle_html"]; ?>
 
@@ -60,9 +61,13 @@
 
 
 <div class="sidebar_ad">
+
+
+
 	<?php // 広告配信
 		$detect = Model_info_Basis::mobile_detect_create();
 //		$ad_html = Model_Ad_Html::ad_html_create($detect, 'geniee','レクタングル');
+//		echo $ad_html;
 		// Fluct広告
 		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'サイドバー右下', 'ミドル_5');
 		echo ($ad_html);
@@ -70,23 +75,13 @@
 </div>
 
 
-<?php
-		// GameFeat広告
-		$ad_html = Model_Ad_Html::GameFeat_ad_html_create($detect, 'none', 'ミドル_6');
-	if($detect->isMobile() | $detect->isTablet()) {
-		echo ('
-			<div class="sidebar_ad">
-				<div class="article_inside_related_article_header">
-					<span>オススメゲームまとめ</span>
-					<span class="article_inside_related_article_header_line"> </span>
-				</div>'.$ad_html.
-			'</div>');
-	}
-?>
+
+
 
 <?php
 		// GameFeat広告
 		$ad_html = Model_Ad_Html::GameFeat_ad_html_create($detect, 'none', 'ミドル_7');
+/*
 	if($detect->isMobile() | $detect->isTablet()) {
 		echo ('
 			<div class="sidebar_ad">
@@ -96,15 +91,8 @@
 				</div>'.$ad_html.
 			'</div>');
 	}
+*/
 ?>
-
-
-
-
-
-
-
-
 
 <div class="sidebar_ad">
 
@@ -114,8 +102,6 @@
 			<img src="<?php echo HTTP; ?>assets/img/curatorrecruitment/curator_recruitment_8.png" width="300" height="443">
 		</a>
 	</div>
-
-
 
 
 	<!-- サイト情報 -->
@@ -144,3 +130,44 @@
 		</ul>
 	</div>
 </div>
+
+<?php
+/*
+		// GameFeat広告
+		$ad_html = Model_Ad_Html::GameFeat_ad_html_create($detect, 'none', 'ミドル_6');
+	if($detect->isMobile() | $detect->isTablet()) {
+		echo ('
+			<div class="sidebar_ad">
+				'.$ad_html.
+			'</div>');
+	}
+*/
+		// AdGeneration広告
+//		$ad_html = Model_Ad_Html::AdGeneration_ad_html_create($detect, 'none', 'ミドル_7');
+		// Fluct広告
+		$ad_7_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ミドル_6');
+
+	if($detect->isMobile() | $detect->isTablet()) {
+		echo ('
+			<div class="sidebar_ad">
+				'.$ad_7_html.
+			'</div>');
+	}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
