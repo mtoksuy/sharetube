@@ -209,6 +209,30 @@ body {
 
 
 
+/*****************
+文字カウントツール
+*****************/
+.text_count_tool {
+    left: 15px;
+    position: fixed;
+    top: 110px;
+}
+.text_count_tool .text_count_tool_inner {
+
+}
+.text_count_tool .text_count_tool_inner_count {
+	font-size: 92%;
+}
+.text_count_tool .text_count_tool_inner_count h4 {
+	font-weight: normal;
+}
+.text_count_tool .text_count_tool_inner_count p {
+	margin: 0;
+}
+.text_count_tool .text_count_tool_inner_count .rank {
+	font-weight: bold;
+}
+
 
 /*************
 文字装飾ツール

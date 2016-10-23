@@ -83,6 +83,8 @@
 
 
 		<!-- matome text_design_tool プラグイン -->
+		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/login/matome/text_count_tool.js"></script>
+		<!-- matome text_design_tool プラグイン -->
 		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/login/matome/text_design_tool.js"></script>
 
 		<!-- Twitterscrapingプラグイン -->

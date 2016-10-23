@@ -894,6 +894,8 @@ $('.matome').on( {
 		}
 		// 削除
 		$(this).parents('.matome_content_block').remove();
+		// カウント文字数変更関数
+		text_count_tool_change();
 	},
 }, '.delete');
 /**********************

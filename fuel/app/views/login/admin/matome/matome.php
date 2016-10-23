@@ -1,4 +1,28 @@
 			<iframe name="shumbnail_iframe" id="" style="display: none;"></iframe>
+
+
+
+
+
+				<!-- 文字カウントツール -->
+				<div class="text_count_tool clearfix">
+					<div class="text_count_tool_inner">
+						<div class="text_count_tool_inner_count">
+							<h4>現在のまとめ文字数</h4>
+							<p class="count">0文字</p>
+							<p>クオリティー度：<span class="rank"></span></p>
+						</div>
+					</div>
+				</div>
+<!--
+低
+中
+高
+最高
+超絶
+神
+-->
+
 				<!-- 文字装飾ツール -->
 				<div class="text_design_tool clearfix">
 					<div class="text_design_tool_content">
