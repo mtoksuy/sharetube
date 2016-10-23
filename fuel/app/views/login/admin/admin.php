@@ -4,7 +4,10 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.22<br>
+						<p>Sharetube version 5.4.23<br></p>
+
+						<p style="margin: 0px; font-size: 150%; color: red;">［超重要］</p>						
+						<p style="">まとめ作成ツールをアップデート致しました。まとめ作成するに至って、古いファイル(キャッシュ)が読み込まれるとバグってまとめ作成ができなくなる恐れがありますので<em class="marker_1">まとめ作成ページにて</em><span style="color: red; font-size: 150%;">スーパーリロード</span>よろしくお願い致します。</p>
 
 
 					</div>
@@ -30,6 +33,14 @@
 
 
 					<h3 class="h3_heading_1">ヘルプ</h3>
+
+
+
+					<h4 class="h4_heading_1">[本気でまとめを書いた場合(運営者が)]</h4>
+					<p class="m_0">【226万円】3ヶ月間だけまとめを鬼のように書いてぴたっと書かなくなった永久報酬の金額 </p>
+					<p><a href="http://sharetube.jp/article/4068/" target="_blank">http://sharetube.jp/article/4068/</a></p>
+
+
 					<h4 class="h4_heading_1">[まとめを書くにあたっての必要な事]</h4>
 					<p class="m_0">[まとめ職人に捧ぐ] PVを集めるために絶対に必要な7つのルール</p>
 					<p><a href="http://sharetube.jp/article/2814/" target="_blank">http://sharetube.jp/article/2814/</a></p>
@@ -77,6 +88,18 @@
 	<div class="matome_content_block_timeline">
 		<ol>
 
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年10月15日：Var.5.4.23</pre>
+					</dt>
+					<dd>
+						<pre>・[まとめ作成ツール]まとめの文字数カウンター実装</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
