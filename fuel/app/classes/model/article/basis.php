@@ -292,7 +292,7 @@ class Model_Article_Basis extends Model {
 			'37.59.67.46',
 			'ap.dream.jp',
 			'btvm.ne.jp',
-			'plala.or.jp',
+//			'plala.or.jp',
 			'eonet.ne.jp',
 			'metauri.com',
 			'eonet.ne.jp',
@@ -300,7 +300,7 @@ class Model_Article_Basis extends Model {
 			'pikara.ne.jp',
 //			'spmode.ne.jp',
 			'st.dtn.ne.jp',
-			'sakura.ne.jp',
+//			'sakura.ne.jp',
 //			'so-net.ne.jp',
 			'103.5.140.157',
 			'infoweb.ne.jp',
@@ -510,9 +510,9 @@ foreach($save_array as $k => $v) {
 							WHERE primary_id = ".$access_summary_array["primary_id"]."")->execute();
 				}
 	}
-	//----------------------
-	//アクセスランキング取得
-	//----------------------
+	//---------------------------------
+	//アクセスランキング取得 人気まとめ
+	//---------------------------------
 	static function article_access_get($access_day_date = NULL, $get_num = 4) {
 		// クエリが長時間になるための応急処置 2015.01.23 松岡
 		// 最新記事のprimary_id取得
@@ -527,7 +527,7 @@ foreach($save_array as $k => $v) {
 			FROM recommend_article 
 			WHERE del = 0
 			ORDER BY article_id DESC
-			LIMIT 0, 100")->cached(86400)->execute();
+			LIMIT 0, 50")->cached(86400)->execute();
 		foreach($recommend_article_200_res as $key => $value) {
 			$add_and_2 .= ''.$value['article_id'].',';
 		}
