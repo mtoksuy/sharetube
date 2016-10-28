@@ -266,6 +266,23 @@ class Model_Info_Basis extends Model {
 		}
 		return $is_article;
 	}
+	//---------------------------------------------
+	//作成されたまとめ かつ削除されたまとめか調べる
+	//---------------------------------------------
+	public static function is_article_delete($method, $article_type = 'article') {
+		$is_article_delete = false;
+		$res = DB::query(
+			"SELECT *
+				FROM ".$article_type."
+				WHERE link = ".$method."
+				AND del = 1")->cached(3600)->execute();
+		foreach($res as $key => $value) {
+			$is_article_delete = true;
+		}
+		return $is_article_delete;
+	}
+
+
 	//----------------------------------
 	//下書き記事があるかどうかを検査する
 	//----------------------------------
