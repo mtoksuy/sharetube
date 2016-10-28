@@ -12,19 +12,23 @@ class Controller_Article extends Controller_Article_Template {
 	public function router($method, $params) {
 		// セグメント審査と軽い記事審査
 		if (!$params && preg_match('/^[0-9]+$/', $method, $method_array)) {
+			// 記事があるかどうかを検査する
 			$is_article = Model_Info_Basis::is_article($method);
+			// 作成されたまとめ かつ削除されたまとめか調べる
+			$is_article_delete = Model_Info_Basis::is_article_delete($method);
 			// 記事がある場合
 			if($is_article) {
 				return $this->action_index($method);
 			}
 				// エラー
 				else {
-					return $this->action_404();
+					return $this->action_404($is_article_delete);
 				}
 		}
 			// エラー
 			else {
-				 return $this->action_404();
+				$is_article_delete = false;
+				return $this->action_404($is_article_delete);
 			}
 	}
 	// 親のbefore実行
@@ -147,7 +151,13 @@ class Controller_Article extends Controller_Article_Template {
 	//------------
 	//エラーページ
 	//------------
-	public function action_404() {
+	public function action_404($is_article_delete) {
+		if($is_article_delete) {
+			$error_word = 'このまとめは作成者の操作により、または<a href="'.HTTP.'rule/rule/">利用規約</a>違反で運営から削除されました。<br><br><br><br><br><br><br>';
+		}
+			else {
+				$error_word = 'エラーページ<br><br><br><br><br><br><br><br><br>';
+			}
 //		var_dump($this);
 		// 404ステータスにする
 	$this->response_status                                      = 404;
@@ -165,7 +175,7 @@ class Controller_Article extends Controller_Article_Template {
 
 		// 記事コンテンツセット
 		$this->article_template->view_data["content"]->set('content_data', array(
-			'article_html' => 'エラーページ<br><br><br><br><br><br><br><br><br>',
+			'article_html' => $error_word,
 		), false);
 
 		// サイドバーコンテンツセット
