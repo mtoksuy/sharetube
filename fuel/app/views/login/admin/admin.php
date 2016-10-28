@@ -5,9 +5,8 @@
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.4.23<br></p>
+						キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
 
-						<p style="margin: 0px; font-size: 150%; color: red;">［超重要］</p>						
-						<p style="">まとめ作成ツールをアップデート致しました。まとめ作成するに至って、古いファイル(キャッシュ)が読み込まれるとバグってまとめ作成ができなくなる恐れがありますので<em class="marker_1">まとめ作成ページにて</em><span style="color: red; font-size: 150%;">スーパーリロード</span>よろしくお願い致します。</p>
 
 
 					</div>
@@ -87,6 +86,21 @@
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年10月24日：Var.5.4.23</pre>
+					</dt>
+					<dd>
+						<pre>・まとめを利用規約違反で運営から削除された場合のエラーページ実装</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
