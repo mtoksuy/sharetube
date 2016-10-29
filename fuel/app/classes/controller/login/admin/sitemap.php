@@ -185,7 +185,7 @@ $sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>
   <loc>http://sharetube.jp/</loc>
   <priority>1.0</priority>
 </url>
-'.$category_loc.''.$archive_loc.'<url>
+<url>
   <loc>http://sharetube.jp/about/</loc>
   <priority>0.9</priority>
 </url>
@@ -229,9 +229,16 @@ $sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>
   <loc>http://sharetube.jp/permalink/ch_thread_design_1.php</loc>
   <priority>0.7</priority>
 </url>
-'.$user_channel_loc.$matome_loc.$recommendarticle_loc.$newarticle_loc.$theme_loc.'</urlset>';
+'.$matome_loc.$theme_loc.$user_channel_loc.$category_loc.$recommendarticle_loc.$newarticle_loc.$archive_loc.'</urlset>';
+
+
+
 
 //pre_var_dump($sitemap_xml);
+
+
+
+
 
 		// 改行コードをLFに置換
 //		$rss = str_replace(array("\r\n","\r"), "\n", $rss);

@@ -62,12 +62,12 @@
 
 
 					<h3 class="h3_heading_1">キャッシュ設定表</h3>
-					<p class="m_0">・記事：15分</p>
-					<p class="m_0">・記事一覧：15分</p>
-					<p class="m_0">・関連記事：1時間</p>
-					<p class="m_0">・人気記事1日：1時間</p>
-					<p class="m_0">・人気記事1週間：1日</p>
-					<p class="m_0">・人気記事1ヶ月：3日</p>
+					<p class="m_0">・まとめ：15分</p>
+					<p class="m_0">・まとめ一覧：15分</p>
+					<p class="m_0">・関連まとめ：1時間</p>
+					<p class="m_0">・人気まとめ1日：1時間</p>
+					<p class="m_0">・人気まとめ1週間：1日</p>
+					<p class="m_0">・人気まとめ1ヶ月：3日</p>
 					<p class="m_0">・ユーザーページ：15分</p>
 					<p>・サイトマップ：1日</p>
 
@@ -89,6 +89,20 @@
 
 
 
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年10月29日：Var.5.4.23</pre>
+					</dt>
+					<dd>
+						<pre>・sitemap.xml生成関数アップデート</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 			<li class="clearfix">
