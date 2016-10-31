@@ -32,6 +32,8 @@
 			<div class="main clearfix">
 				<!-- sp_thumbnail -->
 				<?php echo $view_data["sp_thumbnail"]; ?>
+				<!-- navigation -->
+				<?php echo $view_data["navigation"]; ?>
 				<!-- main_contents -->
 				<div class="main_contents clearfix">
 					<?php echo $view_data["content"]; ?>

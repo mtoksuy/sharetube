@@ -23,6 +23,7 @@ class Controller_Article_Template extends Controller {
 			'header'       => View::forge('basic/header'),
 			'mobile_ad'    => View::forge('basic/mobilead'),
 			'sp_thumbnail' => View::forge('basic/spthumbnail'),
+			'navigation'   => View::forge('basic/navigation'),
 			'content'      => View::forge('article/content'),
 			'sidebar'      => View::forge('basic/sidebar'),
 			'plus_add'     => View::forge('article/plusadd'),
