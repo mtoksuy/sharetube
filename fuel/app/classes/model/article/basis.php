@@ -745,8 +745,36 @@ foreach($save_array as $k => $v) {
 		);
 		return $new_article_paging_data_array;
 	}
+	//------------------------------
+	//テーマを追ってみようデータ取得
+	//------------------------------
+	public static function related_theme_data_array_get($related_data_array, $cached = 900) {
+		$loop_count = 3;
+		$related_theme_data_array = array();
 
-
+		foreach($related_data_array['tag_array'] as $key => $value) {
+			if($loop_count > 0) {
+				$loop_count--;
+//				pre_var_dump($value);
+				$theme_res = DB::query("
+					SELECT *
+					FROM theme 
+					WHERE theme_name = '".$value."'
+					AND del = 0
+				")->cached(3600)->execute();
+				foreach($theme_res as $theme_key => $theme_value) {
+					// テーマ一覧HTML生成
+					list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, 1, 0);
+//					pre_var_dump($theme_article_data_array);
+					$related_theme_data_array[$key]['primary_id']   = $theme_value['primary_id'];
+					$related_theme_data_array[$key]['theme_name']   = $theme_value['theme_name'];
+					$related_theme_data_array[$key]['theme_summry'] = $theme_value['theme_summry'];
+					$related_theme_data_array[$key]['theme_count']  = $theme_article_data_array['list_num'];
+				}
+			}
+		}
+		return $related_theme_data_array;
+	}
 
 
 }
