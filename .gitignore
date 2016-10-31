@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 .DS_Stone
 .DS_Store
 fuel/app/logs/*/*/*
@@ -21,5 +20,3 @@ public/sitemap.xml
 
 public/git_test/*
 !.gitkeep
-=======
->>>>>>> origin/version_5.4.23
