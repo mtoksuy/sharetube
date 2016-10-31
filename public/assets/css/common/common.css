@@ -1428,6 +1428,8 @@ a:hover {
 
 .scroll_top:hover, .shuffle_button:hover {
   background-color: #ED482D;
+  background-color: #ff3810;
+  background-color: #f7f7f7;
 }
 
 .second_navi_contents {
