@@ -27,18 +27,20 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 					WHERE del = 0
 					ORDER BY category_segment.order ASC")->execute();
 			foreach($category_res as $key => $value) {
+//pre_var_dump($value);
 				$category_array[$key] = HTTP.$value["category_segment"].'/';
 			}
+//pre_var_dump($category_array);
 			/////////////////////
 			//アーカイブarray生成
 			/////////////////////
-		// アーカイブデータ取得
-		list($first_article_res, $last_article_res) = Model_Archive_Basis::archive_first_last_data_get();
-		// アーカイブHTML生成
-		$archive_li_html = Model_Archive_Html::archive_list_html_create($first_article_res, $last_article_res);
-		$pattern = '/href="(.+?)"/';
-		preg_match_all($pattern,$archive_li_html,$archive_list_array);
-//		var_dump($archive_list_array[1]);
+			// アーカイブデータ取得
+			list($first_article_res, $last_article_res) = Model_Archive_Basis::archive_first_last_data_get();
+			// アーカイブHTML生成
+			$archive_li_html = Model_Archive_Html::archive_list_html_create($first_article_res, $last_article_res);
+			$pattern = '/href="(.+?)"/';
+			preg_match_all($pattern,$archive_li_html,$archive_list_array);
+//pre_var_dump($archive_list_array);
 			////////////////////////
 			//ユーザーチャンネル生成
 			////////////////////////
@@ -47,7 +49,7 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 			$user_res = DB::query("
 				SELECT * 
 					FROM user
-					WHERE all_page_view > 50
+					WHERE all_page_view > 100
 					ORDER BY all_page_view DESC")->execute();
 			foreach($user_res as $key => $value) {
 				$user_array[$key]         = $value["sharetube_id"];
@@ -62,7 +64,6 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 					$user_channel_array[$key][$i] = $user_channel_array[$key][0].$i.'/';
 				} // for($i = 1;$i <= $page_number; $i++) {
 			}
-
 			////////////
 			//まとめ生成
 			////////////
@@ -75,7 +76,62 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 			foreach($article_res as $key => $value) {
 				$matome_array[$key] = HTTP.'article/'.$value["link"].'/';
 			}
-//			var_dump($matome_array);
+			////////////
+			//注目まとめ
+			////////////
+			// 注目まとめページングデータ取得
+			$recommend_article_paging_data_array = Model_Article_Basis::recommend_article_paging_data_get(20, 1);
+			////////////////////
+			//注目まとめ_loc生成
+			////////////////////
+			for($count = 2; $recommend_article_paging_data_array['max_paging_num'] >= $count; $count++) {
+				$recommendarticle_loc .= 
+'<url>
+	<loc>'.HTTP.'recommendarticle/'.$count.'/</loc>
+	<priority>0.6</priority>
+</url>
+';
+			}
+			////////////
+			//新着まとめ
+			////////////
+			// 新着まとめページングデータ取得
+			$new_article_paging_data_array = Model_Article_Basis::new_article_paging_data_get(20, 1);
+			////////////////////
+			//新着まとめ_loc生成
+			////////////////////
+				$newarticle_loc .= 
+'<url>
+	<loc>'.HTTP.'newarticle/</loc>
+	<priority>0.6</priority>
+</url>
+';
+			for($count = 2; $new_article_paging_data_array['max_paging_num'] >= $count; $count++) {
+				$newarticle_loc .= 
+'<url>
+	<loc>'.HTTP.'newarticle/'.$count.'/</loc>
+	<priority>0.7</priority>
+</url>
+';
+			}
+			////////
+			//テーマ
+			////////
+			$theme_res = DB::query("
+				SELECT * 
+				FROM theme 
+				WHERE del = 0")->execute();
+			///////////////
+			//theme_loc生成
+			///////////////
+			foreach($theme_res as $key => $value) {
+				$theme_loc .= 
+'<url>
+	<loc>'.HTTP.'theme/'.$value['primary_id'].'/</loc>
+	<priority>0.7</priority>
+</url>
+';
+			}
 	//////////////////
 	//category_loc生成
 	//////////////////
@@ -83,7 +139,7 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 		$category_loc .= 
 '<url>
   <loc>'.$value.'</loc>
-  <priority>0.3</priority>
+  <priority>0.6</priority>
 </url>
 ';
 	}
@@ -94,7 +150,7 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 		$archive_loc .= 
 '<url>
   <loc>'.$value.'</loc>
-  <priority>0.3</priority>
+  <priority>0.6</priority>
 </url>
 ';
 	}
@@ -106,7 +162,7 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 		$user_channel_loc .= 
 '<url>
   <loc>'.$value_2.'</loc>
-  <priority>0.3</priority>
+  <priority>0.7</priority>
 </url>
 ';
 		}
@@ -118,7 +174,7 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 		$matome_loc .= 
 '<url>
   <loc>'.$value.'</loc>
-  <priority>0.3</priority>
+  <priority>0.8</priority>
 </url>
 ';
 	}
@@ -129,39 +185,59 @@ $sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>
   <loc>http://sharetube.jp/</loc>
   <priority>1.0</priority>
 </url>
-'.$category_loc.''.$archive_loc.'<url>
+<url>
   <loc>http://sharetube.jp/about/</loc>
-  <priority>0.3</priority>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>http://sharetube.jp/contact/</loc>
-  <priority>0.3</priority>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>http://sharetube.jp/sitemap/</loc>
-  <priority>0.3</priority>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>http://sharetube.jp/signup/</loc>
-  <priority>0.3</priority>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>http://sharetube.jp/rule/rule/</loc>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>http://sharetube.jp/curatorrecruitment/</loc>
-  <priority>0.3</priority>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://sharetube.jp/curatorrecruitment/lp/</loc>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>http://sharetube.jp/curatorlist/</loc>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>http://sharetube.jp/permalink/recruitment_ads.php</loc>
-  <priority>0.3</priority>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>http://sharetube.jp/authorrecruiting/</loc>
-  <priority>0.3</priority>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>http://sharetube.jp/permalink/ch_thread_design_1.php</loc>
-  <priority>0.3</priority>
+  <priority>0.7</priority>
 </url>
-'.$user_channel_loc.''.$matome_loc.'</urlset>';
+'.$matome_loc.$theme_loc.$user_channel_loc.$category_loc.$recommendarticle_loc.$newarticle_loc.$archive_loc.'</urlset>';
+
+
+
+
+//pre_var_dump($sitemap_xml);
+
+
+
 
 
 		// 改行コードをLFに置換

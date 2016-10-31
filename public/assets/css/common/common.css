@@ -1428,6 +1428,8 @@ a:hover {
 
 .scroll_top:hover, .shuffle_button:hover {
   background-color: #ED482D;
+  background-color: #ff3810;
+  background-color: #f7f7f7;
 }
 
 .second_navi_contents {
@@ -1776,6 +1778,19 @@ a:hover {
 .social_share a:last-child:active {
   margin: 5px 0 0;
 }
+/*****************************
+ソーシャルシェアボタン促す文言
+*****************************/
+.social_share_prompt {
+	color: #292f33;
+	margin: 0 29px 0 0;
+	text-align: right;
+	font-size: 75%;
+}
+
+.social_share_prompt span {
+
+}
 /*********************
 ソーシャルシェアボタン
 *********************/
@@ -1802,9 +1817,11 @@ a:hover {
 }
 
 .social_share_uri_scheme a:active {
+/*
   border-bottom: 0 none;
   border-radius: 5px;
     margin: 5px 0px 0px 0px;
+*/
 }
 
 .social_share_uri_scheme a:last-child:active {
@@ -2095,7 +2112,97 @@ a:hover {
   font-weight: 700;
   margin: 0 0 15px;
 }
+.author_profile_name a {
+	color: #3a3a3a;
+}
+.author_profile_name a:link {
+    text-decoration: underline;
+}
+.author_profile_name a:hover {
+	text-decoration: none;
+}
 
+
+/*******************
+テーマを追ってみよう
+*******************/
+.related_theme {
+	margin: 30px 0 0;
+}
+.related_theme .related_theme_inner {
+
+}
+.related_theme .related_theme_inner ul {
+	padding: 0;
+	margin: 0;
+}
+.related_theme .related_theme_inner ul li {
+/*
+    box-shadow: 13px 0 0 -12px #eee;
+*/
+    box-sizing: border-box;
+    float: left;
+    list-style: outside none none;
+    padding: 0 15px 0 0;
+		padding:  10px 10px 2px;;
+    width: 33.3%;
+}
+.related_theme .related_theme_inner ul li:last-child {
+	box-shadow: none;
+}
+.related_theme .related_theme_inner ul li:hover {
+	background-color: #f7f7f7;
+}
+
+.related_theme .related_theme_inner ul li a {
+	color: #3a3a3a;
+	display: block;
+}
+.related_theme .related_theme_inner ul li a:link {
+	color: #3a3a3a;
+}
+.related_theme .related_theme_inner ul li a:hover {
+
+}
+.related_theme .related_theme_inner ul li a .related_theme_block {
+	color: #3a3a3a;
+}
+.related_theme .related_theme_inner ul li a .related_theme_block .related_theme_block_image {
+	float: left;
+	margin: 0 5px 0 0;
+}
+.related_theme .related_theme_inner ul li a .related_theme_block .related_theme_block_image img {
+	border-radius: 2px;
+	width: 48px;
+	height: 48px;
+}
+.related_theme .related_theme_inner ul li a .related_theme_block .related_theme_block_name {
+	float: left;
+}
+.related_theme .related_theme_inner ul li a .related_theme_block .related_theme_block_name p {
+	margin: 0;
+}
+.related_theme .related_theme_inner ul li a .related_theme_block .related_theme_block_name .related_theme_block_name_top {
+	font-weight: bold;
+	color: #3a3a3a;
+	margin: 3px 0 0;
+}
+.related_theme .related_theme_inner ul li a .related_theme_block .related_theme_block_name .related_theme_block_name_bottom {
+	font-size: 75%;
+	color: #666;
+	margin: -3px 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+/**/
 .account_list ul {
   margin: 0;
   padding: 0;
@@ -2878,8 +2985,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .social_button_list {
-  border-bottom: 2px dotted #888;
-  margin: 5px 0 15px;
+  margin: 5px 0 5px;
 }
 
 .social_button_list ul {

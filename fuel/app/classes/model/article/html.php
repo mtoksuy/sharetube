@@ -170,7 +170,10 @@ class Model_Article_Html extends Model {
 		$ad_middle_right_html  = Model_Ad_Html::fluct_ad_html_create($detect, 'ミドル右', 'none');
 		$ad_article_under_html = Model_Ad_Html::fluct_ad_html_create($detect, '記事下', 'ミドル_2');
 		// まとめ内広告トップ・ボトム広告HTML生成
-		list($article_top_ad_html, $article_under_ad_html) = Model_Article_Html::matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html);
+		list($article_top_ad_html, $article_under_ad_html) = Model_Article_Html::matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html, $ad_article_under_html);
+
+//var_dump($article_under_ad_html);
+
 
 		// PCユーザーのみキュレーター募集をかける
 		if($detect->isMobile()) {
@@ -261,8 +264,13 @@ class Model_Article_Html extends Model {
 				'article_primary_id'      => (int)$article_primary_id,
 				'tag_array'               => $tag_array,
 			);
-
 //			var_dump($related_data_array);
+			// テーマを追ってみようデータ取得
+			$related_theme_data_array = Model_Article_Basis::related_theme_data_array_get($related_data_array, 3600);
+//var_dump($related_theme_data_array);
+			// テーマを追ってみようHTML生成
+			$related_theme_html = Model_Article_Html::related_theme_html_create($related_theme_data_array);
+
 			// 関連まとめデータ取得
 			list($related_res, $related_count) = Model_Article_Basis::article_related_get($related_data_array, 'article');
 			// 関連まとめHTML生成
@@ -277,20 +285,24 @@ class Model_Article_Html extends Model {
 				// まとめコンテンツリストHTML取得
 				$value["sub_text"] = Model_Login_Matome_Preview_Basis::matome_content_block_list_html_get($value["sub_text"]);
 			}
+
+
 			// 記事HTML生成
 			$article_html = ('
 				<article class="article_list" data-article_number="'.$value["primary_id"].'" data-article_year="'.$year_time.'">
 					<div class="article_list_contents">
-						<a href="'.HTTP.''.$article_type.'/'.$value["link"].'/">
-							<h1>'.$value["title"].'</h1>
-						</a>
-						'.$tag_html.'
-						'.$original_html.'
-						'.$author_html.'
-						<div class="release_date_time">
-							<span class="typcn typcn-watch"></span><span>Release Date：</span><time datetime="'.$local_time.'" pubdate="pubdate">'.$local_japanese_time.'</time>
+						<div class="article_data_header">
+							<a href="'.HTTP.''.$article_type.'/'.$value["link"].'/">
+								<h1>'.$value["title"].'</h1>
+							</a>
+							'.$tag_html.'
+							'.$original_html.'
+							'.$author_html.'
+							<div class="release_date_time">
+								<span class="typcn typcn-watch"></span><span>Release Date：</span><time datetime="'.$local_time.'" pubdate="pubdate">'.$local_japanese_time.'</time>
+							</div>
+							'.$social_share_share_button_html.'
 						</div>
-						'.$social_share_share_button_html.'
 						'.$thumbnail_html.'
 						'.$article_top_ad_html.'
 						<div class="article_list_contents_sub_text">
@@ -306,11 +318,15 @@ class Model_Article_Html extends Model {
 					'.$article_bottom_like_box_html.'
 					<!-- 広告配信 -->
 					'.$article_under_ad_html.'
-					<!-- 宣伝 -->
-					'.$facebook_like_please_html.'
 					<!-- キュレータープロフィール -->
 					'.$author_profile_html.'
+					<!-- テーマを追ってみよう -->
+					'.$related_theme_html.'
+					<!-- 関連まとめ -->
 					'.$related_html.'
+					<!-- 宣伝 -->
+					'.$facebook_like_please_html.'
+					<!-- 前後のまとめ -->
 					'.$detail_press_bottom_html.'
 				</article>
 			');
@@ -377,6 +393,7 @@ class Model_Article_Html extends Model {
 	static function article_tag_html_create($tag, $cached = 900) {
 		// テーマarray生成
 		$theme_array = Model_Theme_Basis::theme_array_create($tag);
+//var_dump($theme_array);
 		$tag_li = '';
 		// タグありとなしの場合
 		switch($tag) {
@@ -410,7 +427,7 @@ class Model_Article_Html extends Model {
 -->
 				<span class="typcn typcn-document-add clearfix"></span>
 				<ul class="clearfix">
-					<li>Theme To：</li>
+					<li>Theme：</li>
 						'.$tag_li.
 				'</ul>
 			</div>');
@@ -534,7 +551,10 @@ class Model_Article_Html extends Model {
 		$author_profile_html = 
 			'<!-- author_profile -->
 			<div class="author_profile clearfix">
-				<h5>著者プロフィール</h5>
+				<div class="article_inside_related_article_header">
+					<span>著者プロフィール</span>
+					<span class="article_inside_related_article_header_line"> </span>
+				</div>
 				<!-- author_profile_icon -->
 				<span class="author_profile_icon">
 						<img width="128" height="128" src="'.HTTP.'assets/img/creators/icon/'.$sharetube_user_data_array["profile_icon"].'" alt="'.$sharetube_user_data_array["name"].'" title="'.$sharetube_user_data_array["name"].'">
@@ -542,7 +562,9 @@ class Model_Article_Html extends Model {
 				<!-- author_profile_contents -->
 				<div class="author_profile_contents">
 					<div class="author_profile_name">
+						<a href="'.HTTP.'channel/'.$sharetube_user_data_array['sharetube_id'].'/">
 						'.$sharetube_user_data_array["name"].'
+						</a>
 					</div>
 					<p>'.$sharetube_user_data_array["profile_contents"].'</p>
 						'.$account_list_html.'
@@ -973,6 +995,15 @@ border-bottom: 2px dotted #888;
 			<div class="social_share_uri_scheme clearfix">
 				'.$social_share_btn_html_array_html.'
 			</div>');
+		//
+$social_share_html = '
+<div class="social_share_prompt">
+	<span>＼ SNSでシェアしよう！ ／</span>
+</div>'.$social_share_html;
+
+
+
+
 		return $social_share_html;
 	}
 
@@ -1017,6 +1048,9 @@ border-bottom: 2px dotted #888;
 
 
 				<div class="facebook_like_please_left">
+
+
+
 <!--
 					<div class="facebook_like_please_facebook_like_button">
 						<div class="fb-like" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
@@ -1030,15 +1064,15 @@ border-bottom: 2px dotted #888;
 
 
 <div class="new_sns_follow">
+
 	<div class="new_sns_follow_twitter">
-		<a class="twitter" href="https://twitter.com/intent/follow?screen_name=Sharetube_jp" onclick="window.open(this.href, '."'".'TwitterFollowWindow'."'".', '."'".'width=550, height=507, menubar=no, toolbar=no, scrollbars=yes'."'".'); return false;" target="_blank">
+		<a class="twitter" href="https://twitter.com/intent/follow?screen_name=Sharetube_jp" target="_blank">
 			<div class="clearfix">
 				<div class="new_sns_follow_twitter_icon"><span class="typcn typcn-social-twitter"></span></div>
 				<div class="new_sns_follow_twitter_button">FOLLOW</div>
 			</div>
 		</a>
 	</div>
-
 
 
 
@@ -1461,7 +1495,7 @@ var_dump($end_point);
 	//--------------------------------------
 	//まとめ内広告トップ・ボトム広告HTML生成
 	//--------------------------------------
-	public static function matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html) {
+	public static function matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html, $ad_article_under_html) {
 		// 記事内トップ広告分け($article_top_ad_html)
 		if($detect->isMobile()) {
 			$article_top_ad_html = '<div class="m_t_15 m_b_15 text_center">
@@ -1485,6 +1519,7 @@ var_dump($end_point);
 				}
 		// 記事内ボトム広告分け
 		if($detect->isMobile()) {
+//var_dump($ad_article_under_html);
 			$article_under_ad_html = '<div class="m_t_30 m_b_30 text_center">
 				'.$ad_article_under_html.'
 			</div>';
@@ -1536,6 +1571,41 @@ var_dump($end_point);
 						}
 				}
 		return $all_header_ad_html;
+	}
+	//----------------------------
+	//テーマを追ってみようHTML生成
+	//----------------------------
+	public static function related_theme_html_create($related_theme_data_array) {
+		foreach($related_theme_data_array as $key => $value) {
+			$related_theme_li_html .= '
+			<li>
+				<a class="o_8" href="'.HTTP.'theme/'.$value['primary_id'].'/">
+					<div class="related_theme_block clearfix">
+						<div class="related_theme_block_image">
+							<img class="" src="'.HTTP.'assets/img/common/sharetube_theme_default_icon_1.png" height="48" width="48">
+						</div>
+						<div class="related_theme_block_name">
+							<p class="related_theme_block_name_top">'.$value['theme_name'].'</p>
+							<p class="related_theme_block_name_bottom"><span class="f_b">'.$value['theme_count'].'</span> まとめ</p>
+						</div>
+					</div>
+				</a>
+			</li>';
+		}
+		// 合体
+		$related_theme_html = '
+		<div class="related_theme clearfix">
+			<div class="related_theme_inner">
+				<div class="article_inside_related_article_header">
+					<span>テーマを追ってみよう</span>
+					<span class="article_inside_related_article_header_line"> </span>
+				</div>
+				<ul class="">
+					'.$related_theme_li_html.'
+			</ul>
+			</div>
+		</div>';
+		return $related_theme_html;
 	}
 
 

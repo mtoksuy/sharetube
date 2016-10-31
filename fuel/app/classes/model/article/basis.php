@@ -292,7 +292,7 @@ class Model_Article_Basis extends Model {
 			'37.59.67.46',
 			'ap.dream.jp',
 			'btvm.ne.jp',
-			'plala.or.jp',
+//			'plala.or.jp',
 			'eonet.ne.jp',
 			'metauri.com',
 			'eonet.ne.jp',
@@ -300,7 +300,7 @@ class Model_Article_Basis extends Model {
 			'pikara.ne.jp',
 //			'spmode.ne.jp',
 			'st.dtn.ne.jp',
-			'sakura.ne.jp',
+//			'sakura.ne.jp',
 //			'so-net.ne.jp',
 			'103.5.140.157',
 			'infoweb.ne.jp',
@@ -510,9 +510,9 @@ foreach($save_array as $k => $v) {
 							WHERE primary_id = ".$access_summary_array["primary_id"]."")->execute();
 				}
 	}
-	//----------------------
-	//アクセスランキング取得
-	//----------------------
+	//---------------------------------
+	//アクセスランキング取得 人気まとめ
+	//---------------------------------
 	static function article_access_get($access_day_date = NULL, $get_num = 4) {
 		// クエリが長時間になるための応急処置 2015.01.23 松岡
 		// 最新記事のprimary_id取得
@@ -527,7 +527,7 @@ foreach($save_array as $k => $v) {
 			FROM recommend_article 
 			WHERE del = 0
 			ORDER BY article_id DESC
-			LIMIT 0, 100")->cached(86400)->execute();
+			LIMIT 0, 50")->cached(86400)->execute();
 		foreach($recommend_article_200_res as $key => $value) {
 			$add_and_2 .= ''.$value['article_id'].',';
 		}
@@ -745,8 +745,36 @@ foreach($save_array as $k => $v) {
 		);
 		return $new_article_paging_data_array;
 	}
+	//------------------------------
+	//テーマを追ってみようデータ取得
+	//------------------------------
+	public static function related_theme_data_array_get($related_data_array, $cached = 900) {
+		$loop_count = 3;
+		$related_theme_data_array = array();
 
-
+		foreach($related_data_array['tag_array'] as $key => $value) {
+			if($loop_count > 0) {
+				$loop_count--;
+//				pre_var_dump($value);
+				$theme_res = DB::query("
+					SELECT *
+					FROM theme 
+					WHERE theme_name = '".$value."'
+					AND del = 0
+				")->cached(3600)->execute();
+				foreach($theme_res as $theme_key => $theme_value) {
+					// テーマ一覧HTML生成
+					list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, 1, 0);
+//					pre_var_dump($theme_article_data_array);
+					$related_theme_data_array[$key]['primary_id']   = $theme_value['primary_id'];
+					$related_theme_data_array[$key]['theme_name']   = $theme_value['theme_name'];
+					$related_theme_data_array[$key]['theme_summry'] = $theme_value['theme_summry'];
+					$related_theme_data_array[$key]['theme_count']  = $theme_article_data_array['list_num'];
+				}
+			}
+		}
+		return $related_theme_data_array;
+	}
 
 
 }

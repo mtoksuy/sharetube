@@ -4,10 +4,10 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.22<br>
-
-
+						<p>Sharetube version 5.4.23<br></p>
+						キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
 					</div>
+
 
 					<h3 class="h3_heading_1">現在書いて欲しいまとめ一覧</h3>
 					<p class="m_0">・漫画、アニメ、映画、芸能人のまとめ</p>
@@ -30,6 +30,14 @@
 
 
 					<h3 class="h3_heading_1">ヘルプ</h3>
+
+
+
+					<h4 class="h4_heading_1">[本気でまとめを書いた場合(運営者が)]</h4>
+					<p class="m_0">【226万円】3ヶ月間だけまとめを鬼のように書いてぴたっと書かなくなった永久報酬の金額 </p>
+					<p><a href="http://sharetube.jp/article/4068/" target="_blank">http://sharetube.jp/article/4068/</a></p>
+
+
 					<h4 class="h4_heading_1">[まとめを書くにあたっての必要な事]</h4>
 					<p class="m_0">[まとめ職人に捧ぐ] PVを集めるために絶対に必要な7つのルール</p>
 					<p><a href="http://sharetube.jp/article/2814/" target="_blank">http://sharetube.jp/article/2814/</a></p>
@@ -52,22 +60,25 @@
 
 
 					<h3 class="h3_heading_1">キャッシュ設定表</h3>
-					<p class="m_0">・記事：15分</p>
-					<p class="m_0">・記事一覧：15分</p>
-					<p class="m_0">・関連記事：1時間</p>
-					<p class="m_0">・人気記事1日：1時間</p>
-					<p class="m_0">・人気記事1週間：1日</p>
-					<p class="m_0">・人気記事1ヶ月：3日</p>
+					<p class="m_0">・まとめ：15分</p>
+					<p class="m_0">・まとめ一覧：15分</p>
+					<p class="m_0">・関連まとめ：1時間</p>
+					<p class="m_0">・人気まとめ1日：1時間</p>
+					<p class="m_0">・人気まとめ1週間：1日</p>
+					<p class="m_0">・人気まとめ1ヶ月：3日</p>
 					<p class="m_0">・ユーザーページ：15分</p>
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
+					<p class="m_0">・オススメまとめだけrssに吐き出す。rss_2からrss_3に移行</p>
 					<p class="m_0">・テーマ一覧</p>
 					<p class="m_0">・おすすめテーマ一覧</p>
-					<p class="m_0">・人気まとめ機能をフッターのリンクに移動</p>
-					<p class="m_0">・検索機能をget仕様にする</p>
+					<p class="m_0">・参加しているテーマ表示実装</p>
+					<p class="m_0">・テーマフォロー機能実装</p>
 					<p class="m_0">・まとめをお気に入りにする機能実装</p>
-					<p>・テーマフォロー機能実装</p>
+					<p>・検索機能をget仕様にする</p>
+
+
 
 					<h3 class="h3_heading_1">バグリスト</h3>
 					<p class="m_0">・まとめ作成ツールにて投稿ボタンを2回押すと2回投稿されてしまう</p>
@@ -77,6 +88,60 @@
 	<div class="matome_content_block_timeline">
 		<ol>
 
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年10月31日：Var.5.4.23</pre>
+					</dt>
+					<dd>
+						<pre>・テーマを追ってみよう実装
+・まとめ内ボトムコンテンツ入れ替え
+・シェアボタンクリック挙動バグ修正
+・シェアボタン促し文言追加</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年10月29日：Var.5.4.23</pre>
+					</dt>
+					<dd>
+						<pre>・sitemap.xml生成関数アップデート</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年10月24日：Var.5.4.23</pre>
+					</dt>
+					<dd>
+						<pre>・まとめを利用規約違反で運営から削除された場合のエラーページ実装</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+			<li class="clearfix">
+				<dl>
+					<dt>
+						<pre>2016年10月15日：Var.5.4.23</pre>
+					</dt>
+					<dd>
+						<pre>・[まとめ作成ツール]まとめの文字数カウンター実装</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
