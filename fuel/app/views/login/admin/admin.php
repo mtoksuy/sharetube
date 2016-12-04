@@ -4,8 +4,13 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.23<br></p>
+						<p>Sharetube version 5.4.24<br></p>
+
+
 						キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
+
+
+
 					</div>
 
 
@@ -70,7 +75,11 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
+					<p class="m_0">・まとめのマークアップを見直す</p>
+					<p class="m_0">・まとめ作成ツール：Amazon・h3の仕様を変更する </p>
 					<p class="m_0">・オススメまとめだけrssに吐き出す。rss_2からrss_3に移行</p>
+					<p class="m_0">・まとめ作成ツール：アイテム：罫線追加</p>
+					<p class="m_0">・まとめ作成ツール：アイテム：マークダウン追加方式でまとめが書ける</p>
 					<p class="m_0">・テーマ一覧</p>
 					<p class="m_0">・おすすめテーマ一覧</p>
 					<p class="m_0">・参加しているテーマ表示実装</p>
@@ -81,21 +90,54 @@
 
 
 					<h3 class="h3_heading_1">バグリスト</h3>
-					<p class="m_0">・まとめ作成ツールにて投稿ボタンを2回押すと2回投稿されてしまう</p>
+					<p class="m_0">・まとめ作成ツール：投稿ボタンを2回押すと2回投稿されてしまう</p>
+					<p class="m_0">・まとめ作成ツール：リンクの中の概要にHTMLがあるとバグる</p>
+					<p class="m_0">・まとめ作成ツールアイテム：リンク・引用 タイトル取得できないURLがある</p>
+					<p>・まとめ作成ツールアイテム：Amazon・キャンセルを押すとローカル画像に変更される</p>
+
+
+
+
 
 				<h3 class="m_t_30 m_b_15 h3_heading_1">更新情報</h3>
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
 
+			<li class="connection clearfix">
+				<span>2016年</span>
+			</li>
 
 
-			<li class="clearfix">
+
+
+
+
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年10月31日：Var.5.4.23</pre>
+						<pre>12月04日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.24</h3>
+						<pre>
+・まとめ作成ツール：アイテム：タイムラインアップデート</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>10月31日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.4.23</h3>
 						<pre>・テーマを追ってみよう実装
 ・まとめ内ボトムコンテンツ入れ替え
 ・シェアボタンクリック挙動バグ修正
@@ -107,24 +149,30 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年10月29日：Var.5.4.23</pre>
+						<pre>10月29日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.23</h3>
 						<pre>・sitemap.xml生成関数アップデート</pre>
 					</dd>
 				</dl>
 			</li>
 
 
-			<li class="clearfix">
+
+
+
+
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年10月24日：Var.5.4.23</pre>
+						<pre>10月24日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.23</h3>
 						<pre>・まとめを利用規約違反で運営から削除された場合のエラーページ実装</pre>
 					</dd>
 				</dl>
@@ -132,12 +180,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年10月15日：Var.5.4.23</pre>
+						<pre>10月15日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.23</h3>
 						<pre>・[まとめ作成ツール]まとめの文字数カウンター実装</pre>
 					</dd>
 				</dl>
@@ -146,12 +195,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年09月16日：Var.5.4.22</pre>
+						<pre>09月16日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.22</h3>
 						<pre>・まとめ作成ツールアイテム：コードバグフィックス
 ・まとめ作成ツールアイテム：iTunesバグフィックス
 ・まとめ作成ツールアイテム：Twitterバグフィックス
@@ -164,12 +214,17 @@
 
 
 
-			<li class="clearfix">
+
+
+
+
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年09月13日：Var.5.4.22</pre>
+						<pre>09月13日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.22</h3>
 						<pre>・まとめの概要に表示されていた 追加という文字列を削除
 ・アクセス(PV)登録プロパイダ一部解放
 ・まとめ作成アイテム：amazonバグフィックス</pre>
@@ -181,12 +236,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年08月25日：Var.5.4.21.2</pre>
+						<pre>08月25日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.21.2</h3>
 						<pre>・テーマの設定で半角を入れても大丈夫な仕様に変更
 ・スマホ用のヘッダー広告非表示に変更
 ・関連まとめ表示されていなかったバグを修正</pre>
@@ -199,12 +255,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年08月22日：Var.5.4.21.1</pre>
+						<pre>08月22日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.21.1</h3>
 						<pre>・パスワード再発行機能実装</pre>
 					</dd>
 				</dl>
@@ -213,12 +270,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年08月10日：Var.5.4.21</pre>
+						<pre>08月10日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.21</h3>
 						<pre>・サーバ移転いたしました。性能的に2倍の同時アクセス数を捌けるようになりました。</pre>
 					</dd>
 				</dl>
@@ -232,12 +290,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年08月10日：Var.5.4.20</pre>
+						<pre>08月10日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.20</h3>
 						<pre>・新着まとめをトップページから切り離し(フッターに移動)
 ・新着まとめページング実装
 ・注目・新着まとめのページングを1ページ10まとめから20まとめに切り分け
@@ -251,12 +310,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年07月21日：Var.5.4.19</pre>
+						<pre>07月21日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.19</h3>
 						<pre>・新機能テーマ実装
 ・タグはテーマという名称に変更
 ・テーマ機能アップデート(テーマの数表示)
@@ -272,24 +332,26 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年07月08日：Var.5.4.18.1</pre>
+						<pre>07月08日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.18.1</h3>
 						<pre>・ユーザー情報編集ページでキャッシュ情報が表示されているのを修正
 ・まとめ作成 iPad・iPhone対応実装</pre>
 					</dd>
 				</dl>
 			</li>
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年06月26日：Var.5.4.18</pre>
+						<pre>06月26日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.18</h3>
 						<pre>・人気記事アルゴリズム変更
 ・利用規約作成
 ・まとめ作成後、まとめページ1回目のアクセスがやたら重い(1分〜2分)のを修正</pre>
@@ -299,12 +361,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年06月24日：Var.5.4.17</pre>
+						<pre>06月24日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.17</h3>
 						<pre>・注目まとめ機能実装
 ・注目まとめページング機能実装
 ・注目まとめ登録機能実装(管理人のみ使用可)
@@ -316,12 +379,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年06月07日：Var.5.4.16.1</pre>
+						<pre>06月07日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.16.1</h3>
 						<pre>・バグフィックス
 </pre>
 					</dd>
@@ -330,12 +394,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年05月05日：Var.5.4.16</pre>
+						<pre>05月05日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.16</h3>
 						<pre>・公式からのメール拒否機能実装
 ・まとめ作成ツールアイテム：画像に引用元情報追加実装
 ・まとめ作成ツールアイテム：リンク 外部リンクだと他タブ、内部リンクだと現在のタブで開く仕様に変更
@@ -346,24 +411,26 @@
 			</li>
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年05月03日：Var.5.4.15</pre>
+						<pre>05月03日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.15</h3>
 						<pre>・Sharetubeユーザーに運営からのメール配信機能実装</pre>
 					</dd>
 				</dl>
 			</li>
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年04月06日：Var.5.4.14</pre>
+						<pre>04月06日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.14</h3>
 						<pre>・タグ入力で半角空白だけではなく全角半角にも対応</pre>
 					</dd>
 				</dl>
@@ -371,12 +438,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年03月20日：Var.5.4.13.1</pre>
+						<pre>03月20日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.13.1</h3>
 						<pre>・記事一覧の概要表示にて「追加」という裏の文字が表示されるバグ修正
 ・まとめ作成ツールアイテム：引用にてリンクなしの引用出典ができない(見ているページurlのリンクが貼られてしまう)バグ修正</pre>
 					</dd>
@@ -384,24 +452,26 @@
 			</li>
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年03月14日：Var.5.4.13</pre>
+						<pre>03月14日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.13</h3>
 						<pre>・まとめ作成ユーザー獲得するためのLP作成</dd>
 				</dl>
 			</li>
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年02月22日：Var.5.4.12</pre>
+						<pre>02月22日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.12</h3>
 						<pre>・インセンティブ周りメールレポート実装</pre>
 					</dd>
 				</dl>
@@ -409,12 +479,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年02月20日：Var.5.4.11</pre>
+						<pre>02月20日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.11</h3>
 						<pre>・デスクトップ・スマホで継続ログイン(クッキー保存)実装</pre>
 					</dd>
 				</dl>
@@ -424,12 +495,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年02月06日：Var.5.4.10</pre>
+						<pre>02月06日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.10</h3>
 						<pre>・まとめ作成ツール・アイテムTwitter。Twitter仕様変更に合わせバグフィックス</pre>
 					</dd>
 				</dl>
@@ -440,12 +512,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年01月16日：Var.5.4.9</pre>
+						<pre>01月16日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.9</h3>
 						<pre>・投稿一覧にてまとめ削除ボタン実装
 ・まとめ作成ツールアイテム：Amazon機能バージョンアップ
 ・まとめ作成ツールアイテム：Amazonレビュー機能実装
@@ -460,12 +533,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年01月12日：Var.5.4.8</pre>
+						<pre>01月12日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.8</h3>
 						<pre>・人気記事表示のアルゴリズム改善50倍スピードUP
 ・まとめ作成ツールアイテム：Twitterにて絵文字表示バグフィックス
 ・特定ディレクトリパーミッション改変バグ修正
@@ -476,12 +550,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年01月11日：Var.5.4.7</pre>
+						<pre>01月11日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.7</h3>
 						<pre>・まとめ作成ツールアイテム：吹き出し機能実装
 ・まとめ作成ツールアイテム：囲み機能実装
 </pre>
@@ -493,12 +568,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2016年01月10日：Var.5.4.6</pre>
+						<pre>01月10日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.6</h3>
 						<pre>・サイト情報ボックス追加
 ・コピーライト年表表記修正
 ・コピーライト年表自動表記実装
@@ -511,14 +587,20 @@
 
 
 
+			<li class="connection clearfix">
+				<span>2015年</span>
+			</li>
 
 
-			<li class="clearfix">
+
+
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年10月09日：Var.5.4.5.7</pre>
+						<pre>10月09日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.5.7</h3>
 						<pre>・まとめ作成ツールアイテム：iTunes_App機能実装</pre>
 					</dd>
 				</dl>
@@ -527,24 +609,26 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年10月06日：Var.5.4.5.6</pre>
+						<pre>10月06日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.5.6</h3>
 						<pre>・まとめ作成ツールアイテム：コード機能実装</pre>
 					</dd>
 				</dl>
 			</li>
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年09月23日：Var.5.4.5.5</pre>
+						<pre>09月23日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.5.5</h3>
 						<pre>・トップページピックアップ機能実装</pre>
 					</dd>
 				</dl>
@@ -552,12 +636,13 @@
 
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年09月17日：Var.5.4.5.4</pre>
+						<pre>09月17日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.5.4</h3>
 						<pre>・記事下サムネイル付きFBライクボックス実装
 ・キュレーター募集枠デザイン一新
 ・Amazon広告設置(PCのみ)
@@ -568,12 +653,13 @@
 			</li>
 
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年09月12日：Var.5.4.5.3</pre>
+						<pre>09月12日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.5.3</h3>
 						<pre>・RSS吐き出し情報変更
 ・まとめ作成ツールアイテム：Twitterバグフィックス
 ・まとめ作成ツールアイテム：時系列タイムライン改良
@@ -583,110 +669,120 @@
 				</dl>
 			</li>
 
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年09月09日：Var.5.4.5.2</pre>
+						<pre>09月09日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.5.2</h3>
 						<pre>・まとめ作成ツールアイテム：時系列タイムライン実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年09月03日：Var.5.4.5.1</pre>
+						<pre>09月03日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.5.1</h3>
 						<pre>・アナリティクス新着のみ実装
 ・アナリティクスlimit裏機能実装
 ・まとめ作成ツール：tweet取得アップデート(リツイートをツイートした内容取得する場合にリツイート先の画像削除。とりいそぎな未熟実装であり、改善の余地あり。公式と似たようなリツイート先情報も載せるかどうか吟味する必要あり)実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年08月31日：Var.5.4.5</pre>
+						<pre>08月31日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.5</h3>
 						<pre>・インセンティブ支払い実装
 ・文字装飾ツール 文字・大[赤]実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年08月29日：Var.5.4.4.2</pre>
+						<pre>08月29日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.4.2</h3>
 						<pre>・カテゴリー改定</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年08月26日：Var.5.4.4.1</pre>
+						<pre>08月26日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.4.1</h3>
 						<pre>・見出し新デザイン実装(新規まとめから反映)
 ・文字装飾ツール 中見出し、小見出し、強調する(SEO)、マーカー、文字・中、文字・大、文字特大追加実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年08月25日：Var.5.4.4</pre>
+						<pre>08月25日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.4</h3>
 						<pre>・Sharetube Analytics(シェアチューブ アナリティクス(PV確認画面))実装
 ・内部ログバグフィックス</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年08月24日：Var.5.4.3</pre>
+						<pre>08月24日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.3</h3>
 						<pre>・記事内の画像をモーダル画面で表示実装
 ・記事毎のPV確認画面実装&amp;インセンティブ支払い実装に向けてDB再設計(DBの集計がたまり次第PV確認&amp;インセンティブ実装)</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年08月19日：Var.5.4.2</pre>
+						<pre>08月19日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.2</h3>
 						<pre>・まとめ作成ツール サムネイルがない状態では投稿できないよう修正
 ・まとめ作成ツール ブロック修正時テキストエリアがコンテンツ分伸びなかった箇所を修正
 ・投稿一覧・下書き一覧のバグフィックス</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年08月01日：Var.5.4.1</pre>
+						<pre>08月01日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4.1</h3>
 						<pre>・まとめ作成ツール Tweetを複数取得実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年08月01日：Var.5.4</pre>
+						<pre>08月01日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.4</h3>
 						<pre>・旧サーバより2倍の性能があるサーバへ移動いたしました
 ・各サーバのアプデ(web,DB,mail)換装
 ・Twitterのツイート抽出で絵文字対応実装
@@ -696,12 +792,13 @@
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年07月23日：Var.5.3</pre>
+						<pre>07月23日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.3</h3>
 						<pre>・プロフィール編集機能実装
 ・ユーザーページ実装
 ・様々なバグフィックス
@@ -710,86 +807,94 @@
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年07月12日：Var.5.2.5</pre>
+						<pre>07月12日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.2.5</h3>
 						<pre>・まとめ作成ツールにて文字装飾ツール(BETA)実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年06月30日：Var.5.2.4</pre>
+						<pre>06月30日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.2.4</h3>
 						<pre>・まとめTwitterアップロード内部バグフィックス
 ・ログイン機能公開
 ・ログイン、IDとメールアドレスでログイン認証実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年06月24日：Var.5.2.3</pre>
+						<pre>06月24日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.2.3</h3>
 						<pre>・Twitterメディアファイルネームバグフィックス(仕様変更)
 ・被害記事修正</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年06月23日：Var.5.2.2</pre>
+						<pre>06月23日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.2.2</h3>
 						<pre>・新規アカウント登録ページ実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年06月22日：Var.5.2.1</pre>
+						<pre>06月22日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.2.1</h3>
 						<pre>・Twitter埋め込みツールのバグフィックス</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年06月15日：Var.5.2</pre>
+						<pre>06月15日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.2</h3>
 						<pre>・まとめ作成ツールテ正式実装
 ・まとめ仕様が原因の微細なバグフィックス</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年06月11日：Var.5.1</pre>
+						<pre>06月11日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.1</h3>
 						<pre>・まとめ作成ツールテスト実装</pre>
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2015年04月03日：Var.5.0</pre>
+						<pre>04月03日</pre>
 					</dt>
 					<dd>
+						<h3>Var.5.0</h3>
 						<pre>・広告主全面変更致しました。（内部システム自動で読み込み実装）＊収益が二倍に
 ・読み込みスピードアップ施策1（全画像圧縮、facebook_ogp_half_half(300×157)自動生成実装）
 ・読み込みスピードアップ施策2（主に画像のキャッシュを設定）
@@ -797,12 +902,24 @@
 					</dd>
 				</dl>
 			</li>
-			<li class="clearfix">
+
+
+
+
+			<li class="connection clearfix">
+				<span>2014年</span>
+			</li>
+
+
+
+
+			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>2014年01月01日：Var.1.00リリース</pre>
+						<pre>01月01日</pre>
 					</dt>
 					<dd>
+						<h3>Var.1.00リリース</h3>
 						<pre></pre>
 					</dd>
 				</dl>
