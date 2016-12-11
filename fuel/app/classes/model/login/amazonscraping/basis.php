@@ -66,6 +66,12 @@ $object->load($string); // Load HTML from a string
 		$pattern = '/<td (.+?)>(.+?)<\/td>/';
 		preg_match_all($pattern, $price_strike_html, $price_strike_preg_array);
 		$price_strike_text = $price_strike_preg_array[2][0];
+		// ない場合
+		if($price_strike_text  == null) {
+			$pattern = '/<span (.+?)>(.+?)<\/span>/';
+			preg_match_all($pattern, $price_strike_html, $price_strike_preg_array);
+			$price_strike_text = $price_strike_preg_array[2][0];
+		}
 		////////////
 		//お値段抽出
 		////////////
@@ -101,9 +107,28 @@ $object->load($string); // Load HTML from a string
 		foreach($simple_html_dom_object->find('.offer-price') as $list) {
 			 $offer_price_html .= $list->outertext;
 		}
+/*
+<pre>string(140) "<span class="a-color-price offer-price a-text-normal">￥ 4,100</span><span class="a-color-price
+ offer-price a-text-normal">￥ 2,300</span>"
+間違い
+
+*/
+//pre_var_dump($offer_price_html);
+/*
+<span class="olp-padding-right"><a href="/gp/offer-listing/B00BXVR8FU/ref=dp_olp_used?ie=UTF8&amp;condition=used">中古品の出品：21</a><span class="a-color-price">￥ 45,500</span>より</span>
+
+これから
+
+<span class="olp-used olp-link">
+  <a class="a-size-mini a-link-normal" href="/gp/offer-listing/4781700748/ref=tmm_pap_used_olp_sr?ie=UTF8&amp;condition=used&amp;qid=1481437450&amp;sr=8-13">    
+     ￥ 322 <span class="olp-from">より</span> 10 中古品の出品 
+  </a>        
+</span>
+*/
 		$pattern = '/<span class="(.+?)">(.+?)<\/span>/';
 		preg_match_all($pattern, $offer_price_html, $offer_price_preg_array);
-		$offer_price_text = $offer_price_preg_array[2][1];
+		// 2016.12.11 中古表示がおかしい とりあえず非表示で 松岡
+//		$offer_price_text = $offer_price_preg_array[2][1];
 		///////////////////////
 		//amazon_data_array生成
 		///////////////////////

@@ -17,7 +17,6 @@ function amazon_form_html(between) {
 	var amazon_form_html = ('<div class="amazon_add">\
 			<div class="amazon_add_content">\
 				<input type="text" placeholder="商品タイトルを入力" value="" class="amazon_add_content_title">\
-				<textarea placeholder="商品リンクurlを入力" class="amazon_add_content_url"></textarea>\
 				<textarea placeholder="テキスト商品リンクHTMLを入力" class="amazon_add_content_textlink"></textarea>\
 				<textarea placeholder="画像商品リンクHTMLを入力" class="amazon_add_content_imagelink"></textarea>\
 				<div class="amazon_add_content_button clearfix">\
@@ -41,13 +40,12 @@ function amazon_html(data, amazon_title, amazon_textlink, amazon_imagelink, amaz
 	var amazon_html = ('<div class="matome_content_block">\
 	<div class="matome_content_block_amazon">\
 		<div class="amazon_link clearfix">\
-			<h3>'+ amazon_title +'</h3>\
 			<div class="amazon_link_image o_8">\
 				'+ amazon_imagelink +'\
 			</div>\
 			<div class="amazon_link_right">\
 				<div class="amazon_link_text">\
-					'+ amazon_textlink +'\
+					<h3>'+ amazon_textlink +'</h3>\
 				</div>\
 				'+data['amazon_html']+'\
 				'+amazon_link_detail_html+'\
@@ -88,7 +86,6 @@ function ajax_amazon_html_create(amazon_add,amazon_url,amazon_title, amazon_text
 	var test = amazon_url.match(re);
 	// 正しいURLか検査
 	if(test) {
-
 		// Ajaxを走らせる
 		$.ajax( {
 			type: 'POST', 
@@ -151,39 +148,38 @@ $('.matome').on({
 
 		// タイトル抽出
 		var amazon_title     = amazon_add.find(".amazon_add_content_title").val();
+		// 商品url抽出 (廃止) 2016.12.11 松岡
+//		var amazon_url       = amazon_add.find('.amazon_add_content_url').val();
 		// 商品url抽出
-		var amazon_url       = amazon_add.find('.amazon_add_content_url').val();
+		var amazon_url       = amazon_add.find('.amazon_add_content_textlink').val();
 		// テキストリンクHTML抽出
 		var amazon_textlink  = amazon_add.find('.amazon_add_content_textlink').val();
 		// 画像リンクHTML抽出
 		var amazon_imagelink = amazon_add.find('.amazon_add_content_imagelink').val();
+
 		// 文字列の先頭および末尾の連続する「半角空白・タブ文字・全角空白」を削除
 		amazon_textlink = tab_space_delete(amazon_textlink);
 
 		// target属性追加
-//		amazon_textlink  = amazon_textlink.replace(/<a rel="nofollow"/, '<a rel="nofollow" target="_blank"');
 		amazon_textlink = '<a href="'+amazon_textlink+'" rel="nofollow" target="_blank">'+amazon_title+'</a>';
 		amazon_imagelink = amazon_imagelink.replace(/<a rel="nofollow"/, '<a rel="nofollow" target="_blank"');
+
 		// SL(画像)の大きさを500にする
 		amazon_imagelink = amazon_imagelink.replace(/SL([0-9]{3})/, 'SL500');
 
 		// textlinkのval取得
 		amazon_textlink_val = amazon_add.find('.amazon_add_content_textlink').val();
-/*
-https://www.amazon.co.jp/gp/product/4844371215/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=sharetube-22&linkId=e2644b9f2760c63cc20da8f2fe85a5fc
-*/
 		// href取得
 		amazon_textlink_val_href = amazon_textlink_val;
-//		amazon_textlink_val_href = amazon_textlink_val.match(/href="(.+?)"/); // 以前の設定
 
 		// amazon_link_detail_html生成
 		amazon_link_detail_html = '<span class="amazon_link_detail">\
 		<a href="'+amazon_textlink_val_href+'" target="_blank">\
-			<img src="http://sharetube.jp/assets/img/common/amazon_logo_7.png">\
+			<img src="http://sharetube.jp/assets/img/common/amazon_logo_10.png">\
 			で詳細を見る</a>\
 		</span>';
 		// アマゾン
-		ajax_amazon_html_create(amazon_add,amazon_url,amazon_title, amazon_textlink, amazon_imagelink, amazon_link_detail_html);
+		ajax_amazon_html_create(amazon_add, amazon_url, amazon_title, amazon_textlink, amazon_imagelink, amazon_link_detail_html);
 	}
 }, '.amazon_add_content_submit');
 /**********************
@@ -216,16 +212,16 @@ $('.matome').on( {
 		}
 			// 元データがある場合
 			else {
+
 				// 親を指定して取得
 				var amazon_add = $(this).parents('.amazon_add');
 				var amazon_title     = amazon_add.find('.amazon_add_content_title').val();
-				var amazon_url       = amazon_add.find('.amazon_add_content_url').val();
+				var amazon_url       = amazon_add.find('.amazon_add_content_textlink').val();
 				var amazon_textlink  = amazon_add.find('.amazon_add_content_textlink').val();
 				var amazon_imagelink = amazon_add.find('.amazon_add_content_imagelink').val();
 
 				// <、>をエンティティを戻す
 				amazon_title     = text_entity_return(amazon_title);
-				amazon_url       = text_entity_return(amazon_url);
 				amazon_textlink  = text_entity_return(amazon_textlink);
 				amazon_imagelink = text_entity_return(amazon_imagelink);
 
@@ -239,7 +235,7 @@ $('.matome').on( {
 				// amazon_link_detail_html生成
 				amazon_link_detail_html = '<span class="amazon_link_detail">\
 				<a href="'+amazon_textlink_val+'" rel="nofollow" target="_blank">\
-					<img src="http://localhost/sharetube/assets/img/common/amazon_logo_7.png">\
+					<img src="http://localhost/sharetube/assets/img/common/amazon_logo_10.png">\
 					で詳細を見る</a>\
 				</span>';
 

@@ -609,7 +609,7 @@ $('.matome').on( {
 			///////////////
 			case 'matome_content_block_amazon':
 				// コンテンツ抽出
-				var amazon_title      = $(this).parents('.matome_content_block').find('.amazon_link h3').html();
+				var amazon_title      = $(this).parents('.matome_content_block').find('.amazon_link h3 a').html();
 				var amazon_url        = $(this).parents('.matome_content_block').find('.amazon_link_detail a').attr('href');
 				var amazon_imagelink  = $(this).parents('.matome_content_block').find('.amazon_link_image').html();
 				var amazon_textlink   = $(this).parents('.matome_content_block').find('.amazon_link_text').html();
@@ -624,13 +624,10 @@ $('.matome').on( {
 				amazon_imagelink = text_entity_conversion(amazon_imagelink);
 				amazon_textlink  = text_entity_conversion(amazon_textlink);
 
-
-
 				var check = true;
 				$(this).parents('.matome_content_block').before('<div class="amazon_add">\
 			<div class="amazon_add_content">\
 				<input type="text" placeholder="商品タイトルを入力" value="'+amazon_title+'" class="amazon_add_content_title">\
-				<textarea placeholder="商品リンクurlを入力" class="amazon_add_content_url">'+amazon_url+'</textarea>\
 				<textarea placeholder="テキスト商品リンクHTMLを入力" class="amazon_add_content_textlink">'+amazon_textlink+'</textarea>\
 				<textarea placeholder="画像商品リンクHTMLを入力" class="amazon_add_content_imagelink">'+amazon_imagelink+'</textarea>\
 				<div class="amazon_add_content_button clearfix">\
