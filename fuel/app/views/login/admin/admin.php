@@ -6,11 +6,11 @@
 					<div class="m_b_30">
 						<p>Sharetube version 5.4.24<br></p>
 
+<p>まとめ作成ツール：アイテム：Amazonアップデート致しました。将来的にこの機能は有料となります。</p>
 
+<p>						まとめ作成ツール：アイテム：タイムラインアップデートを致しました。<br>
 						キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
-
-
-
+</p>
 					</div>
 
 
@@ -76,7 +76,6 @@
 
 					<h3 class="h3_heading_1">実装予定表</h3>
 					<p class="m_0">・まとめのマークアップを見直す</p>
-					<p class="m_0">・まとめ作成ツール：Amazon・h3の仕様を変更する </p>
 					<p class="m_0">・オススメまとめだけrssに吐き出す。rss_2からrss_3に移行</p>
 					<p class="m_0">・まとめ作成ツール：アイテム：罫線追加</p>
 					<p class="m_0">・まとめ作成ツール：アイテム：マークダウン追加方式でまとめが書ける</p>
@@ -96,9 +95,6 @@
 					<p>・まとめ作成ツールアイテム：Amazon・キャンセルを押すとローカル画像に変更される</p>
 
 
-
-
-
 				<h3 class="m_t_30 m_b_15 h3_heading_1">更新情報</h3>
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
@@ -113,21 +109,22 @@
 
 
 
+
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>12月04日</pre>
+						<pre>12月04日〜12月11日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.4.24</h3>
 						<pre>
-・まとめ作成ツール：アイテム：タイムラインアップデート</pre>
+・まとめ作成ツール：アイテム：Amazonアップデート
+・まとめ作成ツール：アイテム：タイムラインアップデート
+・LP(<a href="http://sharetube.jp/curatorrecruitment/lp/" target="_blank">http://sharetube.jp/curatorrecruitment/lp/</a>)更新
+・アクセス登録制限緩和</pre>
 					</dd>
 				</dl>
 			</li>
-
-
-
 
 
 
