@@ -609,7 +609,7 @@ $('.matome').on( {
 			///////////////
 			case 'matome_content_block_amazon':
 				// コンテンツ抽出
-				var amazon_title      = $(this).parents('.matome_content_block').find('.amazon_link h3').html();
+				var amazon_title      = $(this).parents('.matome_content_block').find('.amazon_link h3 a').html();
 				var amazon_url        = $(this).parents('.matome_content_block').find('.amazon_link_detail a').attr('href');
 				var amazon_imagelink  = $(this).parents('.matome_content_block').find('.amazon_link_image').html();
 				var amazon_textlink   = $(this).parents('.matome_content_block').find('.amazon_link_text').html();
@@ -624,13 +624,10 @@ $('.matome').on( {
 				amazon_imagelink = text_entity_conversion(amazon_imagelink);
 				amazon_textlink  = text_entity_conversion(amazon_textlink);
 
-
-
 				var check = true;
 				$(this).parents('.matome_content_block').before('<div class="amazon_add">\
 			<div class="amazon_add_content">\
 				<input type="text" placeholder="商品タイトルを入力" value="'+amazon_title+'" class="amazon_add_content_title">\
-				<textarea placeholder="商品リンクurlを入力" class="amazon_add_content_url">'+amazon_url+'</textarea>\
 				<textarea placeholder="テキスト商品リンクHTMLを入力" class="amazon_add_content_textlink">'+amazon_textlink+'</textarea>\
 				<textarea placeholder="画像商品リンクHTMLを入力" class="amazon_add_content_imagelink">'+amazon_imagelink+'</textarea>\
 				<div class="amazon_add_content_button clearfix">\
@@ -649,28 +646,53 @@ $('.matome').on( {
 			// timelineの場合
 			/////////////////
 			case 'matome_content_block_timeline':
+				// 使用するarray
+				connection_array = [];
+				pointline_array  = [];
+				title_array      = [];
+				content_array    = [];
 				// コンテンツ抽出
 				var timeline_li      = $(this).parents('.matome_content_block').find('.matome_content_block_timeline li');
-				time_array    = [];
-				content_array = [];
 				// コンテンツ抽出
 				timeline_li.each(function(count) {
-					time_data    = $(this).find('dl dt pre').html();
-					content_data = $(this).find('dl dd pre').html();
-					// <、>をエンティティに変換する
-					time_data     = text_entity_conversion(time_data);
-					// <、>をエンティティに変換する
-					content_data     = text_entity_conversion(content_data);
-					// arrayにプッシュ
-					time_array.push(time_data);
-					content_array.push(content_data);
+					// コンテンツ選別
+					if($(this).attr('class') == 'connection clearfix') {
+						// データ取得
+						connection_data    = $(this).find('span').html();
+						// <、>をエンティティに変換する
+						connection_data = text_entity_conversion(connection_data);
+//						p(connection_data);
+						// arrayにプッシュ
+						connection_array.push(connection_data);
+					}
+						else {
+							// データ取得
+							pointline_data = $(this).find('dl dt pre').html();
+							title_data     = $(this).find('dl dd h3').html();
+							content_data   = $(this).find('dl dd pre').html();
+							// <、>をエンティティに変換する
+							pointline_data = text_entity_conversion(pointline_data);
+							title_data     = text_entity_conversion(title_data);
+							content_data   = text_entity_conversion(content_data);
+/*
+							p(pointline_data);
+							p(title_data);
+							p(content_data);
+*/
+							// arrayにプッシュ
+							pointline_array.push(pointline_data);
+							title_array.push(title_data);
+							content_array.push(content_data);
+						}
 				}); // timeline_li.each(function(count) {
-				timeline_length = time_array.length;
+				timeline_length = content_array.length;
 				var textarea_html = '';
 				for(var i=0;i<timeline_length;i++) {
-					textarea_html = textarea_html+'<time>'+time_array[i]+'</time>'+'\n'+'<content>'+content_array[i]+'</content>\n\n';
+					textarea_html = textarea_html+'<connection>'+connection_array[i]+'</connection>'+'\n'+'<pointline>'+pointline_array[i]+'</pointline>'+'\n'+'<title>'+title_array[i]+'</title>'+'\n'+'<content>'+content_array[i]+'</content>\n\n';
 				}
 				var check = true;
+				// <、>をエンティティに変換する
+				textarea_html_val = text_entity_conversion(textarea_html);
 
 				$(this).parents('.matome_content_block').before('<div class="timeline_add">\
 	<div class="timeline_add_content">\
@@ -682,12 +704,11 @@ $('.matome').on( {
 				<div class="timeline_add_content_submit" data-check="'+check+'">保存</div>\
 			</div>\
 			<div class="timeline_add_content_button_right">\
-			<div class="timeline_add_content_cancel" data-check="'+check+'">キャンセル</div>\
+			<div class="timeline_add_content_cancel" data-check="'+check+'" data-val="'+textarea_html_val+'">キャンセル</div>\
 			</div>\
 		</div>\
 	</div> <!-- timeline_add_content -->\
 </div> <!-- timeline_add -->');
-
 				$(this).parents('.matome_content_block').remove();
 			break;
 			///////////////////

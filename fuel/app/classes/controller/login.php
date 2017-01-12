@@ -13,6 +13,7 @@ class Controller_Login extends Controller_Login_Template {
 		// ログインチェック
 		$login_check = Model_Login_Basis::login_check();
 
+
 		// ログインしている場合
 		if($login_check) {
 			header('location: '.HTTP.'login/admin/');

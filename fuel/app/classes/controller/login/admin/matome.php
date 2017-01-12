@@ -80,6 +80,7 @@ class Controller_Login_Admin_Matome extends Controller_Login_Template {
 				}
 			break;
 		}
+//pre_var_dump($article_array_data);
 		$login_check = Model_Login_Basis::login_check();
 		// ログインチェック
 		if($login_check) {

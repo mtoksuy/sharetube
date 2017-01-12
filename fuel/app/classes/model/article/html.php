@@ -213,6 +213,10 @@ class Model_Article_Html extends Model {
 			$local_time           = date('Y-m-d', $unix_time);
 			$local_japanese_time  = date('Y年m月d日', $unix_time);
 			$article_year_time    = date('Y', $unix_time);
+			// 緊急策 松岡
+			$random_key_year = (int)substr($value['random_key'], 0, 4);
+
+
 			// 記事タイトル取得 // エンティティを戻す
 			$article_title        = htmlspecialchars_decode($value["title"], ENT_NOQUOTES); // ダブルクォート、シングルクォートの両方をそのままにします。
 			// 記事動画取得
@@ -230,7 +234,7 @@ class Model_Article_Html extends Model {
 			// コンテンツHTML生成
 			$contents_html = Model_Article_Html::contents_html_create($value, $category_info_array);
 			// サムネイルHTML生成
-			$thumbnail_html = Model_Article_Html::thumbnail_html_create($value, $year_time, $preview_frg);
+			$thumbnail_html = Model_Article_Html::thumbnail_html_create($value, $random_key_year, $preview_frg);
 			// アーティクルボトムライクボックスHTML生成
 			$article_bottom_like_box_html = Model_Article_Html::article_bottom_like_box_html_create($value, $year_time, $preview_frg);
 

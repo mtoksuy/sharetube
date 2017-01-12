@@ -109,7 +109,7 @@ class Model_Article_Basis extends Model {
 	    $sql = $sql.'
 				ORDER BY primary_id DESC
 				LIMIT 0 , 9';
-//			var_dump($sql);
+//			pre_var_dump($sql);
 	/*
 	string(128) "SELECT * FROM article WHERE tag like '%たぐう%' AND primary_id != 2247 AND del = 0 ORDER BY primary_id DESC LIMIT 0 , 9" 
 	string(71) "SELECT * FROM article WHERE ORDER BY primary_id DESC LIMIT 0 , 9" 
@@ -284,11 +284,11 @@ class Model_Article_Basis extends Model {
 			'localhost',
 			'topsy.com',
 			'compatible',
-			'mesh.ad.jp',
+//			'mesh.ad.jp',
 			'help.yahoo',
-			'ucom.ne.jp',
+//			'ucom.ne.jp',
 			'trendmicro',
-			'commufa.jp',
+//			'commufa.jp',
 			'37.59.67.46',
 			'ap.dream.jp',
 			'btvm.ne.jp',
@@ -324,7 +324,7 @@ class Model_Article_Basis extends Model {
 			'202.229.53.180',
 			'netvigator.com',
 			'ZendHttpClient',
-			'rev.vmobile.jp',
+//			'rev.vmobile.jp',
 			'trendiction.de',
 			'219.100.139.157',
 			'crawl.baidu.com',

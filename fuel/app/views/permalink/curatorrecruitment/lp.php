@@ -5,7 +5,7 @@
 		<!-- meta -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<meta name="keywords" content="キュレーター, 稼ぐ, お小遣い, 在宅, SOHO, 仕事, ワークス, まとめ" />
+		<meta name="keywords" content="ライター, 募集, キュレーター, 稼ぐ, お小遣い, 在宅, SOHO, 仕事, ワークス, まとめ" />
 		<meta property="og:title" content="業界NO.1のインセンティブ報酬を支払うSharetubeでまとめを作成してみませんか？ " />
 		<meta property="og:type" content="website" />
 		<!-- icon -->
@@ -146,46 +146,114 @@
 						</h2>
 						<p>Sharetubeは伝えたい情報を自由に組み合わせ、世界でたった一つのオリジナルページを作成・紹介できるキュレーションプラットフォームサービス。業界NO.1の報酬を得ながらまとめを作成できるWebサービスです。</p>
 						<div class="clearfix">
-							<img class="appeal_block_image_3" width="640" height="400" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/iphone_5_mockup_sharetube_1.png">
-							<img class="appeal_block_image_4" width="640" height="400" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/macbook_pro_mockup_sharetube_1.png">
+							<img class="appeal_block_image_3" width="640" height="400" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/iphone_5_mockup_sharetube_1.png" title="Sharetubeをスマホで見た場合のイメージ図" alt="Sharetubeをスマホで見た場合のイメージ図">
+							<img class="appeal_block_image_4" width="640" height="400" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/macbook_pro_mockup_sharetube_1.png" title="SharetubeをPCで見た場合のイメージ図" alt="SharetubeをPCで見た場合のイメージ図">
 						</div>
 					</div> <!-- first_view_block -->
 					<!-- appeal_block -->
 					<div class="appeal_block">
-						<h2>PVに応じて<span class="red">報酬</span>がもらえる</h2>
+						<h2>PVに応じて<span class="red">報酬</span>がもらえます</h2>
 						<p>業界NO.1の報酬レートを設定しているSharetube。報酬が今すぐ欲しい場合も1クリックで簡単に申請して、かつ2～3営業日以内に振り込まれるのも魅力的なところ。</p><p>もちろん作成したまとめは消さない限り、永久にインセンティブを発生させるので長期的にお金がもらえます。</p>
 
 
 
 
-						<img class="appeal_block_image_1" width="640" height="400" src="<?php echo HTTP; ?>assets/img/article/image/image_4972.png">
+						<img class="appeal_block_image_1" width="640" height="400" title="1PVのレート" alt="1PVのレート" src="<?php echo HTTP; ?>assets/img/article/image/image_4972.png">
 						<div class="appeal_float_block clearfix">
 							<div class="appeal_float_block_left">
-								<img class="appeal_block_image_2" width="640" height="400" title="" alt="" src="<?php echo HTTP; ?>assets/img/article/image/image_3779.png" class="o_8">
+								<img class="appeal_block_image_2" width="640" height="400" title="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" alt="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" src="<?php echo HTTP; ?>assets/img/article/image/image_3779.png" class="o_8">
 							</div>
 							<div class="appeal_float_block_right">
 								<h3>マツオカソウヤさんの場合</h3>
-								<img class="appeal_block_image_2" width="640" height="400" title="" alt="" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/ss_2.jpg" class="o_8">
+								<img class="appeal_block_image_2" width="640" height="400" title="Sharetubeの支払い済みインセンティブレポートイメージ" alt="Sharetubeの支払い済みインセンティブレポートイメージ" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/ss_2.jpg" class="o_8">
 							</div>
 						</div>
 					</div>
 					<!-- appeal_block -->
 					<div class="appeal_block">
-						<h2><span class="red">認知度アップ</span>にも繋がる</h2>
+						<h2><span class="red">認知度アップ</span>にも繋がります</h2>
 						<p>しっかりとしたユーザーページ とアイコン・自己紹介文・運営サイト・SNSリンクを設定できて、作成したまとめにもプロフィールが載るので認知度アップにも繋がります。</p>
 						<img class="appeal_block_image_2" width="640" height="400" title="" alt="" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/channel_view_1.jpg" class="o_8">
 					</div>
 					<!-- appeal_block -->
 					<div class="appeal_block">
-						<h2><span class="red">自由</span>にまとめを作成できる</h2>
+						<h2><span class="red">自由</span>にまとめを作成できます</h2>
 						<p class="appeal_p_4">誰にでも自由なまとめを作成できる環境を用意しています。テーマの指定も一切なく時間にも場所にも縛られずにインセンティブ報酬がもらえます。</p>
+					</div>
+
+
+
+					<div class="registration_button o_8 clearfix">
+						<a href="<?php echo HTTP; ?>curatorrecruitment/lp/signup/" target="_blank">今すぐ無料登録してまとめを書く</a>
+					</div>
+
+
+					<!-- appeal_block -->
+					<div class="appeal_block">
+						<h2>オリジナルの<span class="red">テーマ</span>を作成して掘り下げる事も</h2>
+						<p class="appeal_p_4">すでにあるテーマへの参加はもちろん。オリジナルのテーマで掘り下げられたまとめは貴重です。公式に認められたテーマはその人だけが利用できます。</p>
+						<img class="appeal_block_image_1" width="640" height="400" title="" alt="" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/s_s_3.png" class="o_8">
+					</div>
+
+
+
+					<!-- appeal_block -->
+					<div class="appeal_block">
+						<h2><span class="red">隙間時間</span>を利用して誰しもがライターに</h2>
+						<p class="appeal_p_4">1日の中で空いた隙間時間を利用して気軽にまとめを作ることができます。決まった時間に束縛されることがないので効率の良い副業になるでしょう。</p>
+						<p style="margin: 0px auto; text-align: center; font-weight: bold;">通常のサラリーマンの場合</p>
+						<img class="appeal_block_image_1" width="640" height="400" title="サラリーマンがSharetubeでライターになる場合のグラフ" alt="サラリーマンがSharetubeでライターになる場合のグラフ" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/s_s_4.png" class="o_8">
+
+
+					</div>
+
+
+					<!-- appeal_block -->
+					<div class="appeal_block">
+						<h2>こんな人が<span class="red">キュレーター</span>に向いています</h2>
+						<p class="appeal_p_4">主婦・学生などの時間に余裕のある方。専門的な仕事をしている方。</p>
+						<p class="appeal_p_4">探究心が強く、正しい情報をちゃんと世の中に出したいと考えている方がキュレーターに向いています。</p>
+					</div>
+
+
+					<!-- appeal_block -->
+					<div class="appeal_block">
+						<h2>Web<span class="red">ライター</span>を目指している方へおすすめします</h2>
+						<p class="appeal_p_4">気軽に登録ができ、気軽にまとめが書けますのでWebライターを目指している方には格好の練習場になるのではないでしょうか。</p>
+
+						<img class="appeal_block_image_1" width="640" height="400" title="" alt="" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/s_s_5.png" class="o_8">
+
+
+					</div>
+
+
+					<div class="registration_button o_8 clearfix">
+						<a href="<?php echo HTTP; ?>curatorrecruitment/lp/signup/" target="_blank">今すぐ無料登録してまとめを書く</a>
+					</div>
+
+					<!-- appeal_block -->
+					<div class="appeal_block">
+						<h2>Share<span class="red">tube</span>はライター(キュレーター)を募集しています</h2>
+						<p class="appeal_p_4">現在Sharetubeでは400名のキュレーターが登録しています。主婦・学生・サラリーマンと様々方が活躍していらっしゃいます。貯めたPV自体も永久に消えることなくいつまでも残る所もポイントです。</p>
+						<p style="margin: 0px auto; text-align: center; font-weight: bold;">Sharetubeのマインドマップ図</p>
+						<img class="appeal_block_image_1" style="width: 700px;" width="640" height="400" title="Sharetubeのマインドマップ図" alt="Sharetubeのマインドマップ図" src="<?php echo HTTP; ?>assets/img/article/image/image_4973.png" class="o_8">
 					</div>
 
 					<div class="registration_button o_8 clearfix">
 						<a href="<?php echo HTTP; ?>curatorrecruitment/lp/signup/" target="_blank">今すぐ無料登録してまとめを書く</a>
 					</div>
+
 				</div>
 			</div>
+
+
+
+
+
+
+
+
+
 			<!-- footer -->
 			<footer class="footer clear">
 				<!-- footer_contents -->
