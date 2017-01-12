@@ -16,6 +16,7 @@ class Controller_Login_Admin_Draft_List extends Controller_Login_Template {
 			$draft_article_list_get_res = Model_Login_List_Draft_Basis::draft_article_list_get();
 			// 下書き記事HTML生成
 			$article_list_html = Model_Login_List_draft_Html::draft_article_list_html_create($draft_article_list_get_res);
+
 //			var_dump('ffffffffffffffff'.$article_list_html);
 			// viewテンプレート読み込み
 			$this->login_admin_template            = View::forge('login/admin/template');

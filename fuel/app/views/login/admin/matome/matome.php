@@ -217,7 +217,11 @@ echo '</pre>';
 											$random_key_css = 'display: none';
 											// 拡張子取得
 											$extension_type = substr($post_data["post"]["thumbnail_image"], strrpos($post_data["post"]["thumbnail_image"], '.') + 1);
-											echo '<img id="reader_image" src="'.HTTP.'assets/img/draft/article/'.date("Y").'/original/'.$post_data["post"]["random_key"].'.'.$extension_type.'" style="width: 100%; height: auto;">';
+
+											// 緊急策 松岡
+											$random_key_year = (int)substr($post_data['post']['random_key'], 0, 4);
+
+											echo '<img id="reader_image" src="'.HTTP.'assets/img/draft/article/'.$random_key_year.'/original/'.$post_data["post"]["random_key"].'.'.$extension_type.'" style="width: 100%; height: auto;">';
 										echo '<form id="thumbnail_form" action="'.HTTP.'login/admin/post/thumbnail/" method="post" target="shumbnail_iframe" enctype="multipart/form-data" style="'.$random_key_css.'">
 <input type="hidden" id="thumbnail_form_random_key" name="random_key" value="'.$post_data["post"]["random_key"].'">
 <input id="file" type="file" name="file"></form>';

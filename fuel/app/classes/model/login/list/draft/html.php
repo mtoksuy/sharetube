@@ -18,6 +18,9 @@ class Model_Login_List_Draft_Html extends Model {
 		$create_date       = date('Y-m-d H:i:s', $unix_time);
 		$article_year_time = date('Y', $unix_time);
 
+		// 緊急策 松岡
+		$random_key_year = (int)substr($value['random_key'], 0, 4);
+
 /*
 前の編集URL
 							<li><a href="'.HTTP.'login/admin/draft/list/edit/'.$value["primary_id"].'/">編集する</a></li>
@@ -29,7 +32,7 @@ class Model_Login_List_Draft_Html extends Model {
 					<div class="article_list_content_"><b>タイトル：</b>'.$value["title"].'</div>
 					<div class="article_list_content_"><b>サムネ：</b>
 					</div>
-					<img width="200" height="105" src="'.HTTP.'assets/img/draft/article/'.$article_year_time.'/facebook_ogp_half/'.$value["thumbnail_image"].'">
+					<img width="200" height="105" src="'.HTTP.'assets/img/draft/article/'.$random_key_year.'/facebook_ogp_half/'.$value["thumbnail_image"].'">
 					<div class="article_list_content_edit">
 						<ul class="clearfix">
 							<li><a target="_blank" href="'.HTTP.'login/admin/matome/draft/'.$value["primary_id"].'/">編集する</a></li>
