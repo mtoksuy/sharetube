@@ -5,11 +5,9 @@
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.4.24<br></p>
+						<p>遅くなりましたが、明けましておめでとうございます。今年もSharetubeをよろしくお願い致します。</p>
 
-<p>まとめ作成ツール：アイテム：Amazonアップデート致しました。将来的にこの機能は有料となります。</p>
-
-<p>						まとめ作成ツール：アイテム：タイムラインアップデートを致しました。<br>
-						キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
+						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
 </p>
 					</div>
 
@@ -35,8 +33,6 @@
 
 
 					<h3 class="h3_heading_1">ヘルプ</h3>
-
-
 
 					<h4 class="h4_heading_1">[本気でまとめを書いた場合(運営者が)]</h4>
 					<p class="m_0">【226万円】3ヶ月間だけまとめを鬼のように書いてぴたっと書かなくなった永久報酬の金額 </p>
@@ -100,12 +96,31 @@
 	<div class="matome_content_block_timeline">
 		<ol>
 
+
 			<li class="connection clearfix">
-				<span>2016年</span>
+				<span>2017年</span>
+			</li>
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>01月07日〜01月09日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.4.24</h3>
+						<pre>・2016年に下書きしたまとめのサムネイルが正常に読み込まれない・画像生成されないバグを修正</pre>
+					</dd>
+				</dl>
 			</li>
 
 
 
+
+
+			<li class="connection clearfix">
+				<span>2016年</span>
+			</li>
 
 
 
