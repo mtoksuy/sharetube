@@ -69,7 +69,7 @@ class Controller_Login_Admin_Analytics extends Controller_Login_Template {
 			$analytics_data_array             = array();
 			$analytics_day_data_array         = array();
 			$analytics_day_article_data_array = array();
-			$analytics_all_pv = 0;
+			$analytics_all_pv                 = 0;
 
 			// limit
 			if($article_array_data["limit"] == 'limit') {
