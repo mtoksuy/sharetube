@@ -21,6 +21,7 @@ $(function () {
 		var now_day = new Date();
 		//年・月・日・曜日を取得する
 		var year      = now_day.getFullYear();
+//		var year      = 2015; // 年テスト
 		var month     = now_day.getMonth()+1;
 		var week      = now_day.getDay();
 		var day       = now_day.getDate();

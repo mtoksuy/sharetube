@@ -26,7 +26,7 @@ class Controller_Login_Admin_Post_Preview extends Controller_Login_Admin_Post_pr
 
 			// 記事のHTML生成
 			$article_data_array = Model_Article_Html::article_html_create($preview_article_res, 'article', true);
-//			var_dump($article_data_array);
+//			pre_var_dump($article_data_array);
 
 			// 記事のメタ生成
 			$meta_html          = Model_Article_Html::article_meta_html_create($article_data_array, 168);

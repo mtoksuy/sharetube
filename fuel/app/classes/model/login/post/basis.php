@@ -128,7 +128,9 @@ class Model_Login_Post_Basis extends Model {
 	public static function thumbnail_create($create_dir, $image_path) {
 		// コピー元画像の指定
 //		$targetImage = ($create_dir.'original/'.$image_path);
-		$targetImage = PATH.'assets/img/draft/article/'.date("Y").'/original/'.$image_path;
+		// 緊急策 松岡
+		$random_key_year = (int)substr($image_path, 0, 4);
+		$targetImage = PATH.'assets/img/draft/article/'.$random_key_year.'/original/'.$image_path;
 
 //		var_dump($targetImage);
 		// 拡張子取得
@@ -779,13 +781,13 @@ class Model_Login_Post_Basis extends Model {
 	//------------------
 	//サムネイルをコピー
 	//------------------
-	static function draft_thumbnail_copy($article_create_data_array) {
+	static function draft_thumbnail_copy($article_create_data_array, $random_key_year = null) {
 //		var_dump($article_create_data_array);
 // 全ての PHP エラーを表示する
 //error_reporting(-1);
 
 		// コピー元（マスターパス）
-		$draft_thumbnail_path = (PATH.'assets/img/draft/article/'.$article_create_data_array["article_year_time"]);
+		$draft_thumbnail_path = (PATH.'assets/img/draft/article/'.$random_key_year);
 		// コピー先（マスターパス）
 		$article_thumbnail_path = (PATH.'assets/img/article/'.$article_create_data_array["article_year_time"]);
 		// ファイルが存在するかチェックし、あればサムネイルコピー
