@@ -234,7 +234,8 @@ class Model_Article_Html extends Model {
 			// コンテンツHTML生成
 			$contents_html = Model_Article_Html::contents_html_create($value, $category_info_array);
 			// サムネイルHTML生成
-			$thumbnail_html = Model_Article_Html::thumbnail_html_create($value, $random_key_year, $preview_frg);
+			$thumbnail_html = Model_Article_Html::thumbnail_html_create($value, $article_year_time, $preview_frg);
+
 			// アーティクルボトムライクボックスHTML生成
 			$article_bottom_like_box_html = Model_Article_Html::article_bottom_like_box_html_create($value, $year_time, $preview_frg);
 
@@ -380,6 +381,8 @@ class Model_Article_Html extends Model {
 			break;
 			case true:
 				$draft = 'draft/';
+			// 緊急策 松岡
+			$year_time = (int)substr($value['random_key'], 0, 4);
 			break;
 			default:
 
@@ -812,7 +815,6 @@ class Model_Article_Html extends Model {
 	//記事ogpHTML生成
 	//---------------
 	static function article_meta_html_create($article_data_array, $description_length = 168, $article_type = 'article') {
-//		var_dump($article_data_array);
 		if(! is_int($description_length)) {
 			$description_length = 168;
 		}
@@ -838,6 +840,13 @@ class Model_Article_Html extends Model {
 			<meta property="og:description" content="'.$summary_contents.'"> <!-- コンテンツの概要 -->
 			<meta property="fb:admins" content="100001768077299"> <!-- facebookユーザーID -->
 		');
+
+		// まとめが注目まとめに入っているかチェック
+		$recommend_check = Model_Article_Basis::recommend_check_get($article_data_array['article_primary_id']);
+		// 注目まとめに入っていなかったらnoindexをつける
+		if($recommend_check == false) {
+//			$meta_html = '<meta name="robots" content="noindex">'.$meta_html;
+		}
 		return $meta_html;
 	}
 	//----------------
