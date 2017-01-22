@@ -66,7 +66,8 @@ class Controller_Login_Admin_Post extends Controller_Login_Template {
 								// 記事作成
 								Model_Login_Post_Basis::article_create($article_create_data_array);
 								// rss作成
-								Model_Login_Post_Basis::rss_create_2();
+								Model_Login_Post_Basis::rss_create_3();
+
 								// ディレクトリ配下のファイルを削除するディレクトリパス
 //								$cache_db_path = INTERNAL_PATH.'fuel/app/cache/db/';
 								// ディレクトリー内のファイルを全削除(cache削除)

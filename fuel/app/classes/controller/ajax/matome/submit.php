@@ -69,9 +69,10 @@ class Controller_Ajax_Matome_Submit extends Controller {
 							// 記事作成
 							Model_Login_Post_Basis::article_create($article_create_data_array, true);
 							// rss作成
-							Model_Login_Post_Basis::rss_create_2();
+							Model_Login_Post_Basis::rss_create_3();
 							// テーマエントリー
 							Model_Login_Matome_Theme_Basis::theme_entry($article_create_data_array);
+
 
 							// ディレクトリ配下のファイルを削除するディレクトリパス
 //								$cache_db_path = INTERNAL_PATH.'fuel/app/cache/db/';
