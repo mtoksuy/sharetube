@@ -1357,12 +1357,6 @@ a:hover {
   pointer-events: none;
 }
 
-.scroll_top, .shuffle_button {
-  position: fixed;
-  height: 48px;
-  bottom: 15px;
-}
-
 .category_nav:after {
   border-color: rgba(136, 183, 213, 0);
   border-bottom-color: #FCFCFC;
@@ -1426,12 +1420,6 @@ a:hover {
   width: 33px;
 }
 
-.scroll_top:hover, .shuffle_button:hover {
-  background-color: #ED482D;
-  background-color: #ff3810;
-  background-color: #f7f7f7;
-}
-
 .second_navi_contents {
   margin: 0 auto;
   max-width: 1024px;
@@ -1457,22 +1445,69 @@ a:hover {
   margin: 0 0 0 5px;
 }
 
+
+/***********
+移動ボタン系
+***********/
+.scroll_top, .shuffle_button, .contents_button {
+  position: fixed;
+  height: 48px;
+  bottom: 15px;
+}
+.scroll_top:hover, .shuffle_button:hover {
+  background-color: #ED482D;
+  background-color: #ff3810;
+  background-color: #f7f7f7;
+}
 .scroll_top {
-  border-radius: 2px;
-  cursor: pointer;
-  display: none;
-  right: 15px;
-  width: 48px;
-  z-index: 8;
+    background-color: #f7f6f4;
+    border-radius: 42px;
+    bottom: 15px;
+    cursor: pointer;
+    height: 40px;
+    position: fixed;
+    right: 15px;
+    width: 40px;
+    z-index: 8;
 }
 
 .shuffle_button {
-  border-radius: 2px;
-  cursor: pointer;
-  right: 78px;
-  width: 52px;
-  z-index: 8;
+    background-color: #f7f6f4;
+    border-radius: 42px;
+    bottom: 70px;
+    cursor: pointer;
+    height: 40px;
+    position: fixed;
+    right: 15px;
+    width: 40px;
+    z-index: 8;
 }
+.contents_button {
+    background-color: #f7f6f4;
+    border-radius: 42px;
+    bottom: 15px;
+/*
+    box-shadow: 1px 2px 0 2px rgba(0, 0, 0, 0.05);
+*/
+    cursor: pointer;
+    height: 40px;
+    position: fixed;
+    right: 70px;
+    width: 40px;
+    z-index: 8;
+}
+.scroll_top img, .shuffle_button img, .contents_button img {
+    height: auto;
+    width: 40px;
+}
+
+
+
+
+
+
+
+
 
 .drawer_nav {
   background-color: #FCFCFC;
@@ -3996,6 +4031,21 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     top: 7px;
     width: 320px;
   }
+	/***********
+	移動ボタン群
+	***********/
+	.scroll_top {
+		display: none;
+	}
+	.shuffle_button {
+		display: none;
+	}
+	.contents_button {
+		display: none;
+	}
+	/***
+	main
+	***/
   .main {
     padding: 61px 0 0;
     overflow: hidden;
