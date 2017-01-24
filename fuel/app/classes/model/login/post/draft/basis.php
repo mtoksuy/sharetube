@@ -122,6 +122,9 @@ class Model_Login_Post_Draft_Basis extends Model {
 				$image_2x_path = $random_key.'@2x'.$extension;
 //				var_dump($image_path.$image_2x_path);
 				$year = date("Y");
+				// 緊急策 松岡
+				$year = (int)substr($random_key, 0, 4);
+
 //				var_dump($year);
 //				var_dump($icon_image);
 				//-------------------------------------------

@@ -317,10 +317,29 @@ function tab_space_delete(word) {
 				});
 		}
 	}, '.all_header_ad_delete');
-
-
-
-
+	/***********************
+	目次から見出しにジャンプ
+	***********************/
+	$('html').on( {
+		'click': function() {
+			this_wording = $(this).html();
+			$('.h2_heading_1, .h3_heading_1, .h4_heading_1').each(function(i, e) {
+				if(this_wording == $(this).html()) {
+					cotents_offset_top = $(this).parents('.matome_content_block').offset().top;
+					$('html,body').animate({scrollTop: (cotents_offset_top - 10)},500);
+				}
+			});
+		}
+	}, '.matome_content_block_contents_chapter');
+	//----------
+	//目次へ移動
+	//----------
+	$('.contents_button').click(function() {
+		cotents_offset_top = $('.matome_content_block_contents').offset().top;
+		$('html, body').animate({
+			scrollTop: cotents_offset_top -15
+		}, 500);
+	});
 
 
 

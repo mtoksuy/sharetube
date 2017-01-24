@@ -128,7 +128,9 @@ class Model_Login_Post_Basis extends Model {
 	public static function thumbnail_create($create_dir, $image_path) {
 		// コピー元画像の指定
 //		$targetImage = ($create_dir.'original/'.$image_path);
-		$targetImage = PATH.'assets/img/draft/article/'.date("Y").'/original/'.$image_path;
+		// 緊急策 松岡
+		$random_key_year = (int)substr($image_path, 0, 4);
+		$targetImage = PATH.'assets/img/draft/article/'.$random_key_year.'/original/'.$image_path;
 
 //		var_dump($targetImage);
 		// 拡張子取得
@@ -779,13 +781,13 @@ class Model_Login_Post_Basis extends Model {
 	//------------------
 	//サムネイルをコピー
 	//------------------
-	static function draft_thumbnail_copy($article_create_data_array) {
+	static function draft_thumbnail_copy($article_create_data_array, $random_key_year = null) {
 //		var_dump($article_create_data_array);
 // 全ての PHP エラーを表示する
 //error_reporting(-1);
 
 		// コピー元（マスターパス）
-		$draft_thumbnail_path = (PATH.'assets/img/draft/article/'.$article_create_data_array["article_year_time"]);
+		$draft_thumbnail_path = (PATH.'assets/img/draft/article/'.$random_key_year);
 		// コピー先（マスターパス）
 		$article_thumbnail_path = (PATH.'assets/img/article/'.$article_create_data_array["article_year_time"]);
 		// ファイルが存在するかチェックし、あればサムネイルコピー
@@ -1005,4 +1007,106 @@ class Model_Login_Post_Basis extends Model {
 		// rssデータをファイルに書き出す
 		file_put_contents($file, $rss);
 	}
+
+	//-----------
+	//rss作成 v.3
+	//-----------
+	public static function rss_create_3() {
+		// RSS自動作成
+		$recommend_article_res = DB::query("
+			SELECT * 
+			FROM recommend_article
+			WHERE del = 0
+			ORDER BY recommend_article.primary_id DESC
+			LIMIT 0, 10")->execute();
+
+		foreach($recommend_article_res as $key_1 => $value_1) {
+			$recommend_article_list .= $value_1['article_id'].',';
+		}
+		// 初期化時のバグ回避
+		if($recommend_article_list == null) {
+			$recommend_article_list = '1,2,3,4,5,';
+		}
+		// 文末削除
+		$recommend_article_list = substr($recommend_article_list, 0, -1);
+
+		$rss_list_res = DB::query("
+			SELECT *
+			FROM article
+			WHERE del = 0
+			AND primary_id IN (".$recommend_article_list.")
+			ORDER BY primary_id DESC
+			LIMIT 0, 10")->execute();
+
+		// rssヘッダーダグ
+		$rss_start = ('<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title>'.TITLE.'</title>
+		<link>'.HTTP.'</link>
+		<description>'.META_DESCRIPTION.'</description>
+		<language>ja</language>
+		<copyright>Copyright '.date('Y',time()).'</copyright>		
+		<generator uri="'.HTTP.'">'.TITLE.'</generator>
+		<lastBuildDate>'.date(r).'</lastBuildDate>');
+
+		foreach($rss_list_res as $key => $value) {
+			// 記事作成時間取得
+			$creation_time        = $value["create_time"];
+			$unix_time            = strtotime($value["create_time"]);
+			$year_time            = date('Y', $unix_time);
+			$local_time           = date('Y-m-d', $unix_time);
+			$local_japanese_time  = date('Y年m月d日', $unix_time);
+			$article_year_time    = date('Y', $unix_time);
+
+			// コンテンツテキスト合体
+			$contents_text = $value["sub_text"].$value["text"];
+			// 改行&タブを消す
+			$contents_text = str_replace(array("\r\n","\r","\n","\t"), '', $contents_text);
+			// HTMLタグを取り除く
+			$contents_text = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $contents_text);
+			// 本文を512文字に丸める
+			$strimwidth_contents = mb_strimwidth($contents_text, 0, 512, "...", 'utf8');
+			// エンティティ化する
+			$value["title"]      = htmlspecialchars($value["title"], ENT_QUOTES, 'UTF-8');
+
+			// rss用の概要を生成
+			$rss_summary = (
+				'<div class="article_thumbnail">
+					<img class="great_image_100 m_b_15" width="640" height="400" title="'.$value["title"].'" alt="'.$value["title"].'" src="'.HTTP.'assets/img/article/'.$year_time.'/facebook_ogp_half/'.$value["thumbnail_image"].'">
+				</div>
+				'.$strimwidth_contents.'
+				<a href="'.HTTP.'article/'.$value["link"].'/" target="_brank">続きを読む</a>');
+			// エンティティ化する
+			$rss_summary = htmlspecialchars($rss_summary, ENT_QUOTES, 'UTF-8');
+
+			// item生成
+			$item .= (
+				'<item>
+					<title>'.$value["title"].'</title>
+					<link>'.HTTP.'article/'.$value["link"].'/</link>
+					<description>
+						'.$rss_summary.'
+					</description>
+					<guid>'.HTTP.'article/'.$value["link"].'/</guid>
+					<pubDate>'.date('r', $unix_time).'</pubDate>
+				</item>');
+		} // foreach($res as $key => $value) {
+		// rss終了タグ
+		$rss_end = ('</channel>
+		</rss>');
+		// rss結合
+		$rss = $rss_start.$item.$rss_end;
+		// 改行コードをLFに置換
+		$rss = str_replace(array("\r\n","\r"), "\n", $rss);
+
+		// 書き直すファイルパス
+		$file = PATH.'feed.xml';
+		// ファイルのデータ取得
+		// $current = file_get_contents($file);
+		// rssデータをファイルに書き出す
+		file_put_contents($file, $rss);
+	}
+
+
 } // class Model_Login_Post_Basis extends Model {

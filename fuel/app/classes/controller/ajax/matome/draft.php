@@ -39,7 +39,9 @@ if($post["draft"]) {
 		if($post["random_key"]) {
 			// サムネイルの名前取得
 			$image_path = Model_Login_Post_Draft_Basis::thumbnail_name_get($post["random_key"]);
-			$create_dir = PATH.'assets/img/draft/article/'.date("Y").'/';
+			// 緊急策 松岡
+			$random_key_year = (int)substr($image_path, 0, 4);
+			$create_dir      = PATH.'assets/img/draft/article/'.$random_key_year.'/';
 			// サムネイル作成
 			Model_Login_Post_Basis::thumbnail_create($create_dir, $image_path);
 			// サムネイルの名前取得
@@ -47,8 +49,6 @@ if($post["draft"]) {
 		} // if($post["random_key"]) {
 		// 記事作成データ取得
 		$article_create_data_array = Model_Login_Post_Basis::article_create_data_get($post);
-//var_dump($post);
-//var_dump($article_create_data_array);
 		$article_create_data_array["thumbnail_image"] = $image_path;
 		// 下書きを上書きする
 		 Model_Login_Post_Draft_Basis::article_draft_update($article_create_data_array);
@@ -63,15 +63,15 @@ if($post["draft"]) {
 		if($post["random_key"]) {
 			// サムネイルの名前取得
 			$image_path = Model_Login_Post_Draft_Basis::thumbnail_name_get($post["random_key"]);
-			$create_dir = PATH.'assets/img/draft/article/'.date("Y").'/';
-
+			// 緊急策 松岡
+			$random_key_year = (int)substr($image_path, 0, 4);
+			$create_dir      = PATH.'assets/img/draft/article/'.$random_key_year.'/';
 			// サムネイル作成
 			Model_Login_Post_Basis::thumbnail_create($create_dir, $image_path);
 		} // if($post["random_key"]) {
 		// 記事作成データ取得
 		$article_create_data_array = Model_Login_Post_Basis::article_create_data_get($post);
 		$article_create_data_array["thumbnail_image"] = $image_path;
-
 		// 記事下書き保存
 		$draft_primary_id = Model_Login_Post_Draft_Basis::article_draft_save($article_create_data_array, true);
 		// テーマエントリー

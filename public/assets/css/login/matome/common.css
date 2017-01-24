@@ -1630,6 +1630,184 @@ body {
 	cursor: pointer;
 }
 
+/****************
+アイテム 目次追加
+****************/
+.contents_add {
+	margin: 30px 0;
+}
+.contents_add_content {
+
+}
+.contents_add_content_check_box {
+	margin: 0 0 6px 0;
+}
+.contents_add_content textarea {
+	box-sizing: border-box;
+	height: 60px;
+	color: #474747;
+	border: 1px solid #cfcfcf;
+	border-radius: 2px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 5px;
+	resize: none;
+	width: 100%;
+  font-family: "游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+    font-size: 94%;
+
+}
+.contents_add_content input[type="text"] {
+    background-color: #fbfbfb;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #606060;
+    font-size: 82%;
+    padding: 5px;
+		width: 100%;
+}
+.contents_add_content_url {
+	float: left;
+	width: 60% !important;
+}
+.contents_add_content_check {
+    background-color: #505050;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    color: #eeeeee;
+    cursor: pointer;
+    float: left;
+    font-size: 82%;
+    line-height: 200%;
+    margin: 0 0 0 5px;
+    padding: 0 5px;
+
+}
+.contents_add_content_word {
+/*
+	margin: 6px 0 0 0;
+*/
+}
+.contents_add_content_button {
+
+}
+.contents_add_content_button_left {
+	float: left;
+	margin: 0 5px 0 0;
+}
+
+.contents_add_content_submit {
+	background-color: #505050;
+	border: 1px solid #dfdfdf;
+	border-radius: 2px;
+	color: #eeeeee;
+	cursor: pointer;
+	padding: 1px 5px;
+}
+
+.contents_add_content_button_right {
+	float: left;
+}
+.contents_add_content_cancel {
+	background-color: #fcfcfc;
+	border: 1px solid #cfcfcf;
+	border-radius: 2px;
+	padding: 1px 5px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2414,6 +2592,51 @@ border-radius: 30px;
     margin: 0;
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+/************
+まとめ内 目次
+************/
+.matome_content_block_contents {
+	margin: 0 0 30px;
+}
+.matome_content_block_contents .matome_content_block_contents_title {
+    background-color: #ed482d;
+    background-color: #e3452b;
+    box-shadow: 0 0 0 13px #fff inset;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 50px;
+    text-align: center;
+}
+.matome_content_block_contents .matome_content_block_contents_title span {
+    background: #fff none repeat scroll 0 0;
+    padding: 0 18px;
+}
+.matome_content_block_contents ul {
+	padding: 0 0 0 60px;
+	margin: 0;
+	list-style: none;
+}
+.matome_content_block_contents ul li {
+	line-height: 150%;
+}
+
+.matome_content_block_contents ul li.h2_contents {
+	margin: 15px 0 0;
+}
+.matome_content_block_contents ul li.h3_contents {
+	margin: 0 0 0 22px;
+}
+.matome_content_block_contents ul li.h4_contents {
+	margin: 0 0 0 44px;
+}
+.matome_content_block_contents ul li .matome_content_block_contents_number {
+	color: #8e847d;
+}
+.matome_content_block_contents ul li .matome_content_block_contents_chapter {
+    color: #009bd8;
+    cursor: pointer;
+		margin: 0 0 0 5px;
 }
 
 

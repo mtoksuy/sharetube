@@ -4,8 +4,8 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.24<br></p>
-						<p>遅くなりましたが、明けましておめでとうございます。今年もSharetubeをよろしくお願い致します。</p>
+						<p>Sharetube version 5.4.25<br></p>
+						<p>2017年はよりいっそうSharetubeはまい進していきますので、どうかよろしくお願い致します。</p>
 
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
 </p>
@@ -71,17 +71,15 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p class="m_0">・まとめのマークアップを見直す</p>
-					<p class="m_0">・オススメまとめだけrssに吐き出す。rss_2からrss_3に移行</p>
-					<p class="m_0">・まとめ作成ツール：アイテム：罫線追加</p>
 					<p class="m_0">・まとめ作成ツール：アイテム：マークダウン追加方式でまとめが書ける</p>
+					<p class="m_0">・まとめ作成ツール：アイテム：罫線追加</p>
+					<p class="m_0">・まとめ作成ツール：アイテム：Q＆A実装</p>
 					<p class="m_0">・テーマ一覧</p>
 					<p class="m_0">・おすすめテーマ一覧</p>
 					<p class="m_0">・参加しているテーマ表示実装</p>
 					<p class="m_0">・テーマフォロー機能実装</p>
 					<p class="m_0">・まとめをお気に入りにする機能実装</p>
 					<p>・検索機能をget仕様にする</p>
-
 
 
 					<h3 class="h3_heading_1">バグリスト</h3>
@@ -97,9 +95,47 @@
 		<ol>
 
 
+
+
+
+
+
+
+
+
 			<li class="connection clearfix">
 				<span>2017年</span>
 			</li>
+
+
+
+
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>01月09日〜01月24日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.4.25</h3>
+						<pre>・年またぎサムネイル問題再修正
+・低品質まとめnoindex草案
+・まとめのマークアップアップデート見送り
+・注目まとめだけrssに吐き出し実装 rss_2からrss_3に移行
+・まとめ作成ツール：アイテム：目次実装
+・移動系(トップ・ランダム・目次)ボタンデザイン変更</pre>
+					</dd>
+				</dl>
+			</li>
+
+
 
 
 			<li class="pointline clearfix">
@@ -113,6 +149,8 @@
 					</dd>
 				</dl>
 			</li>
+
+
 
 
 

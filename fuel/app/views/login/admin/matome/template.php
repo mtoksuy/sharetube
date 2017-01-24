@@ -80,6 +80,8 @@
 		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/login/matome/ballon.js"></script>
 		<!-- matome enclosed プラグイン -->
 		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/login/matome/enclosed.js"></script>
+		<!-- matome contents プラグイン -->
+		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/login/matome/contents.js"></script>
 
 
 		<!-- matome text_design_tool プラグイン -->

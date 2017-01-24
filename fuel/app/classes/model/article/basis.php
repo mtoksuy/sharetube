@@ -531,6 +531,10 @@ foreach($save_array as $k => $v) {
 		foreach($recommend_article_200_res as $key => $value) {
 			$add_and_2 .= ''.$value['article_id'].',';
 		}
+		// 初期化時のバグ回避
+		if($add_and_2 == null) {
+			$add_and_2 = '1,2,3,4,5,';
+		}
 		$add_and_2 = substr($add_and_2, 0, -1);
 		$add_and_2 = 'AND article_id IN ('.$add_and_2.')';
 
@@ -775,6 +779,26 @@ foreach($save_array as $k => $v) {
 		}
 		return $related_theme_data_array;
 	}
+	//----------------------------------------
+	//まとめが注目まとめに入っているかチェック
+	//----------------------------------------
+	public static function recommend_check_get($method) {
+		$recommend_check = false;
+
+		$recommend_check_res = DB::query("
+			SELECT * 
+			FROM 
+			recommend_article
+			WHERE 
+			article_id = ".$method."
+			AND del = 0")->cached(0)->execute();
+
+		foreach($recommend_check_res as $key => $value) {
+			$recommend_check = true;
+		}
+		return $recommend_check;
+	}
+
 
 
 }

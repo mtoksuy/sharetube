@@ -116,11 +116,33 @@
 			</section>
 			<!-- スクロールトップ -->
 			<div class="scroll_top o_8">
-				<img width="48" height="48" alt="scroll_icon" title="一番上に移動" src="<?php echo HTTP; ?>assets/img/common/scroll_top_5.png">
+				<img width="48" height="48" alt="scroll_icon" title="一番上に移動" src="<?php echo HTTP; ?>assets/img/common/scroll_top_7.png">
 			</div>
 			<!-- シャッフルボタン -->
 			<div class="shuffle_button o_8">
 				<a href="<?php echo $header_data["shuffle_article_url"]; ?>">
-				<img width="52" height="48" alt="shuffle_button" title="ページをシャッフル" src="<?php echo HTTP; ?>assets/img/common/shuffle_button_2.png">
+				<img width="52" height="48" alt="shuffle_button" title="ページをシャッフル" src="<?php echo HTTP; ?>assets/img/common/shuffle_button_4.png">
 				</a>
 			</div>
+			<?php
+				if(preg_match('/article/',$_SERVER['REQUEST_URI'])) {
+					$contents_check = false;
+					$article_id = (int)preg_replace('/[^0-9]/', '', $_SERVER['REQUEST_URI']);
+					$res = DB::query("
+						SELECT sub_text
+						FROM article
+						WHERE primary_id = ".$article_id."
+						AND del = 0
+						AND sub_text LIKE '%matome_content_block_contents%'
+					")->cached(3600)->execute();
+					foreach($res as $key => $value) {
+						$contents_check = true;
+					}
+					if($contents_check) {?>
+					<!-- 目次へ移動ボタン -->
+					<div class="contents_button o_8">
+						<img width="52" height="48" alt="contents_button" title="目次へ移動" src="<?php echo HTTP; ?>assets/img/common/scroll_index_2.png">
+					</div>
+					<?php 
+					}
+				} ?>
