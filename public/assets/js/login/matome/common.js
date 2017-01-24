@@ -834,8 +834,18 @@ $('.matome').on( {
 				  showConfirmButton: false
 				});
 			break;
-
-
+			/////////////
+			// 目次の場合
+			/////////////
+			case 'matome_content_block_contents':
+				// アラート表示
+				swal({
+				  title: "更新する場合は削除してもう一度目次を作成して下さい",
+				  text: "メッセージは1秒後に消えます",
+				  timer: 1200,
+				  showConfirmButton: false
+				});
+			break;
 		}  //switch(class_neme) {
 		// 修正時にtextareaを広げる
 		event_textarea = $('textarea');
@@ -873,6 +883,7 @@ $('.item_add').on( {
 					<li class="item_add_content_list_amazon">Amazon</li>\
 					<li class="item_add_content_list_amazon_review">Amazonレビュー</li>\
 					<li class="item_add_content_list_code">コード</li>\
+					<li class="item_add_content_list_contents">目次</li>\
 					<li class="item_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></li>\
 				</ul>\
 			</div> <!-- item_add_content -->');
@@ -1042,6 +1053,7 @@ $('.matome').on( {
 					<li class="item_between_add_content_list_amazon">Amazon</li>\
 					<li class="item_between_add_content_list_amazon_review">Amazonレビュー</li>\
 					<li class="item_between_add_content_list_code">コード</li>\
+					<li class="item_between_add_content_list_contents">目次</li>\
 				</ul>\
 			</div> <!-- item_between_add_content -->');
 	}

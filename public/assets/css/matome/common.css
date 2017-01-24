@@ -840,6 +840,111 @@ border-radius: 30px;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+/************
+まとめ内 目次
+************/
+.matome_content_block_contents {
+	margin: 0 0 30px;
+}
+.matome_content_block_contents .matome_content_block_contents_title {
+    background-color: #ed482d;
+    background-color: #e3452b;
+    box-shadow: 0 0 0 13px #fff inset;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 50px;
+    text-align: center;
+}
+.matome_content_block_contents .matome_content_block_contents_title span {
+    background: #fff none repeat scroll 0 0;
+    padding: 0 18px;
+}
+.matome_content_block_contents ul {
+	padding: 0 0 0 60px;
+	margin: 0;
+	list-style: none;
+}
+.matome_content_block_contents ul li {
+	line-height: 150%;
+}
+
+.matome_content_block_contents ul li.h2_contents {
+	margin: 15px 0 0;
+}
+.matome_content_block_contents ul li.h3_contents {
+	margin: 0 0 0 22px;
+}
+.matome_content_block_contents ul li.h4_contents {
+	margin: 0 0 0 44px;
+}
+.matome_content_block_contents ul li .matome_content_block_contents_number {
+	color: #8e847d;
+}
+.matome_content_block_contents ul li .matome_content_block_contents_chapter {
+    color: #009bd8;
+    cursor: pointer;
+		margin: 0 0 0 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
