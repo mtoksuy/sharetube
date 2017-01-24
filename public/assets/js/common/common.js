@@ -331,6 +331,21 @@ function tab_space_delete(word) {
 			});
 		}
 	}, '.matome_content_block_contents_chapter');
+	//----------
+	//目次へ移動
+	//----------
+	$('.contents_button').click(function() {
+		cotents_offset_top = $('.matome_content_block_contents').offset().top;
+		$('html, body').animate({
+			scrollTop: cotents_offset_top -15
+		}, 500);
+	});
+
+
+
+
+
+
 
 
 
