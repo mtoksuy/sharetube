@@ -156,7 +156,6 @@ $('.postboxs').on( {
 		},5000);
 		// サブミットが走ってない場合
 		if(submit_check != 'now') {
-			p('走っている');
 			// サブミットが走っている事を追加
 			$('.matome_submit').attr('submit-check', 'now');
 			// 走っている事を表示で示す
@@ -884,7 +883,7 @@ $('.item_add').on( {
 					<li class="item_add_content_list_enclosed">囲み</li>\
 					<li class="item_add_content_list_timeline">タイムライン</li>\
 					<li class="item_add_content_list_heading_image">見出し画像</li>\
-					<li class="item_add_content_list_itunes_app">iTunes_App</li>\
+					<li class="item_add_content_list_line">罫線</li>\
 					<li class="item_add_content_list_change_2"><span class="typcn typcn-arrow-repeat"></span></li>\
 				</ul>\
 			</div> <!-- item_add_content -->');
@@ -901,6 +900,7 @@ $('.item_add').on( {
 				<ul class="item_add_content_list">\
 					<li class="item_add_content_list_amazon">Amazon</li>\
 					<li class="item_add_content_list_amazon_review">Amazonレビュー</li>\
+					<li class="item_add_content_list_itunes_app">iTunes_App</li>\
 					<li class="item_add_content_list_code">コード</li>\
 					<li class="item_add_content_list_contents">目次</li>\
 					<li class="item_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></li>\
@@ -1053,7 +1053,7 @@ $('.matome').on( {
 					<li class="item_between_add_content_list_enclosed">囲み</li>\
 					<li class="item_between_add_content_list_timeline">タイムライン</li>\
 					<li class="item_between_add_content_list_heading_image">見出し画像</li>\
-					<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
+					<li class="item_between_add_content_list_line">罫線</li>\
 				</ul>\
 			</div> <!-- item_between_add_content -->');
 	}
@@ -1071,6 +1071,7 @@ $('.matome').on( {
 				<ul class="item_between_add_content_list">\
 					<li class="item_between_add_content_list_amazon">Amazon</li>\
 					<li class="item_between_add_content_list_amazon_review">Amazonレビュー</li>\
+					<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
 					<li class="item_between_add_content_list_code">コード</li>\
 					<li class="item_between_add_content_list_contents">目次</li>\
 				</ul>\
