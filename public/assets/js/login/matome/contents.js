@@ -99,7 +99,6 @@ $(function() {
 		li_list = contents_li_html_create();
 		// 目次フォームHTML
 		var contents_html = ('<div class="matome_content_block">\
-	<div class="matome_content_block_contents">\
 		<nav class="matome_content_block_contents clearfix">\
 			<div class="matome_content_block_contents_title">\
 				<span>目次</span>\
@@ -108,7 +107,6 @@ $(function() {
 				'+li_list+'\
 			</ul>\
 		</nav>\
-	</div>\
 </div>');
 		return contents_html;
 	}
