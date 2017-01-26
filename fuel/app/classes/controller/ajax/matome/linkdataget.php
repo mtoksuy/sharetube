@@ -10,19 +10,48 @@ class Controller_Ajax_Matome_linkdataget extends Controller {
 	public function action_index() {
 		// 変数
 		$url = $_POST['url'];
-		$subject = $url_html = file_get_contents($url);
-		// UTF-8にエンコード
-		$subject = mb_convert_encoding($subject, 'UTF-8', 'auto');
+		// 偽装オプション
+		$options = array(
+		  'http' => array(
+		    'method' => 'GET',
+		    'header' => 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0',
+		  ),
+		);
+		// 偽装コンテキスト作成
+		$context = stream_context_create($options);
+		// スクレイピング
+		$subject = file_get_contents($url, false, $context);
 
+		/********************************************
+		file_get_contents()で文字化けさせない方法
+		http://gokexn.blog.fc2.com/blog-entry-91.html
+		*********************************************/
+		$min_pos = 99999999999999;//十分に大きな数字
+		$from_encoding ='UTF-8';//デフォルト
+		foreach(array('UTF-8','SJIS', 'Shift_JIS', 'EUC-JP','ASCII','JIS','ISO-2022-JP') as $charcode){
+		  if($min_pos > stripos($subject,$charcode,0) && stripos($subject,$charcode,0)>0){
+		    $min_pos =  stripos($subject,$charcode,0);
+		    $from_encoding = $charcode;
+		  }
+		}
+		// 文字列エンコードコンバート
+		$subject = mb_convert_encoding($subject, "utf8", $from_encoding);
 
 		//////////////
 		//タイトル取得
 		//////////////
-		$pattern = '/<title>(.+?)<\/title>|&lt;title&gt;(.+?)&lt;\/title&gt;/i';
+		$pattern = '/<title>(.+?)<\/title>|&lt;title&gt;(.+?)&lt;\/title&gt;/si';
+		$pattern = '/<title>(.+?)<\/title>|&lt;title&gt;(.+?)&lt;\/title&gt;|<title id=\"pageTitle\">(.+?)<\/title>/si';
 		// title検索
 		preg_match($pattern, $subject, $title_array);
 		// title
 		$title = $title_array[1];
+		if($title == '') {
+			$title = $title_array[2];
+			if($title == '') {
+				$title = $title_array[3];
+			}
+		}
 		// エンティティ
 		$title = htmlspecialchars_decode($title, ENT_QUOTES);
 		// 置換（削除）
