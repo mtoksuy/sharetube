@@ -1093,7 +1093,15 @@ border-radius: 30px;
 	.matome_content_block_amazon .amazon_link_data .amazon_link_data_review {
 		margin: -5px 0 0;
 	}
-
+	/************
+	まとめ内 目次
+	************/
+	.matome_content_block_contents .matome_content_block_contents_title {
+	    margin: 0 10px;
+	}
+	.matome_content_block_contents ul {
+		padding: 0;
+	}
 }
 /************************
 メディアクエリ設定 0〜320
