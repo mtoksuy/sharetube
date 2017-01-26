@@ -142,55 +142,74 @@ function redirect_home() {
 **********/
 $('.postboxs').on( {
 	'click' : function(event) {
-		// matome_data_object生成
-		var matome_data_object = matome_data_object_create();
-		// サムネイルがある場合
-		if(matome_data_object["matome_thumbnail_data"]) {
-			// Ajaxを走らせる
-			$.ajax( {
-				type: 'POST', 
-				url: http+'ajax/matome/submit/',
-				data: matome_data_object,
-				dataType: 'json',
-				cache: false,
-				// Ajax完了後の挙動
-			  success: function(data) {
-					//------------------------
-					//下書きを保存しました表示
-					//------------------------
+		// サブミットチェック
+		submit_check = $('.matome_submit').attr('submit-check');
+		// サブミットチェック切り替え
+		setTimeout(function() {
+			// サブミットが走っていない事に変更
+			$('.matome_submit').attr('submit-check', 'none');
+			// 戻す
+			$('.matome_submit').css( {
+				'opacity' : '1',
+				'cursor' : 'pointer',
+			});			
+		},5000);
+		// サブミットが走ってない場合
+		if(submit_check != 'now') {
+			p('走っている');
+			// サブミットが走っている事を追加
+			$('.matome_submit').attr('submit-check', 'now');
+			// 走っている事を表示で示す
+			$('.matome_submit').css( {
+				'opacity' : '0.7',
+				'cursor' : 'default',
+			});
+			// matome_data_object生成
+			var matome_data_object = matome_data_object_create();
+			// サムネイルがある場合
+			if(matome_data_object["matome_thumbnail_data"]) {
+				// Ajaxを走らせる
+				$.ajax( {
+					type: 'POST', 
+					url: http+'ajax/matome/submit/',
+					data: matome_data_object,
+					dataType: 'json',
+					cache: false,
+					// Ajax完了後の挙動
+				  success: function(data) {
+						//------------------------
+						//下書きを保存しました表示
+						//------------------------
+						swal({
+						  title: "投稿が完了いたしました",
+						  text: "2秒後、ダッシュボードに移動します",
+						  timer: 2000,
+						  showConfirmButton: false
+						});
+						// 2.1秒後
+						setTimeout(function() {
+							// リダイレクト
+						  location.href= http+'login/admin/';
+						}, 2100);  // 全てのブラウザで動作
+				  },
+				  error: function(data) {
+	
+				  },
+				  complete: function(data) {
+	
+				  }
+				}); // $.ajax( {
+			} // if(matome_data_object["matome_thumbnail_data"]) {
+				// サムネイルがない場合
+				else {
 					swal({
-					  title: "投稿が完了いたしました",
-					  text: "2秒後、ダッシュボードに移動します",
-					  timer: 2000,
+					  title: "サムネイルを設定して下さい",
+					  text: "メッセージは1秒後に消えます",
+					  timer: 1200,
 					  showConfirmButton: false
-					});
-					// 2.1秒後
-					setTimeout(function() {
-						// リダイレクト
-					  location.href= http+'login/admin/';
-					}, 2100);  // 全てのブラウザで動作
-			  },
-			  error: function(data) {
-
-			  },
-			  complete: function(data) {
-
-			  }
-			}); // $.ajax( {
-		}
-			// サムネイルがない場合
-			else {
-				swal({
-				  title: "サムネイルを設定して下さい",
-				  text: "メッセージは1秒後に消えます",
-				  timer: 1200,
-				  showConfirmButton: false
-				});	
-			}
-    // eachにて繰り返し要素取得
-    $(".matome_content_block").each( function() {
-//        alert($(this).html());
-    });
+					});	
+				}
+		} // if(submit_check != 'now') {
 	}
 }, '.matome_submit');
 /************
