@@ -142,55 +142,73 @@ function redirect_home() {
 **********/
 $('.postboxs').on( {
 	'click' : function(event) {
-		// matome_data_object生成
-		var matome_data_object = matome_data_object_create();
-		// サムネイルがある場合
-		if(matome_data_object["matome_thumbnail_data"]) {
-			// Ajaxを走らせる
-			$.ajax( {
-				type: 'POST', 
-				url: http+'ajax/matome/submit/',
-				data: matome_data_object,
-				dataType: 'json',
-				cache: false,
-				// Ajax完了後の挙動
-			  success: function(data) {
-					//------------------------
-					//下書きを保存しました表示
-					//------------------------
+		// サブミットチェック
+		submit_check = $('.matome_submit').attr('submit-check');
+		// サブミットチェック切り替え
+		setTimeout(function() {
+			// サブミットが走っていない事に変更
+			$('.matome_submit').attr('submit-check', 'none');
+			// 戻す
+			$('.matome_submit').css( {
+				'opacity' : '1',
+				'cursor' : 'pointer',
+			});			
+		},5000);
+		// サブミットが走ってない場合
+		if(submit_check != 'now') {
+			// サブミットが走っている事を追加
+			$('.matome_submit').attr('submit-check', 'now');
+			// 走っている事を表示で示す
+			$('.matome_submit').css( {
+				'opacity' : '0.7',
+				'cursor' : 'default',
+			});
+			// matome_data_object生成
+			var matome_data_object = matome_data_object_create();
+			// サムネイルがある場合
+			if(matome_data_object["matome_thumbnail_data"]) {
+				// Ajaxを走らせる
+				$.ajax( {
+					type: 'POST', 
+					url: http+'ajax/matome/submit/',
+					data: matome_data_object,
+					dataType: 'json',
+					cache: false,
+					// Ajax完了後の挙動
+				  success: function(data) {
+						//------------------------
+						//下書きを保存しました表示
+						//------------------------
+						swal({
+						  title: "投稿が完了いたしました",
+						  text: "2秒後、ダッシュボードに移動します",
+						  timer: 2000,
+						  showConfirmButton: false
+						});
+						// 2.1秒後
+						setTimeout(function() {
+							// リダイレクト
+						  location.href= http+'login/admin/';
+						}, 2100);  // 全てのブラウザで動作
+				  },
+				  error: function(data) {
+	
+				  },
+				  complete: function(data) {
+	
+				  }
+				}); // $.ajax( {
+			} // if(matome_data_object["matome_thumbnail_data"]) {
+				// サムネイルがない場合
+				else {
 					swal({
-					  title: "投稿が完了いたしました",
-					  text: "2秒後、ダッシュボードに移動します",
-					  timer: 2000,
+					  title: "サムネイルを設定して下さい",
+					  text: "メッセージは1秒後に消えます",
+					  timer: 1200,
 					  showConfirmButton: false
-					});
-					// 2.1秒後
-					setTimeout(function() {
-						// リダイレクト
-					  location.href= http+'login/admin/';
-					}, 2100);  // 全てのブラウザで動作
-			  },
-			  error: function(data) {
-
-			  },
-			  complete: function(data) {
-
-			  }
-			}); // $.ajax( {
-		}
-			// サムネイルがない場合
-			else {
-				swal({
-				  title: "サムネイルを設定して下さい",
-				  text: "メッセージは1秒後に消えます",
-				  timer: 1200,
-				  showConfirmButton: false
-				});	
-			}
-    // eachにて繰り返し要素取得
-    $(".matome_content_block").each( function() {
-//        alert($(this).html());
-    });
+					});	
+				}
+		} // if(submit_check != 'now') {
 	}
 }, '.matome_submit');
 /************
@@ -865,7 +883,7 @@ $('.item_add').on( {
 					<li class="item_add_content_list_enclosed">囲み</li>\
 					<li class="item_add_content_list_timeline">タイムライン</li>\
 					<li class="item_add_content_list_heading_image">見出し画像</li>\
-					<li class="item_add_content_list_itunes_app">iTunes_App</li>\
+					<li class="item_add_content_list_line">罫線</li>\
 					<li class="item_add_content_list_change_2"><span class="typcn typcn-arrow-repeat"></span></li>\
 				</ul>\
 			</div> <!-- item_add_content -->');
@@ -882,6 +900,7 @@ $('.item_add').on( {
 				<ul class="item_add_content_list">\
 					<li class="item_add_content_list_amazon">Amazon</li>\
 					<li class="item_add_content_list_amazon_review">Amazonレビュー</li>\
+					<li class="item_add_content_list_itunes_app">iTunes_App</li>\
 					<li class="item_add_content_list_code">コード</li>\
 					<li class="item_add_content_list_contents">目次</li>\
 					<li class="item_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></li>\
@@ -1034,7 +1053,7 @@ $('.matome').on( {
 					<li class="item_between_add_content_list_enclosed">囲み</li>\
 					<li class="item_between_add_content_list_timeline">タイムライン</li>\
 					<li class="item_between_add_content_list_heading_image">見出し画像</li>\
-					<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
+					<li class="item_between_add_content_list_line">罫線</li>\
 				</ul>\
 			</div> <!-- item_between_add_content -->');
 	}
@@ -1052,6 +1071,7 @@ $('.matome').on( {
 				<ul class="item_between_add_content_list">\
 					<li class="item_between_add_content_list_amazon">Amazon</li>\
 					<li class="item_between_add_content_list_amazon_review">Amazonレビュー</li>\
+					<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
 					<li class="item_between_add_content_list_code">コード</li>\
 					<li class="item_between_add_content_list_contents">目次</li>\
 				</ul>\

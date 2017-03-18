@@ -216,13 +216,9 @@ function tab_space_delete(word) {
 		$('.article_access_popular_button').click(function() {
 			// 取り敢えずpush消す
 			$('.article_access_popular').children('.push').attr('class', 'article_access_popular_button');
-//			p(this);
 			// 押したボタンをpushにする
 			this.className = 'article_access_popular_button push';
-//			this.
-//data-article_access_popular_class
 				var ul_class     = this.getAttribute("data-article_access_popular_class");
-//				p(ul_class);
 			// 一旦消す
 			$('.article_access_popular_today, .article_access_popular_week, .article_access_popular_month').css( {
 				display: 'none'
@@ -322,11 +318,21 @@ function tab_space_delete(word) {
 	***********************/
 	$('html').on( {
 		'click': function() {
+			// 768以下の場合
+			if($(window).width() <= 768) {
+				header_height = 59;
+			}
+				// pcの場合
+				else {
+					header_height = 0;
+				}
 			this_wording = $(this).html();
 			$('.h2_heading_1, .h3_heading_1, .h4_heading_1').each(function(i, e) {
 				if(this_wording == $(this).html()) {
-					cotents_offset_top = $(this).parents('.matome_content_block').offset().top;
-					$('html,body').animate({scrollTop: (cotents_offset_top - 10)},500);
+//					cotents_offset_top = $(this).parents('.matome_content_block').offset().top;
+					cotents_offset_top = $(this).offset().top;
+
+					$('html,body').animate({scrollTop: ((cotents_offset_top - 10) - header_height)  },500);
 				}
 			});
 		}

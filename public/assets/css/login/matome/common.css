@@ -2638,6 +2638,20 @@ border-radius: 30px;
     cursor: pointer;
 		margin: 0 0 0 5px;
 }
+/************
+まとめ内 罫線
+************/
+.matome_content_block .matome_content_block_line {
+    margin: -15px 0 30px;
+    padding: 15px 0 0;
+}
+.matome_content_block .matome_content_block_line:after {
+
+}
+.matome_content_block .matome_content_block_line pre {
+	border-bottom: 1px solid #ddd;
+	margin: 0;
+}
 
 
 
