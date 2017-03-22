@@ -66,12 +66,12 @@ class Model_Theme_Basis extends Model {
 	//テーマ一覧res取得
 	//-----------------
 	public static function theme_list_res_get($theme_name, $get_number = 10, $page = 0, $cached = 900) {
+//var_dump($cached);
 		// テーマの名前でライククエリ生成
 		$where_like_query = Model_Theme_Basis::theme_name_like_query_create($theme_name);
 		// 
 		$theme_article_data_array = array();
 		$theme_article_data_array['theme_name'] = $theme_name;
-
 		$i  = 0;
 		$ii = 0;
 		if(!$page == 0) {
@@ -81,12 +81,16 @@ class Model_Theme_Basis extends Model {
 			else {
 				$start_number = 0;
 			}
+//$start = microtime(true);
 		$theme_article_res = DB::query("
-				SELECT *
+				SELECT primary_id, tag
 				FROM article
 				".$where_like_query."
 				AND del = 0
 			ORDER BY article.primary_id DESC")->cached($cached)->execute();
+//pre_var_dump($theme_article_res);
+//$end = microtime(true);
+//echo "処理時間：" . ($end - $start) . "秒<br>";
 
 		foreach($theme_article_res as $key => $value) {
 			// テーマarray生成
