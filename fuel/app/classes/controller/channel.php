@@ -18,6 +18,8 @@ class Controller_Channel extends Controller_Channel_Template {
 			if ($params_chack  === 1 && preg_match('/^[0-9]+?$/', $params[0], $params_array)) {
 				$page       = (int)$params_array[0];
 				$page_chack = true;
+				// メタセット
+				$this->channel_template->view_data['meta'] = View::forge('noindex/meta');
 			}
 		}
 			// $paramsがない場合

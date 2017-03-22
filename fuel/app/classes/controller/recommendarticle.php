@@ -18,6 +18,8 @@ class Controller_Recommendarticle extends Controller_Recommendarticle_Template {
 			$is_recommendarticle = Model_Info_Basis::is_recommendarticle($method);
 			// ページングがある場合
 			if($is_recommendarticle) {
+				// メタセット
+				$this->recommendarticle_template->view_data['meta'] = View::forge('noindex/meta');
 				return $this->action_index($method);
 			}
 				// エラー
@@ -46,8 +48,6 @@ class Controller_Recommendarticle extends Controller_Recommendarticle_Template {
 		$user_data_array = Library_Security_Basis::variable_security_entity($user_data_array);
 		// タイトルセット
 		$this->recommendarticle_template->view_data['title'] = ''.$method.' | 注目まとめ | '.TITLE;
-
-
 
 		// 注目まとめ一覧データ取得
 		$recommend_article_array = Model_Article_Basis::recommend_article_list_get(20,$method);

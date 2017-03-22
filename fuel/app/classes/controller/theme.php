@@ -21,6 +21,10 @@ class Controller_Theme extends Controller_Theme_Template {
 				if($params[0] == '1') {
 					header('location:'.HTTP.'theme/'.$method.'/'); exit;
 				}
+					else {
+						// メタセット
+						$this->theme_template->view_data['meta'] = View::forge('noindex/meta');
+					}
 				return $this->action_index($method, $params);
 			}
 				// テーマトップページ
