@@ -5,6 +5,12 @@
 	display: none;
 }
 
+#wrapper {
+	background-color: #FFFFFF;
+}
+.main {
+	background-color: #FFFFFF;
+}
 .sidebar {
     float: left;
 }
@@ -19,19 +25,24 @@
 
 
 .card_article li {
-    background-color: #ffffff;
-    border-radius: 2px;
-    box-shadow: 0 0 0 1px #e7e7e7, 0 2px 0 1px #e7e7e7;
-    box-sizing: border-box;
-    float: left;
-    list-style: outside none none;
-    margin: 15px 0 26px;
-    padding: 10px;
-    position: relative;
-    width: 100%;
+/*
+background-color: #FFFFFF;
+box-shadow: 0 0 0 1px #E7E7E7, 0 2px 0 1px #E7E7E7;
+*/
+border-bottom: 1px solid #eee;
+box-sizing: border-box;
+float: left;
+list-style: none;
+margin: 0;
+padding: 15px;
+position: relative;
+width: 100%;
 }
 .card_article li:hover {
+/*
     box-shadow: 0 0 0 1px #e1e1e1, 0 2px 0 1px #e1e1e1;
+*/
+		border-bottom: 1px solid #ED482D;
 }
 
 
@@ -136,7 +147,9 @@ article.cssにも移植されているので更新するときは両方する
     border: 1px solid #e7e7e7;
 */
     border-radius: 2px;
+/*
 		box-shadow: 0 0 0 1px #e7e7e7;
+*/
     padding: 15px;
 }
 
