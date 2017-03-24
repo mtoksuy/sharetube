@@ -78,7 +78,7 @@ class Controller_Contact extends Controller_Basic_Template {
 		$archive_li_html = Model_Archive_Html::archive_list_html_create($first_article_res, $last_article_res);
 		// アーカイブコンテンツセット
 		$this->basic_template->view_data["footer"]->set('footer_data', array(
-			'archive_html' => $archive_li_html,
+//			'archive_html' => $archive_li_html,
 		), false);
 
 		// scriptデータセット
