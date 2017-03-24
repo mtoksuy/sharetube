@@ -18,6 +18,8 @@ class Controller_Channel extends Controller_Channel_Template {
 			if ($params_chack  === 1 && preg_match('/^[0-9]+?$/', $params[0], $params_array)) {
 				$page       = (int)$params_array[0];
 				$page_chack = true;
+				// メタセット
+				$this->channel_template->view_data['meta'] = View::forge('noindex/meta');
 			}
 		}
 			// $paramsがない場合
@@ -116,7 +118,7 @@ class Controller_Channel extends Controller_Channel_Template {
 		$archive_li_html = Model_Archive_Html::archive_list_html_create($first_article_res, $last_article_res);
 		// アーカイブコンテンツセット
 		$this->channel_template->view_data["footer"]->set('footer_data', array(
-			'archive_html' => $archive_li_html,
+//			'archive_html' => $archive_li_html,
 		), false);
 
 	}

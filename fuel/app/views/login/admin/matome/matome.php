@@ -105,7 +105,6 @@
 									<div class="matome_content">
 										<?php echo $post_data["post"]["sub_text"]; ?>
 
-
 										<?php 
 
 /*

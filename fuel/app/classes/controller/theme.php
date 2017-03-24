@@ -21,6 +21,10 @@ class Controller_Theme extends Controller_Theme_Template {
 				if($params[0] == '1') {
 					header('location:'.HTTP.'theme/'.$method.'/'); exit;
 				}
+					else {
+						// メタセット
+						$this->theme_template->view_data['meta'] = View::forge('noindex/meta');
+					}
 				return $this->action_index($method, $params);
 			}
 				// テーマトップページ
@@ -88,8 +92,7 @@ class Controller_Theme extends Controller_Theme_Template {
 		$theme_relation_2_array = Model_Theme_Basis::theme_relation_array_get($theme_res);
 //pre_var_dump($theme_relation_2_array);
 		// 関連テーマHTML生成
-		$theme_relation_html = Model_Theme_Html::theme_relation_html_create($theme_res, $theme_relation_2_array);
-
+		$theme_relation_html = Model_Theme_Html::theme_relation_html_create($theme_res, $theme_relation_2_array, 3600);
 
 		// サイドバーコンテンツセット
 		$this->theme_template->view_data["sidebar"]->set('sidebar_data', array(

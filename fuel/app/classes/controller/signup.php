@@ -73,7 +73,7 @@ class Controller_Signup extends Controller_Signup_Template {
 
 		// アーカイブコンテンツセット
 		$this->signup_template->view_data["footer"]->set('footer_data', array(
-			'archive_html' => $archive_li_html,
+//			'archive_html' => $archive_li_html,
 		), false);
 
 	}

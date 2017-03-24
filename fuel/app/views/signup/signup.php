@@ -5,7 +5,7 @@
 
 <div style="float: left; background-color: #FCFCFC; margin: 0px 15px 0px 0px; width: 245px; height: 205px;">	
 	<p class="m_0">
-		<a href="http://sharetube.jp/curatorrecruitment/" target="_blank">
+		<a href="<?php echo HTTP; ?>curatorrecruitment/" target="_blank">
 			<img width="245" height="205" title="" alt="" src="http://sharetube.jp/assets/img/article/image/image_3784.png" class="o_8">
 		</a>
 	</p>

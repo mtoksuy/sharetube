@@ -413,7 +413,7 @@ class Model_Article_Html extends Model {
 					$theme_res = Model_Theme_Basis::tag_name_in_theme_res_get($value, $cached);
 					foreach($theme_res as $theme_key => $theme_value) {
 						// テーマ一覧HTML生成
-						list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, 1, 0);
+						list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, 1, $cached);
 						// テーマカウント数res取得
 						$theme_count_res = Model_Theme_Basis::theme_count_res_get($theme_value['theme_name'], $cached);
 						foreach($theme_count_res as $theme_count_key => $theme_count_value) {

@@ -548,4 +548,29 @@ if($detect->isMobile() || $detect->isTablet()) {
 		if($recommend_article_paging_data_array['max_paging_num'] >= $recommend_article_paging_data_array['paging_num']) { $is_recommendarticle = true; } else { $is_recommendarticle = false; }
 		return $is_recommendarticle;
 	}
+	//----------------
+	//処理時間計測関数
+	//----------------
+	/*
+	microtime()の結果aとbの差を計算する
+	a-bに相当する秒数を単一のfloat値で返す
+	
+	[使い方]
+	// 開始時刻
+	$start = microtime();
+	// 2秒ほど実行遅延
+	sleep(2);
+	// 終了時刻
+	$end = microtime();
+	// 差を出力
+	echo diffmicrotime($end, $start);
+	*/
+	public static function diffmicrotime($start, $end) {
+		list($am, $at) = explode(' ', $start);
+		list($bm, $bt) = explode(' ', $end);
+		return ((float)$am-(float)$bm) + ((float)$at-(float)$bt);
+	}
+
+
+
 }

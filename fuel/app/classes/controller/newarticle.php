@@ -21,9 +21,10 @@ class Controller_Newarticle extends Controller_Recommendarticle_Template {
 			if($method == 1) { header('location:'.HTTP.'newarticle/'); exit; }
 			// 新着まとめのページングがあるか審査
 			$is_newarticle = Model_Info_Basis::is_newarticle($method);
-//$is_newarticle = true;
 			// ページングがある場合
 			if($is_newarticle) {
+				// メタセット
+				$this->recommendarticle_template->view_data['meta'] = View::forge('noindex/meta');
 				return $this->action_index($method);
 			}
 				// エラー
