@@ -565,9 +565,9 @@ if($detect->isMobile() || $detect->isTablet()) {
 	// 差を出力
 	echo diffmicrotime($end, $start);
 	*/
-	public static function diffmicrotime($a, $b) {
-		list($am, $at) = explode(' ', $a);
-		list($bm, $bt) = explode(' ', $b);
+	public static function diffmicrotime($start, $end) {
+		list($am, $at) = explode(' ', $start);
+		list($bm, $bt) = explode(' ', $end);
 		return ((float)$am-(float)$bm) + ((float)$at-(float)$bt);
 	}
 
