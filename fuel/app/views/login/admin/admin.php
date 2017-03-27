@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.27<br></p>
+						<p>Sharetube version 5.4.28<br></p>
 
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
 </p>
@@ -101,6 +101,25 @@
 			<li class="connection clearfix">
 				<span>2017年</span>
 			</li>
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>03月24日〜03月24日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.4.28</h3>
+						<pre>
+・キュレーターページのデザインアップデート</pre>
+					</dd>
+				</dl>
+			</li>
+
+
 
 
 			<li class="pointline clearfix">
