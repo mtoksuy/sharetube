@@ -2850,20 +2850,37 @@ a:hover {
   padding: 0;
 }
 .tag li:hover {
+/*
   border: 1px solid #c0c1c1;
 	background-color: #fafafa;
+*/
 }
 .tag li:first-child:hover {
   border: none;
 }
-
 .tag li a {
- padding: 8px 5px;
+    padding: 10px 0px 10px 5px;
   color: #666;
+}
+.tag ul li a .theme_num {
+	background-color: #FCFCFC;
+	padding: 7px 7px 8px 7px;
+	margin: 0px 0px 0px 6px;
+	border-left: 1px solid #e7e7e7;
+	position: relative;
+	top: -1px;
+	color: #292f33;
+	z-index: -1;
 }
 
 .tag li a .typcn-folder {
 	font-size: 125%;
+}
+.tag li a .typcn-tag {
+font-size: 110%;
+margin: 0px 3px 0px 0px;
+position: relative;
+top: 0px;
 }
 
 

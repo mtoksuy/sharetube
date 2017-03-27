@@ -418,7 +418,7 @@ class Model_Article_Html extends Model {
 						$theme_count_res = Model_Theme_Basis::theme_count_res_get($theme_value['theme_name'], $cached);
 						foreach($theme_count_res as $theme_count_key => $theme_count_value) {
 							$tag_li .= 
-								'<li><a href="'.HTTP.'theme/'.$theme_value['primary_id'].'/"><span class="typcn typcn-folder"></span>'.$theme_value['theme_name'].'('.$theme_article_data_array['list_num'].')</a></li>';
+								'<li><a href="'.HTTP.'theme/'.$theme_value['primary_id'].'/"><span class="typcn typcn-tag"></span>'.$theme_value['theme_name'].'<span class="theme_num">'.$theme_article_data_array['list_num'].'</span></a></li>';
 						}
 					}
 				}
