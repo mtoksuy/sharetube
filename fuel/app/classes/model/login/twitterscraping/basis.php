@@ -27,9 +27,23 @@ class Model_Login_Twitterscraping_Basis extends Model {
 	//Twitterスクレイピング
 	//---------------------
 	static function Twitter_scraping($tweet_url) {
+// 動画のツイート
+//$tweet_url = 'https://twitter.com/animal__niyaniy/status/847362860644614145';
+// gifのツイート
+//$tweet_url = 'https://twitter.com/kokoromidaregif/status/847349732733145088';
+
+		// コンテキスト設定
+		$context_param = array(
+		  'http' => array(
+		    'header' => 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:52.0) Gecko/20100101 Firefox/52.0'
+		  )
+		);
+		// ストリームコンテキストを作成する
+		$contect = stream_context_create($context_param);
+
 		$twitter_url = 'https://twitter.com/';
 		// スクレイピング
-		$subject = file_get_contents($tweet_url);
+		$subject = file_get_contents($tweet_url, false, $contect);
 		// utf-8をUTF-8に置換
 		$subject = str_replace('<meta charset="UTF-8">', '<meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">', $subject);
 		$subject = str_replace('<meta charset="utf-8">', '<meta charset="utf-8"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">', $subject);
@@ -52,12 +66,11 @@ class Model_Login_Twitterscraping_Basis extends Model {
 		$xpath->registerPHPFunctions();
 		// ・主コンテンツのみ取得(重要)
 		$subject = $xpath->query('//div[@class="permalink-inner permalink-tweet-container"]')->item(0);
-
 		// HTMLとして取り出す
 		$subject = Model_Login_Twitterscraping_Basis::getInnerHtml($subject);
 		// デコード
 		$subject =  htmlspecialchars_decode($subject, ENT_QUOTES);
-//		print($subject);
+//		var_dump($subject);
 
 ///////////////////////////////////////////////////
 //マルチ画像メディア取得 & リツイートのツイート判定
@@ -87,10 +100,6 @@ http://sato-san.hatenadiary.jp/entry/2013/05/06/155919
 		require_once INTERNAL_PATH.'fuel/app/classes/library/simplehtmldom_1_5/simple_html_dom.php';
 		// URLから
 		$simple_html_dom_object = file_get_html($tweet_url);
-
-
-
-
 
 /***************************************
 
@@ -179,12 +188,9 @@ http://sato-san.hatenadiary.jp/entry/2013/05/06/155919
 				}
 			}
 		//開放
-		$simple_html_dom_object->clear();
 		$permalink_tweet_container_object->clear();
 		// 変数破棄
-		unset($simple_html_dom_object);
 		unset($permalink_tweet_container_object);
-
 
 ///////////////////////////////
 
@@ -456,6 +462,8 @@ var.1
 		///////////////////
 		//videoメディア取得
 		///////////////////
+/*
+var.1
 		$pattern = '/data-full-card-iframe-url="(.+?)"/';
 		if(preg_match($pattern, $subject, $video_array)) {
 //			var_dump($video_array);
@@ -479,14 +487,54 @@ var.1
 				$twitter_tweet_video_media_foreach_array = null;
 			}
 		}
+*/
+
+		// 動画チェック取得
+		foreach($simple_html_dom_object->find('meta[content=video]') as $list) {
+			$meta_video_check_html .= $list->outertext;
+		}
+		$pattern = '/content="(.+?)"/';
+		preg_match($pattern, $meta_video_check_html, $video_check_array);
+		// 動画があった場合
+		if($video_check_array[1] == 'video') {
+			// 動画url取得
+			foreach($simple_html_dom_object->find('meta[property=og:video:url]') as $list) {
+				$meta_video_url_html .= $list->outertext;
+			}
+			$pattern = '/content="(.+?)"/';
+			preg_match($pattern, $meta_video_url_html, $meta_video_url_array);
+			$video_url_html = strstr($meta_video_url_array[1], '?', true);
+			// 何ぞこれ
+			$twitter_tweet_video_media_foreach_array = array($video_url_html);
+		}
 		///////////////////////////////
 		//videoメディアのサムネイル取得
 		///////////////////////////////
+/*
+var.1
 		if($twitter_tweet_video_media_foreach_array) {
 			$pattern = '/data-card-url="(.+?)"/';
 			preg_match($pattern, $subject, $video_thumbnail_array);
 			$video_thumbnail_array =  array($video_thumbnail_array[1]);
 		}
+*/
+		// 動画があった場合
+		if($video_check_array[1] == 'video') {
+			// 動画url取得
+			foreach($simple_html_dom_object->find('meta[property=og:image]') as $list) {
+				$meta_video_image_html .= $list->outertext;
+			}
+			$pattern = '/content="(.+?)"/';
+			preg_match($pattern, $meta_video_image_html, $$meta_video_image_array);
+			$video_image_html = $meta_video_image_array[1];
+			$video_thumbnail_array = array($video_image_html);
+		}
+
+		/** 終点 **/
+		//開放
+		$simple_html_dom_object->clear();
+		// 変数破棄
+		unset($simple_html_dom_object);
 		///////////////////////
 		//$tweet_data_array生成
 		///////////////////////
