@@ -27,9 +27,24 @@ class Model_Login_Twitterscraping_Basis extends Model {
 	//Twitterスクレイピング
 	//---------------------
 	static function Twitter_scraping($tweet_url) {
+// 動画のツイート
+//$tweet_url = 'https://twitter.com/animal__niyaniy/status/847362860644614145';
+// gifのツイート
+//$tweet_url = 'https://twitter.com/kokoromidaregif/status/847349732733145088';
+
+		// コンテキスト設定
+		$context_param = array(
+		  'http' => array(
+		    'header' => 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:52.0) Gecko/20100101 Firefox/52.0'
+		  )
+		);
+		// ストリームコンテキストを作成する
+		$contect = stream_context_create($context_param);
+
 		$twitter_url = 'https://twitter.com/';
 		// スクレイピング
-		$subject = file_get_contents($tweet_url);
+//		$subject = file_get_contents($tweet_url);
+		$subject = file_get_contents($tweet_url, false, $contect);
 		// utf-8をUTF-8に置換
 		$subject = str_replace('<meta charset="UTF-8">', '<meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">', $subject);
 		$subject = str_replace('<meta charset="utf-8">', '<meta charset="utf-8"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">', $subject);
@@ -179,12 +194,9 @@ http://sato-san.hatenadiary.jp/entry/2013/05/06/155919
 				}
 			}
 		//開放
-		$simple_html_dom_object->clear();
 		$permalink_tweet_container_object->clear();
 		// 変数破棄
-		unset($simple_html_dom_object);
 		unset($permalink_tweet_container_object);
-
 
 ///////////////////////////////
 
@@ -326,8 +338,10 @@ var.1
 		// (重要) Twitterが仕様をころころ変えるので悩んでいるところ
 //		$twitter_tweet_text = $xpath_text->query('//p[@class="js-tweet-text tweet-text"]')->item(0);
 //		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--max js-tweet-text tweet-text"]')->item(0);
-		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"]')->item(0);
+//		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"]')->item(0);
+		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--jumbo js-tweet-text tweet-text"]')->item(0);
 //pre_var_dump($twitter_tweet_text);
+
 /*
 
 			<a title="http://sharetube.jp/article/4043/" target="_blank" class="twitter-timeline-link u-hidden" data-expanded-url="http://sharetube.jp/article/4043/" dir="ltr" rel="nofollow" href="https://t.co/sOaKljSato">
@@ -345,7 +359,6 @@ var.1
 		$twitter_tweet_text = Model_Login_Twitterscraping_Basis::getInnerHtml($twitter_tweet_text);
 		// デコード
 		$twitter_tweet_text =  htmlspecialchars_decode($twitter_tweet_text, ENT_QUOTES);
-
 
 		// ハッシュタグリンク付け
 		$twitter_tweet_text = Model_Login_Twitterscraping_Basis::hash_tag_scan_replace($twitter_tweet_text);
@@ -431,14 +444,62 @@ var.1
 		}
 //		var_dump($twitter_tweet_image_media_foreach_array);
 
+		//////////////////////////
+		//gifメディア&動画メディア
+		//////////////////////////
+		// ツイートID取得
+		$tweet_id = Model_Login_Twitterscraping_Basis::tweet_id_get($tweet_url);
+
+		// ツイートタイプ取得
+		foreach($simple_html_dom_object->find('meta') as $list) {
+			 $meta_property = $list->{'property'}; // 属性の値を取得
+			 if($meta_property == 'og:type') {
+				 $meta_property_content .= $list->{'content'}; // 属性の値を取得
+				}
+		}
+		// gif用走査
+		$pattern = '/PlayableMedia--gif/';
+		preg_match_all($pattern, $subject, $gif_video_array);
+		if($gif_video_array) { $meta_property_content = 'gif'; }
+
+		// メディアタイプ別分け
+		switch($meta_property_content) {
+			///////////////////
+			//videoメディア取得
+			///////////////////
+			case 'video':
+				$bearer_token     = Model_Login_Twitterscraping_Basis::bearer_token_get();
+				$tweet_data_array = Model_Login_Twitterscraping_Basis::bearer_token_tweet_data_get($bearer_token, $tweet_id);
+				// 動画URL
+				$twitter_tweet_video_media_foreach_array = array($tweet_data_array['extended_entities']['media'][0]['video_info']['variants'][1]['url']);
+				// 動画サムネイル
+				$video_thumbnail_array                   = array($tweet_data_array['extended_entities']['media'][0]['media_url']);
+			break;
+			/////////////////
+			//gifメディア取得
+			/////////////////
+			case 'gif':
+				$bearer_token     = Model_Login_Twitterscraping_Basis::bearer_token_get();
+				$tweet_data_array = Model_Login_Twitterscraping_Basis::bearer_token_tweet_data_get($bearer_token, $tweet_id);
+				// gifURL
+				$twitter_tweet_gif_media_foreach_array = array($tweet_data_array['extended_entities']['media'][0]['video_info']['variants'][0]['url']);
+				// gifサムネイル
+				$gif_video_thumbnail_array             = array($tweet_data_array['extended_entities']['media'][0]['media_url']);
+			break;
+		}
+//pre_var_dump($tweet_data_array);
+
 		/////////////////
 		//gifメディア取得
 		/////////////////
+/*
 //		echo ($subject);
 		$pattern = '/<video (.+?)animated-gif(.+?)<\/video>/';
 		$pattern = '/<video(.+?)animated-gif(.+?)>/';
 		$pattern = '/video-src="(.+?)"/';
+		$pattern = '/PlayableMedia--gif/';
 		preg_match_all($pattern, $subject, $gif_video_array);
+
 		$pattern = '/src="(.+?)"/';
 		foreach($gif_video_array as $key => $value) {
 			if(preg_match($pattern, $value[0], $gif_video_preg_match_array)) {
@@ -452,10 +513,13 @@ var.1
 			$pattern = '/poster="(.+?)"/';
 			preg_match($pattern, $subject, $gif_video_thumbnail_array);
 			$gif_video_thumbnail_array = array($gif_video_thumbnail_array[1]);
-		} 
+		}
+/*
+
 		///////////////////
 		//videoメディア取得
 		///////////////////
+/*
 		$pattern = '/data-full-card-iframe-url="(.+?)"/';
 		if(preg_match($pattern, $subject, $video_array)) {
 //			var_dump($video_array);
@@ -479,14 +543,24 @@ var.1
 				$twitter_tweet_video_media_foreach_array = null;
 			}
 		}
+*/
 		///////////////////////////////
 		//videoメディアのサムネイル取得
 		///////////////////////////////
+/*
 		if($twitter_tweet_video_media_foreach_array) {
 			$pattern = '/data-card-url="(.+?)"/';
 			preg_match($pattern, $subject, $video_thumbnail_array);
 			$video_thumbnail_array =  array($video_thumbnail_array[1]);
 		}
+*/
+		/** 終点 **/
+		//開放
+		$simple_html_dom_object->clear();
+		// 変数破棄
+		unset($simple_html_dom_object);
+
+
 		///////////////////////
 		//$tweet_data_array生成
 		///////////////////////
@@ -646,6 +720,7 @@ var.1
 		//--------------------------------
 		//絵文字画像を絵文字テキストに変換
 		//--------------------------------
+		public static function convert_pictogram_in_text($twitter_tweet_text) {
 /*
 iPhone絵文字リストツイート表
 https://twitter.com/Sharetube_jp/status/691823389284106242
@@ -681,7 +756,7 @@ https://twitter.com/Sharetube_jp/status/691824022661795843
 ほとんどが3〜4byteだが、国旗が8バイト
 
 */
-		public static function convert_pictogram_in_text($twitter_tweet_text) {
+
 			$pattern = '/<img class="twitter-emoji"(.*?)alt="(.*?)"(.*?)>/'; // 旧
 			$pattern = '/<img class="Emoji Emoji--forText"(.*?)alt="(.*?)"(.*?)>/'; // 新
 			preg_match_all($pattern, $twitter_tweet_text, $twitter_tweet_text_array);
@@ -750,4 +825,130 @@ AndroidはShift-JISらしい
 	   }
 	   return $obj;
 	}
+	//------------------
+	//ベアートークン取得
+	//------------------
+	public static function bearer_token_get() {
+		// 設定項目
+		$api_key    = "q7Zh6nXxeWElYBEE3GGnWhkzk";	                          // APIキー
+		$api_secret = "2ZbLjcWl8eNOqRYQN12Rs67EOoZUTT0Ra3fPPAWoWyuyOxhCwf";	// APIシークレット		
+		// クレデンシャルを作成
+		$credential = base64_encode( $api_key . ":" . $api_secret );
+		// リクエストURL
+		$request_url = "https://api.twitter.com/oauth2/token";
+		// リクエスト用のコンテキストを作成する
+		$context = array(
+			"http" => array(
+				"method" => "POST" , // リクエストメソッド
+				"header" => array(			  // ヘッダー
+					"Authorization: Basic " . $credential ,
+					"Content-Type: application/x-www-form-urlencoded;charset=UTF-8" ,
+				) ,
+				"content" => http_build_query(	// ボディ
+					array(
+						"grant_type" => "client_credentials" ,
+					)
+				) ,
+			) ,
+		) ;
+
+		/*
+		// cURLを使ってリクエスト
+		$curl = curl_init() ;
+		curl_setopt( $curl, CURLOPT_URL , $request_url ) ;	// リクエストURL
+		curl_setopt( $curl, CURLOPT_HEADER, true ) ;	// ヘッダーを取得する 
+		curl_setopt( $curl, CURLOPT_CUSTOMREQUEST , $context["http"]["method"] ) ;	// メソッド
+		curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER , false ) ;	// 証明書の検証を行わない
+		curl_setopt( $curl, CURLOPT_RETURNTRANSFER , true ) ;	// curl_execの結果を文字列で返す
+		curl_setopt( $curl, CURLOPT_HTTPHEADER , $context["http"]["header"] ) ;	// ヘッダー
+		curl_setopt( $curl, CURLOPT_POSTFIELDS , $context["http"]["content"] ) ;	// リクエストボディ
+		curl_setopt( $curl, CURLOPT_TIMEOUT , 5 ) ;	// タイムアウトの秒数
+		$res1 = curl_exec( $curl ) ;
+		$res2 = curl_getinfo( $curl ) ;
+		curl_close( $curl ) ;
+		
+		// 取得したデータ
+		$response = substr( $res1, $res2["header_size"] ) ;	// 取得したデータ(JSONなど)
+		$header = substr( $res1, 0, $res2["header_size"] ) ;	// レスポンスヘッダー (検証に利用したい場合にどうぞ)
+		*/
+		// レスポンス取得
+		$response = file_get_contents( $request_url , false , stream_context_create( $context ) ) ;
+		// JSONを配列に変換する
+		$arr = json_decode( $response, true);
+		// 設定
+		// ベアートークン取得
+		$bearer_token = $arr['access_token'];
+		return $bearer_token;
+	}
+	//------------------
+	//ツイートデータ取得
+	//------------------
+	public static function bearer_token_tweet_data_get($bearer_token, $tweet_id) {
+		// リクエストURL
+		$request_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'; // タイムライン用
+		$request_url = 'https://api.twitter.com/1.1/statuses/show.json';          // ツイート用
+		// パラメータ
+		$params = array(
+			'id' => $tweet_id,
+		//	'screen_name' => '@arayutw' ,
+		//	'count' => 10 ,
+		);
+		// パラメータがある場合
+		if ( $params ) {
+			$request_url .= '?' . http_build_query( $params ) ;
+		}
+		// リクエスト用のコンテキスト
+		$context = array(
+			'http' => array(
+				'method' => 'GET' , // リクエストメソッド
+				'header' => array(			  // ヘッダー
+					'Authorization: Bearer ' . $bearer_token ,
+				) ,
+			) ,
+		) ;
+		
+		/*
+		// cURLを使ってリクエスト
+		$curl = curl_init() ;
+		curl_setopt( $curl, CURLOPT_URL, $request_url ) ;	// リクエストURL
+		curl_setopt( $curl, CURLOPT_HEADER, true ) ;	// ヘッダーを取得する
+		curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, $context['http']['method'] ) ;	// メソッド
+		curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, false ) ;	// 証明書の検証を行わない
+		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true ) ;	// curl_execの結果を文字列で返す
+		curl_setopt( $curl, CURLOPT_HTTPHEADER, $context['http']['header'] ) ;	// ヘッダー
+		curl_setopt( $curl, CURLOPT_TIMEOUT, 5 ) ;	// タイムアウトの秒数
+		$res1 = curl_exec( $curl ) ;
+		$res2 = curl_getinfo( $curl ) ;
+		curl_close( $curl ) ;
+		
+		// 取得したデータ
+		$json = substr( $res1, $res2['header_size'] ) ;	// 取得したデータ(JSONなど)
+		$header = substr( $res1, 0, $res2['header_size'] ) ;	// レスポンスヘッダー (検証に利用したい場合にどうぞ)
+		*/
+
+		// [cURL]ではなく、[file_get_contents()]を使うには下記の通りです…
+		$json = @file_get_contents( $request_url , false , stream_context_create( $context ) ) ;		
+		// JSONを変換
+		$tweet_data_array = json_decode($json, true);
+// 		pre_var_dump($tweet_data_array['extended_entities']['media'][0]['video_info']['variants'][1]['url']);
+		return $tweet_data_array;
+	}
+	//--------------
+	//ツイートID取得
+	//--------------
+	public static function tweet_id_get($tweet_url) {
+		// 文末の/を削除
+		$str = rtrim($tweet_url, '/');
+		// 前か後ろの文字列を取得
+		/*
+		文字列から指定した文字列を検索し、指定した文字列以降の文字列を取得します。
+		strchr関数は、strstr関数のエイリアスです。文字列がマルチバイト文字を含む場合は、後述のmb_strstr関数を利用します。
+		*/
+		// status以後の文字列を取得
+		$str = strstr($str, 'status');
+		// 数字以外削除
+		$tweet_id = (int)preg_replace("/[^0-9]/", "", $str);
+		return $tweet_id;
+	}
+
 }

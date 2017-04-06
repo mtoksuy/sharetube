@@ -4,7 +4,9 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.27<br></p>
+						<p>Sharetube version 5.4.28<br></p>
+<p class="m_0">まとめ作成アイテム：Twitterの修正を行いました。ご迷惑をおかけいたしました。</p>
+<p>まとめ作成アイテム：Twitterが動画・gif対応になりました。</p>
 
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
 </p>
@@ -71,12 +73,11 @@
 
 					<h3 class="h3_heading_1">実装予定表</h3>
 					<p class="m_0">・参加しているテーマ表示実装</p>
-					<p class="m_0">・テーマ表示のデザイン改善</p>
 					<p class="m_0">・まとめ作成ツール：アイテム：Q＆A実装</p>
 					<p class="m_0">・おすすめテーマ一覧</p>
 					<p class="m_0">・テーマ一覧</p>
-					<p class="m_0">・キュレーターページのデザインを変更</p>
 					<p>・まとめ作成ツール：Twitter：動画などのコンテンツも引っ張ってこれるようにアップデート(ハック)する</p>
+
 
 
 					<h3 class="h3_heading_1">バグリスト</h3>
@@ -101,6 +102,28 @@
 			<li class="connection clearfix">
 				<span>2017年</span>
 			</li>
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>03月24日〜04月06日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.4.28</h3>
+						<pre>
+・キュレーターページのデザインアップデート
+・テーマのデザインアップデート
+・まとめ作成ツール：Twitter：バグ修正
+・まとめ作成ツール：Twitter：動画・gif対応</pre>
+					</dd>
+				</dl>
+			</li>
+
+
 
 
 			<li class="pointline clearfix">
