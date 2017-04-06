@@ -5,9 +5,8 @@
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.4.28<br></p>
-
-<p class="red">現在、まとめ作成アイテム：Twitterがご利用できない状況になっております。急ぎで修正いたします。<br>ご迷惑をおけかけしますが、よろしくお願いいたします。4月4日</p>
-
+<p class="m_0">まとめ作成アイテム：Twitterの修正を行いました。ご迷惑をおかけいたしました。</p>
+<p>まとめ作成アイテム：Twitterが動画・gif対応になりました。</p>
 
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
 </p>
@@ -111,13 +110,15 @@
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>03月24日〜03月30日</pre>
+						<pre>03月24日〜04月06日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.4.28</h3>
 						<pre>
 ・キュレーターページのデザインアップデート
-・テーマのデザインアップデート</pre>
+・テーマのデザインアップデート
+・まとめ作成ツール：Twitter：バグ修正
+・まとめ作成ツール：Twitter：動画・gif対応</pre>
 					</dd>
 				</dl>
 			</li>
