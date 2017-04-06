@@ -12,7 +12,6 @@ class Model_Login_Twitterscraping_Html extends Model {
 		// videoメディアHTML生成
 		$video_media_html = Model_Login_Twitterscraping_Html::video_media_html_create($tweet_data_array);
 
-
 //var_dump($tweet_data_array['text']);
 // 改行を<br>に変換
 $tweet_data_array['text'] = str_replace("\n", "<br>", $tweet_data_array['text']);

@@ -6,6 +6,9 @@
 					<div class="m_b_30">
 						<p>Sharetube version 5.4.28<br></p>
 
+<p class="red">現在、まとめ作成アイテム：Twitterがご利用できない状況になっております。急ぎで修正いたします。<br>ご迷惑をおけかけしますが、よろしくお願いいたします。4月4日</p>
+
+
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
 </p>
 					</div>
