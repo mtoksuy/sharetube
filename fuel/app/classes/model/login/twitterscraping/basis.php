@@ -194,12 +194,9 @@ http://sato-san.hatenadiary.jp/entry/2013/05/06/155919
 				}
 			}
 		//開放
-		$simple_html_dom_object->clear();
 		$permalink_tweet_container_object->clear();
 		// 変数破棄
-		unset($simple_html_dom_object);
 		unset($permalink_tweet_container_object);
-
 
 ///////////////////////////////
 
@@ -341,8 +338,10 @@ var.1
 		// (重要) Twitterが仕様をころころ変えるので悩んでいるところ
 //		$twitter_tweet_text = $xpath_text->query('//p[@class="js-tweet-text tweet-text"]')->item(0);
 //		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--max js-tweet-text tweet-text"]')->item(0);
-		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"]')->item(0);
+//		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"]')->item(0);
+		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--jumbo js-tweet-text tweet-text"]')->item(0);
 //pre_var_dump($twitter_tweet_text);
+
 /*
 
 			<a title="http://sharetube.jp/article/4043/" target="_blank" class="twitter-timeline-link u-hidden" data-expanded-url="http://sharetube.jp/article/4043/" dir="ltr" rel="nofollow" href="https://t.co/sOaKljSato">
@@ -360,7 +359,6 @@ var.1
 		$twitter_tweet_text = Model_Login_Twitterscraping_Basis::getInnerHtml($twitter_tweet_text);
 		// デコード
 		$twitter_tweet_text =  htmlspecialchars_decode($twitter_tweet_text, ENT_QUOTES);
-
 
 		// ハッシュタグリンク付け
 		$twitter_tweet_text = Model_Login_Twitterscraping_Basis::hash_tag_scan_replace($twitter_tweet_text);
@@ -446,14 +444,62 @@ var.1
 		}
 //		var_dump($twitter_tweet_image_media_foreach_array);
 
+		//////////////////////////
+		//gifメディア&動画メディア
+		//////////////////////////
+		// ツイートID取得
+		$tweet_id = Model_Login_Twitterscraping_Basis::tweet_id_get($tweet_url);
+
+		// ツイートタイプ取得
+		foreach($simple_html_dom_object->find('meta') as $list) {
+			 $meta_property = $list->{'property'}; // 属性の値を取得
+			 if($meta_property == 'og:type') {
+				 $meta_property_content .= $list->{'content'}; // 属性の値を取得
+				}
+		}
+		// gif用走査
+		$pattern = '/PlayableMedia--gif/';
+		preg_match_all($pattern, $subject, $gif_video_array);
+		if($gif_video_array) { $meta_property_content = 'gif'; }
+
+		// メディアタイプ別分け
+		switch($meta_property_content) {
+			///////////////////
+			//videoメディア取得
+			///////////////////
+			case 'video':
+				$bearer_token     = Model_Login_Twitterscraping_Basis::bearer_token_get();
+				$tweet_data_array = Model_Login_Twitterscraping_Basis::bearer_token_tweet_data_get($bearer_token, $tweet_id);
+				// 動画URL
+				$twitter_tweet_video_media_foreach_array = array($tweet_data_array['extended_entities']['media'][0]['video_info']['variants'][1]['url']);
+				// 動画サムネイル
+				$video_thumbnail_array                   = array($tweet_data_array['extended_entities']['media'][0]['media_url']);
+			break;
+			/////////////////
+			//gifメディア取得
+			/////////////////
+			case 'gif':
+				$bearer_token     = Model_Login_Twitterscraping_Basis::bearer_token_get();
+				$tweet_data_array = Model_Login_Twitterscraping_Basis::bearer_token_tweet_data_get($bearer_token, $tweet_id);
+				// gifURL
+				$twitter_tweet_gif_media_foreach_array = array($tweet_data_array['extended_entities']['media'][0]['video_info']['variants'][0]['url']);
+				// gifサムネイル
+				$gif_video_thumbnail_array             = array($tweet_data_array['extended_entities']['media'][0]['media_url']);
+			break;
+		}
+//pre_var_dump($tweet_data_array);
+
 		/////////////////
 		//gifメディア取得
 		/////////////////
+/*
 //		echo ($subject);
 		$pattern = '/<video (.+?)animated-gif(.+?)<\/video>/';
 		$pattern = '/<video(.+?)animated-gif(.+?)>/';
 		$pattern = '/video-src="(.+?)"/';
+		$pattern = '/PlayableMedia--gif/';
 		preg_match_all($pattern, $subject, $gif_video_array);
+
 		$pattern = '/src="(.+?)"/';
 		foreach($gif_video_array as $key => $value) {
 			if(preg_match($pattern, $value[0], $gif_video_preg_match_array)) {
@@ -467,10 +513,13 @@ var.1
 			$pattern = '/poster="(.+?)"/';
 			preg_match($pattern, $subject, $gif_video_thumbnail_array);
 			$gif_video_thumbnail_array = array($gif_video_thumbnail_array[1]);
-		} 
+		}
+/*
+
 		///////////////////
 		//videoメディア取得
 		///////////////////
+/*
 		$pattern = '/data-full-card-iframe-url="(.+?)"/';
 		if(preg_match($pattern, $subject, $video_array)) {
 //			var_dump($video_array);
@@ -494,14 +543,24 @@ var.1
 				$twitter_tweet_video_media_foreach_array = null;
 			}
 		}
+*/
 		///////////////////////////////
 		//videoメディアのサムネイル取得
 		///////////////////////////////
+/*
 		if($twitter_tweet_video_media_foreach_array) {
 			$pattern = '/data-card-url="(.+?)"/';
 			preg_match($pattern, $subject, $video_thumbnail_array);
 			$video_thumbnail_array =  array($video_thumbnail_array[1]);
 		}
+*/
+		/** 終点 **/
+		//開放
+		$simple_html_dom_object->clear();
+		// 変数破棄
+		unset($simple_html_dom_object);
+
+
 		///////////////////////
 		//$tweet_data_array生成
 		///////////////////////
@@ -661,6 +720,7 @@ var.1
 		//--------------------------------
 		//絵文字画像を絵文字テキストに変換
 		//--------------------------------
+		public static function convert_pictogram_in_text($twitter_tweet_text) {
 /*
 iPhone絵文字リストツイート表
 https://twitter.com/Sharetube_jp/status/691823389284106242
@@ -696,7 +756,7 @@ https://twitter.com/Sharetube_jp/status/691824022661795843
 ほとんどが3〜4byteだが、国旗が8バイト
 
 */
-		public static function convert_pictogram_in_text($twitter_tweet_text) {
+
 			$pattern = '/<img class="twitter-emoji"(.*?)alt="(.*?)"(.*?)>/'; // 旧
 			$pattern = '/<img class="Emoji Emoji--forText"(.*?)alt="(.*?)"(.*?)>/'; // 新
 			preg_match_all($pattern, $twitter_tweet_text, $twitter_tweet_text_array);
@@ -872,6 +932,23 @@ AndroidはShift-JISらしい
 		$tweet_data_array = json_decode($json, true);
 // 		pre_var_dump($tweet_data_array['extended_entities']['media'][0]['video_info']['variants'][1]['url']);
 		return $tweet_data_array;
+	}
+	//--------------
+	//ツイートID取得
+	//--------------
+	public static function tweet_id_get($tweet_url) {
+		// 文末の/を削除
+		$str = rtrim($tweet_url, '/');
+		// 前か後ろの文字列を取得
+		/*
+		文字列から指定した文字列を検索し、指定した文字列以降の文字列を取得します。
+		strchr関数は、strstr関数のエイリアスです。文字列がマルチバイト文字を含む場合は、後述のmb_strstr関数を利用します。
+		*/
+		// status以後の文字列を取得
+		$str = strstr($str, 'status');
+		// 数字以外削除
+		$tweet_id = (int)preg_replace("/[^0-9]/", "", $str);
+		return $tweet_id;
 	}
 
 }
