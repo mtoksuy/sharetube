@@ -460,8 +460,9 @@ var.1
 		// gif用走査
 		$pattern = '/PlayableMedia--gif/';
 		preg_match_all($pattern, $subject, $gif_video_array);
-		if($gif_video_array) { $meta_property_content = 'gif'; }
+		if($gif_video_array[0][0]) { $meta_property_content = 'gif'; }
 
+//var_dump($meta_property_content);
 		// メディアタイプ別分け
 		switch($meta_property_content) {
 			///////////////////
@@ -580,7 +581,7 @@ var.1
 		$tweet_data_array['video_media_thumbnail'] = $video_thumbnail_array;
 		$tweet_data_array['gif_media_thumbnail']   = $gif_video_thumbnail_array;
 
-//		var_dump($tweet_data_array);
+//		pre_var_dump($tweet_data_array);
 //		var_dump($twitter_user_icon_array);
 //		var_dump($twitter_tweet_image_media_foreach_array);
 
@@ -642,7 +643,7 @@ var.1
 			$type_str = substr($value, strrpos($value, '.') + 1);
 			// 置換（jpeg→jpg）
 			$extension = str_replace("jpeg","jpg", $type_str);
-		
+
 			// データベース登録
 			$res = DB::query("
 				INSERT INTO twitter_media (
