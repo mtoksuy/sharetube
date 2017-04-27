@@ -100,13 +100,13 @@ class Controller_Channel extends Controller_Channel_Template {
 		// 参加しているテーマ一覧res取得
 		$theme_relation_2_array = Model_Channel_Basis::sharetube_user_join_theme_res_get($method);
 		// 参加しているテーマ一覧HTML生成
-		$theme_relation_html = Model_Theme_Html::user_join_theme_html_create($theme_relation_2_array, 3600);
-
+		$user_join_theme_html = Model_Theme_Html::theme_relation_html_create($theme_res, $theme_relation_2_array, 3600);
+		$user_join_theme_html = preg_replace('/関連テーマ/', '参加しているテーマ', $user_join_theme_html);
 
 
 		// サイドバーコンテンツセット
 		$this->channel_template->view_data["sidebar"]->set('sidebar_data', array(
-			'profile_card_html' => $profile_card_html,
+			'profile_card_html' => $profile_card_html.$user_join_theme_html,
 		),false);
 
 
