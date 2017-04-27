@@ -217,8 +217,11 @@ class Model_Theme_Basis extends Model {
 			foreach($theme_array as $theme_array_key => $theme_array_value) {
 				$theme_relation_array[$i] = $theme_array_value;
 				$i++;
+//pre_var_dump($theme_array_value);
 				foreach($theme_relation_array as $theme_relation_key => $theme_relation_value) {
+//var_dump($theme_relation_value);
 					if($theme_relation_value == $theme_array_value) {
+//pre_var_dump($theme_relation_2_array);
 						if($theme_relation_2_array[$theme_relation_key]['count'] == null) {
 							$theme_relation_2_array[$theme_relation_key]['theme_name'] = $theme_array_value;
 							$theme_relation_2_array[$theme_relation_key]['count'] = 1;
@@ -235,6 +238,8 @@ class Model_Theme_Basis extends Model {
 				}
 			}
 		}
+//pre_var_dump($theme_relation_2_array);
+
 		foreach ($theme_relation_2_array as $key_2 => $value_2) {
 		  $key_id[$key_2]    = $value_2['theme_name'];
 		  $key_count[$key_2] = $value_2['count'];
