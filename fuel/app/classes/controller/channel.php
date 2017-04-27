@@ -97,6 +97,10 @@ class Controller_Channel extends Controller_Channel_Template {
 		// profile_cardHTML生成
 		$profile_card_html = Model_Channel_Html::profile_card_html_create($sharetube_user_data_array, $article_count);
 
+		// 参加しているテーマ一覧res取得
+		Model_Channel_Basis::sharetube_user_join_theme_res_get($method);
+		// 参加しているテーマ一覧HTML生成
+
 		// サイドバーコンテンツセット
 		$this->channel_template->view_data["sidebar"]->set('sidebar_data', array(
 			'profile_card_html' => $profile_card_html,
