@@ -67,6 +67,7 @@ class Model_Theme_Basis extends Model {
 	//-----------------
 	public static function theme_list_res_get($theme_name, $get_number = 10, $page = 0, $cached = 900) {
 //var_dump($cached);
+//pre_var_dump($theme_name);
 		// テーマの名前でライククエリ生成
 		$where_like_query = Model_Theme_Basis::theme_name_like_query_create($theme_name);
 		// 
@@ -208,6 +209,8 @@ class Model_Theme_Basis extends Model {
 			AND del = 0
 			ORDER BY primary_id DESC")->cached(259200)->execute();
 		foreach($theme_relation_res as $theme_relation_key => $theme_relation_value) {
+//pre_var_dump($theme_relation_value);
+//pre_var_dump($theme_relation_value['tag']);
 			// テーマarray生成
 			$theme_array = Model_Theme_Basis::theme_array_create($theme_relation_value['tag']);
 //			pre_var_dump($theme_array);

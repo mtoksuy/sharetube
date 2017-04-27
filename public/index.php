@@ -34,7 +34,8 @@ function pre_var_dump($data = '') {
  * ローカルと本番環境のpathを吸収
  */
 // ローカル環境
-if($_SERVER["HTTP_HOST"] == 'localhost') {
+//if($_SERVER["HTTP_HOST"] == 'localhost') {
+if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 	// デフォルト変数生成
 	define('HTTP', 'http://localhost/sharetube/');
 	define('PATH', '/Volumes/2016_ssd_media'.$_SERVER["DOCUMENT_ROOT"].'/sharetube/');
