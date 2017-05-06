@@ -18,7 +18,7 @@ body {
 *********************/
 .matome_submit {
 	background-color: #ee5036;
-	border: 1px solid #e3452b;
+	border: 1px solid #ff3f3f;
 	border-radius: 3px;
 	color: #fcfcfc;
 	cursor: pointer;
@@ -27,7 +27,7 @@ body {
 }
 .matome_draft {
 	background-color: #ee5036;
-	border: 1px solid #e3452b;
+	border: 1px solid #ff3f3f;
 	border-radius: 3px;
 	color: #fcfcfc;
 	cursor: pointer;
@@ -36,7 +36,7 @@ body {
 }
 .matome_edit {
 	background-color: #ee5036;
-	border: 1px solid #e3452b;
+	border: 1px solid #ff3f3f;
 	border-radius: 3px;
 	color: #fcfcfc;
 	cursor: pointer;
@@ -2601,7 +2601,7 @@ border-radius: 30px;
 }
 .matome_content_block_contents .matome_content_block_contents_title {
     background-color: #ff3f3f;
-    background-color: #e3452b;
+    background-color: #ff3f3f;
     box-shadow: 0 0 0 13px #fff inset;
     font-size: 20px;
     font-weight: bold;
