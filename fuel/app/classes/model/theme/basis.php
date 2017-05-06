@@ -253,4 +253,21 @@ class Model_Theme_Basis extends Model {
 				return $theme_relation_2_array = '';
 			}
 	}
+	//----------------
+	//テーマオール取得
+	//----------------
+	public static function theme_all_get() {
+		$theme_list_res = DB::query("
+			SELECT * FROM theme 
+			WHERE del = 0
+			ORDER BY primary_id DESC")->execute();
+		return $theme_list_res;
+	}
+
+
+
+
+
+
+
 }
