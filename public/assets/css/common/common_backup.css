@@ -395,7 +395,7 @@ table {
 
 .heading_2 {
   background: url("../../img/common/h2_icon_6.png") no-repeat scroll 0 4px transparent;
-  border-bottom: 2px solid #ED482D;
+  border-bottom: 2px solid #ff3f3f;
   font-size: 125%;
   line-height: 1.4;
   margin: 0 0 15px;
@@ -403,21 +403,21 @@ table {
 
 .heading_3 {
   background: none repeat scroll 0 0 #F2F2F2;
-  border-left: 4px solid #ED482D;
+  border-left: 4px solid #ff3f3f;
   font-size: 125%;
   line-height: 1.4;
   margin: 30px -15px 15px;
   padding: 15px; }
 
 .heading_4 {
-  border-left: 4px solid #ED482D;
+  border-left: 4px solid #ff3f3f;
   font-size: 125%;
   line-height: 1.4;
   margin: 30px -15px 15px;
   padding: 15px; }
 
 .heading_3h_1 {
-  border-bottom: 2px solid #ED482D;
+  border-bottom: 2px solid #ff3f3f;
   margin: 30px -15px 15px 0;
   padding: 0 15px 10px 0; }
 
@@ -1125,7 +1125,7 @@ margin: 0 5px 0 0;
 top_header
 *********/
 .top_header {
-  background-color: #ED482D;
+  background-color: #ff3f3f;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -1400,7 +1400,7 @@ mobile_header_ad
   z-index: 8; }
 
 .scroll_top:hover {
-  background-color: #ED482D; }
+  background-color: #ff3f3f; }
 
 /*******************
 シャッフルするボタン
@@ -1416,7 +1416,7 @@ mobile_header_ad
   z-index: 8; }
 
 .shuffle_button:hover {
-  background-color: #ED482D; }
+  background-color: #ff3f3f; }
 
 /*******************
 ドロワーメニュー設定
@@ -1561,7 +1561,7 @@ mobile_header_ad
   width: 100%; }
 
 .card_article li:hover {
-  box-shadow: -1px -1px 0 0px #C7C7C7,1px 0px 0 0px #C7C7C7, 0 2px 0 0 #ED482D; }
+  box-shadow: -1px -1px 0 0px #C7C7C7,1px 0px 0 0px #C7C7C7, 0 2px 0 0 #ff3f3f; }
 
 .card_article figure {
   float: left;
@@ -1725,7 +1725,7 @@ Sharetubeのキュレーター募集
 ******************/
 .facebook_like_please {
   background-color: rgba(0, 0, 0, 0.03);
-  border: 2px solid #ED482D;
+  border: 2px solid #ff3f3f;
   border-radius: 2px;
   margin: 30px 0;
   min-height: 174px;
@@ -2030,7 +2030,7 @@ Sharetubeのキュレーター募集
   margin: 30px 0 0; }
 
 .article_inside_related_article_header {
-  border-bottom: 1px solid #ED482D;
+  border-bottom: 1px solid #ff3f3f;
   color: #555555;
   font-weight: bold;
   margin: 0 1% 19px;
@@ -2039,7 +2039,7 @@ Sharetubeのキュレーター募集
   position: relative; }
 
 .article_inside_related_article_header_line {
-  border-bottom: 2px solid #ED482D;
+  border-bottom: 2px solid #ff3f3f;
   bottom: 0;
   left: 0;
   position: absolute;
@@ -2064,7 +2064,7 @@ Sharetubeのキュレーター募集
   width: 50%; }
 
 .article_inside_related_article li:hover {
-  box-shadow: -1px -1px 0 0px #C7C7C7,1px 0px 0 0px #C7C7C7, 0 2px 0 0 #ED482D; }
+  box-shadow: -1px -1px 0 0px #C7C7C7,1px 0px 0 0px #C7C7C7, 0 2px 0 0 #ff3f3f; }
 
 .article_inside_related_article li a {
   color: #606060; }
@@ -2825,18 +2825,18 @@ Youtubeコメント
 /*
 
 テストで切り替え中 2015-01-15
-  background-color: #ED482D;
-  border-bottom: 3px solid #ED482D;
+  background-color: #ff3f3f;
+  border-bottom: 3px solid #ff3f3f;
   border-radius: 2px 2px 0 0;
   color: #FCFCFC;
   font-size: 82%;
   padding: 4px 5px 2px;
 
 */
-    background-color: #ed482d;
-    border-bottom: 7px solid #ed482d;
+    background-color: #ff3f3f;
+    border-bottom: 7px solid #ff3f3f;
     border-radius: 2px 2px 0 0;
-    border-top: 2px solid #ed482d;
+    border-top: 2px solid #ff3f3f;
     bottom: 0;
     color: #fcfcfc;
     font-size: 82%;
@@ -2860,7 +2860,7 @@ Youtubeコメント
   margin: 30px 0 0; }
 
 .shuffle_article_header {
-  border-bottom: 1px solid #ED482D;
+  border-bottom: 1px solid #ff3f3f;
   color: #555555;
   font-weight: bold;
   margin: 0 1% 19px;
@@ -2869,7 +2869,7 @@ Youtubeコメント
   position: relative; }
 
 .shuffle_article_header_line {
-  border-bottom: 2px solid #ED482D;
+  border-bottom: 2px solid #ff3f3f;
   bottom: 0;
   left: 0;
   position: absolute;
@@ -2891,7 +2891,7 @@ Youtubeコメント
   width: 95%; }
 
 .shuffle_article li:hover {
-  box-shadow: -1px -1px 0 0px #C7C7C7,1px 0px 0 0px #C7C7C7, 0 2px 0 0 #ED482D; }
+  box-shadow: -1px -1px 0 0px #C7C7C7,1px 0px 0 0px #C7C7C7, 0 2px 0 0 #ff3f3f; }
 
 .shuffle_article li a {
   color: #474747; }
@@ -3066,7 +3066,7 @@ Youtubeコメント
 .column_color {
   background-color: Background; }
 .notice_color {
-	background-color: #ed482d;
+	background-color: #ff3f3f;
 }
 
 
@@ -3663,7 +3663,7 @@ facebook_page_plugin
     padding: 0; }
 
   .article_inside_related_article li {
-    background-color: #ed482d;
+    background-color: #ff3f3f;
     border-bottom: 1px solid #fcfcfc;
     border-radius: 0;
     box-shadow: 0 0 0 0 #e7e7e7, 0 0 0 0 #e7e7e7;
@@ -3681,7 +3681,7 @@ facebook_page_plugin
     text-decoration: none; }
 
   .article_inside_related_article .shuffle_article_contents_title {
-    background-color: #ed482d;
+    background-color: #ff3f3f;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
     float: left;
     position: static;
@@ -3708,7 +3708,7 @@ facebook_page_plugin
     padding: 0; }
 
   .shuffle_article li {
-    background-color: #ed482d;
+    background-color: #ff3f3f;
     border-bottom: 1px solid #fcfcfc;
     border-radius: 0;
     margin: 0;
@@ -3734,7 +3734,7 @@ facebook_page_plugin
 
   .shuffle_article .shuffle_article_contents_title {
 		background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    background-color: #ed482d;
+    background-color: #ff3f3f;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
     float: left;
     position: static;
@@ -4429,7 +4429,7 @@ facebook_page_plugin
   ************************/
   /*
     .shuffle_article_contents_title {
-      background-color: #ed482d;
+      background-color: #ff3f3f;
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
       margin: 0 0 0 125px;
       position: static;
@@ -4442,7 +4442,7 @@ facebook_page_plugin
   /*
     .article_inside_related_article li {
       border-radius: 0;
-      background-color: #ed482d;
+      background-color: #ff3f3f;
       margin: 0px 0 0px -10px;
       min-height: 75px;
       border-bottom: 2px solid rgba(0, 0, 0, 0.05);

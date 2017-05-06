@@ -16,7 +16,7 @@ table, ul {
 }
 
 .heading_3, .heading_4 {
-  border-left: 4px solid #ED482D;
+  border-left: 4px solid #ff3f3f;
 }
 
 .drawer_nav, body {
@@ -470,7 +470,7 @@ a:hover {
 }
 
 .heading_2, .heading_3h_1 {
-  border-bottom: 2px solid #ED482D;
+  border-bottom: 2px solid #ff3f3f;
 }
 
 .heading_2 {
@@ -1188,7 +1188,7 @@ a:hover {
 }
 
 .top_header {
-  background-color: #ED482D;
+  background-color: #ff3f3f;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -1455,7 +1455,7 @@ a:hover {
   bottom: 15px;
 }
 .scroll_top:hover, .shuffle_button:hover {
-  background-color: #ED482D;
+  background-color: #ff3f3f;
   background-color: #ff3810;
   background-color: #f7f7f7;
 }
@@ -1636,9 +1636,9 @@ a:hover {
 
 .card_article li:hover {
 /*
-  box-shadow: -1px -1px 0 0 #C7C7C7, 1px 0 0 0 #C7C7C7, 0 2px 0 0 #ED482D;
+  box-shadow: -1px -1px 0 0 #C7C7C7, 1px 0 0 0 #C7C7C7, 0 2px 0 0 #ff3f3f;
 */
-	border-bottom: 1px solid #ED482D;
+	border-bottom: 1px solid #ff3f3f;
 
 
 
@@ -1760,7 +1760,7 @@ a:hover {
 	top: 0;
 /*
   background-color: rgba(237, 72, 45, 0.02);
-  border: 1px solid #ed482d;
+  border: 1px solid #ff3f3f;
   border-radius: 5px;
   display: block;
   margin-bottom: 30px;
@@ -1903,7 +1903,7 @@ a:hover {
 
 .facebook_like_please {
   background-color: rgba(0, 0, 0, 0.03);
-  border: 2px solid #ED482D;
+  border: 2px solid #ff3f3f;
   border-radius: 2px;
   margin: 30px 0;
   min-height: 174px;
@@ -2322,7 +2322,7 @@ a:hover {
 }
 
 .article_inside_related_article_header {
-  border-bottom: 1px solid #ED482D;
+  border-bottom: 1px solid #ff3f3f;
   color: #555;
   font-weight: 700;
   margin: 0 1% 19px;
@@ -2332,7 +2332,7 @@ a:hover {
 }
 
 .article_inside_related_article_header_line {
-  border-bottom: 2px solid #ED482D;
+  border-bottom: 2px solid #ff3f3f;
   bottom: 0;
   left: 0;
   position: absolute;
@@ -2357,7 +2357,7 @@ a:hover {
 }
 
 .article_inside_related_article li:hover {
-  box-shadow: -1px -1px 0 0 #C7C7C7, 1px 0 0 0 #C7C7C7, 0 2px 0 0 #ED482D;
+  box-shadow: -1px -1px 0 0 #C7C7C7, 1px 0 0 0 #C7C7C7, 0 2px 0 0 #ff3f3f;
 }
 
 .article_inside_related_article li a, .article_inside_related_article li a:visited {
@@ -3271,10 +3271,10 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .article_access_popular_button.push {
-  background-color: #ed482d;
-  border-bottom: 7px solid #ed482d;
+  background-color: #ff3f3f;
+  border-bottom: 7px solid #ff3f3f;
   border-radius: 2px 2px 0 0;
-  border-top: 2px solid #ed482d;
+  border-top: 2px solid #ff3f3f;
   bottom: 0;
   color: #fcfcfc;
   font-size: 82%;
@@ -3293,7 +3293,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .shuffle_article_header {
-  border-bottom: 1px solid #ED482D;
+  border-bottom: 1px solid #ff3f3f;
   color: #555;
   font-weight: 700;
   margin: 0 1% 19px;
@@ -3303,7 +3303,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .shuffle_article_header_line {
-  border-bottom: 2px solid #ED482D;
+  border-bottom: 2px solid #ff3f3f;
   bottom: 0;
   left: 0;
   position: absolute;
@@ -3328,7 +3328,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .shuffle_article li:hover {
-  box-shadow: -1px -1px 0 0 #C7C7C7, 1px 0 0 0 #C7C7C7, 0 2px 0 0 #ED482D;
+  box-shadow: -1px -1px 0 0 #C7C7C7, 1px 0 0 0 #C7C7C7, 0 2px 0 0 #ff3f3f;
 }
 
 .shuffle_article li a, .shuffle_article li a:visited {
@@ -3547,7 +3547,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .notice_color {
-  background-color: #ed482d;
+  background-color: #ff3f3f;
 }
 
 /*****************
@@ -4170,7 +4170,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     box-shadow: 0 0 0 0 #e7e7e7,0 0 0 0 #e7e7e7;
   }
   .article_inside_related_article li, .shuffle_article li {
-    background-color: #ed482d;
+    background-color: #ff3f3f;
     border-bottom: 1px solid #fcfcfc;
   }
   .card_article_contents_summary {
@@ -4196,7 +4196,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     text-decoration: none;
   }
   .article_inside_related_article .shuffle_article_contents_title {
-    background-color: #ed482d;
+    background-color: #ff3f3f;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
     float: left;
     position: static;
@@ -4242,7 +4242,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     width: 35%;
   }
   .shuffle_article .shuffle_article_contents_title {
-    background: #ed482d;
+    background: #ff3f3f;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
     float: left;
     position: static;
