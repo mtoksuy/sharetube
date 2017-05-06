@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+.main {
+	padding: 50px 0 0 0;
+}
+
+
+
+.curator_list {
+
+}
+.curator_list_inner {
+
+}
+.curator_list_title {
+ margin: 0 0 15px;
+}
+.curator_list_title span {
+ font-size: 145%;
+}
+.curator_list_title .typcn-document-text {
+    position: relative;
+    top: -1px;
+}
+
+.curator_list_ol {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.curator_list_li {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #e7e7e7;
+    box-sizing: border-box;
+    float: left;
+    height: 347px;
+    margin: 0 15px 15px 0;
+    overflow: hidden;
+    padding: 15px;
+    width: 335px;
+}
+.curator_icon {
+    float: left;
+    margin: 0 15px 0 0;
+}
+.curator_matome_data {
+    float: left;
+    list-style: outside none none;
+    padding: 0;
+}
+.curator_matome_number {
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 10px;
+    padding: 0 0 10px;
+}
+.curator_matome_number .summary {
+    color: #292f33;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    margin-bottom: -1px;
+}
+.curator_matome_number .word {
+	font-size: 100%;
+}
+.curator_page_data {
+
+}
+.curator_page_data .summary {
+    color: #292f33;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    margin-bottom: -1px;
+}
+.curator_page_data .word {
+	font-size: 100%;
+}
+
+
+.curator_name {
+    height: 28px;
+    overflow: hidden;
+    width: 260px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*************************
+メディアクエリ設定 0〜768
+*************************/
+@media screen and (min-width: 0px) and (max-width: 768px) {
+	.main {
+
+	}
+
+}
+
+
+
+
+
+
+
+
