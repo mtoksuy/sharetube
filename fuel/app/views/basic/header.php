@@ -20,7 +20,7 @@
 				<!-- logo -->
 				<div class="logo">
 					<h1>
-						<a class="o_8" href="<?php echo Uri::base(); ?>"><img src="<?php echo Uri::base(); ?>assets/img/logo/logo_27.png" width="136" height="52" alt="シェアチューブ" title="シェアチューブ"></a>
+						<a class="o_8" href="<?php echo Uri::base(); ?>"><img src="<?php echo Uri::base(); ?>assets/img/logo/logo_29.png" width="135" height="36" alt="シェアチューブ" title="シェアチューブ"></a>
 					</h1>
 <!--
 					<h2 style="font-size: 75%; margin: -1px 0px 0px;">情報をお洒落にするメディア</h2>
