@@ -6,6 +6,9 @@
 		<?php echo $view_data["meta"]; ?>
 		<!-- icon -->
 		<link rel="shortcut icon" href="<?php echo Uri::base(); ?>assets/img/icon/favicon_5.ico" type="image/vnd.microsoft.icon">
+
+
+
 		<!-- rss -->
 		<link rel="alternate" type="application/rss+xml" title="Sharetube RSSフィード" href="<?php echo Uri::base(); ?>feed.xml">
 		<!-- css -->
