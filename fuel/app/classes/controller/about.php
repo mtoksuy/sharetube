@@ -15,7 +15,7 @@ class Controller_About extends Controller_Basic_Template {
 	// アクション
 	public function action_index() {
 		// タイトルセット
-		$this->basic_template->view_data["title"] = 'about | '.TITLE;
+		$this->basic_template->view_data["title"] = 'Sharetubeについて | '.TITLE;
 		// cssデータセット
 		$this->basic_template->view_data["external_css"] = View::forge('permalink/about/externalcss');
 
