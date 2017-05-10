@@ -187,4 +187,28 @@ var_dump($end_point);
 			</div>');
 		return $theme_relation_html;
 	}
+	//--------------------
+	//テーマオールHTML生成
+	//--------------------
+	public static function theme_all_html_create($theme_list_res) {
+	foreach($theme_list_res as $key => $value) {
+		$theme_li .= 
+			'<li><a href="'.HTTP.'theme/'.$value['primary_id'].'/"><span class="typcn typcn-tag"></span>'.$value['theme_name'].'<span class="theme_num">  </span></a></li>';
+		}
+		// 関連テーマHTML生成
+		$theme_list_html = ('
+			<div class="theme_relation">
+				<h2>関テーマ</h2>
+				<ul class="clearfix">
+						'.$theme_li.
+				'</ul>
+			</div>');
+		return $theme_list_html;
+	}
+
+
+
+
+
+
 }

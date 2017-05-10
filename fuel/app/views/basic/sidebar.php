@@ -96,12 +96,23 @@
 
 <div class="sidebar_ad">
 
+
+
+
+
+
+
+
+
 	<!-- キュレーター募集 -->
 	<div class="curator_recruitment o_8 m_t_30">
 		<a href="<?php echo HTTP; ?>curatorrecruitment/lp/" target="blank">
-			<img src="<?php echo HTTP; ?>assets/img/curatorrecruitment/curator_recruitment_8.png" width="300" height="443">
+			<img src="<?php echo HTTP; ?>assets/img/curatorrecruitment/curator_recruitment_9.png" width="300" height="443">
 		</a>
 	</div>
+
+
+
 
 
 	<!-- サイト情報 -->
@@ -122,7 +133,11 @@
 			<li><a href="<?php echo HTTP; ?>curatorrecruitment/">まとめインセンティブについて</a></li>
 			<li><a href="<?php echo HTTP; ?>curatorrecruitment/lp/">業界NO.1のインセンティブ報酬</a></li>
 			<li><a href="<?php echo HTTP; ?>curatorlist/">キュレーターリスト</a></li>
+<!--
 			<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
+-->
+			<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_1.pdf">広告掲載について</a></li>
+
 <!--
 
 			<li><a href="<?php echo HTTP; ?>/">採用情報</a></li>

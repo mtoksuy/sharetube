@@ -51,7 +51,7 @@
 								<dt>アカウント</dt>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/userprofileedit/">プロフィール編集</a></dd>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/usersetupedit/">アカウント設定</a></dd>
-								<dd><a href="<?php echo Uri::base(); ?>login/admin/userbankedit/">振込先編集</a></dd>
+								<dd><a href="<?php echo Uri::base(); ?>login/admin/userbankedit/">報酬受け取り先編集</a></dd>
 
 
 

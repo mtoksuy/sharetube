@@ -4,7 +4,7 @@
 <!--
 		<p><img width="320" height="168" alt="" title="" src="http://sharetube.jp/assets/img/about/about_1.jpg" class="great_image_100"></p>
 -->
-		<p><img width="320" height="168" alt="" title="" src="http://sharetube.jp/assets/img/about/sharetube_color_2.png" class="great_image_100"></p>
+		<p><img width="320" height="168" alt="" title="" src="<?php echo HTTP; ?>assets/img/about/sharetube_color_3.png" class="great_image_100"></p>
 
 <h2 class="heading_3">Sharetube(シェアチューブ)について</h2>
 

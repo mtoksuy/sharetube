@@ -67,6 +67,7 @@ class Model_Theme_Basis extends Model {
 	//-----------------
 	public static function theme_list_res_get($theme_name, $get_number = 10, $page = 0, $cached = 900) {
 //var_dump($cached);
+//pre_var_dump($theme_name);
 		// テーマの名前でライククエリ生成
 		$where_like_query = Model_Theme_Basis::theme_name_like_query_create($theme_name);
 		// 
@@ -208,14 +209,19 @@ class Model_Theme_Basis extends Model {
 			AND del = 0
 			ORDER BY primary_id DESC")->cached(259200)->execute();
 		foreach($theme_relation_res as $theme_relation_key => $theme_relation_value) {
+//pre_var_dump($theme_relation_value);
+//pre_var_dump($theme_relation_value['tag']);
 			// テーマarray生成
 			$theme_array = Model_Theme_Basis::theme_array_create($theme_relation_value['tag']);
 //			pre_var_dump($theme_array);
 			foreach($theme_array as $theme_array_key => $theme_array_value) {
 				$theme_relation_array[$i] = $theme_array_value;
 				$i++;
+//pre_var_dump($theme_array_value);
 				foreach($theme_relation_array as $theme_relation_key => $theme_relation_value) {
+//var_dump($theme_relation_value);
 					if($theme_relation_value == $theme_array_value) {
+//pre_var_dump($theme_relation_2_array);
 						if($theme_relation_2_array[$theme_relation_key]['count'] == null) {
 							$theme_relation_2_array[$theme_relation_key]['theme_name'] = $theme_array_value;
 							$theme_relation_2_array[$theme_relation_key]['count'] = 1;
@@ -232,6 +238,8 @@ class Model_Theme_Basis extends Model {
 				}
 			}
 		}
+//pre_var_dump($theme_relation_2_array);
+
 		foreach ($theme_relation_2_array as $key_2 => $value_2) {
 		  $key_id[$key_2]    = $value_2['theme_name'];
 		  $key_count[$key_2] = $value_2['count'];
@@ -245,4 +253,21 @@ class Model_Theme_Basis extends Model {
 				return $theme_relation_2_array = '';
 			}
 	}
+	//----------------
+	//テーマオール取得
+	//----------------
+	public static function theme_all_get() {
+		$theme_list_res = DB::query("
+			SELECT * FROM theme 
+			WHERE del = 0
+			ORDER BY primary_id DESC")->execute();
+		return $theme_list_res;
+	}
+
+
+
+
+
+
+
 }

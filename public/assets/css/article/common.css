@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+
+
+
+
 /***********
 ヘッダー設定
 ***********/
@@ -132,7 +137,7 @@ sidebar
     width: 50%;
 }
 .article_inside_related_article li:hover {
-    box-shadow: 0px 0px 0 0 #c7c7c7, 0px 0 0 0 #c7c7c7, 0 0px 0 0 #ed482d;
+    box-shadow: 0px 0px 0 0 #c7c7c7, 0px 0 0 0 #c7c7c7, 0 0px 0 0 #ff3f3f;
 	background-color: #f7f7f7;
 }
 .article_inside_related_article .inner {

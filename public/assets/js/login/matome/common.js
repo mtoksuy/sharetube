@@ -55,6 +55,41 @@ function text_entity_return(val) {
 	var val = val.replace(/&#x5c;/g,"\\");
 	return val;
 }
+//----------------------------------
+//マスターアカウントかどうかを調べる
+//----------------------------------
+function master_account_check() {
+		var master_account_check = false;
+		// Ajaxを走らせる
+		$.ajax( {
+			type: 'POST', 
+			url: http+'ajax/matome/usercheck/',
+			data: {
+
+			},
+			dataType: 'json',
+			cache: false,
+			// Ajax完了後の挙動
+		  success: function(data) {
+				if(data['sharetube_user_data']['sharetube_id'] == 'mtoksuy' || data['sharetube_user_data']['sharetube_id'] == 'girl_club') {
+					master_account_check = true;
+				}
+		  },
+		  error: function(data) {
+
+		  },
+		  complete: function(data) {
+		  }
+		});
+}
+
+
+
+
+
+
+
+
 
 //----------------
 //ビトウィーンHTML
@@ -894,18 +929,50 @@ $('.item_add').on( {
 ******************/
 $('.item_add').on( {
 	'click': function() {
-		$('.item_add').html(
-			'<div class="item_add_content clearfix">\
-				<span class="item_add_content_title"><span class="typcn typcn-plus"></span>アイテムを追加</span>\
-				<ul class="item_add_content_list">\
-					<li class="item_add_content_list_amazon">Amazon</li>\
-					<li class="item_add_content_list_amazon_review">Amazonレビュー</li>\
-					<li class="item_add_content_list_itunes_app">iTunes_App</li>\
-					<li class="item_add_content_list_code">コード</li>\
-					<li class="item_add_content_list_contents">目次</li>\
-					<li class="item_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></li>\
-				</ul>\
-			</div> <!-- item_add_content -->');
+		// Ajaxを走らせる
+		$.ajax( {
+			type: 'POST', 
+			url: http+'ajax/matome/usercheck/',
+			data: {
+
+			},
+			dataType: 'json',
+			cache: false,
+			// Ajax完了後の挙動
+		  success: function(data) {
+				if(data['sharetube_user_data']['sharetube_id'] == 'mtoksuy' || data['sharetube_user_data']['sharetube_id'] == 'girl_club') {
+					$('.item_add').html(
+						'<div class="item_add_content clearfix">\
+							<span class="item_add_content_title"><span class="typcn typcn-plus"></span>アイテムを追加</span>\
+							<ul class="item_add_content_list">\
+								<li class="item_add_content_list_amazon">Amazon</li>\
+								<li class="item_add_content_list_amazon_review">Amazonレビュー</li>\
+								<li class="item_add_content_list_itunes_app">iTunes_App</li>\
+								<li class="item_add_content_list_code">コード</li>\
+								<li class="item_add_content_list_contents">目次</li>\
+								<li class="item_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></li>\
+							</ul>\
+						</div> <!-- item_add_content -->');
+				}
+					else {
+						$('.item_add').html(
+							'<div class="item_add_content clearfix">\
+								<span class="item_add_content_title"><span class="typcn typcn-plus"></span>アイテムを追加</span>\
+								<ul class="item_add_content_list">\
+									<li class="item_add_content_list_itunes_app">iTunes_App</li>\
+									<li class="item_add_content_list_code">コード</li>\
+									<li class="item_add_content_list_contents">目次</li>\
+									<li class="item_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></li>\
+								</ul>\
+							</div> <!-- item_add_content -->');
+					}
+		  },
+		  error: function(data) {
+
+		  },
+		  complete: function(data) {
+		  }
+		});
 	},
 }, '.item_add_content_list_change_2');
 /******************
@@ -1063,19 +1130,52 @@ $('.matome').on( {
 **********************/
 $('.matome').on( {
 	'click': function() {
-		$(this).parents('.item_between_add').html(
-			'<div class="item_between_add_content clearfix">\
-				<span class="item_between_add_content_title"><span class="typcn typcn-plus"></span>アイテムを追加</span>\
-				<span class="item_between_add_content_cancel"><span class="typcn typcn-times"></span></span>\
-				<span class="item_between_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></span>\
-				<ul class="item_between_add_content_list">\
-					<li class="item_between_add_content_list_amazon">Amazon</li>\
-					<li class="item_between_add_content_list_amazon_review">Amazonレビュー</li>\
-					<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
-					<li class="item_between_add_content_list_code">コード</li>\
-					<li class="item_between_add_content_list_contents">目次</li>\
-				</ul>\
-			</div> <!-- item_between_add_content -->');
+		this_content_object = $(this);
+		$.ajax( {
+			type: 'POST', 
+			url: http+'ajax/matome/usercheck/',
+			data: {
+
+			},
+			dataType: 'json',
+			cache: false,
+			// Ajax完了後の挙動
+		  success: function(data) {
+				if(data['sharetube_user_data']['sharetube_id'] == 'mtoksuy' || data['sharetube_user_data']['sharetube_id'] == 'girl_club') {
+					this_content_object.parents('.item_between_add').html(
+						'<div class="item_between_add_content clearfix">\
+							<span class="item_between_add_content_title"><span class="typcn typcn-plus"></span>アイテムを追加</span>\
+							<span class="item_between_add_content_cancel"><span class="typcn typcn-times"></span></span>\
+							<span class="item_between_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></span>\
+							<ul class="item_between_add_content_list">\
+								<li class="item_between_add_content_list_amazon">Amazon</li>\
+								<li class="item_between_add_content_list_amazon_review">Amazonレビュー</li>\
+								<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
+								<li class="item_between_add_content_list_code">コード</li>\
+								<li class="item_between_add_content_list_contents">目次</li>\
+							</ul>\
+						</div> <!-- item_between_add_content -->');
+				}
+					else {
+						this_content_object.parents('.item_between_add').html(
+							'<div class="item_between_add_content clearfix">\
+								<span class="item_between_add_content_title"><span class="typcn typcn-plus"></span>アイテムを追加</span>\
+								<span class="item_between_add_content_cancel"><span class="typcn typcn-times"></span></span>\
+								<span class="item_between_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></span>\
+								<ul class="item_between_add_content_list">\
+									<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
+									<li class="item_between_add_content_list_code">コード</li>\
+									<li class="item_between_add_content_list_contents">目次</li>\
+								</ul>\
+							</div> <!-- item_between_add_content -->');
+					}
+		  },
+		  error: function(data) {
+
+		  },
+		  complete: function(data) {
+		  }
+		});
 	}
 }, '.item_between_add_content_list_change_2');
 /**********************
