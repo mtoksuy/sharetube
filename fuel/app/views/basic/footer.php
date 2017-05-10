@@ -6,10 +6,11 @@
 
 
 					<!-- Page Plugin -->
+<!--
 					<div class="facebook_page_plugin">
 						<div class="fb-page" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-width="500" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
 					</div>
-
+-->
 
 
 					<!-- like box -->
@@ -34,18 +35,24 @@
 					<div class="footer_contents_box clearfix">
 						<h5>Sharetubeについて</h5>
 						<ul>
-							<li>ボックス</li>
 							<li><a href="<?php echo HTTP; ?>about/">Sharetubeについて</a></li>
 							<li><a href="<?php echo HTTP; ?>rule/rule">利用規約</a></li>
 							<li><a href="<?php echo HTTP; ?>contact/">お問い合わせ</a></li>
 							<li><a href="<?php echo HTTP; ?>sitemap/">サイトマップ</a></li>
+<!--
+
 							<li><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></li>
 							<li><a href="<?php echo HTTP; ?>signup/">Sharetubeアカウント作成</a></li>
 							<li><a href="<?php echo HTTP; ?>login/" target="_blank">ログイン</a></li>
 							<li><a href="<?php echo HTTP; ?>curatorlist/">キュレーターリスト</a></li>
 							<li><a href="<?php echo HTTP; ?>curatorrecruitment/">キュレーター募集</a></li>
 							<li><a href="<?php echo HTTP; ?>curatorrecruitment/lp/">業界NO.1のインセンティブ報酬</a></li>
+-->
+
+<!--
 							<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
+-->
+							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_1.pdf" target="_blank">広告掲載について</a></li>
 <!--
 							<li><a href="<?php echo HTTP; ?>permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
 -->
@@ -83,10 +90,6 @@
 						</ul>
 					</div> <!--  -->
 
-					<!--  -->
-					<div class="footer_contents_outer">
-							<div class="footer_contents_logo"></div>
-					</div> <!--  -->
 
 				</div> <!-- footer_contents -->
 				<!-- footer_bottom -->

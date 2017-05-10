@@ -3692,11 +3692,11 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .footer {
-  background-color: #403C3B;
-  border-top: 5px solid #BBC798;
-  margin: 30px 0 0;
-  padding: 0;
-  z-index: 7;
+    background-color: #ffffff;
+    border-top: 3px solid #ff3f3f;
+    margin: 30px 0 0;
+    padding: 0;
+    z-index: 7;
 }
 
 .footer_contents {
@@ -3829,8 +3829,8 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .footer_contents_box h5 {
-  border-bottom: 2px solid #74675E;
-  color: #AB998E;
+  border-bottom: 2px solid #fd90a6;
+  color: #292f33;
   font-size: 92%;
   margin: 0 0 10px;
   padding: 0 0 5px;
@@ -3842,14 +3842,16 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .footer_contents_box li {
-  color: #71655D;
+  color: #292f33;
   font-size: 89%;
   list-style: none;
   margin: 0 0 5px;
 }
 
 .footer_contents_box a, .footer_contents_box a:visited {
-  color: #AB998E;
+  color: #F3A58D;
+  color: #f5f5f5;
+  color: #292f33;
 }
 
 .footer_contents_outer {
@@ -3867,16 +3869,16 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
 }
 
 .footer_contents_logo {
-  background: url(http://sharetube.jp/assets/img/logo/footer_logo_1.png) 0 0/90% auto no-repeat;
-  bottom: 0;
-  height: 150px;
-  position: absolute;
-  right: 0;
-  width: 150px;
+    background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/logo/footer_logo_2.png") no-repeat scroll 0 0 / 90% auto;
+    bottom: 0;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    width: 70px;
 }
 
 .footer_bottom {
-  background-color: #211E1C;
+  background-color: #f7f7f7;
   height: 84px;
 }
 
@@ -4133,7 +4135,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     float: right;
   }
   .logo {
-    margin: 5px 10px 2px;
+    margin: 5px 10px 10px;
   }
   .main {
     padding: 61px 0 0;
