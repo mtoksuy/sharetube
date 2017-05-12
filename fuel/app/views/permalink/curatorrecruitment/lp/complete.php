@@ -8,7 +8,7 @@
 		<meta name="googlebot" content="noindex">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<!-- icon -->
-		<link rel="shortcut icon" href="<?php echo HTTP; ?>assets/img/icon/favicon_4.ico" type="image/vnd.microsoft.icon">
+		<link rel="shortcut icon" href="<?php echo HTTP; ?>assets/img/icon/favicon_5.ico" type="image/vnd.microsoft.icon">
 		<!-- rss -->
 		<link rel="alternate" type="application/rss+xml" title="Sharetube RSSフィード" href="<?php echo HTTP; ?>feed.xml">
 		<!-- css -->
@@ -22,6 +22,7 @@
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/signup/common.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/permalink/curatorrecruitment/lp/common.css" type="text/css">
 	</head>
+
 	<body>
 		<!-- wrapper -->
 		<div id="wrapper">

@@ -13,12 +13,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<meta name="robots" content="noindex">		<!-- icon -->
-		<link rel="shortcut icon" href="http://sharetube.jp/assets/img/icon/favicon_4.ico" type="image/vnd.microsoft.icon">
+		<link rel="shortcut icon" href="http://sharetube.jp/assets/img/icon/favicon_5.ico" type="image/vnd.microsoft.icon">
 		<!-- rss -->
 		<link rel="alternate" type="application/rss+xml" title="Sharetube RSSフィード" href="http://sharetube.jp/feed.xml">
 		<!-- css -->
 		<link rel="stylesheet" href="http://sharetube.jp/assets/css/common/common.css" type="text/css">
 		<link rel="stylesheet" href="http://sharetube.jp/assets/css/matome/common.css" type="text/css">
+
 
 		
 <link rel="stylesheet" href="http://sharetube.jp/assets/css/library/typicons.2.0.7/font/typicons.css" type="text/css">
