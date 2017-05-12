@@ -6,7 +6,7 @@
 -->
 		<p><img width="320" height="168" alt="" title="" src="<?php echo HTTP; ?>assets/img/about/sharetube_color_3.png" class="great_image_100"></p>
 
-<h2 class="heading_3">Sharetube(シェアチューブ)について</h2>
+<h2 class="heading_5">Sharetube(シェアチューブ)について</h2>
 
 
 		<!--
@@ -90,6 +90,13 @@
 -->
 
 <p>Sharetubeは伝えたい情報を自由に組み合わせ、世界でたった一つのオリジナルページを作成・紹介できるキュレーションプラットフォームサービス。業界NO.1の報酬を得ながらまとめを作成できるWebサービスです。</p>
+
+<p>Sharetubeはシェアされるようなコンテンツが集まる場所として作りました。目指すところは「テキストコンテンツのYoutube版」です。かつ他メディアの記事・まとめクオリティーが100であればSharetubeは120以上のコンテンツを作成するメディアとして運営してまいります。</p>
+
+<!--
+個人チャンネルで情報発信したりテーマ別に情報が整理
+-->
+
 <!--
 <p class="m_0">キュレーションプラットフォームサービス「Sharetube」</p>
 <p>シェアしたい情報を自由に組み合わせ、世界でたった一つのオリジナルページを作成・紹介できるサービス。[伝えたい情報をシェアする]ために。</p>
@@ -98,8 +105,8 @@
 <p>The news magazine.</p>
 -->
 
-
-<h2 class="heading_3">運営者について</h2>
+<!--
+<h2 class="heading_5">運営者について</h2>
 	<img width="162" height="162" class="flat_Frame" src="../assets/img/about/my_icon_1.jpg" style="float: left; margin: 0 7px 0 0;" alt="マツオカソウヤ">
 	<p>東京在住、マツオカソウヤ。</p>
 	<p>17歳の時にインターネットに出会いました。Yahooのオセロゲームだったのですが、画面の向こう側に同じく誰かが座っていてチャットをしながらオセロをしているという現実は僕には輝いて見えました。それからインターネットにのめり込み、webサービスに触れ、自分自身でwebサービスを作りたいと思うようになり、僕が体感したインターネットを他の人にも体感してもらいたい。そんな想いを込めてwebサービスを作っている人です。</p>
@@ -118,7 +125,7 @@
 		<iframe frameborder="0" style="width: 155px; height: 20px;" data-twttr-rendered="true" title="Twitter Follow Button" class="twitter-follow-button twitter-follow-button" src="http://platform.twitter.com/widgets/follow_button.1384994725.html#_=1386762019235&amp;id=twitter-widget-0&amp;lang=ja&amp;screen_name=mtoksuy&amp;show_count=false&amp;show_screen_name=true&amp;size=m" allowtransparency="true" id="twitter-widget-0" scrolling="no"></iframe>
 		<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript" async="" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script><script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ja.SGHxm5-0xKE.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AItRSTOz9auUstlyvCEEpWep_PCmXtwnkw/cb=gapi.loaded_0" async=""></script><script async="" src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ja.JhFkE0kTFfA.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=IQ/rs=AItRSTOn9_BltsuhlNQQxnp-XT0-YRrshg/cb=gapi.loaded_0"></script><script src="http://www.google-analytics.com/ga.js" async="" type="text/javascript"></script><script gapi_processed="true" src="https://apis.google.com/js/plusone.js" async="" type="text/javascript"></script><script src="//platform.twitter.com/widgets.js" id="twitter-wjs"></script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-
+-->
 
 
 
