@@ -38,7 +38,7 @@
 					<div class="logo">
 						<h1>
 							<a class="o_8" href="<?php echo HTTP; ?>">
-								<img src="<?php echo HTTP; ?>assets/img/logo/logo_27.png" width="155" height="59" alt="シェアチューブ" title="シェアチューブ">
+								<img src="<?php echo HTTP; ?>assets/img/logo/logo_29.png" alt="シェアチューブ" title="シェアチューブ" height="41" width="">
 							</a>
 						</h1>
 					</div>
