@@ -49,10 +49,14 @@
 							<li><a href="<?php echo HTTP; ?>curatorrecruitment/lp/">業界NO.1のインセンティブ報酬</a></li>
 -->
 
+
+
 <!--
 							<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
 -->
-							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_2.pdf" target="_blank">広告掲載について</a></li>
+
+
+							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_5.pdf" target="_blank">広告掲載について</a></li>
 <!--
 							<li><a href="<?php echo HTTP; ?>permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
 -->
