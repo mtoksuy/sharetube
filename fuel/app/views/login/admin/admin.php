@@ -4,10 +4,19 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.4.29<br></p>
-						<p class="m_0">テーマ関連を強化してまいります。</p>
-						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。
-</p>
+						<p>Sharetube version 5.5</p>
+
+						<br>
+
+						<p class="m_0">・Sharetube(トップページ)のタイトルと概要をアップデートいたしました。</p>
+						<p class="m_0">・Sharetubeとは？( <a href="http://sharetube.jp/about/" target="_blank">http://sharetube.jp/about/</a> )をアップデートいたしました。</p>
+						<p class="m_0">・テーマ関連を強化してまいります。作成されたまとめの足りないテーマを運営側で追記しておりますのでテーマのつけ方として確認よろしくお願い致します。</p>
+
+
+						<br>
+
+
+						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
 					</div>
 
 
@@ -33,29 +42,28 @@
 
 					<h3 class="h3_heading_1">ヘルプ</h3>
 
-					<h4 class="h4_heading_1">[本気でまとめを書いた場合(運営者が)]</h4>
+					<h4 class="h4_heading_1">本気でまとめを書いた場合(運営者が)</h4>
 					<p class="m_0">【226万円】3ヶ月間だけまとめを鬼のように書いてぴたっと書かなくなった永久報酬の金額 </p>
 					<p><a href="http://sharetube.jp/article/4068/" target="_blank">http://sharetube.jp/article/4068/</a></p>
 
 
-					<h4 class="h4_heading_1">[まとめを書くにあたっての必要な事]</h4>
+					<h4 class="h4_heading_1">まとめを書くにあたっての必要な事</h4>
 					<p class="m_0">[まとめ職人に捧ぐ] PVを集めるために絶対に必要な7つのルール</p>
 					<p><a href="http://sharetube.jp/article/2814/" target="_blank">http://sharetube.jp/article/2814/</a></p>
 
 
-					<h4 class="h4_heading_1">[まとめ作成ツールの使い方]</h4>
+					<h4 class="h4_heading_1">まとめ作成ツールの使い方</h4>
 					<p class="m_0">まとめ作成ツール使い方講座！動画で細かく教えていくよ</p>
 					<p><a href="http://sharetube.jp/article/1071/" target="_blank">http://sharetube.jp/article/1071/</a></p>
 
 
-					<h4 class="h4_heading_1">[まとめ記事の書き方]</h4>
+					<h4 class="h4_heading_1">まとめ記事の書き方</h4>
 					<p class="m_0">[Sharetube]まとめ作成ツールの使い方をまとめました。これで君も5倍速で記事が書けるようになる！！</p>
 					<p><a target="_blank" href="http://sharetube.jp/article/988/">http://sharetube.jp/article/988/</a></p>	
 					
 
-					<h4 class="h4_heading_1">[困った事や質問はこちらへ気軽にください]</h4>
-					
-					<p class="m_0">お問い合わせ | Sharetube [伝えたい情報をシェアする]キュレーションプラットフォーム</p>
+					<h4 class="h4_heading_1">困った事や質問はこちらへ気軽にください</h4>
+					<p class="m_0">お問い合わせ | Sharetube - シェアしたくなるコンテンツが集まる、集まる。</p>
 					<p><a target="_blank" href="http://sharetube.jp/contact/">http://sharetube.jp/contact/</a></p>
 
 
@@ -70,12 +78,15 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p class="m_0">・まとめ作成ツール：アイテム：Q＆A実装</p>
+					<p class="m_0">・テーマ一覧ページ</p>
 					<p class="m_0">・おすすめテーマ一覧</p>
+					<p class="m_0">・テーマ別のキュレーターランキング</p>
+					<p class="m_0">・まとめ作成ツール：アイテム：テキストを見出しにした時に改行を自動で削除する</p>
+					<p>・まとめ作成ツール：アイテム：Q＆A実装</p>
+
 
 					<h3 class="h3_heading_1">バグリスト</h3>
-					<p class="m_0">・まとめ作成ツール：リンクの中の概要にHTMLがあるとバグる</p>
-					<p>・まとめ作成ツールアイテム：Amazon・キャンセルを押すとローカル画像に変更される</p>
+					<p>・まとめ作成ツール：リンクの中にある概要の中身にHTMLがあるとバグる(URL先のバグで)</p>
 
 
 				<h3 class="m_t_30 m_b_15 h3_heading_1">更新情報</h3>
@@ -90,11 +101,31 @@
 
 
 
-
-
 			<li class="connection clearfix">
 				<span>2017年</span>
 			</li>
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>05月10日〜05月24日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5</h3>
+						<pre>・Sharetubeのタイトル、概要をアップデート
+・Sharetubeとは？をアップデート</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
 
 
 
@@ -1000,6 +1031,9 @@
 					</dd>
 				</dl>
 			</li>
+
+
+
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
@@ -1018,6 +1052,27 @@
 
 
 
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>02月13日</pre>
+					</dt>
+					<dd>
+						<h3>Var.1.0〜4.0</h3>
+						<pre>・シェアリングビデオからシェアチューブにサービス名を変更</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
+
+
+
 			<li class="connection clearfix">
 				<span>2014年</span>
 			</li>
@@ -1031,7 +1086,7 @@
 						<pre>01月01日</pre>
 					</dt>
 					<dd>
-						<h3>Var.1.00リリース</h3>
+						<h3>Var.1.00リリース(シェアリングビデオとして)</h3>
 						<pre></pre>
 					</dd>
 				</dl>
