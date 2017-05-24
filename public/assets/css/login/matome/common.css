@@ -121,7 +121,7 @@ body {
 中見出し
 *******/
 .h3_heading_1 {
-    margin: 0 0 1px;
+    margin: 0 0 5px;
     padding: 0 0 0 19px;
     position: relative;
 }     
@@ -141,6 +141,7 @@ body {
 小見出し
 *******/
 .h4_heading_1 {
+	margin: 0 0 5px;
 	padding: 0 0 0 5px;
 	position: relative;
 }     
