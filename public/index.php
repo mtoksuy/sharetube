@@ -40,12 +40,9 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 	define('HTTP', 'http://localhost/sharetube/');
 	define('PATH', '/Volumes/2016_ssd_media'.$_SERVER["DOCUMENT_ROOT"].'/sharetube/');
 	define('INTERNAL_PATH', str_replace('sharetube/', '', PATH).'fuelphp/sharetube/');
-	define('TITLE', 'Sharetube [伝えたい情報をシェアする] キュレーションプラットフォームサービス');
-	define('VINE_TITLE', 'Sharetube@Vine');
+	define('TITLE', 'Sharetube - シェアしたくなるコンテンツが集まる、集まる。');
 	define('META_KEYWORDS', 'Sharetube,シェアチューブ,まとめ,キュレーション,キュレーター,インセンティブ');
-	define('META_DESCRIPTION', 'シェアしたい情報を自由に組み合わせ、世界でたった一つのオリジナルページを作成・紹介できるサービス。[伝えたい情報をシェアする]ために。');
-	define('VINE_META_KEYWORDS', 'Sharetube_vine');
-	define('VINE_META_DESCRIPTION', '面白いVineをまとめているサイトです。');
+	define('META_DESCRIPTION', 'Sharetubeはシェアしたくなるコンテンツが集まる場所。シェアしたくなる情報をデザインしてオリジナルのコンテンツをアップロードして身近な人やインターネットの人たちと共有しましょう。');
 	define('TWITTER_ID', 'ShareTube_jp');
 }
 	// 本番環境
@@ -54,24 +51,11 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 		define('HTTP', 'http://'.$_SERVER["HTTP_HOST"].'/');
 		define('PATH', $_SERVER["DOCUMENT_ROOT"].'/');
 		define('INTERNAL_PATH', str_replace('public/', '', PATH));
-		define('TITLE', 'Sharetube [伝えたい情報をシェアする]キュレーションプラットフォーム');
-		define('VINE_TITLE', 'Sharetube@Vine');
+		define('TITLE', 'Sharetube - シェアしたくなるコンテンツが集まる、集まる。');
 		define('META_KEYWORDS', 'Sharetube,シェアチューブ,まとめ,キュレーション,キュレーター,インセンティブ');
-		define('META_DESCRIPTION', 'シェアしたい情報を自由に組み合わせ、世界でたった一つのオリジナルページを作成・紹介できるサービス。[伝えたい情報をシェアする]ために。');
-		define('VINE_META_KEYWORDS', 'Sharetube_vine');
-		define('VINE_META_DESCRIPTION', '面白いVineをまとめているサイトです。');
+		define('META_DESCRIPTION', 'Sharetubeはシェアしたくなるコンテンツが集まる場所。シェアしたくなる情報をデザインしてオリジナルのコンテンツをアップロードして身近な人やインターネットの人たちと共有しましょう。');
 		define('TWITTER_ID', 'ShareTube_jp');
 	}
-
-/*
-動画を作成し、友だちや家族、世界中の人たちと共有
-
-シェアしたい情報を自由に組み合わせ、世界でたった一つのオリジナルページを作成・紹介できるサービス。[伝えたい情報をシェアする]ために。
-
-NAVER まとめ[情報をデザインする。キュレーションプラットフォーム]
-
-あらゆる情報を、自由に組み合わせ、ひとつのページにまとめて保存・紹介できるサービス。誰もが[情報をデザイン]できるようにすることで、今までにない人と情報との出会いを実現します。
-*/
 
 //var_dump($_SERVER);
 // wwwを消したいのだがここにこない.htacceccになっている（要研究）
