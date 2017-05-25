@@ -42,7 +42,7 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 	define('INTERNAL_PATH', str_replace('sharetube/', '', PATH).'fuelphp/sharetube/');
 	define('TITLE', 'Sharetube - シェアしたくなるコンテンツが集まる、集まる。');
 	define('META_KEYWORDS', 'Sharetube,シェアチューブ,まとめ,キュレーション,キュレーター,インセンティブ');
-	define('META_DESCRIPTION', 'Sharetubeはシェアしたくなるコンテンツが集まる場所。シェアしたくなる情報をデザインしてオリジナルのコンテンツをアップロードして身近な人やインターネットの人たちと共有しましょう。');
+	define('META_DESCRIPTION', 'Sharetubeはシェアしたくなるコンテンツが集まる場所。情報をデザインしてオリジナルのコンテンツをアップロードして身近な人やインターネットの人たちと共有しましょう。');
 	define('TWITTER_ID', 'ShareTube_jp');
 }
 	// 本番環境
@@ -53,7 +53,7 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 		define('INTERNAL_PATH', str_replace('public/', '', PATH));
 		define('TITLE', 'Sharetube - シェアしたくなるコンテンツが集まる、集まる。');
 		define('META_KEYWORDS', 'Sharetube,シェアチューブ,まとめ,キュレーション,キュレーター,インセンティブ');
-		define('META_DESCRIPTION', 'Sharetubeはシェアしたくなるコンテンツが集まる場所。シェアしたくなる情報をデザインしてオリジナルのコンテンツをアップロードして身近な人やインターネットの人たちと共有しましょう。');
+		define('META_DESCRIPTION', 'Sharetubeはシェアしたくなるコンテンツが集まる場所。情報をデザインしてオリジナルのコンテンツをアップロードして身近な人やインターネットの人たちと共有しましょう。');
 		define('TWITTER_ID', 'ShareTube_jp');
 	}
 
