@@ -136,7 +136,7 @@
 <!--
 			<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
 -->
-			<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_5.pdf" target="_blank">広告掲載について</a></li>
+			<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_6.pdf" target="_blank">広告掲載について</a></li>
 
 
 
