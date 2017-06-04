@@ -74,7 +74,7 @@
 							<span><a target="blank" href="<?php echo HTTP; ?>contact/">お問い合わせ</a></span>
 						</li>
 						<li class="navi_items">
-							<div class="fb-like" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+							<div class="fb-like" data-href="https://www.facebook.com/sharetube.jp/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
 						</li>
 					</ul>
 				</div>

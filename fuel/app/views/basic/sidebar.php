@@ -41,7 +41,7 @@
 			<span>Sharetubeをフォローする</span>
 			<span class="shuffle_article_header_line"> </span>
 		</div>
-			<div class="fb-like-box m_b_15" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="false" data-show-border="true"></div>
+			<div class="fb-like-box m_b_15" data-href="https://www.facebook.com/sharetube.jp/" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="false" data-show-border="true"></div>
 
 			<a href="https://twitter.com/Sharetube_jp" class="twitter-follow-button" data-show-count="false" data-lang="ja" data-size="large">@Sharetube_jpさんをフォロー</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -136,7 +136,12 @@
 <!--
 			<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
 -->
-			<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_6.pdf" target="_blank">広告掲載について</a></li>
+			<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_7.pdf" target="_blank">広告掲載について</a></li>
+
+
+
+
+
 
 
 

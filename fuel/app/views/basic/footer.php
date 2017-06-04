@@ -8,7 +8,7 @@
 					<!-- Page Plugin -->
 <!--
 					<div class="facebook_page_plugin">
-						<div class="fb-page" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-width="500" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+						<div class="fb-page" data-href="https://www.facebook.com/sharetube.jp/" data-width="500" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
 					</div>
 -->
 
@@ -27,7 +27,7 @@
 
 					<!-- likeボタン -->
 <!--
-					<div class="fb-like" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+					<div class="fb-like" data-href="https://www.facebook.com/sharetube.jp/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
 -->
 
 
@@ -56,15 +56,12 @@
 -->
 
 
-							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_6.pdf" target="_blank">広告掲載について</a></li>
+							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_7.pdf" target="_blank">広告掲載について</a></li>
 <!--
 							<li><a href="<?php echo HTTP; ?>permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
 -->
 						</ul>
 					</div> <!--  -->
-
-
-
 
 
 					<!--  -->
@@ -90,7 +87,7 @@
 					<div class="footer_contents_box clearfix">
 						<h5>Sharetubeをフォローする</h5>
 						<ul>
-					  	<li><a href="https://www.facebook.com/pages/Sharetube/621756284545794" target="_blank">Facebook</a></li>
+					  	<li><a href="https://www.facebook.com/sharetube.jp/" target="_blank">Facebook</a></li>
 					  	<li><a href="https://twitter.com/Sharetube_jp" target="_blank">Twitter</a></li>
 					  	<li><a href="https://plus.google.com/+SharetubeJp0480" target="_blank">Google+</a></li>
 					  	<li><a href="http://localhost/sharetube/feed.xml">RSS配信</a></li>
