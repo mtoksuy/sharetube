@@ -191,14 +191,26 @@ var_dump($end_point);
 	//テーマオールHTML生成
 	//--------------------
 	public static function theme_all_html_create($theme_list_res) {
+$i = 0;
 	foreach($theme_list_res as $key => $value) {
+/*
+$i++;
+if($i < 500) {
+		// テーマカウント数res取得
+		$theme_count_res = Model_Theme_Basis::theme_count_res_get($value['theme_name'], $cached);
+		foreach($theme_count_res as $count_key => $count_value) {
+			$theme_count = (int)$count_value['COUNT(*)'];
+		}
+//var_dump($theme_count);
+}
+*/
 		$theme_li .= 
-			'<li><a href="'.HTTP.'theme/'.$value['primary_id'].'/"><span class="typcn typcn-tag"></span>'.$value['theme_name'].'<span class="theme_num">  </span></a></li>';
+			'<li><a href="'.HTTP.'theme/'.$value['primary_id'].'/"><span class="typcn typcn-tag"></span>'.$value['theme_name'].'<span class="theme_num">不明</span></a></li>';
 		}
 		// 関連テーマHTML生成
 		$theme_list_html = ('
 			<div class="theme_relation">
-				<h2>関テーマ</h2>
+				<h2>テーマ一覧</h2>
 				<ul class="clearfix">
 						'.$theme_li.
 				'</ul>
