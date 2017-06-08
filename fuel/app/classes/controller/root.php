@@ -22,6 +22,14 @@ class Controller_Root extends Controller_Basic_Template {
 
 		// トップのみ
 		if($segment_info_get_array["top_judgment"] == true) {
+/*
+			var_dump(md5('work_shop_6'));
+			var_dump(md5('bee330f7a9a560b8e63790c071f9ffb4'));
+
+*/
+
+
+
 			// メタセット
 			$this->basic_template->view_data["meta"] = View::forge('root/meta');
 			// 注目まとめ一覧データ取得

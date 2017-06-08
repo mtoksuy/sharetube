@@ -5,7 +5,7 @@
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.5</p>
-<?php if($_SESSION['sharetube_id'] == 'mtoksuy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4') { 
+<?php if($_SESSION['sharetube_id'] == 'mtoksuy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6') { 
 ?>
 
 <p style="border-bottom:1px solid #dddddd;"> </p>

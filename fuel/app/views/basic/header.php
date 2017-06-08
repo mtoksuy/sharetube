@@ -110,7 +110,7 @@
 				  <h2>シェアチューブはキュレーターを募集しています！</h2>
 -->
 				  <ul>
-				  	<li><a target="_blank" href="https://www.facebook.com/Sharetube-621756284545794/"><img width="30" height="30" src="<?php echo HTTP; ?>assets/img/common/new_facebook_icon_1.png" alt="" title="Facebook"></a></li>
+				  	<li><a target="_blank" href="https://www.facebook.com/sharetube.jp/"><img width="30" height="30" src="<?php echo HTTP; ?>assets/img/common/new_facebook_icon_1.png" alt="" title="Facebook"></a></li>
 				  	<li><a target="_blank" href="https://twitter.com/Sharetube_jp"><img width="30" height="30" src="<?php echo HTTP; ?>assets/img/common/new_twitter_icon_1.png" alt="" title="Twitter"></a></li>
 				  	<li><a target="_blank" href="https://plus.google.com/+SharetubeJp0480"><img width="30" height="30" src="<?php echo HTTP; ?>assets/img/common/google+_icon_2.png" alt="" title="Google+"></a></li>
 				  	<li><a href="<?php echo HTTP; ?>feed.xml"><img width="30" height="30" src="<?php echo HTTP; ?>assets/img/common/new_rss_icon_1.png" alt="" title="RSS"></a></li>
