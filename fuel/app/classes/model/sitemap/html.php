@@ -50,9 +50,9 @@ class Model_Sitemap_Html extends Model {
 						<a href="http://sharetube.jp/sitemap/"><h1>サイトマップ</h1></a>
 						<p>自動で最新のサイトマップに更新されます。</p>
 						<ul class="sitemap_content">
-							<h2 class="heading_3">トップページ</h2>
+							<h2 class="h2_heading_1">トップページ</h2>
 							<li class="sitemap_content_home"><span class="typcn typcn-home-outline"></span><a href="http://sharetube.jp/">Sharetube</a></li>
-							<h2 class="heading_3">Sharetubeについて</h2>
+							<h2 class="h2_heading_1">Sharetubeについて</h2>
 							<li><span class="typcn typcn-document-text"></span><a href="'.HTTP.'about/">Sharetubeについて</a></li>
 							<li><span class="typcn typcn-document-text"></span><a href="'.HTTP.'contact/">お問い合わせ</a></li>
 							<li><span class="typcn typcn-document-text"></span><a href="'.HTTP.'permalink/recruitment_ads.php">広告掲載について</a></li>
@@ -62,7 +62,7 @@ class Model_Sitemap_Html extends Model {
 							<li><span class="typcn typcn-document-text"></span><a href="'.HTTP.'curatorrecruitment/">キュレーター募集</a></li>
 							<li><span class="typcn typcn-document-text"></span><a href="'.HTTP.'curatorrecruitment/lp/">業界NO.1のインセンティブ報酬</a></li>
 							<li><span class="typcn typcn-document-text"></span><a href="'.HTTP.'permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
-							<h2 class="heading_3">コンテンツ</h2>
+							<h2 class="h2_heading_1">コンテンツ</h2>
 							'.$sitemap_list_mastar_html.'
 						</ul>
 					</div>

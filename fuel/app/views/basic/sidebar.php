@@ -133,6 +133,7 @@
 			<li><a href="<?php echo HTTP; ?>curatorrecruitment/">まとめインセンティブについて</a></li>
 			<li><a href="<?php echo HTTP; ?>curatorrecruitment/lp/">業界NO.1のインセンティブ報酬</a></li>
 			<li><a href="<?php echo HTTP; ?>curatorlist/">キュレーターリスト</a></li>
+			<li><a href="<?php echo HTTP; ?>themelist/">テーマ一覧</a></li>
 <!--
 			<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
 -->

@@ -81,7 +81,7 @@
 				<!-- nav -->
 				<nav class="nav">
 					<ul class="clearfix">
-						<li><a><img src="<?php echo Uri::base(); ?>assets/img/common/navi_icon_3.png" width="30" height="19" alt="about_icon"></a></li>
+						<li><a><img src="<?php echo Uri::base(); ?>assets/img/common/navi_icon_4.png" width="30" height="19" alt="about_icon"></a></li>
 					</ul>
 				</nav>
 				<!-- search_window -->
