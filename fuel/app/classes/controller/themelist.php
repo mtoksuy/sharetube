@@ -31,12 +31,10 @@ class Controller_Themelist extends Controller_Permalink_Template {
 		// CSSセット
 		$this->permalink_template->view_data["external_css"] = View::forge('permalink/themelist/externalcss');
 
-		$curator_list_html = Model_Curatorlist_Html::curator_list_html_create($curator_list_res);
-
-		// テーマオール取得
-		$theme_list_res = Model_Theme_Basis::theme_all_get();
+		// テーマランキング順オール取得
+		$theme_ranking_all_list_res = Model_Theme_Basis::theme_ranking_all_get();
 		// テーマオールHTML取得
-		$theme_list_html = Model_Theme_Html::theme_all_html_create($theme_list_res);
+		$theme_list_html = Model_Theme_Html::theme_all_html_create($theme_ranking_all_list_res);
 
 		// コンテンツデータセット
 		$this->permalink_template->view_data["content"]->set('content_data', array(

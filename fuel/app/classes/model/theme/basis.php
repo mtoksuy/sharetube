@@ -299,9 +299,16 @@ class Model_Theme_Basis extends Model {
 		}
 		return $theme_cron_data_array;
 	}
-
-
-
+	//----------------------------
+	//テーマランキング順オール取得
+	//----------------------------
+	public static function theme_ranking_all_get() {
+		$theme_ranking_all_list_res = DB::query("
+			SELECT * FROM theme 
+			WHERE del = 0
+			ORDER BY article_count DESC")->cached(259200)->execute();
+		return $theme_ranking_all_list_res;
+	}
 
 
 
