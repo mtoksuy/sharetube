@@ -69,7 +69,7 @@
 										<li><a href="<?php echo HTTP; ?>curatorrecruitment/">まとめインセンティブについて</a></li>
 										<li><a href="<?php echo HTTP; ?>authorrecruiting/">ライター募集</a></li>
 										<li><a target="_blank" href="https://twitter.com/ShareTube_jp">Twitter</a></li>
-										<li><a target="_blank" href="https://www.facebook.com/pages/Sharetube/621756284545794">Facebook</a></li>
+										<li><a target="_blank" href="https://www.facebook.com/sharetube.jp/">Facebook</a></li>
 										<li><a target="_blank" href="https://plus.google.com/+SharetubeJp0480">Google+</a></li>
 									</ul>
 								</dd>

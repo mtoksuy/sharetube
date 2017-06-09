@@ -63,8 +63,8 @@
 
 }
 .signup_content button[type="submit"] {
-    background-color: rgba(237, 72, 45, 0.99);
-    border: 1px solid rgba(237, 72, 45, 1);
+    background-color: #ff3f3f;
+    border: #ff3f3f;
     border-radius: 2px;
     color: #fcfcfc;
     cursor: pointer;

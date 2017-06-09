@@ -260,11 +260,55 @@ class Model_Theme_Basis extends Model {
 		$theme_list_res = DB::query("
 			SELECT * FROM theme 
 			WHERE del = 0
-			ORDER BY primary_id DESC")->execute();
+			ORDER BY primary_id DESC")->cached(259200)->execute();
 		return $theme_list_res;
 	}
-
-
+	//--------------------------------
+	//一番新しいテーマのprimary_id取得
+	//--------------------------------
+	public static function theme_max_primary_id_get() {
+		$theme_max_primary_id_res = DB::query("
+			SELECT primary_id 
+			FROM theme 
+			ORDER BY primary_id DESC 
+			LIMIT 0, 1 ")->execute();
+		foreach($theme_max_primary_id_res as $key => $value) {
+			$theme_max_primary_id = (int)$value;
+		}
+		return $theme_max_primary_id;
+	}
+	//----------------------------------------
+	//現在走っているtheme_cronのカウントを取得
+	//----------------------------------------
+	public static function theme_cron_data_get() {
+		$theme_cron_data_array = array();
+		$theme_cron_data_get_res = DB::query("
+			SELECT * 
+			FROM theme_cron 
+			ORDER BY primary_id DESC 
+			LIMIT 0, 1 ")->execute();
+		foreach($theme_cron_data_get_res as $key => $value) {
+			$theme_cron_data_array['primary_id'] = $value['primary_id'];
+			$theme_cron_data_array['now_count'] = $value['now_count'];
+		}
+		if(!$theme_cron_data_array) {
+			$theme_cron_data_array = array(
+				'primary_id' => 0,
+				'now_count' => 0,
+			);
+		}
+		return $theme_cron_data_array;
+	}
+	//----------------------------
+	//テーマランキング順オール取得
+	//----------------------------
+	public static function theme_ranking_all_get() {
+		$theme_ranking_all_list_res = DB::query("
+			SELECT * FROM theme 
+			WHERE del = 0
+			ORDER BY article_count DESC")->cached(259200)->execute();
+		return $theme_ranking_all_list_res;
+	}
 
 
 

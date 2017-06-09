@@ -13,12 +13,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<meta name="robots" content="noindex">		<!-- icon -->
-		<link rel="shortcut icon" href="http://sharetube.jp/assets/img/icon/favicon_4.ico" type="image/vnd.microsoft.icon">
+		<link rel="shortcut icon" href="http://sharetube.jp/assets/img/icon/favicon_5.ico" type="image/vnd.microsoft.icon">
 		<!-- rss -->
 		<link rel="alternate" type="application/rss+xml" title="Sharetube RSSフィード" href="http://sharetube.jp/feed.xml">
 		<!-- css -->
 		<link rel="stylesheet" href="http://sharetube.jp/assets/css/common/common.css" type="text/css">
 		<link rel="stylesheet" href="http://sharetube.jp/assets/css/matome/common.css" type="text/css">
+
 
 		
 <link rel="stylesheet" href="http://sharetube.jp/assets/css/library/typicons.2.0.7/font/typicons.css" type="text/css">
@@ -90,7 +91,7 @@
 							<span><a target="blank" href="http://sharetube.jp/contact/">お問い合わせ</a></span>
 						</li>
 						<li class="navi_items">
-							<div class="fb-like" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+							<div class="fb-like" data-href="https://www.facebook.com/sharetube.jp/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
 						</li>
 					</ul>
 				</div>
@@ -126,7 +127,7 @@
 				  <h2>シェアチューブはキュレーターを募集しています！</h2>
 -->
 				  <ul>
-				  	<li><a target="_blank" href="https://www.facebook.com/pages/Sharetube/621756284545794"><img width="30" height="30" src="http://sharetube.jp/assets/img/common/new_facebook_icon_1.png" alt="" title="Facebook"></a></li>
+				  	<li><a target="_blank" href="https://www.facebook.com/sharetube.jp/"><img width="30" height="30" src="http://sharetube.jp/assets/img/common/new_facebook_icon_1.png" alt="" title="Facebook"></a></li>
 				  	<li><a target="_blank" href="https://twitter.com/Sharetube_jp"><img width="30" height="30" src="http://sharetube.jp/assets/img/common/new_twitter_icon_1.png" alt="" title="Twitter"></a></li>
 				  	<li><a target="_blank" href="https://plus.google.com/+SharetubeJp0480"><img width="30" height="30" src="http://sharetube.jp/assets/img/common/google+_icon_2.png" alt="" title="Google+"></a></li>
 				  	<li><a href="http://sharetube.jp/feed.xml"><img width="30" height="30" src="http://sharetube.jp/assets/img/common/new_rss_icon_1.png" alt="" title="RSS"></a></li>
@@ -222,7 +223,7 @@
 										<li><a href="http://sharetube.jp/permalink/recruitment_ads.php">広告掲載について</a></li>
 										<li><a href="http://sharetube.jp/authorrecruiting/">ライター募集中</a></li>
 										<li><a target="_blank" href="https://twitter.com/ShareTube_jp">Twitter</a></li>
-										<li><a target="_blank" href="https://www.facebook.com/pages/Sharetube/621756284545794">Facebook</a></li>
+										<li><a target="_blank" href="https://www.facebook.com/sharetube.jp/">Facebook</a></li>
 										<li><a target="_blank" href="https://plus.google.com/+SharetubeJp0480">Google+</a></li>
 									</ul>
 								</dd>
@@ -306,7 +307,7 @@
 
 					<!-- Page Plugin -->
 					<div class="facebook_page_plugin">
-						<div class="fb-page" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-width="500" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+						<div class="fb-page" data-href="https://www.facebook.com/sharetube.jp/" data-width="500" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
 					</div>
 
 
@@ -325,7 +326,7 @@
 
 					<!-- likeボタン -->
 <!--
-					<div class="fb-like" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+					<div class="fb-like" data-href="https://www.facebook.com/sharetube.jp/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
 -->
 
 
@@ -366,7 +367,7 @@
 					<div class="footer_contents_box clearfix">
 						<h5>サイトをフォローする</h5>
 						<ul>
-					  	<li><a href="https://www.facebook.com/pages/Sharetube/621756284545794" target="_blank">Facebook</a></li>
+					  	<li><a href="https://www.facebook.com/sharetube.jp/" target="_blank">Facebook</a></li>
 					  	<li><a href="https://twitter.com/Sharetube_jp" target="_blank">Twitter</a></li>
 					  	<li><a href="https://plus.google.com/+SharetubeJp0480" target="_blank">Google+</a></li>
 					  	<li><a href="http://localhost/sharetube/feed.xml">RSS配信</a></li>

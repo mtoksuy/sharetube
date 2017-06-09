@@ -39,7 +39,7 @@
 		<div class="tracking_social_button_list_left">
 			<div class="tracking_social_button_list_title">シェアをしよう！</div>
 			<div class="tracking_social_button_list_facebook_like_button">
-				<div class="fb-like" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+				<div class="fb-like" data-href="https://www.facebook.com/sharetube.jp/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
 			</div>
 		</div>
 		<?php echo $plus_add_data["social_share_html"]; ?>

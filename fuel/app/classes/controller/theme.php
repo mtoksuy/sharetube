@@ -61,7 +61,7 @@ class Controller_Theme extends Controller_Theme_Template {
 		$theme_res = Model_Theme_Basis::theme_res_get($method, 3600);
 		// テーマ一覧HTML生成
 		list($theme_list_html, $theme_article_data_array) = Model_Theme_Html::theme_list_html_create($theme_res, $paging_method, 3600);
-	// テーマページングデータ取得
+		// テーマページングデータ取得
 		$theme_paging_data_array = Model_Theme_Basis::theme_paging_data_get($theme_article_data_array, 10, $paging_method);
 		// テーマページングHTML生成
 		$paging_html = Model_Theme_Html::theme_paging_html_create($theme_res, $theme_paging_data_array);

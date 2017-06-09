@@ -1066,7 +1066,7 @@ $social_share_html = '
 
 <!--
 					<div class="facebook_like_please_facebook_like_button">
-						<div class="fb-like" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+						<div class="fb-like" data-href="https://www.facebook.com/sharetube.jp/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
 					</div>
 					<p><a target="blank" href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fsharetube.jp%2Ffeed.xml"><img width="71" height="28" alt="follow us in feedly" src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png" id="feedlyFollow"></a></p>
 					<p class="m_0"><a href="https://twitter.com/Sharetube_jp" class="twitter-follow-button" data-show-count="false" data-lang="ja">@Sharetube_jpさんをフォロー</a></p>
@@ -1093,7 +1093,7 @@ $social_share_html = '
 
 
 	<div class="new_sns_follow_facebook">
-  	<a class="facebook" href="https://www.facebook.com/pages/Sharetube/621756284545794" target="_blank">
+  	<a class="facebook" href="https://www.facebook.com/sharetube.jp/" target="_blank">
 			<div class="clearfix">
 				<div class="new_sns_follow_facebook_icon"><span class="typcn typcn-social-facebook"></span></div>
 				<div class="new_sns_follow_facebook_button">FOLLOW</div>
@@ -1179,7 +1179,7 @@ $social_share_html = '
 						<p>いいね！しよう</p>
 					</div>
 					<div class="article_bottom_like_box_contents_right_button">
-						<div class="fb-like" data-href="https://www.facebook.com/pages/Sharetube/621756284545794" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+						<div class="fb-like" data-href="https://www.facebook.com/sharetube.jp/" data-layout="box_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
 					</div>
 					<div class="article_bottom_like_box_contents_right_foot">
 						<p>Sharetubeの最新記事をお届けします</p>
