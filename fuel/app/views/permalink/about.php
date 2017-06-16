@@ -6,8 +6,6 @@
 -->
 		<p><img width="320" height="168" alt="" title="" src="<?php echo HTTP; ?>assets/img/about/sharetube_color_3.png" class="great_image_100"></p>
 
-<h2 class="h2_heading_1">Sharetube(シェアチューブ)について</h2>
-
 
 		<!--
 		<p>動画はどんなコンテンツよりも人に伝わりやすく、人を変える力を持っています。Sharingvideoは人の心を捉え、人生の糧になる動画をシェアリングしていく事を目的としています。日々、新しい発見を見つける事が出来る動画を紹介します。どうか、動画の中で「何か」を感じる事がありましたらコメントを添えてシェアして下さい。そのコメントは誰かに届き、また違う視点で伝わった人がシェアしてくれるでしょう。共有の具現化を体験しましょう。</p>
@@ -106,6 +104,8 @@ Sharetubeはシェアされるようなコンテンツが集まる場所とし�
 
 
 <!--
+<h2 class="h2_heading_1">Sharetube(シェアチューブ)について</h2>
+
 <p class="m_0">伝えたい情報を自由に組み合わせ情報発信できるキュレーションサービス。</p>
 <p>Sharetubeはシェアしたくなるコンテンツが集まる場所として作りました。</p>
 
@@ -115,12 +115,109 @@ Sharetubeはシェアされるようなコンテンツが集まる場所とし�
 <h2 class="h2_heading_1">メディア理念</h2>
 <p>世界中にあるテキストコンテンツの中でシェア率No.1になる。</p>
 -->
+<!--
 <p>Sharetubeはシェアしたくなるコンテンツが集まる場所として作りました。情報をデザインしてオリジナルのコンテンツをアップロードして情報発信できるキュレーションサービスです。</p>
 
 <p>「<b>テキストコンテンツのYoutube版</b>」を目指しています。</p>
 
 <h2 class="h2_heading_1">メディア理念</h2>
-<p class="f_s_120">「テキストメディアの中でシェア率No.1になる。」</p>
+<p class="f_s_120">「世界中にあるテキストコンテンツの中でシェア率No.1になる。」</p>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="matome_content_block">
+		<div class="matome_content_block_title">
+			<h2 class="h2_heading_1">Sharetube(シェアチューブ)について</h2>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_text">
+			<pre>Sharetubeはシェアしたくなるコンテンツが集まる場所として作りました。情報をデザインしてオリジナルのコンテンツをアップロードして情報発信できるキュレーションサービスです。
+
+「<strong>テキストコンテンツのYoutube版</strong>」を目指しています。</pre>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_title">
+			<h2 class="h2_heading_1">メディア理念</h2>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_text">
+			<pre><span class="f_s_150">「テキストメディアの中でシェア率No.1になる。」</span></pre>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_line">
+			<pre> </pre>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_title">
+			<h2 class="h2_heading_1">本業以上の副業を創出するため</h2>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_text">
+			<pre>業界No.1の「インセンティブ」を誇っているSharetubeですが、将来的にこのレートを5倍～10倍にしたいと考えています。
+
+本業以上の副業を創出を実現して社会の活性化を目指します。</pre>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_title">
+			<h2 class="h2_heading_1">Sharetubeは様々なシェアを目指します</h2>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_text">
+			<pre><h3 class="h3_heading_1">SNSのシェア</h3>SNSのシェア率No.1を目指します。
+
+<h3 class="h3_heading_1">情報のシェア</h3>Sharetubeで培ったユーザーが求めている情報やキュレーター間での情報のシェアを目指します。
+
+<h3 class="h3_heading_1">場所のシェア</h3>誰でも記事が書ける場所をSharetubeは提供いたします。将来的にはアカウントを取得している人たちが無料で飲食ができ仕事ができるリアル場所として「<b>Sharetubeコワーキングスペース</b>」を作ります。
+
+<h3 class="h3_heading_1">インセンティブのシェア</h3>限界までの比率95%をインセンティブ支払いに充ててインセンティブのシェアを目指します。
+
+<h3 class="h3_heading_1">価値のシェア</h3>価値ある情報をキュレーターが作成して、ユーザーがその価値ある情報を読むことで価値のシェアを目指します。</pre>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
