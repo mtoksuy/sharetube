@@ -5,7 +5,7 @@
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.1</p>
-<?php if($_SESSION['sharetube_id'] == 'mtoksuy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6') { 
+<?php if($_SESSION['sharetube_id'] == 'mtoksuy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6' OR $_SESSION['sharetube_id'] == 'work_shop_7') { 
 ?>
 
 <p style="border-bottom:1px solid #dddddd;"> </p>
@@ -138,6 +138,12 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 
 
 
+
+
+
+
+
+
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
@@ -147,7 +153,8 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 						<h3>Var.5.5.1</h3>
 						<pre>・cron実装(Sharetube Robots)
 ・テーマ一覧実装
-・デザイン微修正</pre>
+・デザイン微修正
+・アバウトの変更</pre>
 					</dd>
 				</dl>
 			</li>
