@@ -145,7 +145,19 @@
 					<div class="appeal_block">
 						<h2>Share<span class="red">tube</span>とは？
 						</h2>
-						<p>Sharetubeは伝えたい情報を自由に組み合わせ、世界でたった一つのオリジナルページを作成・紹介できるキュレーションプラットフォームサービス。業界NO.1の報酬を得ながらまとめを作成できるWebサービスです。</p>
+						<p>情報をデザインしてオリジナルのコンテンツをアップロードして情報発信できるキュレーションサービスです。「<strong>テキストコンテンツのYoutube版</strong>」を目指しています。</p>
+
+
+
+
+
+
+
+
+
+
+
+
 						<div class="clearfix">
 							<img class="appeal_block_image_3" width="640" height="400" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/iphone_5_mockup_sharetube_1.png" title="Sharetubeをスマホで見た場合のイメージ図" alt="Sharetubeをスマホで見た場合のイメージ図">
 							<img class="appeal_block_image_4" width="640" height="400" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/macbook_pro_mockup_sharetube_1.png" title="SharetubeをPCで見た場合のイメージ図" alt="SharetubeをPCで見た場合のイメージ図">
@@ -162,7 +174,7 @@
 						<img class="appeal_block_image_1" width="640" height="400" title="1PVのレート" alt="1PVのレート" src="<?php echo HTTP; ?>assets/img/article/image/image_4972.png">
 						<div class="appeal_float_block clearfix">
 							<div class="appeal_float_block_left">
-								<img class="appeal_block_image_2" width="640" height="400" title="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" alt="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" src="<?php echo HTTP; ?>assets/img/article/image/image_3779.png" class="o_8">
+								<img class="appeal_block_image_2" width="640" height="400" title="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" alt="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" src="http://sharetube.jp/assets/img/article/image/image_3779.png" class="o_8">
 							</div>
 							<div class="appeal_float_block_right">
 								<h3>マツオカソウヤさんの場合</h3>
@@ -182,6 +194,7 @@
 						<p class="appeal_p_4">誰にでも自由なまとめを作成できる環境を用意しています。テーマの指定も一切なく時間にも場所にも縛られずにインセンティブ報酬がもらえます。</p>
 					</div>
 
+						<img class="appeal_block_image_1" width="640" height="400" title="まとめ作成ツールの画像" alt="まとめ作成ツールの画像" src="http://sharetube.jp/assets/img/article/image/image_32778.png" class="o_8">
 
 
 					<div class="registration_button o_8 clearfix">
@@ -203,7 +216,7 @@
 						<h2><span class="red">隙間時間</span>を利用して誰しもがライターに</h2>
 						<p class="appeal_p_4">1日の中で空いた隙間時間を利用して気軽にまとめを作ることができます。決まった時間に束縛されることがないので効率の良い副業になるでしょう。</p>
 						<p style="margin: 0px auto; text-align: center; font-weight: bold;">通常のサラリーマンの場合</p>
-						<img class="appeal_block_image_1" width="640" height="400" title="サラリーマンがSharetubeでライターになる場合のグラフ" alt="サラリーマンがSharetubeでライターになる場合のグラフ" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/s_s_4.png" class="o_8">
+						<img class="appeal_block_image_1" width="640" height="400" title="サラリーマンがSharetubeでライターになる場合のグラフ" alt="サラリーマンがSharetubeでライターになる場合のグラフ" src="http://sharetube.jp/assets/img/article/image/image_32781.png" class="o_8">
 
 
 					</div>
@@ -234,15 +247,51 @@
 
 					<!-- appeal_block -->
 					<div class="appeal_block">
-						<h2>Share<span class="red">tube</span>はライター(キュレーター)を募集しています</h2>
-						<p class="appeal_p_4">現在Sharetubeでは400名のキュレーターが登録しています。主婦・学生・サラリーマンと様々方が活躍していらっしゃいます。貯めたPV自体も永久に消えることなくいつまでも残る所もポイントです。</p>
+						<h2>キュレーターが<span class="red">インセンティブ</span>をもらえる仕組み</h2>
+						<p class="appeal_p_4">バナーなどの広告をSharetubeが営業を行いページに表示していますので、キュレーターはまとめを作成する事だけに集中できます。近い将来「ネイティブ広告」も始まります。コンペ形式でキュレーター様にまとめを書いていただく形になりますのでぜひ参加して下さい。</p>
 						<p style="margin: 0px auto; text-align: center; font-weight: bold;">Sharetubeのマインドマップ図</p>
-						<img class="appeal_block_image_1" style="width: 700px;" width="640" height="400" title="Sharetubeのマインドマップ図" alt="Sharetubeのマインドマップ図" src="<?php echo HTTP; ?>assets/img/article/image/image_4973.png" class="o_8">
+						<img class="appeal_block_image_1" style="width: 700px;" width="640" height="400" title="Sharetubeのマインドマップ図" alt="Sharetubeのマインドマップ図" src="http://sharetube.jp/assets/img/article/image/image_33241.png" class="o_8">
 					</div>
+
+
+					<!-- appeal_block -->
+					<div class="appeal_block">
+						<h2>Share<span class="red">tube</span>のメディア理念</h2>
+						<p class="appeal_p_4">
+							<span class="f_s_150">「テキストメディアの中でシェア率No.1になる。」</span>
+						</p>
+					</div>
+					<!-- appeal_block -->
+					<div class="appeal_block">
+						<h2>本業以上の<span class="red">副業</span>を創出するため</h2>
+						<p class="appeal_p_4">業界No.1の「インセンティブ」を誇っているSharetubeですが、将来的にこのレートを5倍～10倍にしたいと考えています。本業以上の副業を創出を実現して社会の活性化を目指します。</p>
+					</div>
+
+
+
 
 					<div class="registration_button o_8 clearfix">
 						<a href="<?php echo HTTP; ?>curatorrecruitment/lp/signup/" target="_blank">今すぐ無料登録してまとめを書く</a>
 					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				</div>
 			</div>
@@ -262,19 +311,33 @@
 					<div class="footer_contents_box clearfix">
 						<h5>Sharetubeについて</h5>
 						<ul>
-							<li>ボックス</li>
 							<li><a href="<?php echo HTTP; ?>about/">Sharetubeについて</a></li>
 							<li><a href="<?php echo HTTP; ?>contact/">お問い合わせ</a></li>
-							<li><a href="<?php echo HTTP; ?>sitemap/">サイトマップ</a></li>
-							<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
+							<li><a href="<?php echo HTTP; ?>rule/rule">利用規約</a></li>
 							<li><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></li>
 							<li><a href="<?php echo HTTP; ?>signup/">Sharetubeアカウント作成</a></li>
 							<li><a target="_blank" href="<?php echo HTTP; ?>login/">ログイン</a></li>
-							<li><a href="<?php echo HTTP; ?>curatorrecruitment/">キュレーター募集</a></li>
-							<li><a href="<?php echo HTTP; ?>curatorrecruitment/">まとめインセンティブについて</a></li>
-							<li><a href="<?php echo HTTP; ?>authorrecruiting/">ライター募集</a></li>
-							<li><a href="<?php echo HTTP; ?>permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
 						</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					</div>
 				</div>
 				<div class="footer_bottom">
