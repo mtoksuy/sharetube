@@ -177,7 +177,7 @@ Sharetubeはシェアされるようなコンテンツが集まる場所とし�
 		<div class="matome_content_block_text">
 			<pre>業界No.1の「インセンティブ」を誇っているSharetubeですが、将来的にこのレートを5倍～10倍にしたいと考えています。
 
-本業以上の副業を創出を実現して社会の活性化を目指します。</pre>
+本業以上の副業を創出して社会の活性化を目指します。</pre>
 		</div>
 	</div>
 	<div class="matome_content_block">
