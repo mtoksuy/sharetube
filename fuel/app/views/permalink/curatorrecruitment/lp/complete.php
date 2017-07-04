@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>新規登録完了 | Sharetubeはキュレーター募集しています。好きな情報をまとめて、お小遣い稼ぎしよう</title>
+		<title>新規登録完了 | 業界NO.1のインセンティブ報酬を支払うSharetubeでまとめを作成してみませんか？</title>
 		<!-- meta -->
 		<meta charset="UTF-8">
 		<meta name="robots" content="noindex">

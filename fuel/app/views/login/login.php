@@ -12,7 +12,7 @@
 	<body>
 		<!--  -->
 		<div class="login">
-			<h1 class="text_center"><a href="<?php echo Uri::base(); ?>" title="Powered by Programmerbox"><img width="160" height="61" alt="シェアチューブ" src="<?php echo Uri::base(); ?>assets/img/logo/logo_27.png"></a></h1>
+			<h1 class="text_center"><a href="<?php echo Uri::base(); ?>" title="Powered by Programmerbox"><img width="135" height="36" alt="シェアチューブ" src="<?php echo Uri::base(); ?>assets/img/logo/logo_29.png"></a></h1>
 			<!-- login_form -->
 			<form class="login_form" name="login_form" action="" method="post">
 				<!-- block -->

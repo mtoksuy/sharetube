@@ -42,8 +42,8 @@ class Model_Mail_Basis extends Model {
 		$mail_message = $post['mail_message'];
 		$bottom_fixed_phrase = "
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
 発行：Sharetube[シェアチューブ]サポートチーム
 http://sharetube.jp/
 
@@ -108,8 +108,8 @@ http://sharetube.jp/
 ログインページ
 http://sharetube.jp/login/
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
 発行：Sharetube[シェアチューブ]サポートチーム
 http://sharetube.jp/
 
@@ -149,8 +149,8 @@ http://sharetube.jp/
 ログインページ
 http://sharetube.jp/login/
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
 発行：Sharetube[シェアチューブ]サポートチーム
 http://sharetube.jp/
 
@@ -193,8 +193,8 @@ http://sharetube.jp/
 ログインページ
 http://sharetube.jp/login/
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
 発行：Sharetube[シェアチューブ]サポートチーム
 http://sharetube.jp/
 
@@ -278,8 +278,8 @@ Sharetube_id：".$sharetube_user_data_array['sharetube_id']."
 
 では、引き続きよろしくお願いいたします。
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
 発行：Sharetube[シェアチューブ]サポートチーム
 http://sharetube.jp/
 
@@ -339,8 +339,8 @@ Sharetube_id：".$sharetube_user_data_array['sharetube_id']."
 
 では、引き続きよろしくお願いいたします。
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
 発行：Sharetube[シェアチューブ]サポートチーム
 http://sharetube.jp/
 
@@ -379,8 +379,8 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 このメールが届いた方はお手数かけますが
 Sharetubeのお問い合わせからご連絡くださいますようよろしくお願い致します。
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sharetube [伝えたい情報をシェアする]キュレーションプラットフォームサービス
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
 発行：Sharetube[シェアチューブ]サポートチーム
 http://sharetube.jp/
 

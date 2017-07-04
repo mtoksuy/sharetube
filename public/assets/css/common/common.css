@@ -996,7 +996,26 @@ a:hover {
 .great_image_set_1 .click_zoom, .great_image_set_1 img {
   width: 1%;
 }
+.no_select {
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
 
+
+
+
+
+
+
+
+
+
+/****
+
+****/
 .customisable-border, .expanded .footer {
   border-width: 0 !important;
   margin-top: 10px;
