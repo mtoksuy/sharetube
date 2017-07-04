@@ -147,24 +147,19 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>05月24日〜06月09日</pre>
+						<pre>05月24日〜07月04日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.5.1</h3>
 						<pre>・cron実装(Sharetube Robots)
 ・テーマ一覧実装
 ・デザイン微修正
-・アバウトの変更</pre>
+・アバウトの変更
+・lpアップデート
+・ログインページアップデート</pre>
 					</dd>
 				</dl>
 			</li>
-
-
-
-
-
-
-
 
 
 			<li class="pointline clearfix">
