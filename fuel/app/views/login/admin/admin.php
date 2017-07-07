@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.1</p>
+						<p>Sharetube version 5.5.2</p>
 <?php if($_SESSION['sharetube_id'] == 'mtoksuy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6' OR $_SESSION['sharetube_id'] == 'work_shop_7') { 
 ?>
 
@@ -135,6 +135,40 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 				<span>2017年</span>
 			</li>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>07月07日〜07月07日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.2</h3>
+						<pre>・ダッシュボード(アドミン)のデザインをアップデート</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
