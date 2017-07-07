@@ -78,7 +78,6 @@ textarea {
 左
 */
 .admin_left {
-    background-color: #F0F0F0;
     width: 170px;
 		position: absolute;
 		top: 0;
@@ -89,7 +88,7 @@ textarea {
  /* 開発用 var_dempを見やすくするため  */
 }
 .admin_left_menu {
-	border-top: 2px solid #F1F1F1;
+
 }
 .admin_left_menu:first-child {
     border-top: medium none;
@@ -116,7 +115,8 @@ textarea {
 
 }
 .admin_left_menu dt {
-	background-color: #e5e5e5;
+	background-color: #ff3f3f;
+	color: #fcfcfc;
 	padding: 0 10px;
 }
 .admin_left_menu dd {
@@ -130,7 +130,6 @@ textarea {
 右
 */
 .admin_right {
-    background-color: #EAEAEA;
     margin-left: 170px;
 /*
     float: right;
@@ -259,6 +258,8 @@ margin: 30px;
 .article_list {
 	top: 22px;
     margin: 0 15px;
+		background-color: #ffffff;
+		box-shadow: 0 0 0 0px #e7e7e7;
 }
 .article_list_content {
     background-color: #FEFEFE;
