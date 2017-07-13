@@ -86,9 +86,18 @@ class Controller_Theme extends Controller_Theme_Template {
 		), false);
 
 
+
+
+
+
 		// テーマデータHTML生成
 		$theme_data_html = Model_Theme_Html::theme_data_html_create($theme_res);
-//pre_var_dump($theme_data_html);
+		// ーマのキュレーターランキングarray取得
+		$theme_curator_ranking_array = Model_Theme_Basis::theme_curator_ranking_array_get($theme_res);
+		// テーマのキュレーターランキングhtml生成
+		$theme_curator_ranking_html = Model_Theme_Html::theme_curator_ranking_html_create($theme_curator_ranking_array);
+
+
 		// 関連テーマarray取得
 		$theme_relation_2_array = Model_Theme_Basis::theme_relation_array_get($theme_res);
 //pre_var_dump($theme_relation_2_array);
@@ -98,8 +107,10 @@ class Controller_Theme extends Controller_Theme_Template {
 
 		// サイドバーコンテンツセット
 		$this->theme_template->view_data["sidebar"]->set('sidebar_data', array(
-			'theme_data_html'      => $theme_data_html,
-			'theme_relation_html'  => $theme_relation_html,
+			'theme_data_html'            => $theme_data_html,
+			'theme_curator_ranking_html' => $theme_curator_ranking_html,
+			'theme_relation_html'        => $theme_relation_html,
+			
 		),false);
 
 

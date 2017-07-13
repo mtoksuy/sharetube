@@ -356,7 +356,20 @@ class Model_Theme_Basis extends Model {
 		$theme_relation_2_array_checkk = array_multisort($theme_curator_data_array , SORT_DESC);
 		return $theme_curator_data_array;
 	}
-
+	//---------------------------------------
+	//テーマのキュレーターランキングarray取得
+	//---------------------------------------
+	public static function theme_curator_ranking_array_get($theme_res) {
+//		pre_var_dump($theme_res);
+		foreach($theme_res as $key => $value) {
+			$curator_ranking_data = $value['curator_ranking_data'];
+		}
+//pre_var_dump($curator_ranking_data);
+		// 謎の変換からarray形式に戻す(超大事)
+		$theme_curator_ranking_array = unserialize($curator_ranking_data);
+//		pre_var_dump($theme_curator_ranking_array);
+		return $theme_curator_ranking_array;
+	}
 
 
 

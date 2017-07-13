@@ -207,7 +207,43 @@ var_dump($end_point);
 			</div>');
 		return $theme_list_html;
 	}
+	//--------------------------------------
+	//テーマのキュレーターランキングhtml生成
+	//--------------------------------------
+	public static function theme_curator_ranking_html_create($theme_curator_ranking_array) {
+		$i = 0;
+		foreach($theme_curator_ranking_array['curator'] as $theme_curator_ranking_array_key => $theme_curator_ranking_array_value) {
+			if($i < 3) {
+				$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($theme_curator_ranking_array_key);
+				$i++;
+				$theme_curator_ranking_list_html .= 
+					'<li class="o_8">
+							<a href="'.HTTP.'channel/'.$sharetube_user_data_array['sharetube_id'].'/">
 
+						<div class="theme_curator_ranking_data clearfix">
+								<div class="theme_curator_ranking_data_left">
+									<img src="'.HTTP.'assets/img/creators/icon/'.$sharetube_user_data_array['profile_icon'].'" width="128" height="128">
+								</div>
+								<div class="theme_curator_ranking_data_right">
+									<div class="ranking_word place_'.$i.'">'.$i.'位</div>
+									<div class="ranking_name">'.$theme_curator_ranking_array_key.'さん</div>
+								</div>
+						</div>
+							</a>
+
+					</li>';
+			}
+		}
+		$theme_curator_ranking_html = '
+			<div class="theme_curator_ranking">
+				<h2>トップキュレーター</h2>
+				<ul class="ranking clearfix">
+					'.$theme_curator_ranking_list_html.'
+				</ul>
+			</div>
+';
+		return $theme_curator_ranking_html;
+	}
 
 
 
