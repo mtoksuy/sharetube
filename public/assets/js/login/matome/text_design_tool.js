@@ -88,12 +88,20 @@ setCaretPos(range)
 				selected_text = selected_text.replace(/\^/g, 'にゃん猫');
 				ntvstr        = ntvstr.replace(/\^/g, 'にゃん猫');
 
+				// 見出しのみの機能(後ろに改行があったら削除する)
+				if(start_tag == 'h3 class="h3_heading_1"' || start_tag == 'h4 class="h4_heading_1"') {
+					// 選択文字の後ろに改行があるかどうかを走査
+					re  = new RegExp(selected_text+'\n');					
+					var re_match = ntvstr.match(re);
+					if(re_match) {
+						// 改行削除
+						re  = new RegExp(selected_text+'\n');
+						var ntvstr = ntvstr.replace(re, selected_text);
+					}
+				}
 				// タグ差し込み
 				re  = new RegExp(selected_text);
-//				p(re); // 肝です。
-//  			p(ntvstr);
 				var res  = ntvstr.replace(re, '<'+start_tag+'>'+selected_text+'</'+end_tag+'>');
-
 				//<、>をエンティティを戻す
 				res = text_entity_return(res);
 				// (と)を元に戻す
