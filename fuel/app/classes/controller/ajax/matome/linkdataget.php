@@ -60,9 +60,19 @@ class Controller_Ajax_Matome_linkdataget extends Controller {
 		//////////
 		//概要取得
 		//////////
-		$pattern = '/<meta(.+?)description(.+?)content="(.+?)">/i';
+		$subject = str_replace('/', '', $subject);
+
+
+//		$pattern = '/<meta(.+?)description(.+?)content="(.+?)">/i';  > を削除しただけ 2017.07.14 松岡
+		$pattern = '/<meta(.+?)description(.+?)content="(.+?)"/i';
 		// 概要検索
 		preg_match($pattern, $subject, $description_array);
+
+/*
+  [3]=>
+  string(1390) "でんぱ組.incは秋葉原ディアステージに所属しアニメ・漫画・ゲームなどの趣味に特化したコアなオタクでもある古川未鈴、相沢梨紗、夢眠ねむ、成瀬瑛美、最上もが、藤咲彩音の6人によるジャパニーズポップカルチャー最先端アイドルユニット。最上もがについて。" /><style>figure{margin:0}.tmblr-iframe{position:absolute}.tmblr-i
+*/
+
 		// description
 		$description = $description_array[3];
 		// 後ろに /がある場合
