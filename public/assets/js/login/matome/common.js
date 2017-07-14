@@ -310,6 +310,28 @@ $('.postboxs').on( {
     });
 	}
 }, '.matome_draft');
+/****************
+まとめ プレビュー
+****************/
+$('.postboxs').on( {
+	'click': function() {
+		if($(this).nextAll('.matome_draft_save').length) {
+
+		}
+			else {
+				//--------------------------------
+				//下書きとして保存してください表示
+				//--------------------------------
+				swal({
+				  title: "下書きとして保存してください",
+				  text: "メッセージは1秒後に消えます",
+				  timer: 1200,
+				  showConfirmButton: false
+				});
+				return false;
+			}
+	}
+}, '.preview_button');
 /**********
 まとめ 編集
 **********/
