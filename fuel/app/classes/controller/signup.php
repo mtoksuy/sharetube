@@ -24,6 +24,15 @@ class Controller_Signup extends Controller_Signup_Template {
 		$this->signup_template->view_data["external_css"] = View::forge('signup/externalcss');
 		$post  = Model_Security_Basis::post_security();
 
+		// ログインチェック
+		$login_check = Model_Login_Basis::login_check();
+		// ログインしている場合
+		if($login_check) {
+			header('location: '.HTTP.'login/admin/');
+			exit;
+		}
+
+
 		// ポストがある場合
 		if($post) {
 //			var_dump($post);
