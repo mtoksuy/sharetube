@@ -139,12 +139,16 @@ function gallery_box_content_image_rsize_calculation(img) {
 	var article_list_contents_sub_text_img = $(".article_list_contents_sub_text img");
 	var tweet_content_icon_img             = $(".article_list_contents_sub_text .tweet_content_icon img");
 	var image_list_object = $();
+
+//p(article_list_contents_sub_text_img);
 //	var image_url_list    = '';
 	// 画像抜き出し
 	article_list_contents_sub_text_img.each( function(key, value) {
 		tweet_content_icon_check = $(this).parents('.tweet_content_icon');
 		amazon_link_image_check  = $(this).parents('.amazon_link_image');
 		amazon_link_text_check   = $(this).parents('.amazon_link_text');
+		amazon_link_detail_check = $(this).parents('.amazon_link_detail');
+
 		gallery_cell_check       = $(this).parents('.gallery-cell');
 		matome_content_block_itunes_app_icon_check = $(this).parents('.matome_content_block_itunes_app_icon');
 		matome_content_block_itunes_app_data_badge_check = $(this).parents('.matome_content_block_itunes_app_data_badge');
@@ -153,6 +157,7 @@ function gallery_box_content_image_rsize_calculation(img) {
 		tweet_content_icon_check = tweet_content_icon_check.attr('class');
 		amazon_link_image_check  = amazon_link_image_check.attr('class');
 		amazon_link_text_check   = amazon_link_text_check.attr('class');
+		amazon_link_detail_check = amazon_link_detail_check.attr('class');
 		gallery_cell_check       = gallery_cell_check.attr('class');
 		matome_content_block_itunes_app_icon_check = matome_content_block_itunes_app_icon_check.attr('class');
 		matome_content_block_itunes_app_data_badge_check = matome_content_block_itunes_app_data_badge_check.attr('class');
@@ -162,9 +167,19 @@ function gallery_box_content_image_rsize_calculation(img) {
 
 		}
 			else if(amazon_link_image_check) {
+/*
+				if($(this).width() == 1) {
 
+				}
+					else {
+						image_list_object = image_list_object.add($(this));
+					}
+*/
 			}
 				else if(amazon_link_text_check) {
+	
+				}
+				else if(amazon_link_detail_check) {
 	
 				}
 					else if(gallery_cell_check) {
@@ -180,9 +195,6 @@ function gallery_box_content_image_rsize_calculation(img) {
 							image_list_object = image_list_object.add($(this));
 						}
 	});
-//p(image_list_object);
-
-
 	//----------------
 	//モーダル画面開く
 	//----------------

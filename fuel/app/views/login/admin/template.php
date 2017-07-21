@@ -15,7 +15,7 @@
 	<body>
 		<!--  -->
 		<div class="admin">
-			<div class="admin_left">
+			<div class="admin_left clearfix">
 				<div class="admin_left_menu">
 					<a href="<?php echo Uri::base(); ?>login/admin/">ダッシュボード</a>
 					<a href="<?php echo Uri::base(); ?>channel/<?php echo $_SESSION['sharetube_id']; ?>/" target="_blank">マイページ</a>

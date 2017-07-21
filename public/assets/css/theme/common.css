@@ -153,6 +153,188 @@ top: 0px;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************
+キュレーターランキング
+*********************/
+.theme_curator_ranking {
+	margin: 20px 0 0;
+}
+.theme_curator_ranking h2 {
+	font-size: 100%;
+	margin: 0 0 10px;
+}
+.theme_curator_ranking ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.theme_curator_ranking ul li {
+	margin: 5px 0 0;
+}
+.theme_curator_ranking ul li .theme_curator_ranking_data {
+
+}
+.theme_curator_ranking ul li .theme_curator_ranking_data a {
+	display: block;
+}
+
+
+
+.theme_curator_ranking ul li .theme_curator_ranking_data .theme_curator_ranking_data_left {
+float: left;
+}
+.theme_curator_ranking ul li .theme_curator_ranking_data .theme_curator_ranking_data_left img {
+    height: auto;
+    width: 48px;
+}
+.theme_curator_ranking ul li .theme_curator_ranking_data .theme_curator_ranking_data_right {
+float: left;
+	margin: 0 0 0 10px;
+color: #545454;
+}
+.theme_curator_ranking ul li .theme_curator_ranking_data .theme_curator_ranking_data_right .ranking_word {
+	position: relative;
+	margin: 0;
+	padding: 5px 0 0 16px;
+}
+.theme_curator_ranking ul li .theme_curator_ranking_data .theme_curator_ranking_data_right .ranking_name {
+	margin: -5px 0 0;
+}
+
+/*
+ランキングデザイン
+http://www.pressmantech.com/tech/cording/4041
+**/
+
+
+
+
+.ranking{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+.ranking li .theme_curator_ranking_data .theme_curator_ranking_data_right .ranking_word {
+
+}
+.ranking li .theme_curator_ranking_data .theme_curator_ranking_data_right .ranking_word::before {
+position: absolute;
+top: 13px;
+left: 1px;
+color: #d05;
+content: "★";
+font-size: 9px;
+}
+.ranking li .theme_curator_ranking_data .theme_curator_ranking_data_right .ranking_word::before{
+position: absolute;
+top: 7px;
+left: 0;
+width: 0;
+height: 0;
+border: 6px solid transparent;
+border-bottom: 10px solid #fb0;
+content: "";
+}
+.ranking li .theme_curator_ranking_data .theme_curator_ranking_data_right .ranking_word::after{
+position: absolute;
+top: 15px;
+left: 0;
+width: 0;
+height: 0;
+border: 6px solid #fb0;
+border-top: 3px solid transparent;
+border-bottom: 6px solid #f90;
+content: "";
+}
+
+.place_2::before{
+	border-bottom: 10px solid #ccc !important;
+}
+.place_2::after{
+	border: 6px solid #ccc !important;
+	border-top: 3px solid transparent !important;
+	border-bottom: 6px solid #aaa !important;
+}
+.place_3::before{
+	border-bottom: 10px solid #d98 !important;
+}
+.place_3::after{
+	border: 6px solid #d98 !important;
+	border-top: 3px solid transparent !important;
+	border-bottom: 6px solid #c76 !important;
+}
+
+.place_4::before{
+	border-bottom: 0px solid #d98 !important;
+}
+.place_4::after{
+	border: 0px solid #d98 !important;
+	border-top: 0px solid transparent !important;
+	border-bottom: 0px solid #c76 !important;
+}
+
+.place_5::before{
+	border-bottom: 0px solid #d98 !important;
+}
+.place_5::after{
+	border: 0px solid #d98 !important;
+	border-top: 0px solid transparent !important;
+	border-bottom: 0px solid #c76 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**********
 
 **********/
@@ -170,6 +352,14 @@ top: 0px;
 	.theme_count {
 	    margin: 0 0 0 10px;
 	}
+	/*********************
+	キュレーターランキング
+	*********************/
+	.theme_curator_ranking {
+    margin: 20px 10px 10px;
+    padding: 5px;
+	}
+
 }
 @media screen and (min-width:0px)and (max-width:768px) {
 	.main {

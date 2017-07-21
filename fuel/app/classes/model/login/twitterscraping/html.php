@@ -4,6 +4,7 @@ class Model_Login_Twitterscraping_Html extends Model {
 	//ツイートHTML生成
 	//----------------
 	static function tweet_html_create($tweet_data_array) {
+//		pre_var_dump($tweet_data_array);
 		$twitter_url = 'https://twitter.com/';
 		// 画像メディアHTML生成
 		$image_media_html = Model_Login_Twitterscraping_Html::image_media_html_create($tweet_data_array);
@@ -11,6 +12,22 @@ class Model_Login_Twitterscraping_Html extends Model {
 		$gif_media_html   = Model_Login_Twitterscraping_Html::gif_media_html_create($tweet_data_array);
 		// videoメディアHTML生成
 		$video_media_html = Model_Login_Twitterscraping_Html::video_media_html_create($tweet_data_array);
+		if($tweet_data_array['reply']) {
+			$tweet_reply_html = '
+<div class="tweet_content_reply">
+	返信先: <a href="https://twitter.com/'.$tweet_data_array['reply'].'" target="_blank">@'.$tweet_data_array['reply'].'</a>さん
+</div>
+
+
+
+
+
+';
+		}
+			else { $tweet_reply_html = ''; }
+
+
+
 
 //var_dump($tweet_data_array['text']);
 // 改行を<br>に変換
@@ -31,6 +48,7 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 						<span>@'.$tweet_data_array['id'].'</span>
 					</a>
 				</div>
+					'.$tweet_reply_html.'
 				<div class="tweet_content_text">
 					'.$tweet_data_array['text'].'
 				</div>

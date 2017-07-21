@@ -62,7 +62,6 @@ class Controller_Article extends Controller_Article_Template {
 
 		// 記事のHTML生成
 		$article_data_array = Model_Article_Html::article_html_create($article_res);
-
 		// 記事のメタ生成
 		$meta_html          = Model_Article_Html::article_meta_html_create($article_data_array, 168);
 		// 記事メタセット
@@ -84,45 +83,7 @@ class Controller_Article extends Controller_Article_Template {
 
 		// ナビゲーションセット
 		$this->article_template->view_data['navigation']->set('content_data', array(
-			'navigation_html' => '
-
-<!--
-<nav class="breadcrumb_navigation">
-	<div class="breadcrumb_navigation_inner">
-		<ul class="clearfix">
-			<li class="breadcrumb_navigation_home">
-				<a href="http://localhost/sharetube/theme/6494/">
-					Sharetube
-				</a>
-			</li>
-			<li class="breadcrumb_navigation_category">
-				<span class="breadcrumb_navigation_arrow"></span>
-				<a href="http://localhost/sharetube/theme/6494/">
-					おもしろ
-				</a>
-			</li>
-			<li class="breadcrumb_navigation_theme">
-				<a href="http://localhost/sharetube/theme/6494/">
-					<span class="typcn typcn-folder"></span>ハリー・ポッター(4)
-				</a>
-			</li>
-			<li class="breadcrumb_navigation_theme">
-				<a href="http://localhost/sharetube/theme/6456/">
-					<span class="typcn typcn-folder"></span>ファン(2)
-				</a>
-			</li>
-			<li class="breadcrumb_navigation_theme">
-				<a href="http://localhost/sharetube/theme/7418/">
-					<span class="typcn typcn-folder"></span>キングス・クロス駅(1)
-				</a>
-			</li>
-		</ul>
-	</div>
-</nav>
--->
-
-
-',
+			'navigation_html' => '',
 		), false);
 
 		// 記事コンテンツセット

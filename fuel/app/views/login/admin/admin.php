@@ -4,7 +4,7 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.1</p>
+						<p>Sharetube version 5.5.2</p>
 <?php if($_SESSION['sharetube_id'] == 'mtoksuy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6' OR $_SESSION['sharetube_id'] == 'work_shop_7') { 
 ?>
 
@@ -108,10 +108,7 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p class="m_0">・テーマ一覧ページ</p>
 					<p class="m_0">・おすすめテーマ一覧</p>
-					<p class="m_0">・テーマ別のキュレーターランキング</p>
-					<p class="m_0">・まとめ作成ツール：アイテム：テキストを見出しにした時に改行を自動で削除する</p>
 					<p>・まとめ作成ツール：アイテム：Q＆A実装</p>
 
 
@@ -135,6 +132,47 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 				<span>2017年</span>
 			</li>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>07月07日〜07月21日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.2</h3>
+						<pre>・ダッシュボード(アドミン)のデザインをアップデート
+・テーマ別のキュレーターランキング実装
+・まとめ作成ツール：アイテム：テキストを中見出し・小見出しにした時に後ろに改行があった場合、自動で削除実装
+・まとめ作成で下書きせずにプレビューをした時にエラーにさせない実装
+・ログインしている時に まとめ作成 をクリックしたら ダッシュボードに遷移実装
+・リンクの中にある概要の中身にHTMLがあるとバグる(URL先のバグで)現象を修正 - 100リンクくらい試しましたが、まだ完全に修正したかわかりません。まだバグがございましたらご一報よろしくお願いいたいます。
+・まとめ作成ツール：アイテム：Twitter挿入でリプライがあるツイート挿入がエラーになるバグを修正
+・まとめ記事内の画像をクリックした際に表示されるモーダル機能アップデート</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 

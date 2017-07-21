@@ -309,7 +309,67 @@ class Model_Theme_Basis extends Model {
 			ORDER BY article_count DESC")->cached(259200)->execute();
 		return $theme_ranking_all_list_res;
 	}
+	//-----------------------------------
+	//テーマのキュレーターデータarray取得
+	//-----------------------------------
+	public static function theme_curator_data_array_get($theme_res) {
+		$theme_relation_array   = array();
+		$theme_relation_2_array = array();
+		$theme_data_array       = array();
+		$i                      = 0;
+		$check                  = false;
+		// 名前取得
+		foreach($theme_res as $key => $value) {
+			$theme_name = $value['theme_name'];
+		}
+		$theme_data_array['theme_name'] = $theme_name;
+		// 記事からtag取得
+		$theme_relation_res = DB::query("
+			SELECT primary_id, sharetube_id, tag
+			FROM article
+			WHERE tag LIKE '%".$theme_name."%'
+			AND del = 0
+			ORDER BY primary_id DESC")->cached(259200)->execute();
+		foreach($theme_relation_res as $theme_relation_key => $theme_relation_value) {
+			// テーマarray生成
+			$theme_array = Model_Theme_Basis::theme_array_create($theme_relation_value['tag']);
+			foreach($theme_array as $theme_array_key => $theme_array_value) {
+				if(preg_match('/^'.$theme_array_value.'\z/', $theme_name)) {
+					$theme_data_array['curator_name'][$theme_relation_value['sharetube_id']]['article_primary_id'][] = $theme_relation_value['primary_id'];
+				}
+			}
+		}
 
+
+
+		$theme_curator_data_array = array();
+		foreach($theme_data_array['curator_name'] as $theme_data_array_curator_name_key => $theme_data_array_curator_name_value) {
+			foreach($theme_data_array_curator_name_value['article_primary_id'] as $theme_data_array_curator_name_value_key => $theme_data_array_curator_name_value_value) 			{
+				$theme_article_sum_res = DB::query("SELECT SUM(count)
+					FROM access_summary
+					WHERE article_id = ".(int)$theme_data_array_curator_name_value_value."")->execute();
+				foreach($theme_article_sum_res as $theme_article_sum_res_key => $theme_article_sum_res_value) {
+					$theme_curator_data_array[$theme_data_array_curator_name_key]['count'] = ((int)$theme_article_sum_res_value['SUM(count)'])+$theme_curator_data_array[$theme_data_array_curator_name_key]['count'];
+				}
+			}
+		}
+		$theme_relation_2_array_checkk = array_multisort($theme_curator_data_array , SORT_DESC);
+		return $theme_curator_data_array;
+	}
+	//---------------------------------------
+	//テーマのキュレーターランキングarray取得
+	//---------------------------------------
+	public static function theme_curator_ranking_array_get($theme_res) {
+//		pre_var_dump($theme_res);
+		foreach($theme_res as $key => $value) {
+			$curator_ranking_data = $value['curator_ranking_data'];
+		}
+//pre_var_dump($curator_ranking_data);
+		// 謎の変換からarray形式に戻す(超大事)
+		$theme_curator_ranking_array = unserialize($curator_ranking_data);
+//		pre_var_dump($theme_curator_ranking_array);
+		return $theme_curator_ranking_array;
+	}
 
 
 
