@@ -48,6 +48,9 @@ class Model_Login_Twitterscraping_Basis extends Model {
 		// utf-8をUTF-8に置換
 		$subject = str_replace('<meta charset="UTF-8">', '<meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">', $subject);
 		$subject = str_replace('<meta charset="utf-8">', '<meta charset="utf-8"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">', $subject);
+//		pre_var_dump($subject);
+
+
 		// DOMクラス生成
 		$dom = new DOMDocument('1.0', 'UTF-8');
 		// 文字列から HTML を読み込む
@@ -67,6 +70,27 @@ class Model_Login_Twitterscraping_Basis extends Model {
 		$xpath->registerPHPFunctions();
 		// ・主コンテンツのみ取得(重要)
 		$subject = $xpath->query('//div[@class="permalink-inner permalink-tweet-container"]')->item(0);
+		// リプライ系かどうかを調べる
+		$reply_check = false;
+		if($subject) {}
+			else {
+				$subject = $xpath->query('//div[@class="permalink-inner permalink-tweet-container ThreadedConversation ThreadedConversation--permalinkTweetWithAncestors"]')->item(0);
+				$reply_check = true;
+				// 文字列から HTML を読み込む
+				@$dom->loadHTML($subject);
+				$xpath = new DOMXPath($dom);
+				// DOMXPath オブジェクトの名前空間を登録する
+				$xpath->registerNamespace("php", "http://php.net/xpath");
+				// PHP の関数を XPath 関数として登録する
+				$xpath->registerPHPFunctions();
+				// ・主コンテンツのみ取得(重要)
+				$subject_2 = $xpath->query('//div[@class="ReplyingToContextBelowAuthor"]')->item(0);
+			}
+//		pre_var_dump($subject_2);
+
+
+
+
 
 		// HTMLとして取り出す
 		$subject = Model_Login_Twitterscraping_Basis::getInnerHtml($subject);
@@ -231,7 +255,6 @@ http://sato-san.hatenadiary.jp/entry/2013/05/06/155919
 		$twitter_user_icon       = $twitter_user_icon_array[1];
 		array_push($twitter_tweet_icon_media_foreach_array, $twitter_user_icon);
 //		var_dump($twitter_tweet_icon_media_foreach_array);
-
 
 
 
@@ -475,6 +498,8 @@ var.1
 				$twitter_tweet_video_media_foreach_array = array($tweet_data_array['extended_entities']['media'][0]['video_info']['variants'][1]['url']);
 				// 動画サムネイル
 				$video_thumbnail_array                   = array($tweet_data_array['extended_entities']['media'][0]['media_url']);
+//pre_var_dump($twitter_tweet_video_media_foreach_array);
+
 			break;
 			/////////////////
 			//gifメディア取得
@@ -555,6 +580,40 @@ var.1
 			$video_thumbnail_array =  array($video_thumbnail_array[1]);
 		}
 */
+
+		//////////////
+		//リプライ抽出
+		//////////////
+//permalink-inner permalink-tweet-container ThreadedConversation ThreadedConversation--permalinkTweetWithAncestors
+//tweet permalink-tweet js-actionable-user js-actionable-tweet js-original-tweet with-social-proof js-initial-focus focus
+		foreach($simple_html_dom_object->find('.js-original-tweet') as $list) {
+			$reply_tweet_container_html .= $list->outertext;
+		}
+//		pre_var_dump($reply_tweet_container_html);
+		$twitter_tweet_reply_media_foreach_array = array();
+		$pattern = '/<a class="pretty-link js-user-profile-link">(.+?)<\/a>/';
+		$pattern = '/<a class="pretty-link js-user-profile-link"(.+?)>(.+?)<b>(.+?)<\/b>(.+?)<\/a>/';
+		preg_match($pattern, $reply_tweet_container_html, $twitter_reply_array);
+		$twitter_tweet_reply = $twitter_reply_array[3];
+
+
+/*
+<a class="pretty-link js-user-profile-link" href="/shigatake" data-user-id="115712057" rel="noopener" dir="ltr"><span class="username u-dir" dir="ltr">@<b>shigatake</b></span></a>
+
+
+
+
+		$pattern = '/src="(.+?)"/';
+		preg_match($pattern, $twitter_user_icon_array[0], $twitter_user_icon_array);
+//		var_dump($twitter_user_icon_array);
+		$twitter_user_icon       = $twitter_user_icon_array[1];
+		array_push($twitter_tweet_icon_media_foreach_array, $twitter_user_icon);
+//		var_dump($twitter_tweet_icon_media_foreach_array);
+*/
+
+
+
+
 		/** 終点 **/
 		//開放
 		$simple_html_dom_object->clear();
@@ -570,6 +629,7 @@ var.1
 		$tweet_data_array['name']                  = $twitter_user_name;
 		$tweet_data_array['id']                    = $twitter_user_id;
 		$tweet_data_array['time']                  = $twitter_tweet_time;
+		$tweet_data_array['reply']                 = $twitter_tweet_reply;
 		$tweet_data_array['text']                  = $twitter_tweet_text;
 		$tweet_data_array['retweet']               = $twitter_tweet_retweet;
 		$tweet_data_array['fav']                   = $twitter_tweet_fav;

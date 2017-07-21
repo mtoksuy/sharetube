@@ -1081,6 +1081,14 @@ a:hover {
   color: #292f33;
   font-weight: 700;
 }
+.tweet_content_reply {
+	font-size: 82%;
+	color: #657786;
+	margin: 0 0 5px;
+}
+.tweet_content_reply a {
+
+}
 
 .tweet_content_text {
   margin: -6px 0 0;
