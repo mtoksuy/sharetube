@@ -1,12 +1,14 @@
 				<div class="admin_right_block">
 				<div class="article_list">
-
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
+
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.2</p>
+						<p>Sharetube version 5.5.3</p>
 <?php if($_SESSION['sharetube_id'] == 'mtoksuy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6' OR $_SESSION['sharetube_id'] == 'work_shop_7') { 
 ?>
+
+
 
 <p style="border-bottom:1px solid #dddddd;"> </p>
 <p>
@@ -151,6 +153,19 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 
 
 
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>07月22日〜07月26日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.3</h3>
+						<pre>・Sharetubeの運営：単一サーバー構成からWebサーバー+DBサーバーの構成に切り替え</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
