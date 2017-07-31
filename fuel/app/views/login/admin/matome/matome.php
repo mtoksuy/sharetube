@@ -75,6 +75,7 @@
 				<div class="columns_2 clearfix">
 						<!-- new_post -->
 						<div class="new_post">
+							<input class="matome_sharetube_id" type="hidden" name="matome_sharetube_id" value="<?php echo $_SESSION['sharetube_id'] ?>">
 							<div class="new_post_contents">
 								<h1 class="m_b_15">まとめ作成</h1>
 									<?php 
