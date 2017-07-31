@@ -13,17 +13,16 @@ class Controller_Ajax_Matome_Twitterhtmlcreate extends Controller {
 
 /*******/
 // scraping.sharetube用
-			// 本番のみsharetubeサーバーにrsyncでコンテンツを転送
-			if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
-				// 何もしない
+	// 本番のみsharetubeサーバーにrsyncでコンテンツを転送
+	if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
+		// 何もしない
+	}
+		// 本番環境
+		else {
+			if(preg_match('/sharetube/', $_SERVER["HTTP_HOST"], $matches)) {
+				header('Access-Control-Allow-Origin: *');
 			}
-				// 本番環境
-				else {
-					if(preg_match('/sharetube/', $_SERVER["HTTP_HOST"], $matches)) {
-						define('HTTP', 'http://sharetube.jp/');
-						header('Access-Control-Allow-Origin: *');
-					}
-				}
+		}
 /*******/
 
 

@@ -4,14 +4,23 @@ class Model_Login_Twitterscraping_Html extends Model {
 	//ツイートHTML生成
 	//----------------
 	static function tweet_html_create($tweet_data_array) {
+	// scrapingサーバー用
+	if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
+		$sharetube_http = 'http://localhost/sharetube/';
+	}
+		// 本番環境
+		else {
+			$sharetube_http = 'http://sharetube.jp/';
+		}
+
 //		pre_var_dump($tweet_data_array);
 		$twitter_url = 'https://twitter.com/';
 		// 画像メディアHTML生成
-		$image_media_html = Model_Login_Twitterscraping_Html::image_media_html_create($tweet_data_array);
+		$image_media_html = Model_Login_Twitterscraping_Html::image_media_html_create($tweet_data_array, $sharetube_http);
 		// gifメディアHTML生成
-		$gif_media_html   = Model_Login_Twitterscraping_Html::gif_media_html_create($tweet_data_array);
+		$gif_media_html   = Model_Login_Twitterscraping_Html::gif_media_html_create($tweet_data_array, $sharetube_http);
 		// videoメディアHTML生成
-		$video_media_html = Model_Login_Twitterscraping_Html::video_media_html_create($tweet_data_array);
+		$video_media_html = Model_Login_Twitterscraping_Html::video_media_html_create($tweet_data_array, $sharetube_http);
 		if($tweet_data_array['reply']) {
 			$tweet_reply_html = '
 <div class="tweet_content_reply">
@@ -39,7 +48,7 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 			<div class="tweet_content">
 				<div class="tweet_content_icon">
 					<a href="'.$twitter_url.$tweet_data_array["id"].'" target="_blank">
-						<img src="'.HTTP.'assets/img/twitter/'.$tweet_data_array['icon'].'" width="48" height="48">
+						<img src="'.$sharetube_http.'assets/img/twitter/'.$tweet_data_array['icon'].'" width="48" height="48">
 					</a>
 				</div>
 				<div class="tweet_content_name">
@@ -84,7 +93,7 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 	//--------------------
 	//画像メディアHTML生成
 	//--------------------
-	static function image_media_html_create($tweet_data_array) {
+	static function image_media_html_create($tweet_data_array, $sharetube_http = 'http://sharetube.jp/') {
 		$image_count = 0;
 		$image_media_html = '';
 		// 画像メディアの数を調べる
@@ -102,8 +111,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 						'<div class="image_media_1">
 							<div class="great_image_set_50 tweet_image_media">
 								<p class="m_0">
-									<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-										<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+									<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+										<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 									</a>
 								</p>
 							</div>
@@ -120,8 +129,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 							$image_media_html .= 
 								'<div class="great_image_set_100 tweet_image_media">
 									<p class="m_0">
-										<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-											<img width="'.$width.'" height="'.$height.'" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+										<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+											<img width="'.$width.'" height="'.$height.'" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 										</a>
 									</p>
 								</div>';
@@ -149,8 +158,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 							$image_media_html .= 
 								'<div class="great_image_set_100 tweet_image_media">
 									<p class="m_0">
-										<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-											<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+										<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+											<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 										</a>
 									</p>
 								</div>
@@ -161,8 +170,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 								'<div class="image_media_4_bottom">
 									<div class="great_image_set_100 tweet_image_media">
 										<p class="m_0">
-											<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-												<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+											<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+												<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 											</a>
 										</p>
 									</div>';
@@ -171,8 +180,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 							$image_media_html .= 
 								'<div class="great_image_set_100 tweet_image_media">
 									<p class="m_0">
-										<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-											<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+										<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+											<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 										</a>
 									</p>
 								</div>
@@ -183,8 +192,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 								'<div class="image_media_4_top">
 									<div class="great_image_set_100 tweet_image_media">
 										<p class="m_0">
-											<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-												<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+											<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+												<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 											</a>
 										</p>
 									</div>';
@@ -210,8 +219,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 							$image_media_html .= 
 								'<div class="great_image_set_100 tweet_image_media">
 									<p class="m_0">
-										<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-											<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+										<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+											<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 										</a>
 									</p>
 								</div>
@@ -222,8 +231,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 								'<div class="image_media_4_bottom">
 									<div class="great_image_set_100 tweet_image_media">
 										<p class="m_0">
-											<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-												<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+											<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+												<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 											</a>
 										</p>
 									</div>';
@@ -232,8 +241,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 							$image_media_html .= 
 								'<div class="great_image_set_100 tweet_image_media">
 									<p class="m_0">
-										<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-											<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+										<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+											<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 										</a>
 									</p>
 								</div>
@@ -244,8 +253,8 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 								'<div class="image_media_4_top">
 									<div class="great_image_set_100 tweet_image_media">
 										<p class="m_0">
-											<a href="'.HTTP.'assets/img/twitter/'.$value.'" target="_blank">
-												<img width="640" height="400" title="" alt="" src="'.HTTP.'assets/img/twitter/'.$value.'" class="o_8">
+											<a href="'.$sharetube_http.'assets/img/twitter/'.$value.'" target="_blank">
+												<img width="640" height="400" title="" alt="" src="'.$sharetube_http.'assets/img/twitter/'.$value.'" class="o_8">
 											</a>
 										</p>
 									</div>';
@@ -272,12 +281,12 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 	//-------------------
 	//gifメディアHTML生成
 	//-------------------
-	static function gif_media_html_create($tweet_data_array) {
+	static function gif_media_html_create($tweet_data_array, $sharetube_http = 'http://sharetube.jp/') {
 		$gif_media_html = '';
 		foreach($tweet_data_array["gif_media_run"] as $key => $value) {
 		$gif_media_html .= 
-		'<video loop autoplay poster="'.HTTP.'assets/img/twitter/'.$tweet_data_array["gif_media_thumbnail_run"][0].'">
-			<source src="'.HTTP.'assets/img/twitter/'.$value.'"></source>
+		'<video loop autoplay poster="'.$sharetube_http.'assets/img/twitter/'.$tweet_data_array["gif_media_thumbnail_run"][0].'">
+			<source src="'.$sharetube_http.'assets/img/twitter/'.$value.'"></source>
 			<p>ご利用のブラウザーでは再生できません。</p>
 		</video>';
 		}
@@ -295,12 +304,12 @@ $tweet_data_array['text'] = str_replace("&#10;", "<br>", $tweet_data_array['text
 	//---------------------
 	//videoメディアHTML生成
 	//---------------------
-	static function video_media_html_create($tweet_data_array) {
+	static function video_media_html_create($tweet_data_array, $sharetube_http = 'http://sharetube.jp/') {
 		$video_media_html = '';
 		foreach($tweet_data_array["video_media_run"] as $key => $value) {
 		$video_media_html .= 
-		'<video controls poster="'.HTTP.'assets/img/twitter/'.$tweet_data_array["video_media_thumbnail_run"][0].'">
-			<source src="'.HTTP.'assets/img/twitter/'.$value.'"></source>
+		'<video controls poster="'.$sharetube_http.'assets/img/twitter/'.$tweet_data_array["video_media_thumbnail_run"][0].'">
+			<source src="'.$sharetube_http.'assets/img/twitter/'.$value.'"></source>
 			<p>ご利用のブラウザーでは再生できません。</p>
 		</video>';
 		}
