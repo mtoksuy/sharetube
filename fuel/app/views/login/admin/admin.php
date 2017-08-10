@@ -5,12 +5,13 @@
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.3</p>
-<?php if($_SESSION['sharetube_id'] == 'mtoksuy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6' OR $_SESSION['sharetube_id'] == 'work_shop_7') { 
+<?php if($_SESSION['sharetube_id'] == 'mtoksuyy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6' OR $_SESSION['sharetube_id'] == 'work_shop_7') { 
 ?>
 
 
 
 <p style="border-bottom:1px solid #dddddd;"> </p>
+
 <p>
 
 
@@ -40,9 +41,10 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 <?php
 } ?>
 
-						<p class="m_0">・Sharetube(トップページ)のタイトルと概要をアップデートいたしました。</p>
-						<p class="m_0">・Sharetubeとは？( <a href="http://sharetube.jp/about/" target="_blank">http://sharetube.jp/about/</a> )をアップデートいたしました。</p>
-						<p class="m_0">・テーマ関連を強化してまいります。作成されたまとめの足りないテーマを運営側で追記しておりますのでテーマのつけ方として確認よろしくお願い致します。</p>
+
+
+
+
 
 
 						<br>
@@ -158,11 +160,16 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>07月22日〜07月26日</pre>
+						<pre>07月22日〜08月10日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.5.3</h3>
-						<pre>・Sharetubeの運営：単一サーバー構成からWebサーバー+DBサーバーの構成に切り替え</pre>
+						<pre>・Sharetubeの運営：単一サーバー構成からWebサーバー+DBサーバーの構成に切り替え
+・Webサーバーをメモリ8GBからメモリ16GBのサーバーに載せ替え
+・Scrapingサーバー実装(Twitterのツイートを作成するためだけのサーバー)
+・cronサーバー実装(Sharetube_ロボット)
+・Webサーバー+DBサーバー+Scrapingサーバー+cronサーバー4台構成実装
+・新しいアドネットワーク追加</pre>
 					</dd>
 				</dl>
 			</li>
