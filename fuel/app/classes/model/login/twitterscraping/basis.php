@@ -26,7 +26,7 @@ class Model_Login_Twitterscraping_Basis extends Model {
 	//---------------------
 	//Twitterスクレイピング
 	//---------------------
-	static function Twitter_scraping($tweet_url) {
+	static function Twitter_scraping($tweet_url, $sharetube_id) {
 // 動画のツイート
 //$tweet_url = 'https://twitter.com/animal__niyaniy/status/847362860644614145';
 // gifのツイート
@@ -648,39 +648,39 @@ var.1
 		///////////////////////////////////////////////////////
 		//アイコン画像メディアデータベース登録&ファイル書き込み
 		///////////////////////////////////////////////////////
-		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($tweet_data_array, 'icon_media');
+		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($sharetube_id, $tweet_data_array, 'icon_media');
 		$tweet_data_array["icon"] = $image_media_array[0];
 //		 var_dump($image_media_array);
 
 		///////////////////////////////////////////////
 		//画像メディアデータベース登録&ファイル書き込み
 		///////////////////////////////////////////////
-		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($tweet_data_array, 'image_media');
+		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($sharetube_id, $tweet_data_array, 'image_media');
 		$tweet_data_array["image_media_run"] = $image_media_array;
 //		 var_dump($image_media_array);
 
 		//////////////////////////////////////////////
 		//gifメディアデータベース登録&ファイル書き込み
 		//////////////////////////////////////////////
-		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($tweet_data_array, 'gif_media');
+		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($sharetube_id, $tweet_data_array, 'gif_media');
 		$tweet_data_array["gif_media_run"] = $image_media_array;
 
 		/////////////////////////////////////////////////////////
 		//gifメディア(thumbnail)データベース登録&ファイル書き込み
 		/////////////////////////////////////////////////////////
-		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($tweet_data_array, 'gif_media_thumbnail');
+		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($sharetube_id, $tweet_data_array, 'gif_media_thumbnail');
 		$tweet_data_array["gif_media_thumbnail_run"] = $image_media_array;
 
 		////////////////////////////////////////////////
 		//videoメディアデータベース登録&ファイル書き込み
 		////////////////////////////////////////////////
-		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($tweet_data_array, 'video_media');
+		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($sharetube_id, $tweet_data_array, 'video_media');
 		$tweet_data_array["video_media_run"] = $image_media_array;
 
 		///////////////////////////////////////////////////////////
 		//videoメディア(thumbnail)データベース登録&ファイル書き込み
 		///////////////////////////////////////////////////////////
-		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($tweet_data_array, 'video_media_thumbnail');
+		$image_media_array	 = Model_Login_Twitterscraping_Basis::media_run($sharetube_id, $tweet_data_array, 'video_media_thumbnail');
 		$tweet_data_array["video_media_thumbnail_run"] = $image_media_array;
 //		var_dump($tweet_data_array);
 
@@ -695,7 +695,7 @@ var.1
 	//---------------------------------------------
 	//画像メディアデータベース登録&ファイル書き込み
 	//---------------------------------------------
-	static function media_run($tweet_data_array, $media_type = 'image_media') {
+	static function media_run($sharetube_id, $tweet_data_array, $media_type = 'image_media') {
 		$image_media_array = array();
 		// 画像メディア分を実行
 		foreach($tweet_data_array[$media_type] as $key => $value) {
@@ -711,7 +711,7 @@ var.1
 					extension
 				)
 				VALUES (
-					'".$_SESSION["sharetube_id"]."', 
+					'".$sharetube_id."',
 					'".$extension."'
 				)")->execute();
 			// ハッシュ取得
@@ -728,10 +728,44 @@ var.1
 			curl_setopt($curl_session, CURLOPT_URL, $value); // 取得する URL 。curl_init() でセッションを 初期化する際に指定することも可能です。 
 			curl_setopt($curl_session, CURLOPT_RETURNTRANSFER, true); // TRUE を設定すると、curl_exec() の返り値を 文字列で返します。通常はデータを直接出力します。
 			$data = curl_exec($curl_session); // cURL セッションを実行する
-//			var_dump($data);
+//			pre_var_dump($value);
 			// データを指定した場所に書き込み(重要)
 			file_put_contents(PATH.'assets/img/twitter/'.$file_name, $data);
 			curl_close(); // cURL セッションを閉じる
+//			pre_var_dump(PATH.'assets/img/twitter/'.$file_name);
+
+
+			// 本番のみsharetubeサーバーにrsyncでコンテンツを転送
+			if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
+				// 何もしない
+			}
+				// 本番環境
+				else {
+//					pre_var_dump('本番');
+					$cmd = 'rsync -auz -e ssh /var/www/vhosts/scraping.sharetube.jp/app/fuelphp/public/assets/img/twitter/ rsyncuser@157.7.131.122:/var/www/vhosts/sharetube.jp/app/fuelphp/public/assets/img/twitter/';
+//					$cmd = 'sh /home/twitter_content_rsync.sh';
+/*
+
+*/
+//			    exec($cmd, $arr, $res);
+					$tex = shell_exec($cmd);
+
+//pre_var_dump($tex);
+
+//pre_var_dump($arr);
+//pre_var_dump($res);
+					/*
+					exec($a,$b,$c);
+					引数
+					・実行するコマンドを指定します。
+					・変数を指定した場合、コマンドの出力結果を行ごとに配列に格納します。
+					・変数を指定した場合、コマンドのステータスが格納されます。
+					コマンド実行の成功時には「0」、コマンド実行の失敗時には「1」が格納されます。
+					
+					返り値
+					・コマンド実行結果の最後の行を返します。
+					*/
+				}
 			// データベース登録&ファイル書き込みした画像array
 			$image_media_array[$key] = $file_name;
 		} // foreach($tweet_data_array["image_media"] as $key => $value) {

@@ -76,6 +76,19 @@ function ajax_tweet_html_create(twitter_add) {
 		var check_box = twitter_add.find('.twitter_add_content_check_box');
 		// TweetURL取得
 		var Tweet_url = twitter_add.find('.twitter_add_content_url').val();
+		// sharetube_id取得
+		var sharetube_id = $('.matome_sharetube_id').attr('value');
+
+		// ローカルと本番との切り替え
+		if (location.host == 'localhost') {
+			var scraping_http = 'http://localhost/sharetube/';
+		}
+			else if (location.host == 'sharetube.jp') {
+				var scraping_http = 'http://scraping.sharetube.jp/';
+			}
+// ローカルでのテスト用
+//				var scraping_http = 'http://scraping.sharetube.jp/';
+
 
 		var re = /https|http/;
 		var test = Tweet_url.match(re);
@@ -85,9 +98,12 @@ function ajax_tweet_html_create(twitter_add) {
 			// Ajaxを走らせる
 			$.ajax( {
 				type: 'POST', 
-				url: http+'ajax/matome/twitterhtmlcreate/',
+//				url: http+'ajax/matome/twitterhtmlcreate/',
+//				url: 'http://scraping.sharetube.jp/ajax/matome/twitterhtmlcreate/',
+				url: scraping_http+'ajax/matome/twitterhtmlcreate/',
 				data: {
-					tweet_url: Tweet_url,
+					tweet_url    : Tweet_url,
+					sharetube_id : sharetube_id,
 				},
 				dataType: 'json',
 				cache: false,

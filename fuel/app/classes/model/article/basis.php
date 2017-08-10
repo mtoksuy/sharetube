@@ -108,13 +108,8 @@ class Model_Article_Basis extends Model {
 		// sql文を完成させる
 	    $sql = $sql.'
 				ORDER BY primary_id DESC
-				LIMIT 0 , 9';
+				LIMIT 0 , 10';
 //			pre_var_dump($sql);
-	/*
-	string(128) "SELECT * FROM article WHERE tag like '%たぐう%' AND primary_id != 2247 AND del = 0 ORDER BY primary_id DESC LIMIT 0 , 9" 
-	string(71) "SELECT * FROM article WHERE ORDER BY primary_id DESC LIMIT 0 , 9" 
-	
-	*/
 			// res取得
 			$related_res = DB::query("".$sql."")->cached(3600)->execute();
 			// sql文で取得した記事の数を取得

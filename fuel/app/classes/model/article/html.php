@@ -165,38 +165,37 @@ class Model_Article_Html extends Model {
 		$detect  = Model_info_Basis::mobile_detect_create();
 		// 広告配信(現在使用していない模様 2016.08.26 松岡)
 		$ad_html = Model_Ad_Html::ad_html_create($detect, 'geniee','レクタングル');
+
 		// Fluct広告
 		$ad_middle_left_html   = Model_Ad_Html::fluct_ad_html_create($detect, 'ミドル左', 'ミドル_1');
 		$ad_middle_right_html  = Model_Ad_Html::fluct_ad_html_create($detect, 'ミドル右', 'none');
 		$ad_article_under_html = Model_Ad_Html::fluct_ad_html_create($detect, '記事下', 'ミドル_2');
+
+
+		// 全ての広告別array取得
+		$all_ad_html_array = Model_Ad_Html::all_ad_html_array_get();
+		// アドネットワークをランダムで取得
+		$ad_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'addways', 'geniee'));
+		$ad_network_name_under = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee'));
+		// 広告ネットワーク指定アドhtml生成
+		$ad_middle_left_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_left, 'ミドル左', 'ミドル_1');
+		$ad_middle_right_html  = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'fluct', 'ミドル右', 'none');
+		$ad_article_under_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_under, 'ミドル右', 'ミドル_2');
+		$ad_article_infeed_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'geniee', 'none', 'インフィード');
+		$ad_article_interstitial_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'geniee', 'none', 'インタースティシャル');
+
 		// まとめ内広告トップ・ボトム広告HTML生成
 		list($article_top_ad_html, $article_under_ad_html) = Model_Article_Html::matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html, $ad_article_under_html);
 
-//var_dump($article_under_ad_html);
 
-
-		// PCユーザーのみキュレーター募集をかける
-		if($detect->isMobile()) {
-
+		// 記事HTML生成
+		foreach($article_res as $key => $value) {
+			// テーマHTML生成
+			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"], 3600);
 		}
-			else if($detect->isTablet()) {
+		// インタースティシャル広告判定
+		$ad_article_interstitial_html = Model_Ad_Basis::interstitial_permission_theme_ad_html_get($tag_array, $ad_article_interstitial_html);
 
-			}
-				else {
-					$curator_recruitment_html = '<div class="curator_recruitment o_8">
-<a href="http://sharetube.jp/curatorrecruitment/" target="blank">
-		<div  class="curator_recruitment_content">
-			<h3><span class="typcn typcn-pencil"></span>
-				Sharetubeはキュレーター募集をしています
-			</h3>
-			<p class="m_0">業界No.1のインセンティブ、誰でも簡単にまとめれる「まとめツール」があります。</p>
-			<p class="m_0">好きな情報をまとめて情報発信したい方、お小遣い稼ぎしたい方</p>
-			<p class="m_0">まとめを作成してみませんか？</p>	
-		</div>
-	</a>
-	</div>';
-					$curator_recruitment_html = '';
-				}
 		// 記事HTML生成
 		foreach($article_res as $key => $value) {
 			// 記事のprimary_id取得
@@ -241,8 +240,8 @@ class Model_Article_Html extends Model {
 
 			// テーマHTML生成
 			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"], 3600);
-//			var_dump($tag_array);
-//			var_dump($tag_html);
+//			pre_var_dump($tag_array);
+//			pre_var_dump($tag_html);
 
 			// オリジナルHTML生成
 			$original_html = Model_Article_Html::original_html_create($original);
@@ -279,7 +278,7 @@ class Model_Article_Html extends Model {
 			// 関連まとめデータ取得
 			list($related_res, $related_count) = Model_Article_Basis::article_related_get($related_data_array, 'article');
 			// 関連まとめHTML生成
-			$related_html                      = Model_Article_Html::article_inside_related_html_create($related_res, $related_count);
+			$related_html                      = Model_Article_Html::article_inside_related_html_create($related_res, $related_count, 'article' ,$ad_article_infeed_html);
 //		var_dump($related_html);
 
 			// 前のまとめ、次のまとめTML生成
@@ -294,6 +293,8 @@ class Model_Article_Html extends Model {
 
 			// 記事HTML生成
 			$article_html = ('
+					<!-- インタースティシャル広告 -->
+				'.$ad_article_interstitial_html.'
 				<article class="article_list" data-article_number="'.$value["primary_id"].'" data-article_year="'.$year_time.'">
 					<div class="article_list_contents">
 						<div class="article_data_header">
@@ -311,7 +312,6 @@ class Model_Article_Html extends Model {
 						'.$thumbnail_html.'
 						'.$article_top_ad_html.'
 						<div class="article_list_contents_sub_text">
-							'.$curator_recruitment_html.'
 							'.$value["sub_text"].'
 						</div>
 							'.$contents_html.'
@@ -628,16 +628,40 @@ class Model_Article_Html extends Model {
 	//------------------------
 	//記事内関連まとめHTML生成
 	//-------------------------
-	static function article_inside_related_html_create($related_res, $related_count, $article_type = 'article') {
+	static function article_inside_related_html_create($related_res, $related_count, $article_type = 'article', $ad_article_infeed_html) {
 		// 使用する変数
 		$card_li      = '';
 		$related_html = '';
+		$ad_array     = array();
+
+		if($ad_article_infeed_html) { $related_count++; }
+		/* やりたい事：最小値と最大値以外の値を求める */
+		// 端っこから1引く
+		$max_ad_count = $related_count;
+		$max_ad_count--;
+		for($i = $max_ad_count; $i > 1; $i--) {
+			$ad_array[] = $i;
+		}
+//		pre_var_dump($ad_array);
+//		var_dump($related_count);
+		// 求めた値をランダムで決める
+		$rand_keys       = array_rand($ad_array);
+		$ad_view_number  = $ad_array[$rand_keys];
+//		pre_var_dump($rand_keys);
+//		pre_var_dump($ad);
+
 		// 回す
 		foreach($related_res as $key => $value) {
-//var_dump($value);
 			// countの分のみ回す
 			if($related_count > 0) {
-				$card_li = Model_Article_Html::article_card_li_html_create($value, $card_li, $article_type);
+				if($ad_view_number == $related_count) {
+//				var_dump($related_count);
+//				var_dump('sfs');
+						$card_li = $card_li.$ad_article_infeed_html;
+				}
+					else {
+						$card_li = Model_Article_Html::article_card_li_html_create($value, $card_li, $article_type);
+					}
 				$related_count--;
 			}
 		} // foreach($related_res as $key => $value) {

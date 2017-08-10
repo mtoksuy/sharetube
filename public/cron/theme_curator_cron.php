@@ -10,10 +10,20 @@ function pre_var_dump($data = '') {
 	var_dump($data);
 	echo '</pre>';
 }
-	$password = 'Sm10120616';
+
+if($_SERVER["HTTP_HOST"] == "localhost") {
+	$host_name = 'localhost';
+	$user_name = 'root';
+	$password  = 'root';
+}
+	else {
+		$host_name = '157.7.134.214';
+		$user_name = 'sharetube';
+		$password  = 'Sm10120616';
+	} 
 
 	// データベース接続
-	$link = mysql_connect('localhost', 'root', $password);
+	$link = mysql_connect($host_name, $user_name, $password);
 	// 接続したら
 	if($link) {
 		$db_selected = mysql_select_db('fuel_sharetube', $link);

@@ -10,8 +10,28 @@ class Controller_Ajax_Matome_Twitterhtmlcreate extends Controller {
 	public function action_index() {
 		// セッションスタート
 		session_start();
+
+/*******/
+// scraping.sharetube用
+	// 本番のみsharetubeサーバーにrsyncでコンテンツを転送
+	if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
+		// 何もしない
+	}
+		// 本番環境
+		else {
+			if(preg_match('/sharetube/', $_SERVER["HTTP_HOST"], $matches)) {
+				header('Access-Control-Allow-Origin: *');
+			}
+		}
+/*******/
+
+
+
+
 		// 変数
-		$tweet_url = $_POST['tweet_url'];
+		$tweet_url    = $_POST['tweet_url'];
+		$sharetube_id = $_POST['sharetube_id'];
+
 		$subject = $tweet_url;
 //		$subject = 'https://twitter.com/mtoksuy/status/583193602890735616';
 		header ("Content-Type: text/javascript; charset=utf-8");
@@ -36,10 +56,13 @@ class Controller_Ajax_Matome_Twitterhtmlcreate extends Controller {
 
 		// tweetスクレイピング&HTML生成
 		foreach($tweet_url_array[0] as $key => $value) {
-			$tweet_data_array  = Model_Login_Twitterscraping_Basis::Twitter_scraping($value);
+			$tweet_data_array  = Model_Login_Twitterscraping_Basis::Twitter_scraping($value, $sharetube_id);
 			$tweet_html       .= Model_Login_Twitterscraping_Html::tweet_html_create($tweet_data_array);
 			$tweet_number++;
 		}
+
+
+
 		// チェック判定変数
 		$check = TRUE;
 		if(preg_match('/<span>@<\/span>/', $tweet_html, $match_array)) {
@@ -48,6 +71,11 @@ class Controller_Ajax_Matome_Twitterhtmlcreate extends Controller {
 		if($tweet_html == NULL) {
 			$check = NULL;
 		}
+
+
+
+
+
 		$json_data = array(
 					'tweet_html'   => $tweet_html,
 					'check'        => $check,
