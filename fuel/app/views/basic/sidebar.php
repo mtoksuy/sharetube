@@ -6,8 +6,15 @@
 		$detect = Model_info_Basis::mobile_detect_create();
 //		$ad_html = Model_Ad_Html::ad_html_create($detect, 'geniee','レクタングル');
 		// Fluct広告
-		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'サイドバー右上', 'ミドル_3');
-		echo ($ad_html); ?>
+//		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'サイドバー右上', 'ミドル_3');
+
+		// 全ての広告別array取得
+		$all_ad_html_array = Model_Ad_Html::all_ad_html_array_get();
+		// アドネットワークをランダムで取得
+		$ad_network_name_sidebar_1 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee'));
+		// 広告ネットワーク指定アドhtml生成
+		$ad_sidebar_1_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_1, 'サイドバー右上', 'ミドル_3');
+		echo ($ad_sidebar_1_html); ?>
 </div>
 
 <?php echo $sidebar_data["profile_card_html"]; ?>
@@ -22,65 +29,36 @@
 		// モバイル判別するPHPクラスライブラリを利用した機種判別
 		$detect = Model_info_Basis::mobile_detect_create();
 		// Fluct広告
-		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ミドル_4');
-		echo '<div class="sidebar_ad" style="margin-top: 30px;">'.$ad_html.'</div>';
+//		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ミドル_4');
+		// アドネットワークをランダムで取得
+		$ad_network_name_sidebar_2 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee'));
+		// 広告ネットワーク指定アドhtml生成
+		$ad_sidebar_2_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_2, 'none', 'ミドル_4');
+		echo '<div class="sidebar_ad" style="margin-top: 30px;">'.$ad_sidebar_2_html.'</div>';
 ?>
-
-
-
 
 <?php echo $sidebar_data["popular_html"]; ?>
 <?php echo $sidebar_data["related_html"]; ?>
 <?php echo $sidebar_data["shuffle_html"]; ?>
 
-<!--
-
-<nav class="shuffle_article">
-	<div class="shuffle_article_content">
-		<div class="shuffle_article_header">
-			<span>Sharetubeをフォローする</span>
-			<span class="shuffle_article_header_line"> </span>
-		</div>
-			<div class="fb-like-box m_b_15" data-href="https://www.facebook.com/sharetube.jp/" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="false" data-show-border="true"></div>
-
-			<a href="https://twitter.com/Sharetube_jp" class="twitter-follow-button" data-show-count="false" data-lang="ja" data-size="large">@Sharetube_jpさんをフォロー</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-			<div class="sidebar_ad m_t_15">
-				<div class="g-page" data-href="//plus.google.com/u/0/107381623798713481989" data-rel="publisher"></div>
-			</div>
-	</div>
-</nav>
--->
-
-
-
-
-
-
-
-
 <div class="sidebar_ad">
-
-
-
 	<?php // 広告配信
 		$detect = Model_info_Basis::mobile_detect_create();
 //		$ad_html = Model_Ad_Html::ad_html_create($detect, 'geniee','レクタングル');
 //		echo $ad_html;
 		// Fluct広告
-		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'サイドバー右下', 'ミドル_5');
-		echo ($ad_html);
+//		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'サイドバー右下', 'ミドル_5');
+		// アドネットワークをランダムで取得
+		$ad_network_name_sidebar_3 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee'));
+		// 広告ネットワーク指定アドhtml生成
+		$ad_sidebar_3_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_3, 'サイドバー右下', 'ミドル_5');
+		echo ($ad_sidebar_3_html);
 ?>
 </div>
 
-
-
-
-
 <?php
 		// GameFeat広告
-		$ad_html = Model_Ad_Html::GameFeat_ad_html_create($detect, 'none', 'ミドル_7');
+//		$ad_html = Model_Ad_Html::GameFeat_ad_html_create($detect, 'none', 'ミドル_7');
 /*
 	if($detect->isMobile() | $detect->isTablet()) {
 		echo ('
@@ -96,24 +74,12 @@
 
 <div class="sidebar_ad">
 
-
-
-
-
-
-
-
-
 	<!-- キュレーター募集 -->
 	<div class="curator_recruitment o_8 m_t_30">
 		<a href="<?php echo HTTP; ?>curatorrecruitment/lp/" target="blank">
 			<img src="<?php echo HTTP; ?>assets/img/curatorrecruitment/curator_recruitment_9.png" width="300" height="443">
 		</a>
 	</div>
-
-
-
-
 
 	<!-- サイト情報 -->
 	<div class="site_info_box clearfix">
@@ -141,11 +107,6 @@
 
 
 
-
-
-
-
-
 <!--
 			<li><a href="<?php echo HTTP; ?>/">採用情報</a></li>
 -->
@@ -167,29 +128,15 @@
 		// AdGeneration広告
 //		$ad_html = Model_Ad_Html::AdGeneration_ad_html_create($detect, 'none', 'ミドル_7');
 		// Fluct広告
-		$ad_7_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ミドル_6');
+//		$ad_7_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ミドル_6');
 
-	if($detect->isMobile() | $detect->isTablet()) {
-		echo ('
-			<div class="sidebar_ad">
-				'.$ad_7_html.
-			'</div>');
-	}
+		// アドネットワークをランダムで取得
+		$ad_network_name_sidebar_4 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee'));
+		// 広告ネットワーク指定アドhtml生成
+		$ad_sidebar_4_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_4, 'none', 'ミドル_6');
+		echo '<div class="sidebar_ad">
+			'.$ad_sidebar_4_html.
+		'</div>';
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
