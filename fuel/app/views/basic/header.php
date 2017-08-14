@@ -129,9 +129,9 @@
 				</a>
 			</div>
 			<?php
-				if(preg_match('/article/',$_SERVER['REQUEST_URI'])) {
+				if(preg_match('/article/',$_SERVER['REQUEST_URI']) | $header_data['article_id']) {
 					$contents_check = false;
-					$article_id = (int)preg_replace('/[^0-9]/', '', $_SERVER['REQUEST_URI']);
+					$article_id = (int)preg_replace('/[^0-9]/', '', $header_data['article_id']);
 					$res = DB::query("
 						SELECT sub_text
 						FROM article
