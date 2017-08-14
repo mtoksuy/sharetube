@@ -48,9 +48,25 @@ class Controller_Article extends Controller_Article_Template {
 
 		// 記事データ取得
 		$article_res = Model_Article_Basis::article_get('article', $method);
+
+
+
+
+/*
+$time_start = microtime(true);
+$time = microtime(true) - $time_start;
+echo "{$time} 秒";
+*/
+
+
+
+
 		// 一番ややこしい場所なのでまたトラブルがあるかもしれないので監視をする 2015.08.25 松岡
 		// アクセスDB追加 & all_page_view & pay_pv をプラス & アクセスサマリー書き込み
 		Model_Article_Basis::article_access_writing_and_all_page_view_plus($method, $user_data_array, $article_res);
+
+
+
 
 		// スマホ用サムネイルHTML生成
 		$sp_thumbnail_html = Model_Article_Html::sp_thumbnail_html_create($article_res);
@@ -60,8 +76,13 @@ class Controller_Article extends Controller_Article_Template {
 			'sp_thumbnail_html' => $sp_thumbnail_html,
 		), false);
 
+
 		// 記事のHTML生成
 		$article_data_array = Model_Article_Html::article_html_create($article_res);
+
+
+
+
 		// 記事のメタ生成
 		$meta_html          = Model_Article_Html::article_meta_html_create($article_data_array, 168);
 		// 記事メタセット
@@ -150,6 +171,7 @@ class Controller_Article extends Controller_Article_Template {
 		$this->article_template->view_data["footer"]->set('footer_data', array(
 //			'archive_html' => $archive_li_html,
 		), false);
+
 	}
 	//------------
 	//エラーページ

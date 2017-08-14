@@ -319,15 +319,10 @@ class Model_Info_Basis extends Model {
 		);
 		//REMOTE_HOSTがなければgethostbyaddrで取得
 		if(!isset($_SERVER['REMOTE_HOST']) || $_SERVER['REMOTE_HOST'] == '') {
-//			var_dump($_SERVER);
-			$_SERVER['REMOTE_HOST'] = gethostbyaddr($_SERVER['REMOTE_ADDR']);
-//			var_dump($_SERVER['REMOTE_HOST']);
+			if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {} else { $_SERVER['REMOTE_HOST'] = gethostbyaddr($_SERVER['REMOTE_ADDR']); }
 			foreach($httpvars as $key => $value) {
-//				var_dump($key);
-//				var_dump($_SERVER[$key]);
 				$user_data_array[$key] = $_SERVER[$key];
 			}
-//		var_dump($user_data_array);
 		}
 		return $user_data_array;
 	}

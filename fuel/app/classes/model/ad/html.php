@@ -840,6 +840,45 @@ $geniee_mobile_infeed_ad_html           = '<!--  ad tags Size: 0x0 ZoneId:120203
 <script type="text/javascript" src="http://js.gsspcln.jp/t/202/037/a1202037.js"></script>';
 $geniee_mobile_interstitial_ad_html     = '<!--  ad tags Size: 300x250 ZoneId:1197383-->
 <script type="text/javascript" src="http://js.gsspcln.jp/t/197/383/a1197383.js"></script>';
+
+/*
+<script>
+(function(window, document) {
+    var BLOCK_REFERRER_LIST = [
+"yahoo.co.jp",
+"www.google.co.jp"
+];
+    
+    var DELIVERY_PROBABILITY = 30;
+    if(is_delivery()) {
+        document.write('<script type="text/javascript" src="http://js.gsspcln.jp/t/197/383/a1197383.js"></sc' + 'ript>');
+    }
+    function is_delivery() {
+      if(isBlockRefferer(BLOCK_REFERRER_LIST)) return false;
+      
+      if(isDiceLimitaion()) return false;
+      return true;
+    }
+    function isDiceLimitaion() {
+      var r = Math.floor(Math.random() * 100) + 1;
+      if(r <= DELIVERY_PROBABILITY) return false;
+      return true;
+    }
+    function isBlockRefferer(list) {
+var l = list.length;
+var ref = document.referrer;
+var i;
+for(i = 0;i < l; i++) {
+if(ref.indexOf(list[i]) !== -1) return true;
+}}
+    
+    
+
+})(window, document);
+</script>
+*/
+
+
 $geniee_mobile_orverlay_ad_html         = '<!--  ad tags Size: 320x50 ZoneId:1197386-->
 <script type="text/javascript" src="http://js.gsspcln.jp/t/197/386/a1197386.js"></script>';
 //////////////
