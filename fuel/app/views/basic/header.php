@@ -24,7 +24,7 @@
 				<!-- logo -->
 				<div class="logo">
 					<h1>
-						<a class="o_8" href="<?php echo Uri::base(); ?>"><img src="<?php echo Uri::base(); ?>assets/img/logo/logo_29.png" width="135" height="36" alt="シェアチューブ" title="シェアチューブ"></a>
+						<a class="o_8" href="<?php echo HTTP; ?>"><img src="<?php echo HTTP; ?>assets/img/logo/logo_29.png" width="135" height="36" alt="シェアチューブ" title="シェアチューブ"></a>
 					</h1>
 <!--
 					<h2 style="font-size: 75%; margin: -1px 0px 0px;">情報をお洒落にするメディア</h2>
@@ -81,7 +81,7 @@
 				<!-- nav -->
 				<nav class="nav">
 					<ul class="clearfix">
-						<li><a><img src="<?php echo Uri::base(); ?>assets/img/common/navi_icon_4.png" width="30" height="19" alt="about_icon"></a></li>
+						<li><a><img src="<?php echo HTTP; ?>assets/img/common/navi_icon_4.png" width="30" height="19" alt="about_icon"></a></li>
 					</ul>
 				</nav>
 				<!-- search_window -->

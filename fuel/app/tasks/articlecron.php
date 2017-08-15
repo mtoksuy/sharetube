@@ -1,45 +1,15 @@
 <?php
-/*
-* テストコントローラー
-* 
-* 
-* 
-* 
-*/
-
-class Controller_Test extends Controller_Test_Template {
-	// ルーター
-	public function router($method, $params) {
-		if($method == 'index') {
-			$this->action_index();
-		}
-			else {
-				$this->action_404();
-			}
-	}
-	// 親のbefore実行
-	public function before() {
-		parent::before();
-	}
-	//----------
-	//アクション
-	//----------
-	public function action_index() {
-
-
-
-/*
 namespace Fuel\Tasks;
 
 use Fuel\Core\Cli;
 use Fuel\Core\DB;
 use Fuel\Core\DBUtil;
 use Curl\CurlUtil;
-*/
 
 // エラー回避
 error_reporting(0);
 ini_set('display_errors', 1);
+
 
 /*******
 独自関数
@@ -63,7 +33,7 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 	else {
 		// デフォルト変数生成
 		define('HTTP', 'http://sharetube.jp/');
-		define('PATH', '/var/www/vhosts/aaaaaaaaaaaaaaaaa/');
+		define('PATH', $_SERVER["DOCUMENT_ROOT"].'/');
 		define('INTERNAL_PATH', str_replace('public/', '', PATH));
 		define('TITLE', 'Sharetube - シェアしたくなるコンテンツが集まる、集まる。');
 		define('META_KEYWORDS', 'Sharetube,シェアチューブ,まとめ,キュレーション,キュレーター,インセンティブ');
@@ -72,6 +42,16 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 	}
 
 
+
+
+
+
+
+class Articlecron {
+	//
+	//
+	//
+	public static function run($speech = null) {
 		$article_template = \View::forge('articlecron/template');
 		$article_template->view_data = array(
 			'title'        => TITLE,
@@ -89,6 +69,21 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 			'script'       => \View::forge('article/script'),
 // イマココ
 		);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	//
 	//
@@ -150,33 +145,6 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 			LIMIT ".$now_count.", ".$count_sum."")->execute();
 		// ここでぶん回す
 		foreach($result as $key => $value) {
-			$method = (int)$value['primary_id'];
-
-		// 記事データ取得
-		$article_res = Model_Article_Basis::article_get('article', $method);
-		// スマホ用サムネイルHTML生成
-		$sp_thumbnail_html = Model_Article_Html::sp_thumbnail_html_create($article_res);
-		// sp_thumbnailデータセット
-		$article_template->view_data["sp_thumbnail"]->set('sp_thumbnail_data', array(
-			'sp_thumbnail_html' => $sp_thumbnail_html,
-		), false);
-		// 記事のHTML生成
-		$article_data_array = Model_Article_Html::article_html_create($article_res);
-//var_dump($article_data_array);
-/*
-断念
-ここのソースコードをtaskに移動してcronを回す予定だった
-*/
-
-
-
-
-
-
-
-
-
-
 
 			// 目次表示のため記事idを送る
 			$article_template->view_data['header']->set('header_data',array(
@@ -184,7 +152,7 @@ if(preg_match('/localhost/',$_SERVER["HTTP_HOST"])) {
 			), false);
 			$a = ($article_template->render());			
 //			var_dump($a);
-var_dump('ok');
+			file_put_contents('/var/www/vhosts/cron/public/article/777/index.php', $a);
 		}
 
 
@@ -193,5 +161,47 @@ var_dump('ok');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

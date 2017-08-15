@@ -175,8 +175,8 @@ class Model_Article_Html extends Model {
 		// 全ての広告別array取得
 		$all_ad_html_array = Model_Ad_Html::all_ad_html_array_get();
 		// アドネットワークをランダムで取得
-		$ad_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'addways', 'geniee'));
-		$ad_network_name_under = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee'));
+		$ad_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'fluct', 'addways', 'addways', 'addways', 'geniee'));
+		$ad_network_name_under = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee'));
 		// 広告ネットワーク指定アドhtml生成
 		$ad_middle_left_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_left, 'ミドル左', 'ミドル_1');
 		$ad_middle_right_html  = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'fluct', 'ミドル右', 'none');
