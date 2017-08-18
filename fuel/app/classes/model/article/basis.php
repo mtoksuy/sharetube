@@ -880,7 +880,7 @@ foreach($save_array as $k => $v) {
 		// クエリが長時間になるための応急処置 2015.01.23 松岡
 		// 最新記事のprimary_id取得
 		$article_latest_data_array = Model_Article_Basis::article_latest_get();
-		// 最新記事primari_id取得
+		// 最新記事primary_id取得
 		$latest_article_number = (int)$article_latest_data_array["primary_id"];
 		// クエリ時間がきになるが再調整 50から200に変更 2016.01.11 松岡
 		$add_and = "AND article_id > ".($latest_article_number - 200)."";
@@ -898,7 +898,9 @@ foreach($save_array as $k => $v) {
 		if($add_and_2 == null) {
 			$add_and_2 = '1,2,3,4,5,';
 		}
+		// ,を削除
 		$add_and_2 = substr($add_and_2, 0, -1);
+		// AND文作成
 		$add_and_2 = 'AND article_id IN ('.$add_and_2.')';
 
 		// whereを空にする

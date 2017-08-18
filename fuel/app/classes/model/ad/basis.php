@@ -103,6 +103,10 @@ class Model_Ad_Basis extends Model {
 			'ねつ造',
 			'怖いサイコパス',
 			'脱原発',
+
+
+			'STAP現象',
+			'排毒',
 		);
 		foreach($tag_array as $key_1 => $value_1) {
 			foreach($save_array as $key_2 => $value_2) {
