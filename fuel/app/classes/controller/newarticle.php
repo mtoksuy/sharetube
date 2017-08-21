@@ -66,13 +66,13 @@ class Controller_Newarticle extends Controller_Recommendarticle_Template {
 		$user_data_array = Library_Security_Basis::variable_security_entity($user_data_array);
 
 		// 記事一覧データ取得
-		$new_article_res        = Model_Article_Basis::new_article_list_get(20,$method);
+		$new_article_res               = Model_Article_Basis::new_article_list_get(20,$method);
 		// 新着まとめ一覧HTML生成
-		$new_article_html = Model_Article_Html::recommend_article_list_html_create($new_article_res, 'article', '新着');
+		$new_article_html              = Model_Article_Html::recommend_article_list_html_create($new_article_res, 'article', '新着');
 		// 新着まとめページングデータ取得
 		$new_article_paging_data_array = Model_Article_Basis::new_article_paging_data_get(20, $method);
 		// 新着まとめページングHTML生成
-		$paging_html = Model_Article_Html::recommend_article_paging_html_create($new_article_paging_data_array, 'newarticle');
+		$paging_html                   = Model_Article_Html::recommend_article_paging_html_create($new_article_paging_data_array, 'newarticle');
 
 		// ページングコンテンツセット
 		$this->recommendarticle_template->view_data["content"]->set('content_data', array(
