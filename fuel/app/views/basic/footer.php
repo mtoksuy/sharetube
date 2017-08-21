@@ -68,6 +68,7 @@
 						<h5>新着・過去まとめについて</h5>
 						<ul>
 					  	<li><a href="<?php echo HTTP ?>newarticle/">新着まとめ</a></li>
+					  	<li><a href="<?php echo HTTP ?>famearticle/">殿堂まとめ</a></li>
 					  	<li><a href="<?php echo HTTP ?>archive/">アーカイブ</a></li>
 						</ul>
 						<ul>
