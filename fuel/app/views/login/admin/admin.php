@@ -4,52 +4,9 @@
 
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.3</p>
-<?php if($_SESSION['sharetube_id'] == 'mtoksuyy' OR $_SESSION['sharetube_id'] == 'work_shop_1' OR $_SESSION['sharetube_id'] == 'work_shop_2' OR $_SESSION['sharetube_id'] == 'work_shop_3' OR $_SESSION['sharetube_id'] == 'work_shop_4' OR $_SESSION['sharetube_id'] == 'work_shop_5' OR $_SESSION['sharetube_id'] == 'work_shop_6' OR $_SESSION['sharetube_id'] == 'work_shop_7') { 
-?>
-
-
-
-<p style="border-bottom:1px solid #dddddd;"> </p>
-
-<p>
-
-
-<em class="marker_1">このアカウントは<b>クラウドワークス</b>でご契約を頂いた方の作業場アカウントです。</em><br>
-この度はご契約ありがとうございます。<br><br>
-
-Sharetubeはインセンティブ業界No.1でございます。様々な方がご活躍されています。今回の案件が完了したのち、アカウント取得をして記事・まとめを作成いただければ更に報酬をお受けできるような環境作りが可能です。是非アカウント取得よろしくお願いいたします。<br><br>
-
-「<b>ネイティブ広告</b>」も始まります。まだ構想ですが、将来的にコンペ形式でキュレーター様に書いていただく形になります。<br>
-予定ではこのような仕組みにしようと考えています。<br><br>
-
-クライアント様の製品を基本的なご意向にそって<br>
-作成案1〜3を提示いたしますので、その中から自由にテーマを決めていただき作成していただきます。<br><br>
-
-その中から選ばれた方へ<span class="marker_1">5万～20万。</span><br>
-準勝者(2人)に1万。<br>
-参加で500円。(最低限の品質は求めます。)<br><br>
-
-報酬バランスは調整中ですが、ぜひ「ネイティブ広告」のコンペ(※1) だけでも参加よろしくお願い致します。<br>
-<span class="f_s_85">※1) コンペはユーザーがSharetubeにログインした際に表示されるダッシュボードの中で応募がかかります。</span><br>
-
-<p class="m_0">新規登録 | Sharetube</p>
-<a href="http://sharetube.jp/signup/">http://sharetube.jp/signup/</a>
-</p>
-
-<p style="border-bottom:1px solid #dddddd;"> </p>
-<?php
-} ?>
-
-
-
-
-
-
-
+						<p>Sharetube version 5.5.4</p>
+						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
-
-
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
 					</div>
 
@@ -141,6 +98,25 @@ Sharetubeはインセンティブ業界No.1でございます。様々な方が�
 
 
 
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>08月10日〜08月22日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.4</h3>
+						<pre>・様々なページで起こっていたシャッフルボタンのバグを修正
+・アイテムツールの微細なバグ修正
+・殿堂まとめ実装
+・アイテム：画像で作成された画像群を圧縮</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 

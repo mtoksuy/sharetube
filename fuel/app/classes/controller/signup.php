@@ -75,6 +75,16 @@ class Controller_Signup extends Controller_Signup_Template {
 			'user_email_check'        => $user_email_check,
 			'user_password_check'     => $user_password_check,
 		));
+
+		// シャッフル記事データ取得
+		$shuffle_res = Model_Article_Basis::article_shuffle_get(1, 'article', 1);
+		// シャッフルボタン記事link生成
+		$shuffle_article_link = Model_Article_Html::article_shuffle_button_link_create($shuffle_res);
+		// シャッフルボタン記事linkセット
+		$this->signup_template->view_data["header"]->set('header_data', array(
+			'shuffle_article_url' => $shuffle_article_link,
+		), false);
+
 		// アーカイブデータ取得
 		list($first_article_res, $last_article_res) = Model_Archive_Basis::archive_first_last_data_get();
 		// アーカイブHTML生成

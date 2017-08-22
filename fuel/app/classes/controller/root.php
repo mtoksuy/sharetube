@@ -42,6 +42,33 @@ class Controller_Root extends Controller_Basic_Template {
 			$paging_html                         = Model_Article_Html::recommend_article_paging_html_create($recommend_article_paging_data_array);
 			// 注目まとめ一覧HTMLと注目まとめページングHTMLを合体
 			$recommend_article_html = $recommend_article_html.$paging_html;
+
+
+/*
+			// 殿堂まとめ一覧データ取得
+			$fame_article_array             = Model_Article_Basis::fame_article_list_get(10,1);
+			// 殿堂まとめ一覧HTML生成
+			$fame_article_html              = Model_Article_Html::recommend_article_list_html_create($fame_article_array, 'article', '殿堂');
+			// 殿堂まとめページングデータ取得
+			$fame_article_paging_data_array = Model_Article_Basis::fame_article_paging_data_get(10, 1);
+			// 殿堂まとめページングHTML生成
+			$paging_html                         = Model_Article_Html::recommend_article_paging_html_create($fame_article_paging_data_array);
+			// 殿堂まとめ一覧HTMLと殿堂まとめページングHTMLを合体
+			$fame_article_html = $recommend_article_html.$fame_article_html.$paging_html;
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 		}
 			// カテゴリーに適用される仕様
 			else {

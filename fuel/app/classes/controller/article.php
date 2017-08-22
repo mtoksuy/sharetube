@@ -45,16 +45,15 @@ class Controller_Article extends Controller_Article_Template {
 		$user_data_array = Model_Info_Basis::user_data_get();
 		// 変数をエンティティ化する
 		$user_data_array = Library_Security_Basis::variable_security_entity($user_data_array);
-
 		// 記事データ取得
 		$article_res = Model_Article_Basis::article_get('article', $method);
+
 		// 一番ややこしい場所なのでまたトラブルがあるかもしれないので監視をする 2015.08.25 松岡
 		// アクセスDB追加 & all_page_view & pay_pv をプラス & アクセスサマリー書き込み
 		Model_Article_Basis::article_access_writing_and_all_page_view_plus($method, $user_data_array, $article_res);
 
 		// スマホ用サムネイルHTML生成
 		$sp_thumbnail_html = Model_Article_Html::sp_thumbnail_html_create($article_res);
-
 		// sp_thumbnailデータセット
 		$this->article_template->view_data["sp_thumbnail"]->set('sp_thumbnail_data', array(
 			'sp_thumbnail_html' => $sp_thumbnail_html,
@@ -115,8 +114,6 @@ class Controller_Article extends Controller_Article_Template {
 			'shuffle_article_url' => $shuffle_article_link,
 		), false);
 
-
-
 		// sharetube_id取得
 		foreach($article_res as $key => $value) {
 			$sharetube_id = $value["sharetube_id"];
@@ -127,7 +124,6 @@ class Controller_Article extends Controller_Article_Template {
 		$article_count = Model_Info_Basis::sharetube_user_article_count_get($sharetube_id);
 		// profile_cardHTML生成
 		$profile_card_html = Model_Channel_Html::profile_card_html_create($sharetube_user_data_array, $article_count);
-
 
 		// サイドバーコンテンツセット
 		$this->article_template->view_data["sidebar"]->set('sidebar_data', array(
