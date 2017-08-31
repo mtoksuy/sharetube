@@ -103,7 +103,7 @@ class Model_Ad_Basis extends Model {
 			'ねつ造',
 			'怖いサイコパス',
 			'脱原発',
-
+			'ペニス',
 
 			'STAP現象',
 			'排毒',
