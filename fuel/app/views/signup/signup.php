@@ -3,7 +3,7 @@
 			?>
 
 
-<div style="float: left; background-color: #FCFCFC; margin: 0px 15px 0px 0px; width: 245px; height: 205px;">	
+<div style="float: left; background-color: #FCFCFC; margin: 0px 15px 0px 0px; width: 245px; height: 205px; border: 1px solid #e1e8ed;">	
 	<p class="m_0">
 		<a href="<?php echo HTTP; ?>curatorrecruitment/" target="_blank">
 			<img width="245" height="205" title="" alt="" src="http://sharetube.jp/assets/img/article/image/image_3784.png" class="o_8">
@@ -13,7 +13,7 @@
 
 <div class="signup">
 	<div class="signup_content clearfix">
-	  <h2><strong>Sharetubeで情報をまとめてみませんか?</strong> 登録する</h2>
+	  <h2><strong>Sharetubeで情報をまとめてみませんか?</strong></h2>
 	
 	  <form method="post" id="signup_form" class="signup_form" action="">
 	    <div class="field">
