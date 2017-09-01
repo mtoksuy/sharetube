@@ -3058,16 +3058,32 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
   margin: 0 0 0 32px !important;
 }
 
-.release_date_time {
+.posted_date_time {
   color: #888;
   display: block;
   font-size: 75%;
 }
 
-.release_date_time .typcn-watch {
+.posted_date_time .typcn-watch {
   font-size: 16px;
   margin: 0 4px 0 0;
 }
+.update_date_time {
+  color: #888;
+  display: block;
+  font-size: 75%;
+}
+.update_date_time .typcn-arrow-repeat {
+  font-size: 16px;
+  margin: 0 4px 0 0;
+}
+
+
+
+
+
+
+
 
 .social_button_list {
   margin: 5px 0 5px;
