@@ -103,4 +103,189 @@ class Model_Channel_Html extends Model {
 			}
 		return $meta_html;
 	}
+	//--------------------------
+	//チャンネルヘッダーHTML生成
+	//--------------------------
+	public static function channel_header_html_create($method, $function_name) {
+		switch($function_name) {
+			case 'recommendarticle':
+				$recommendarticle_css_class = 'now ';
+				$href_html = '<a href="'.HTTP.'channel/'.$method.'/">作成まとめ</a>';
+				$recommendarticle_href_html = '注目';
+				$famearticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/famearticle/">殿堂</a>';
+				$like_href_html = '<a href="'.HTTP.'channel/'.$method.'/like/">いいね</a>';
+			break;
+			case 'famearticle':
+				$famearticle_css_class = 'now ';
+				$href_html = '<a href="'.HTTP.'channel/'.$method.'/">作成まとめ</a>';
+				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/">注目</a>';
+				$famearticle_href_html = '殿堂';
+				$like_href_html = '<a href="'.HTTP.'channel/'.$method.'/like/">いいね</a>';
+			break;
+			case 'like':
+				$like_css_class = 'now ';
+				$href_html = '<a href="'.HTTP.'channel/'.$method.'/">作成まとめ</a>';
+				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/">注目</a>';
+				$famearticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/famearticle/">殿堂</a>';
+				$like_href_html = 'いいね';
+			break;
+			default:
+				$css_class = 'now ';
+				$href_html = '作成まとめ';
+				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/">注目</a>';
+				$famearticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/famearticle/">殿堂</a>';
+				$like_href_html = '<a href="'.HTTP.'channel/'.$method.'/like/">いいね</a>';
+			break;
+		}
+		$channel_header_html = 
+			'<div class="card_article_header">
+				<ul class="type_list clearfix">
+					<li class="'.$css_class.'clearfix">'.$href_html.'</li>
+					<li class="'.$recommendarticle_css_class.'clearfix">'.$recommendarticle_href_html.'</li>
+					<li class="'.$famearticle_css_class.'clearfix">'.$famearticle_href_html.'</li>
+					<li class="'.$like_css_class.'clearfix">'.$like_href_html.'</li>
+				</ul>
+			</div>';
+//http://localhost/sharetube/channel/mosimo/like/34/
+		return $channel_header_html;
+	}
+	//------------------------------------
+	//チャンネルまとめのページングHTML生成
+	//------------------------------------
+	public static function channel_article_paging_html_create($channel_article_paging_data_array, $sharetube_id, $directory_name = 'channel') {
+//		var_dump($channel_article_paging_data_array);
+/*
+	array(4) { ["last_num"]=> int(922) ["list_num"]=> int(10) ["paging_num"]=> int(1) ["max_paging_num"]=> int(93) } 
+*/
+
+//var_dump($channel_article_paging_data_array);
+// prev作成
+if($channel_article_paging_data_array['max_paging_num'] >= 2 && $channel_article_paging_data_array['paging_num'] >= 2) {
+	$prev_num = $channel_article_paging_data_array['paging_num']-1;
+	$paging_prev_li = '<li class="sp_left"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$prev_num.'/">Prev</a></li>';
+}
+// next作成
+if($channel_article_paging_data_array['paging_num'] < $channel_article_paging_data_array['max_paging_num']) {
+	$next_num = $channel_article_paging_data_array['paging_num']+1;
+	$paging_next_li = '<li class="sp_right"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$next_num.'/">Next</a></li>';
+}
+// チェック
+if(($channel_article_paging_data_array['paging_num'] - 5) > 0) { $left_check = true; } else {$left_check = false; }
+// チェック
+if(($channel_article_paging_data_array['paging_num'] + 5) <= $channel_article_paging_data_array['max_paging_num']) { $right_check = true; } else {$right_check = false; }
+/*
+<div class="recommend_article_paging">
+	<div class="recommend_article_paging_inner">
+		<ul class="clearfix">
+			<li><a href="http://programmerbox.com/1/">Prev</a></li>
+			<li><a href="http://programmerbox.com/1/">1</a></li>
+			<li><span>2</span></li>
+			<li><a href="http://programmerbox.com/3/">3</a></li>
+			<li><a href="http://programmerbox.com/4/">4</a></li>
+			<li><a href="http://programmerbox.com/5/">5</a></li>
+			<li><a href="http://programmerbox.com/3/">6</a></li>
+			<li><a href="http://programmerbox.com/4/">7</a></li>
+			<li><a href="http://programmerbox.com/5/">8</a></li>
+			<li><a href="http://programmerbox.com/5/">9</a></li>
+			<li><a href="http://programmerbox.com/5/">10</a></li>
+
+			<li><a href="http://programmerbox.com/3/">Next</a></li>
+		</ul>
+	</div>
+</div>
+*/
+
+
+/*
+	array(4) { ["last_num"]=> int(922) ["list_num"]=> int(10) ["paging_num"]=> int(1) ["max_paging_num"]=> int(93) } 
+*/
+// 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+
+$left_brink_num = $channel_article_paging_data_array['paging_num'] - 1;
+//$left_brink_num = 3 - 1;
+$right_brink_num = $channel_article_paging_data_array['max_paging_num'] - $channel_article_paging_data_array['paging_num'];
+//$right_brink_num = $channel_article_paging_data_array['max_paging_num'] - 90;
+
+$starting_point = 0;
+$end_point  = 0;
+/////////////
+// 起点と終点
+/////////////
+if($left_check) {
+	$starting_point = $channel_article_paging_data_array['paging_num'] - 5;
+}
+	else {
+		$starting_point = $channel_article_paging_data_array['paging_num'] - $left_brink_num;
+	}
+if($right_check) {
+	$end_point = ($starting_point + 9);
+	if($channel_article_paging_data_array['max_paging_num'] < $end_point) {
+		$end_point = $channel_article_paging_data_array['max_paging_num'];
+	}
+}
+	else {
+		$end_point = $channel_article_paging_data_array['paging_num'] + $right_brink_num;
+	}
+/*
+pre_var_dump($left_brink_num);
+pre_var_dump($right_brink_num);
+$max_id = $channel_article_paging_data_array['paging_num']+$right_brink_num;
+pre_var_dump($max_id);
+pre_var_dump($left_check);
+pre_var_dump($right_check);
+pre_var_dump($starting_point);
+pre_var_dump($end_point);
+*/
+
+
+
+/*
+
+
+
+var_dump($left_check);
+var_dump($right_check);
+var_dump($left_brink_num);
+var_dump($right_brink_num);
+
+echo('<br><br>');
+
+var_dump($starting_point);
+var_dump($end_point);
+*/
+
+		for($starting_point = $starting_point; $starting_point <= $end_point; $starting_point++) {
+			if($starting_point == $channel_article_paging_data_array['paging_num']) {
+				$paging_li_html .= '<li class="sp_hidden"><span>'.$starting_point.'</span></li>';
+			}
+				else {
+					$paging_li_html .= '<li class="sp_hidden"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$starting_point.'/">'.$starting_point.'</a></li>';
+				}
+		}
+	$paging_html = 
+		'<div class="recommend_article_paging">
+			<div class="recommend_article_paging_inner">
+				<ul class="clearfix">
+					'.$paging_prev_li.'
+					'.$paging_li_html.'
+					'.$paging_next_li.'
+				</ul>
+			</div>
+		</div>';
+		return $paging_html;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

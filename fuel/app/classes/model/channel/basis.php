@@ -74,4 +74,33 @@ class Model_Channel_Basis extends Model {
 
 
 	}
+	//------------------------------------
+	//チャンネルまとめページングデータ取得
+	//------------------------------------
+	public static function channel_root_article_paging_data_get($sharetube_id, $list_num, $paging_num) {
+		// last_num取得
+		$max_res = DB::query("
+			SELECT COUNT(primary_id)
+			FROM article
+			WHERE sharetube_id = '".$sharetube_id."'
+			AND del = 0")->cached(10800)->execute();
+		foreach($max_res as $key => $value) {
+			$last_num = (int)$value['COUNT(primary_id)'];
+		}
+		// 最大ページング数取得
+		$max_paging_num = (int)ceil($last_num/$list_num);
+		// new_article_paging_data生成
+		$channel_article_paging_data_array = array(
+			'last_num'       => $last_num,
+			'list_num'       => $list_num,
+			'paging_num'     => $paging_num,
+			'max_paging_num' => $max_paging_num,
+		);
+		return $channel_article_paging_data_array;
+	}
+
+
+
+
+
 }
