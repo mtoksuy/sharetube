@@ -3,8 +3,53 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 
+
+<?php
+
+if($_SESSION["sharetube_id"] == 'wofxdg') {
+	echo '
+<div class="matome_content_block">	<div class="matome_content_block_enclosed">		<pre><span class="f_s_125 red">[運営からのご連絡]</span>
+メールアドレスにご連絡が送信できませんでしたので、
+この場をお借りしてご連絡をいたします。
+
+お問い合わせからのご連絡をいただきましてから、このメッセージを削除したいと思います。</pre>	</div>			</div>
+
+
+<p><pre>お世話になっております
+Sharetubeサポートチームです
+
+今回はwofxdg様が作成されたまとめ
+
+「知って得！」パソコンの画面をピカピカに掃除する方法 
+http://sharetube.jp/article/7496/
+
+についてのご連絡です。
+
+
+このまとめ内にてコーヒーフィルターなどの画像が使用されていますが、
+出典元が明記されていません。
+
+このままですと
+訴えられた時に○○万円相当の賠償金を支払わなければならない状況になってしまいますので
+画像の出典元は必ず明記をしていただきますようよろしくお願いいたします。
+
+今回の例で言えば、おそらくナナピ様のサイトだと推測されますので、
+該当記事の出典記入をよろしくお願いいたします。
+
+なお、他のまとめでも引用がない文章・画像がありましたら出典元を明記をお願いいたします。
+
+
+では、よろしくおねがいいたします。</pre></p>';
+}
+?>
+
+
+
+
+
+
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.4</p>
+						<p>Sharetube version 5.5.5</p>
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
@@ -95,6 +140,36 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>08月22日〜09月01日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.5</h3>
+						<pre>・サインアップ周りアップデート
+・記事の更新日実装</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
