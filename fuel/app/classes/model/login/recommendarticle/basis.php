@@ -51,18 +51,36 @@ class Model_Login_Recommendarticle_Basis extends Model {
 			}
 			// 注目まとめ登録
 			if($res_value_check == false) {
+				$article_res = DB::query("
+					SELECT sharetube_id
+					FROM article
+					WHERE primary_id = ".(int)$value."")->execute();
+				foreach($article_res as $key_2 => $value_2) {
+					$sharetube_id = $value_2['sharetube_id'];
+				}
 				DB::query("
 					INSERT INTO 
 					recommend_article (
+						sharetube_id,
 						article_id,
 						del
 					)
 					VALUES (
-						'".$value."',
+						'".$sharetube_id."', 
+						".(int)$value.",
 						0
 					)
 				")->execute();
 			}
 		}
 	}
+
+/*
+ランキングsql
+SELECT sharetube_id, SUM(1) AS sum
+FROM fame_article
+GROUP BY sharetube_id
+ORDER BY sum DESC
+*/
+
 }

@@ -5,7 +5,6 @@
 
 
 <?php
-
 if($_SESSION["sharetube_id"] == 'wofxdg') {
 	echo '
 <div class="matome_content_block">	<div class="matome_content_block_enclosed">		<pre><span class="f_s_125 red">[運営からのご連絡]</span>

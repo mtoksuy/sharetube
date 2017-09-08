@@ -133,42 +133,6 @@ http://localhost/sharetube/channel/mosimo/like/8/
 		else {
 			return $this->action_404();
 		}
-/*
-		// $paramsがある場合
-		if($params) {
-			if ($params_chack  === true && preg_match('/^[0-9]+?$/', $params[0], $params_array)) {
-				$page       = (int)$params_array[0];
-				$page_chack = true;
-				// メタセット
-				$this->channel_template->view_data['meta'] = View::forge('noindex/meta');
-			}
-		}
-			// $paramsがない場合
-			else {
-				$page       = 0;
-				$page_chack = true;
-			}
-
-
-		// セグメント審査と軽い審査
-		if ($page_chack == true && preg_match('/^[a-zA-Z0-9_-]+$/', $method, $method_array)) {
-			// Sharetubeユーザーか確認
-			 $is_sharetube_id = Model_Info_Basis::is_sharetube_id($method);
-			// 正しいユーザーの場合
-			if($is_sharetube_id) {
-				return $this->action_index($method, $page);
-			}
-				// エラー
-				else {
-					return $this->action_404();
-				}
-		}
-			// エラー
-			else {
-				 return $this->action_404();
-			}
-	}
-*/
 	}
 	// 親のbefore実行
 	public function before() {
@@ -178,9 +142,10 @@ http://localhost/sharetube/channel/mosimo/like/8/
 	//基本アクション
 	//--------------
 	public function action_index($method, $root_page) {
-//			var_dump($method, $page);
+		// 0だった場合1にする
+		if($root_page == 0) {$root_page = 1;}
 		// 追加タイトル(ページ)
-		if($root_page) {
+		if($root_page > 1) {
 			$page_title = ' | '.$root_page.'ページ';
 		}
 			else {
@@ -203,26 +168,25 @@ http://localhost/sharetube/channel/mosimo/like/8/
 		$list_query = Model_Channel_Basis::channel_article_list_get($method, 10, $root_page);
 		// 記事一覧HTML生成
 		$article_list_html = Model_Article_Html::itype_list_html_create($list_query);
-		// ページングHTML生成
-		$paging_html = Model_Channel_Html::paging_html_create($method, $root_page);
-		// 注目まとめページングデータ取得
-		$channel_article_paging_data_array = Model_Channel_Basis::channel_root_article_paging_data_get($method, 20, $root_page);
-		// 注目まとめページングHTML生成
+		// ページングHTML生成 古いページング
+//		$paging_html = Model_Channel_Html::paging_html_create($method, $root_page);
+		// まとめページングデータ取得
+		$channel_article_paging_data_array = Model_Channel_Basis::channel_root_article_paging_data_get($method, 10, $root_page);
+		// まとめページングHTML生成
 		$paging_html                         = Model_Channel_Html::channel_article_paging_html_create($channel_article_paging_data_array, $method);
 //		var_dump($paging_html);
 
-
-
-
-		// チャンネルヘッダーHTML生成
-		$channel_header_html = Model_Channel_Html::channel_header_html_create($method, $function_name);
-
-
-
-
-
 		// Sharetubeユーザーの書いた記事数を取得
 		$article_count = Model_Info_Basis::sharetube_user_article_count_get($method);
+		// Sharetubeユーザーの書いた注目記事数を取得
+		$recommend_article_count = Model_Info_Basis::sharetube_user_recommend_article_count_get($method);
+		// Sharetubeユーザーの書いた殿堂記事数を取得
+		$fame_article_count = Model_Info_Basis::sharetube_user_fame_article_count_get($method);
+		// 合体
+		$article_count_array = array('root' => $article_count, 'recommend' => $recommend_article_count, 'fame' => $fame_article_count);
+		// チャンネルヘッダーHTML生成
+		$channel_header_html = Model_Channel_Html::channel_header_html_create($method, $function_name, $article_count_array);
+
 		// profile_cardHTML生成
 		$profile_card_html = Model_Channel_Html::profile_card_html_create($sharetube_user_data_array, $article_count);
 
@@ -289,6 +253,8 @@ http://localhost/sharetube/channel/mosimo/like/8/
 	//機能アクション
 	//--------------
 	public function action_function($method, $function_name, $function_page) {
+		// 0だった場合1にする
+		if($function_page == 0) {$function_page = 1;}
 //			var_dump($method, $page);
 		switch($function_name) {
 			case 'recommendarticle':
@@ -301,8 +267,13 @@ http://localhost/sharetube/channel/mosimo/like/8/
 				$function_name_title = 'いいね';
 			break;
 		}
+		// 機能別ディレクトリ
+		$function_dir = $function_name;
+		// URLから取得した機能の名前をリネーム
+		$function_name = Model_Channel_Basis::channel_function_name_rename_get($function_name);
+
 		// 追加タイトル(ページ)
-		if($function_page) {
+		if($function_page > 1) {
 			$page_title = ' | '.$function_page.'ページ';
 		}
 			else {
@@ -320,19 +291,37 @@ http://localhost/sharetube/channel/mosimo/like/8/
 			'meta_html' => $meta_html,
 		), false);
 
-		// 記事一覧データ取得
-//		$list_query = Model_Channel_Basis::channel_article_list_get($method, 10, $function_page);
-//		$list_query = Model_Channel_Basis::channel_function_article_list_get($method, $function_name, 10, $function_page);
+		// 機能別記事一覧データ取得
+		$list_query = Model_Channel_Basis::channel_function_article_list_get($method, $function_name, 10, $function_page);
+		//
+//		if(!$list_query) { return $this->action_404();}
+
+
 
 		// 記事一覧HTML生成
 		$article_list_html = Model_Article_Html::itype_list_html_create($list_query);
-		// ページングHTML生成
-		$paging_html = Model_Channel_Html::paging_html_create($method, $function_page);
+		// ページングHTML生成 古いページング
+//		$paging_html = Model_Channel_Html::paging_html_create($method, $function_page);
+
+		// まとめページングデータ取得
+		$channel_article_paging_data_array = Model_Channel_Basis::channel_function_article_paging_data_get($method, $function_name, 10, $function_page);
+//		pre_var_dump($channel_article_paging_data_array);
+
+		// まとめページングHTML生成
+		$paging_html = Model_Channel_Html::channel_article_paging_html_create($channel_article_paging_data_array, $method, 'channel', $function_dir.'/');
+//		var_dump($paging_html);
+
+		// Sharetubeユーザーの書いた記事数を取得
+		$article_count = Model_Info_Basis::sharetube_user_article_count_get($method);
+		// Sharetubeユーザーの書いた注目記事数を取得
+		$recommend_article_count = Model_Info_Basis::sharetube_user_recommend_article_count_get($method);
+		// Sharetubeユーザーの書いた殿堂記事数を取得
+		$fame_article_count = Model_Info_Basis::sharetube_user_fame_article_count_get($method);
+		// 合体
+		$article_count_array = array('root' => $article_count, 'recommend' => $recommend_article_count, 'fame' => $fame_article_count);
 
 		// チャンネルヘッダーHTML生成
-		$channel_header_html = Model_Channel_Html::channel_header_html_create($method, $function_name);
-
-
+		$channel_header_html = Model_Channel_Html::channel_header_html_create($method, $function_dir, $article_count_array);
 
 		// Sharetubeユーザーの書いた記事数を取得
 		$article_count = Model_Info_Basis::sharetube_user_article_count_get($method);
@@ -368,15 +357,6 @@ http://localhost/sharetube/channel/mosimo/like/8/
 			'paging_html'                 => $paging_html,
 			'mobile_user_join_theme_html' => $mobile_user_join_theme_html,
 		), false);
-
-
-
-
-
-
-
-
-
 
 
 		// シャッフル記事データ取得

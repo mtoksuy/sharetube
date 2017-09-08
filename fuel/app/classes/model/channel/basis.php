@@ -20,6 +20,44 @@ class Model_Channel_Basis extends Model {
 			LIMIT ".$start_number.", ".$get_number."")->cached(900)->execute();
 		return $list_query;
 	}
+	//----------------------
+	//機能別リストで記事取得
+	//----------------------
+	public static function channel_function_article_list_get($sharetube_id, $function_name, $get_number = 10, $page = 0) {
+		if(!$page == 0) {
+			$start_number = ($page * 10);
+			$start_number = $start_number -$get_number;
+		}
+			else {
+				$start_number = 0;
+			}
+		$list_query = DB::query("
+			SELECT *
+			FROM ".$function_name."
+			WHERE del = 0
+			AND sharetube_id = '".$sharetube_id."'
+			ORDER BY ".$function_name.".article_id DESC
+			LIMIT ".$start_number.", ".$get_number."")->cached(900)->execute();
+		$article_array = array();
+		$article_list = '';
+		foreach($list_query as $key => $value) {
+//pre_var_dump($value['article_id']);
+			$article_array[$key] = (int)$value['article_id'];
+			$article_list .= $value['article_id'].',';
+		}
+		// 文末の,を削除
+		$article_list = rtrim($article_list, ',');
+		if($article_list) {
+			$list_query = DB::query("
+				SELECT *
+				FROM article
+				WHERE del = 0
+				AND primary_id IN (".$article_list.")
+				ORDER BY article.primary_id DESC")->cached(900)->execute();
+		}
+//pre_var_dump($list_query);
+		return $list_query;
+	}
 	//-----------------------------
 	//参加しているテーマ一覧res取得
 	//-----------------------------
@@ -98,9 +136,42 @@ class Model_Channel_Basis extends Model {
 		);
 		return $channel_article_paging_data_array;
 	}
-
-
-
-
-
+	//------------------------------------------
+	//機能別チャンネルまとめページングデータ取得
+	//------------------------------------------
+	public static function channel_function_article_paging_data_get($sharetube_id, $function_name, $list_num, $paging_num) {
+		// last_num取得
+		$max_res = DB::query("
+			SELECT COUNT(primary_id)
+			FROM ".$function_name."
+			WHERE sharetube_id = '".$sharetube_id."'
+			AND del = 0")->cached(10800)->execute();
+		foreach($max_res as $key => $value) {
+			$last_num = (int)$value['COUNT(primary_id)'];
+		}
+		// 最大ページング数取得
+		$max_paging_num = (int)ceil($last_num/$list_num);
+		// new_article_paging_data生成
+		$channel_article_paging_data_array = array(
+			'last_num'       => $last_num,
+			'list_num'       => $list_num,
+			'paging_num'     => $paging_num,
+			'max_paging_num' => $max_paging_num,
+		);
+		return $channel_article_paging_data_array;
+	}
+	//-----------------------------------
+	//URLから取得した機能の名前をリネーム
+	//-----------------------------------
+	public static function channel_function_name_rename_get($function_name) {
+		switch($function_name) {
+			case 'recommendarticle':
+				$function_name = 'recommend_article';
+			break;
+			case 'famearticle':
+				$function_name = 'fame_article';
+			break;
+		}
+		return $function_name;
+	}
 }

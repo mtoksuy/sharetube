@@ -248,7 +248,9 @@ article.cssにも移植されているので更新するときは両方する
 
 .type_list li {
     float: left;
-    margin: 0 15px 0 0;
+		padding: 0 15px;
+	border-bottom: 2px solid transparent;
+	box-sizing: border-box;
 }
 
 .type_list li a {
@@ -259,13 +261,37 @@ article.cssにも移植されているので更新するときは両方する
 
 .type_list li.now {
 	border-bottom: 2px solid #ff3f3f;
-	padding: 7px 7px 4px;
+	padding: 7px 22px;
 }
 .type_list li.now a {
 	color: #000000;
 }
+.type_list li .article_num {
+    color: #292f33;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+		position: relative;
+		top: 4px;
+}
+.type_list li .out {
+	color: #6f6f6f;
+/*
+    position: relative;
+    top: 7px;
+*/
+}
+.type_list li:hover {
+	border-bottom: 2px solid #ff3f3f;
+}
+.type_list li a:hover {
+	text-decoration: none;
+}
 
-
+.type_list li .title_text {
+	text-align: center;
+}
 
 
 
@@ -311,7 +337,7 @@ article.cssにも移植されているので更新するときは両方する
 	.type_list li {
 	    margin: 0;
 	    text-align: center;
-	    width: 25%;
+	    width: 33%;
 	}	
 	.type_list li a {
 

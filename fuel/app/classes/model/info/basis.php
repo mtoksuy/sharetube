@@ -391,6 +391,34 @@ class Model_Info_Basis extends Model {
 		}
 		return $article_count;
 	}
+	//-----------------------------------------
+	//Sharetubeユーザーの書いた注目記事数を取得
+	//-----------------------------------------
+	public static function sharetube_user_recommend_article_count_get($sharetube_id) {
+		$res = DB::query("
+			SELECT COUNT(*)
+				FROM recommend_article
+				WHERE del = 0
+				AND sharetube_id = '".$sharetube_id."'")->cached(3600)->execute();
+		foreach($res as $key => $value) {
+			$recommend_article_count = (int)$value["COUNT(*)"];
+		}
+		return $recommend_article_count;
+	}
+	//-----------------------------------------
+	//Sharetubeユーザーの書いた殿堂記事数を取得
+	//-----------------------------------------
+	public static function sharetube_user_fame_article_count_get($sharetube_id) {
+		$res = DB::query("
+			SELECT COUNT(*)
+				FROM fame_article
+				WHERE del = 0
+				AND sharetube_id = '".$sharetube_id."'")->cached(3600)->execute();
+		foreach($res as $key => $value) {
+			$fame_article_count = (int)$value["COUNT(*)"];
+		}
+		return $fame_article_count;
+	}
 	//------------------------------------------
 	//モバイルからのアクセスなのかどうかを調べる
 	//------------------------------------------

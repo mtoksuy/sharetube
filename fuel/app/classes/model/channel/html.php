@@ -106,35 +106,56 @@ class Model_Channel_Html extends Model {
 	//--------------------------
 	//チャンネルヘッダーHTML生成
 	//--------------------------
-	public static function channel_header_html_create($method, $function_name) {
-		switch($function_name) {
+	public static function channel_header_html_create($method, $function_dir, $article_count_array) {
+		switch($function_dir) {
 			case 'recommendarticle':
 				$recommendarticle_css_class = 'now ';
-				$href_html = '<a href="'.HTTP.'channel/'.$method.'/">作成まとめ</a>';
-				$recommendarticle_href_html = '注目';
-				$famearticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/famearticle/">殿堂</a>';
-				$like_href_html = '<a href="'.HTTP.'channel/'.$method.'/like/">いいね</a>';
+				$out_num                    = 'out ';
+				$recommendarticle_out_num   = '';
+				$famearticle_out_num        = 'out ';
+				$like_out_num               = 'out ';
+
+				$href_html = '<a href="'.HTTP.'channel/'.$method.'/"><div class="'.$out_num.'article_num">'.$article_count_array['root'].'</div><div class="title_text">作成まとめ</div></a>';
+				$recommendarticle_href_html = '<div class="'.$recommendarticle_out_num.'article_num">'.$article_count_array['recommend'].'</div><div class="title_text">注目</div>';
+				$famearticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/famearticle/"><div class="'.$famearticle_out_num.'article_num">'.$article_count_array['fame'].'</div><div class="title_text">殿堂</div></a>';
+				$like_href_html = '<a href="'.HTTP.'channel/'.$method.'/like/"><div class="'.$like_out_num.'article_num">3434</div><div class="title_text">いいね</div></a>';
+
 			break;
 			case 'famearticle':
-				$famearticle_css_class = 'now ';
-				$href_html = '<a href="'.HTTP.'channel/'.$method.'/">作成まとめ</a>';
-				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/">注目</a>';
-				$famearticle_href_html = '殿堂';
-				$like_href_html = '<a href="'.HTTP.'channel/'.$method.'/like/">いいね</a>';
+				$famearticle_css_class    = 'now ';
+				$out_num                  = 'out ';
+				$recommendarticle_out_num = 'out ';
+				$famearticle_out_num      = '';
+				$like_out_num             = 'out ';
+
+				$href_html = '<a href="'.HTTP.'channel/'.$method.'/"><div class="'.$out_num.'article_num">'.$article_count_array['root'].'</div><div class="title_text">作成まとめ</div></a>';
+				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/"><div class="'.$recommendarticle_out_num.'article_num">'.$article_count_array['recommend'].'</div><div class="title_text">注目</div></a>';
+				$famearticle_href_html = '<div class="'.$famearticle_out_num.'article_num">'.$article_count_array['fame'].'</div><div class="title_text">殿堂</div>';
+				$like_href_html = '<a href="'.HTTP.'channel/'.$method.'/like/"><div class="'.$like_out_num.'article_num">3434</div><div class="title_text">いいね</div></a>';
 			break;
 			case 'like':
-				$like_css_class = 'now ';
-				$href_html = '<a href="'.HTTP.'channel/'.$method.'/">作成まとめ</a>';
-				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/">注目</a>';
-				$famearticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/famearticle/">殿堂</a>';
-				$like_href_html = 'いいね';
+				$like_css_class           = 'now ';
+				$out_num                  = 'out ';
+				$recommendarticle_out_num = 'out ';
+				$famearticle_out_num      = 'out ';
+				$like_out_num             = '';
+
+				$href_html = '<a href="'.HTTP.'channel/'.$method.'/"><div class="'.$famearticle_out_num.'article_num">'.$article_count_array['root'].'</div><div class="title_text">作成まとめ</div></a>';
+				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/"><div class="'.$recommendarticle_out_num.'article_num">'.$article_count_array['recommend'].'</div><div class="title_text">注目</div></a>';
+				$famearticle_href_html      = '<a href="'.HTTP.'channel/'.$method.'/famearticle/"><div class="'.$famearticle_out_num.'article_num">'.$article_count_array['fame'].'</div><div class="title_text">殿堂</div></a>';
+				$like_href_html = '<div class="'.$out_num.'article_num">3434</div><div class="title_text">いいね</div>';
 			break;
 			default:
 				$css_class = 'now ';
-				$href_html = '作成まとめ';
-				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/">注目</a>';
-				$famearticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/famearticle/">殿堂</a>';
-				$like_href_html = '<a href="'.HTTP.'channel/'.$method.'/like/">いいね</a>';
+				$out_num                  = '';
+				$recommendarticle_out_num = 'out ';
+				$famearticle_out_num      = 'out ';
+				$like_out_num             = 'out ';
+
+				$href_html = '<div class="'.$out_num.'article_num">'.$article_count_array['root'].'</div><div class="title_text">作成まとめ</div>';
+				$recommendarticle_href_html = '<a href="'.HTTP.'channel/'.$method.'/recommendarticle/"><div class="'.$recommendarticle_out_num.'article_num">'.$article_count_array['recommend'].'</div><div class="title_text">注目</div></a>';
+				$famearticle_href_html      = '<a href="'.HTTP.'channel/'.$method.'/famearticle/"><div class="'.$famearticle_out_num.'article_num">'.$article_count_array['fame'].'</div><div class="title_text">殿堂</div></a>';
+				$like_href_html             = '<a href="'.HTTP.'channel/'.$method.'/like/"><div class="'.$like_out_num.'article_num">34</div><div class="title_text">いいね</div></a>';
 			break;
 		}
 		$channel_header_html = 
@@ -143,7 +164,9 @@ class Model_Channel_Html extends Model {
 					<li class="'.$css_class.'clearfix">'.$href_html.'</li>
 					<li class="'.$recommendarticle_css_class.'clearfix">'.$recommendarticle_href_html.'</li>
 					<li class="'.$famearticle_css_class.'clearfix">'.$famearticle_href_html.'</li>
+<!--
 					<li class="'.$like_css_class.'clearfix">'.$like_href_html.'</li>
+-->
 				</ul>
 			</div>';
 //http://localhost/sharetube/channel/mosimo/like/34/
@@ -152,7 +175,7 @@ class Model_Channel_Html extends Model {
 	//------------------------------------
 	//チャンネルまとめのページングHTML生成
 	//------------------------------------
-	public static function channel_article_paging_html_create($channel_article_paging_data_array, $sharetube_id, $directory_name = 'channel') {
+	public static function channel_article_paging_html_create($channel_article_paging_data_array, $sharetube_id, $directory_name = 'channel', $directory_2_name = '') {
 //		var_dump($channel_article_paging_data_array);
 /*
 	array(4) { ["last_num"]=> int(922) ["list_num"]=> int(10) ["paging_num"]=> int(1) ["max_paging_num"]=> int(93) } 
@@ -162,12 +185,12 @@ class Model_Channel_Html extends Model {
 // prev作成
 if($channel_article_paging_data_array['max_paging_num'] >= 2 && $channel_article_paging_data_array['paging_num'] >= 2) {
 	$prev_num = $channel_article_paging_data_array['paging_num']-1;
-	$paging_prev_li = '<li class="sp_left"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$prev_num.'/">Prev</a></li>';
+	$paging_prev_li = '<li class="sp_left"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$directory_2_name.$prev_num.'/">Prev</a></li>';
 }
 // next作成
 if($channel_article_paging_data_array['paging_num'] < $channel_article_paging_data_array['max_paging_num']) {
 	$next_num = $channel_article_paging_data_array['paging_num']+1;
-	$paging_next_li = '<li class="sp_right"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$next_num.'/">Next</a></li>';
+	$paging_next_li = '<li class="sp_right"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$directory_2_name.$next_num.'/">Next</a></li>';
 }
 // チェック
 if(($channel_article_paging_data_array['paging_num'] - 5) > 0) { $left_check = true; } else {$left_check = false; }
@@ -260,7 +283,7 @@ var_dump($end_point);
 				$paging_li_html .= '<li class="sp_hidden"><span>'.$starting_point.'</span></li>';
 			}
 				else {
-					$paging_li_html .= '<li class="sp_hidden"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$starting_point.'/">'.$starting_point.'</a></li>';
+					$paging_li_html .= '<li class="sp_hidden"><a href="'.HTTP.$directory_name.'/'.$sharetube_id.'/'.$directory_2_name.$starting_point.'/">'.$starting_point.'</a></li>';
 				}
 		}
 	$paging_html = 
