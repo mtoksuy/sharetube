@@ -593,6 +593,28 @@ if($detect->isMobile() || $detect->isTablet()) {
 		list($bm, $bt) = explode(' ', $end);
 		return ((float)$am-(float)$bm) + ((float)$at-(float)$bt);
 	}
+	//----------------
+	//殿堂記事チェック
+	//----------------
+	public static function fame_article_check($article_id) {
+		$fame_article_check = false;
+		$fame_check_res = DB::query("
+			SELECT *
+			FROM fame_article
+			WHERE article_id = ".(int)$article_id."
+		")->cached(86400)->execute();
+		foreach($fame_check_res as $key => $value) {
+			$fame_article_check = true;
+		}
+		return $fame_article_check;
+	}
+
+
+
+
+
+
+
 
 
 

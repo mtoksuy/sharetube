@@ -2822,6 +2822,20 @@ a:hover {
   position: relative;
 }
 
+/*********
+殿堂バッジ
+*********/
+.fame_badge {
+    background-color: #ffdf44;
+    border-radius: 1px;
+    color: #2a2a2a;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 200%;
+    margin: 0 0 10px;
+    padding: 0 15px;
+}
+
 .tag li, .youtube_comments_left img {
   border-radius: 2px;
 }
@@ -3867,7 +3881,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
   padding: 15px;
   position: relative;
   text-align: left;
-  width: 24%;
+  width: 25%;
   z-index: 12;
 }
 
@@ -4558,7 +4572,7 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     width: 100%;
   }
   .footer_contents_box {
-    width: 75%;
+    width: 80%;
   }
   .footer_bottom_contents_outer {
     display: none;
@@ -4682,6 +4696,9 @@ background: rgba(0, 0, 0, 0) url("http://sharetube.jp/assets/img/common/amazon_i
     top: -30px;
     width: 140px;
 	}
+
+
+
 
 
 

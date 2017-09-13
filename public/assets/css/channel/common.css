@@ -1,11 +1,6 @@
-/***************
-
-*****************/
-
-
-
-
-
+/***
+基本
+***/
 .second_navi {
 	display: none;
 }
@@ -23,19 +18,13 @@
     float: right;
 		width: 100%;
 }
-
-
-
-/****************/
-
+/***************
+コンテンツカード
+***************/
 .card_article {
 	margin: 5px 0 0 0;
 }
 .card_article li {
-/*
-background-color: #FFFFFF;
-box-shadow: 0 0 0 1px #E7E7E7, 0 2px 0 1px #E7E7E7;
-*/
 border-bottom: 1px solid #eee;
 box-sizing: border-box;
 float: left;
@@ -46,19 +35,11 @@ position: relative;
 width: 100%;
 }
 .card_article li:hover {
-/*
-    box-shadow: 0 0 0 1px #e1e1e1, 0 2px 0 1px #e1e1e1;
-*/
 		border-bottom: 1px solid #ff3f3f;
 }
-
-
 .card_article li, .card_article ul {
     margin: 0;
 }
-
-
-
 .card_article_contents {
     width: 62%;
 }
@@ -85,8 +66,6 @@ width: 100%;
 .card_article_contents_author {
     bottom: 5px;
 }
-
-
 .card_article figure {
     width: 10%;
 }
@@ -96,12 +75,6 @@ width: 100%;
 .category_band, .second_navi {
     display: none;
 }
-
-
-
-
-
-
 /*********
 ページング
 *********/
@@ -134,9 +107,6 @@ ul {
     padding: 5px 12px;
     transition: all 0.3s ease 0s;
 }
-
-
-
 /*****************
 プロフィールカード
 *****************/
@@ -159,8 +129,6 @@ article.cssにも移植されているので更新するときは両方する
 */
     padding: 15px;
 }
-
-
 .profile_card_content_data {
 
 }
@@ -323,10 +291,75 @@ article.cssにも移植されているので更新するときは両方する
 	.card_article_contents h1 {
 	    margin: 0 0 21px;
 	}
+	/*****************
+	プロフィールカード
+	*****************/
+.profile_card_content_data {
+		box-sizing: border-box;
+}
+.profile_card_content_data_left {
+	box-sizing: border-box;
+	margin: 0;
+	float: none;
+}
+.profile_card_content_data_left img {
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+		width: 96px;
+		height: auto;
+}
 
 
 
 
+.profile_card_content_data_right {
+		box-sizing: border-box;
+   font-size: 12px;
+	float: right;
+	width: 75%;
+ width: 175px;
+}
+	.profile_card_content_data_right_top {
+		float: left;
+		border-bottom: 0px solid #ddd;
+		margin: 0 10px 0 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	.profile_card_content_data_right_bottom {
+		float: right;
+		box-sizing: border-box;
+	}
+.profile_card_content_data_right_top_summary {
+    color: #292f33;
+    font-size: 14px;
+    margin-bottom: 0;
+    position: relative;
+    top: 8px;
+}
+.profile_card_content_data_right_top_matome_create_number {
+    color: #666;
+}
+.profile_card_content_data_right_bottom_summary {
+    color: #292f33;
+    font-size: 14px;
+    margin-bottom: 0;
+    position: relative;
+    top: 8px;
+}
+.profile_card_content_data_right_bottom_all_page_view {
+    color: #666;
+}
+.profile_card_content_name {
+    margin: 10px 0 15px;
+   text-align: center;
+	 font-size: 18px;
+}
+.profile_card_content_summary p {
+	line-height: 135%;
+}
 
 	/***********
 	タイプリスト
@@ -360,6 +393,13 @@ article.cssにも移植されているので更新するときは両方する
 
 
 }
+@media screen and (min-width:0px)and (max-width:360px) {
+	.card_article_header {
+	    font-size: 122%;
+	}
+}
+
+
 @media screen and (min-width:0px)and (max-width:320px) {
 	.main {
 		padding: 59px 0 0 0 !important;

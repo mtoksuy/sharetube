@@ -221,7 +221,10 @@ class Model_Article_Html extends Model {
 			// 緊急策 松岡
 			$random_key_year = (int)substr($value['random_key'], 0, 4);
 
-
+			// 殿堂記事チェック
+			$fame_article_check = Model_Info_Basis::fame_article_check($value['primary_id']);
+			// 殿堂であればHTM生成
+			$fame_article_badge_html = Model_Article_Html::fame_article_badge_html_create($fame_article_check);
 			// 記事タイトル取得 // エンティティを戻す
 			$article_title        = htmlspecialchars_decode($value["title"], ENT_NOQUOTES); // ダブルクォート、シングルクォートの両方をそのままにします。
 			// 記事動画取得
@@ -308,6 +311,8 @@ class Model_Article_Html extends Model {
 					<!-- インタースティシャル広告 -->
 				'.$ad_article_interstitial_html.'
 				<article class="article_list" data-article_number="'.$value["primary_id"].'" data-article_year="'.$year_time.'">
+					<!-- バッジ -->
+					'.$fame_article_badge_html.'
 					<div class="article_list_contents">
 						<div class="article_data_header">
 							<a href="'.HTTP.''.$article_type.'/'.$value["link"].'/">
@@ -1684,6 +1689,41 @@ var_dump($end_point);
 			}
 		return $update_date_time_html;
 	}
+	//-------------------
+	//殿堂であればHTM生成
+	//-------------------
+	public static function fame_article_badge_html_create($fame_article_check) {
+		if($fame_article_check) {
+			$fame_article_badge_html = 
+				'<div class="fame_badge">
+					殿堂
+				</div>';
+		}
+		return $fame_article_badge_html;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
