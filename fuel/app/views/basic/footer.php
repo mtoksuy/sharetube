@@ -55,7 +55,10 @@
 -->
 
 
-							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_7.pdf" target="_blank">広告掲載について</a></li>
+
+
+
+							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_8.pdf" target="_blank">広告掲載について</a></li>
 <!--
 							<li><a href="<?php echo HTTP; ?>permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
 -->
@@ -65,7 +68,7 @@
 
 					<!--  -->
 					<div class="footer_contents_box clearfix">
-						<h5>新着・過去まとめについて</h5>
+						<h5>新着・殿堂・過去まとめについて</h5>
 						<ul>
 					  	<li><a href="<?php echo HTTP ?>newarticle/">新着まとめ</a></li>
 					  	<li><a href="<?php echo HTTP ?>famearticle/">殿堂まとめ</a></li>
