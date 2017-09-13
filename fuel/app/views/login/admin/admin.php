@@ -4,51 +4,30 @@
 
 
 
-<?php
-if($_SESSION["sharetube_id"] == 'wofxdg') {
-	echo '
-<div class="matome_content_block">	<div class="matome_content_block_enclosed">		<pre><span class="f_s_125 red">[運営からのご連絡]</span>
-メールアドレスにご連絡が送信できませんでしたので、
-この場をお借りしてご連絡をいたします。
-
-お問い合わせからのご連絡をいただきましてから、このメッセージを削除したいと思います。</pre>	</div>			</div>
-
-
-<p><pre>お世話になっております
-Sharetubeサポートチームです
-
-今回はwofxdg様が作成されたまとめ
-
-「知って得！」パソコンの画面をピカピカに掃除する方法 
-http://sharetube.jp/article/7496/
-
-についてのご連絡です。
-
-
-このまとめ内にてコーヒーフィルターなどの画像が使用されていますが、
-出典元が明記されていません。
-
-このままですと
-訴えられた時に○○万円相当の賠償金を支払わなければならない状況になってしまいますので
-画像の出典元は必ず明記をしていただきますようよろしくお願いいたします。
-
-今回の例で言えば、おそらくナナピ様のサイトだと推測されますので、
-該当記事の出典記入をよろしくお願いいたします。
-
-なお、他のまとめでも引用がない文章・画像がありましたら出典元を明記をお願いいたします。
-
-
-では、よろしくおねがいいたします。</pre></p>';
-}
-?>
-
-
-
-
-
-
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.5</p>
+
+
+<div class="matome_content">
+	<div class="matome_content_block">
+		<div class="matome_content_block_enclosed">
+			<pre>[<b>引用に関する注意点</b>]
+最近、テキスト・画像を引用する場合に引用先を記載していない記事を見受けられます。
+記載していませんと、元の保有者とトラブルになりますので必ず記載していただきますよう宜しくお願い致します。
+</pre>
+		</div>
+	</div>
+</div>
+
+
+						<p><a href="http://localhost/sharetube/rule/rule">利用規約</a>
+</p>
+
+
+
+
+
+
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
@@ -160,12 +139,13 @@ http://sharetube.jp/article/7496/
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>08月22日〜09月01日</pre>
+						<pre>08月22日〜09月08日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.5.5</h3>
 						<pre>・サインアップ周りアップデート
-・記事の更新日実装</pre>
+・記事の更新日実装
+・ユーザーページ：注目・殿堂タブ実装</pre>
 					</dd>
 				</dl>
 			</li>
