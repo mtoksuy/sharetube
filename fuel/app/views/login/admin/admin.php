@@ -3,8 +3,31 @@
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
 
+
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.4</p>
+						<p>Sharetube version 5.5.5</p>
+
+
+<div class="matome_content">
+	<div class="matome_content_block">
+		<div class="matome_content_block_enclosed">
+			<pre>[<b>引用に関する注意点</b>]
+最近、テキスト・画像を引用する場合に引用先を記載していない記事を見受けられます。
+記載していませんと、元の保有者とトラブルになりますので必ず記載していただきますよう宜しくお願い致します。
+</pre>
+		</div>
+	</div>
+</div>
+
+
+						<p><a href="http://localhost/sharetube/rule/rule">利用規約</a>
+</p>
+
+
+
+
+
+
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
@@ -95,6 +118,37 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>08月22日〜09月08日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.5</h3>
+						<pre>・サインアップ周りアップデート
+・記事の更新日実装
+・ユーザーページ：注目・殿堂タブ実装</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 

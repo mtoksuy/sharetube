@@ -1216,6 +1216,4 @@ foreach($save_array as $k => $v) {
 		return $recommend_check;
 	}
 
-
-
 }

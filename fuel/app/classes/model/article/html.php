@@ -175,8 +175,9 @@ class Model_Article_Html extends Model {
 		// 全ての広告別array取得
 		$all_ad_html_array = Model_Ad_Html::all_ad_html_array_get();
 		// アドネットワークをランダムで取得
-		$ad_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'fluct', 'addways', 'addways', 'addways', 'geniee'));
-		$ad_network_name_under = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee'));
+		$ad_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee','geniee','geniee', 'geniee', 'geniee', 'geniee', 'addways', 'addways', 'addways'));
+
+		$ad_network_name_under = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee'));
 		// 広告ネットワーク指定アドhtml生成
 		$ad_middle_left_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_left, 'ミドル左', 'ミドル_1');
 		$ad_middle_right_html  = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'fluct', 'ミドル右', 'none');
@@ -212,10 +213,18 @@ class Model_Article_Html extends Model {
 			$local_time           = date('Y-m-d', $unix_time);
 			$local_japanese_time  = date('Y年m月d日', $unix_time);
 			$article_year_time    = date('Y', $unix_time);
+			// 記事更新時間取得
+			$update_time                 = $value["update_time"];
+			$update_unix_time            = strtotime($value["update_time"]);
+			$update_local_japanese_time  = date('Y年m月d日', $update_unix_time);
+
 			// 緊急策 松岡
 			$random_key_year = (int)substr($value['random_key'], 0, 4);
 
-
+			// 殿堂記事チェック
+			$fame_article_check = Model_Info_Basis::fame_article_check($value['primary_id']);
+			// 殿堂であればHTM生成
+			$fame_article_badge_html = Model_Article_Html::fame_article_badge_html_create($fame_article_check);
 			// 記事タイトル取得 // エンティティを戻す
 			$article_title        = htmlspecialchars_decode($value["title"], ENT_NOQUOTES); // ダブルクォート、シングルクォートの両方をそのままにします。
 			// 記事動画取得
@@ -247,6 +256,9 @@ class Model_Article_Html extends Model {
 			$original_html = Model_Article_Html::original_html_create($original);
 			// 筆者HTML生成
 			$author_html = Model_Article_Html::author_html_create($sharetube_user_data_array);
+			// 投稿日・更新日HTML生成
+			$posted_date_time_html = Model_Article_Html::posted_date_time_html_create($local_time, $local_japanese_time);
+			$update_date_time_html = Model_Article_Html::update_date_time_html_create($unix_time, $update_unix_time, $update_local_japanese_time);
 			// ソーシャルシェアボタンリストHTML生成
 			$social_share_share_button_html = Model_Article_Html::social_share_share_button_html_create($value, $article_type);
 			
@@ -291,11 +303,16 @@ class Model_Article_Html extends Model {
 			}
 
 
+
+
+
 			// 記事HTML生成
 			$article_html = ('
 					<!-- インタースティシャル広告 -->
 				'.$ad_article_interstitial_html.'
 				<article class="article_list" data-article_number="'.$value["primary_id"].'" data-article_year="'.$year_time.'">
+					<!-- バッジ -->
+					'.$fame_article_badge_html.'
 					<div class="article_list_contents">
 						<div class="article_data_header">
 							<a href="'.HTTP.''.$article_type.'/'.$value["link"].'/">
@@ -304,9 +321,8 @@ class Model_Article_Html extends Model {
 							'.$tag_html.'
 							'.$original_html.'
 							'.$author_html.'
-							<div class="release_date_time">
-								<span class="typcn typcn-watch"></span><span>Release Date：</span><time datetime="'.$local_time.'" pubdate="pubdate">'.$local_japanese_time.'</time>
-							</div>
+							'.$posted_date_time_html.'
+							'.$update_date_time_html.'
 							'.$social_share_share_button_html.'
 						</div>
 						'.$thumbnail_html.'
@@ -1648,6 +1664,86 @@ var_dump($end_point);
 		</div>';
 		return $related_theme_html;
 	}
+	//--------------
+	//投稿日HTML生成
+	//--------------
+	public static function posted_date_time_html_create($local_time, $local_japanese_time) {
+		$posted_date_time_html= 
+			'<div class="posted_date_time">
+				<span class="typcn typcn-watch"></span><span>Posted date：</span><time datetime="'.$local_time.'" pubdate="pubdate">'.$local_japanese_time.'</time>
+			</div>';
+		return $posted_date_time_html;
+	}
+	//--------------
+	//更新日HTML生成
+	//--------------
+	public static function update_date_time_html_create($unix_time, $update_unix_time, $update_local_japanese_time) {
+		if(($update_unix_time - $unix_time) > 86400) {
+			$update_date_time_html= 
+				'<div class="update_date_time">
+					<span class="typcn typcn-arrow-repeat"></span>Update date：'.$update_local_japanese_time.'
+				</div>';
+		}
+			else {
+
+			}
+		return $update_date_time_html;
+	}
+	//-------------------
+	//殿堂であればHTM生成
+	//-------------------
+	public static function fame_article_badge_html_create($fame_article_check) {
+		if($fame_article_check) {
+			$fame_article_badge_html = 
+				'<div class="fame_badge">
+					殿堂
+				</div>';
+		}
+		return $fame_article_badge_html;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

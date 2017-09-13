@@ -51,23 +51,67 @@
 								</dd>
 							</dl>
 						</li>
-						<!-- about -->
+						<!-- Sharetubeについて -->
 						<li class="li_clear">
 							<dl>
-								<dt>about</dt>
+								<dt>Sharetubeについて</dt>
 								<dd>
 									<ul>
 										<li><a href="<?php echo HTTP; ?>about/">Sharetubeについて</a></li>
 										<li><a href="<?php echo HTTP; ?>rule/rule">利用規約</a></li>
 										<li><a href="<?php echo HTTP; ?>contact/">お問い合わせ</a></li>
 										<li><a href="<?php echo HTTP; ?>sitemap/">サイトマップ</a></li>
+<!--
 										<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
+-->
+										<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_8.pdf" target="_blank">広告掲載について</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</li>
+						<!-- 新着・殿堂・過去まとめについて -->
+						<li class="li_clear">
+							<dl>
+								<dt>新着・殿堂・過去まとめについて</dt>
+								<dd>
+									<ul>
+										<li><a href="<?php echo HTTP; ?>newarticle/">新着まとめ</a></li>
+										<li><a href="<?php echo HTTP; ?>famearticle/">殿堂まとめ</a></li>
+										<li><a href="<?php echo HTTP; ?>archive/">アーカイブ</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</li>
+						<!-- アカウント作成< -->
+						<li class="li_clear">
+							<dl>
+								<dt>アカウント作成</dt>
+								<dd>
+									<ul>
 										<li><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></li>
 										<li><a href="<?php echo HTTP; ?>signup/">Sharetubeアカウント作成</a></li>
 										<li><a href="<?php echo HTTP; ?>login/" target="_blank">ログイン</a></li>
-										<li><a href="<?php echo HTTP; ?>curatorrecruitment/">キュレーター募集</a></li>
-										<li><a href="<?php echo HTTP; ?>curatorrecruitment/">まとめインセンティブについて</a></li>
-										<li><a href="<?php echo HTTP; ?>authorrecruiting/">ライター募集</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</li>
+						<!-- Sharetubeをフォローする -->
+						<li class="li_clear">
+							<dl>
+								<dt>キュレーター募集</dt>
+								<dd>
+									<ul>
+										<li><a href="<?php echo HTTP; ?>curatorrecruitment/lp/">業界NO.1のインセンティブ</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</li>
+						<!-- Sharetubeをフォローする -->
+						<li class="li_clear">
+							<dl>
+								<dt>Sharetubeをフォローする</dt>
+								<dd>
+									<ul>
 										<li><a target="_blank" href="https://twitter.com/ShareTube_jp">Twitter</a></li>
 										<li><a target="_blank" href="https://www.facebook.com/sharetube.jp/">Facebook</a></li>
 										<li><a target="_blank" href="https://plus.google.com/+SharetubeJp0480">Google+</a></li>
@@ -75,6 +119,10 @@
 								</dd>
 							</dl>
 						</li>
+
+
+
+
 						<!-- アーカイブ -->
 <!--
 						<li class="li_clear">

@@ -11,7 +11,7 @@
 		// 全ての広告別array取得
 		$all_ad_html_array = Model_Ad_Html::all_ad_html_array_get();
 		// アドネットワークをランダムで取得
-		$ad_network_name_sidebar_1 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee'));
+		$ad_network_name_sidebar_1 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee'));
 		// 広告ネットワーク指定アドhtml生成
 		$ad_sidebar_1_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_1, 'サイドバー右上', 'ミドル_3');
 		echo ($ad_sidebar_1_html); ?>
@@ -31,7 +31,7 @@
 		// Fluct広告
 //		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ミドル_4');
 		// アドネットワークをランダムで取得
-		$ad_network_name_sidebar_2 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee'));
+		$ad_network_name_sidebar_2 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee'));
 		// 広告ネットワーク指定アドhtml生成
 		$ad_sidebar_2_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_2, 'none', 'ミドル_4');
 		echo '<div class="sidebar_ad" style="margin-top: 30px;">'.$ad_sidebar_2_html.'</div>';
@@ -49,7 +49,7 @@
 		// Fluct広告
 //		$ad_html = Model_Ad_Html::fluct_ad_html_create($detect, 'サイドバー右下', 'ミドル_5');
 		// アドネットワークをランダムで取得
-		$ad_network_name_sidebar_3 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee'));
+		$ad_network_name_sidebar_3 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee'));
 		// 広告ネットワーク指定アドhtml生成
 		$ad_sidebar_3_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_3, 'サイドバー右下', 'ミドル_5');
 		echo ($ad_sidebar_3_html);
@@ -131,7 +131,7 @@
 //		$ad_7_html = Model_Ad_Html::fluct_ad_html_create($detect, 'none', 'ミドル_6');
 
 		// アドネットワークをランダムで取得
-		$ad_network_name_sidebar_4 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee'));
+		$ad_network_name_sidebar_4 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee'));
 		// 広告ネットワーク指定アドhtml生成
 		$ad_sidebar_4_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_4, 'none', 'ミドル_6');
 		echo '<div class="sidebar_ad">

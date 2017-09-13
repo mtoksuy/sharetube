@@ -1,4 +1,17 @@
 
+
+body {
+ background-color: #ffffff;
+}
+#wrapper {
+ background-color: #ffffff;
+}
+.main {
+ background-color: #ffffff;
+}
+
+
+
 .signup {
 	float: left;
 }
@@ -76,8 +89,32 @@
 
 
 
+/***
 
-
+***/
+.appeal_block {
+    margin: 50px auto;
+    width: 1024px;
+}
+.appeal_block h2 {
+    text-align: center;
+}
+.registration_button {
+    margin: 50px auto;
+    width: 500px;
+}
+.registration_button a {
+    background-color: #ff3f3f;
+    border: 1px solid #ff3f3f;
+    border-radius: 2px;
+    color: #fcfcfc;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
 
 
 

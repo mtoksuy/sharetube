@@ -17,7 +17,7 @@ class Model_Ad_Basis extends Model {
 //		pre_var_dump($tag_array);
 		// インターステイシャルを許可するテーマ名
 		$save_array = array(
-			'怖い話',
+//			'怖い話',
 			'洒落怖',
 			'洒落にならない怖い話',
 			'オカルト',
@@ -58,7 +58,7 @@ class Model_Ad_Basis extends Model {
 			'訃報',
 			'こわい画像',
 			'真相',
-			'性的な話',
+//			'性的な話',
 			'松居一代',
 			'２ｃｈ',
 			'安倍自民',
@@ -69,8 +69,8 @@ class Model_Ad_Basis extends Model {
 			'原発事故',
 			'整形',
 			'３１１',
-			'すっきりする話',
-			'すかっとする話',
+//			'すっきりする話',
+//			'すかっとする話',
 			'コラージュ',
 			'貧困',
 			'ハゲ',
@@ -103,7 +103,7 @@ class Model_Ad_Basis extends Model {
 			'ねつ造',
 			'怖いサイコパス',
 			'脱原発',
-
+			'ペニス',
 
 			'STAP現象',
 			'排毒',
