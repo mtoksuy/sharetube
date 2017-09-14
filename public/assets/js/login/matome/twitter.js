@@ -87,8 +87,11 @@ function ajax_tweet_html_create(twitter_add) {
 				var scraping_http = 'http://scraping.sharetube.jp/';
 			}
 // ローカルでのテスト用
+/*
+ローカルで開発する場合は http://sharetube.jp/のソースコードで行う
+*/
 //				var scraping_http = 'http://scraping.sharetube.jp/';
-
+//				var scraping_http = 'http://sharetube.jp/';
 
 		var re = /https|http/;
 		var test = Tweet_url.match(re);
