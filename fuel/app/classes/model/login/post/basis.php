@@ -63,6 +63,9 @@ class Model_Login_Post_Basis extends Model {
 			'tag'               => $tag,
 			'original'          => $original,
 			'thumbnail_image'   => $thumbnail_imege,
+			'thumbnail_quote_url'   => $post['thumbnail_quote_url'],
+			'thumbnail_quote_title' => $post['thumbnail_quote_title'],
+
 			'sp_thumbnail'      => $sp_thumbnail,
 			'article_type'      => $article_type,
 			'link'              => $link,
@@ -72,7 +75,6 @@ class Model_Login_Post_Basis extends Model {
 			'random_key'        => $post["random_key"],
 			'draft_primary_id' => $post["draft_primary_id"],
 		);
-//var_dump($article_create_data_array);
 		return $article_create_data_array;
 	}
 	

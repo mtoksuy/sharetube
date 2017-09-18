@@ -112,6 +112,26 @@ sidebar
     margin: 0 auto;
     width: 300px;
 }
+
+
+/**********
+サムネイル
+**********/
+.article_thumbnail {
+
+}
+.article_thumbnail img {
+
+}
+/***************
+サムネイル引用元
+***************/
+.thumbnail_quote {
+	margin: -15px 0 15px;
+}
+.thumbnail_quote .blockquote_font {
+	line-height: 175%;
+}
 /***
 記事
 ***/

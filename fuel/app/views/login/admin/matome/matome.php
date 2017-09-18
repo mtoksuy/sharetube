@@ -235,5 +235,35 @@ echo '</pre>';
 	 }?>
 								</div>
 							</div> <!-- postbox -->
+							<!-- postbox -->
+							<div class="postbox">
+								<h3>サムネイル引用元</h3>
+								<div class="postbox_contents">
+									<div class="thumbnail_quote clearfix">
+										<input placeholder="引用の出典元URLを入力 フォーカスを外すと自動でタイトルが入力されます" value="<?php echo $post_data['post']['thumbnail_quote_url']; ?>" class="thumbnail_quote_url" type="text">								<input placeholder="引用の出典を入力" value="<?php echo $post_data['post']['thumbnail_quote_title']; ?>" class="thumbnail_quote_title" type="text">
+									</div>
+								</div>
+							</div> <!-- postbox -->
+						
+						
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 						</div> <!-- postboxs -->
 				</div>

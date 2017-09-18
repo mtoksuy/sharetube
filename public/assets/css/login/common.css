@@ -251,6 +251,48 @@ margin: 30px;
 .thumbnail_form_delete_button:hover {
 	background-color: #ff3f3f;
 }
+/***************
+サムネイル引用元
+***************/
+.thumbnail_quote {
+
+}
+.thumbnail_quote .thumbnail_quote_url {
+    background-color: #fbfbfb;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #606060;
+    font-size: 82%;
+    padding: 5px;
+    width: 100%;
+}
+.thumbnail_quote .thumbnail_quote_title {
+    background-color: #fbfbfb;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+		margin: 5px 0 0;
+    box-sizing: border-box;
+    color: #606060;
+    font-size: 82%;
+    padding: 5px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /***********
 編集記事一覧

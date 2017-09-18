@@ -27,7 +27,8 @@ class Controller_Ajax_Matome_Draft extends Controller {
 			$post["draft_save"]       = $_POST["matome_draft_save"];
 			$post["draft_primary_id"] = $_POST["matome_draft_primary_id"];
 			$post["sp_thumbnail"]     = 1;
-
+			$post["thumbnail_quote_url"]   = $_POST["matome_thumbnail_quote_url"];
+			$post["thumbnail_quote_title"] = $_POST["matome_thumbnail_quote_title"];
 		}
 //----------------------
 //下書きをクリックしたら
