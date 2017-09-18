@@ -126,7 +126,14 @@ sidebar
 /***************
 サムネイル引用元
 ***************/
+.sp_thumbnail_quote {
+	display: none;
+}
+.sp_thumbnail_quote .blockquote_font {
+	line-height: 175%;
+}
 .thumbnail_quote {
+	display: block;
 	margin: -15px 0 15px;
 }
 .thumbnail_quote .blockquote_font {
@@ -553,12 +560,39 @@ box-shadow: 0 0 0 1px #e7e7e7;
   *****************/
   .sp_thumbnail {
     display: block; }
-
   /*************
   通常サムネイル
   **************/
   .article_thumbnail {
     display: none; }
+	/***************
+	サムネイル引用元
+	***************/
+	.sp_thumbnail_quote {
+		display: block;
+	}
+	.sp_thumbnail_quote .blockquote_font {
+
+	}
+	.thumbnail_quote {
+		display: none;
+	}
+	.thumbnail_quote .blockquote_font {
+
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
 
   /***
   main

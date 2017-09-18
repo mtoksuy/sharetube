@@ -54,26 +54,25 @@ class Model_Login_Post_Basis extends Model {
 
 		// 詰め込み
 		$article_create_data_array = array(
-			'sharetube_id'      => $sharetube_id,
-			'category'          => $category,
-			'title'             => $title,
-			'sub_text'          => $sub_text,
-			'contents'          => $contents,
-			'text'              => $text,
-			'tag'               => $tag,
-			'original'          => $original,
-			'thumbnail_image'   => $thumbnail_imege,
+			'sharetube_id'          => $sharetube_id,
+			'category'              => $category,
+			'title'                 => $title,
+			'sub_text'              => $sub_text,
+			'contents'              => $contents,
+			'text'                  => $text,
+			'tag'                   => $tag,
+			'original'              => $original,
+			'thumbnail_image'       => $thumbnail_imege,
 			'thumbnail_quote_url'   => $post['thumbnail_quote_url'],
 			'thumbnail_quote_title' => $post['thumbnail_quote_title'],
-
-			'sp_thumbnail'      => $sp_thumbnail,
-			'article_type'      => $article_type,
-			'link'              => $link,
-			'create_date'       => $create_date,
-			'article_year_time' => $article_year_time,
-			'draft_save'        => $post["draft_save"],
-			'random_key'        => $post["random_key"],
-			'draft_primary_id' => $post["draft_primary_id"],
+			'sp_thumbnail'          => $sp_thumbnail,
+			'article_type'          => $article_type,
+			'link'                  => $link,
+			'create_date'           => $create_date,
+			'article_year_time'     => $article_year_time,
+			'draft_save'            => $post["draft_save"],
+			'random_key'            => $post["random_key"],
+			'draft_primary_id'     => $post["draft_primary_id"],
 		);
 		return $article_create_data_array;
 	}
@@ -90,6 +89,7 @@ class Model_Login_Post_Basis extends Model {
 			else {
 				$post["matome_frg"] = 0;
 			}
+
 		// 記事登録
 		DB::query(
 			"INSERT INTO ".$post["article_type"]." (
@@ -102,6 +102,8 @@ class Model_Login_Post_Basis extends Model {
 				tag ,
 				original,
 				thumbnail_image ,
+				thumbnail_quote_url, 
+				thumbnail_quote_title, 
 				sp_thumbnail , 
 				link ,
 				matome_frg, 
@@ -118,6 +120,8 @@ class Model_Login_Post_Basis extends Model {
 				'".$post["tag"]."',
 				'".$post["original"]."',
 				'".$post["thumbnail_image"]."',
+				'".$post["thumbnail_quote_url"]."',
+				'".$post["thumbnail_quote_title"]."',
 				".(int)$post["sp_thumbnail"].", 
 				'".$post["link"]."',
 				".(int)$post["matome_frg"].",
