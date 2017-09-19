@@ -7,10 +7,14 @@
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.5</p>
 
+
+
+
+
 	<div class="matome_content_block">
 		<div class="matome_content_block_enclosed">
 			<pre>[<b>引用に関する注意点</b>]
-最近、テキスト・画像を引用する場合に引用先を記載していない記事が見受けられます。
+最近、テキスト・画像を引用する場合に引用先を記載していないまとめが見受けられます。
 記載していませんと、元の保有者とトラブルになりますので必ず記載していただきますよう宜しくお願い致します。
 
 [<b>引用していないまとめに関して</b>]
@@ -18,6 +22,13 @@
 また、現状のまとめ作成ツールでは引用できる箇所が行き届いておりませんので、早急にこの部分を実装してまいります。</pre>
 		</div>
 	</div>
+<div class="matome_content_block">	<div class="matome_content_block_ballon">		<pre>2017年 09月19日：<b>サムネイル引用元</b>を記載できるように致しました。<em class="marker_1">「まとめ作成ツール」内にてスーパーリロード</em>よろしくお願い致します。
+
+次回アップデートはアイテム：見出し画像に引用元を記載できるように開発してまいります。</pre>	</div>		</div>
+
+
+
+
 
 
 						<p><a href="http://localhost/sharetube/rule/rule">利用規約</a>
@@ -139,13 +150,14 @@
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>08月22日〜09月08日</pre>
+						<pre>08月22日〜09月19日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.5.5</h3>
 						<pre>・サインアップ周りアップデート
 ・記事の更新日実装
-・ユーザーページ：注目・殿堂タブ実装</pre>
+・ユーザーページ：注目・殿堂タブ実装
+・サムネイル引用元実装</pre>
 					</dd>
 				</dl>
 			</li>
