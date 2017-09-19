@@ -426,12 +426,14 @@ class Model_Article_Html extends Model {
 				</div>';
 		}
 		if($sp_check == true) {
-			$sp_class_word = 'sp_';
-			foreach($article_res as $key => $value) {
-				$thumbnail_quote_html = 
-					'<div class="'.$sp_class_word.'thumbnail_quote">
-						<p class="blockquote_font text_right m_b_0">サムネイル出典:<cite><a href="'.$value['thumbnail_quote_url'].'" target="_blank">'.$value['thumbnail_quote_title'].'</a></cite></p>			
-					</div>';
+			if($value['thumbnail_quote_url']) {
+				$sp_class_word = 'sp_';
+				foreach($article_res as $key => $value) {
+					$thumbnail_quote_html = 
+						'<div class="'.$sp_class_word.'thumbnail_quote">
+							<p class="blockquote_font text_right m_b_0">サムネイル出典:<cite><a href="'.$value['thumbnail_quote_url'].'" target="_blank">'.$value['thumbnail_quote_title'].'</a></cite></p>			
+						</div>';
+				}
 			}
 		}
 		return $thumbnail_quote_html;
