@@ -125,22 +125,7 @@ Sharetubeはシェアされるようなコンテンツが集まる場所とし�
 -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--
 	<div class="matome_content_block">
 		<div class="matome_content_block_title">
 			<h2 class="h2_heading_1">Sharetube(シェアチューブ)について</h2>
@@ -198,20 +183,103 @@ Sharetubeはシェアされるようなコンテンツが集まる場所とし�
 <h3 class="h3_heading_1">価値のシェア</h3>価値ある情報をキュレーターが作成して、ユーザーがその価値ある情報を読むことで価値のシェアを目指します。</pre>
 		</div>
 	</div>
+-->
+
+
+<!--
+企業のビジョン、ミッション、バリューとは？ 
+http://ecofuture.co.jp/topics/?p=363
+-->
+
+
+
+	<div class="matome_content_block">
+		<div class="matome_content_block_title">
+			<h2 class="h2_heading_1">Sharetube(シェアチューブ)について</h2>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_text">
+			<pre>Sharetubeはシェアしたくなるコンテンツが集まる場所として作りました。情報をデザインしてオリジナルのコンテンツをアップロードして情報発信できるキュレーションサービスです。</pre>
+
+
+		</div>
+	</div>
+
+
+<div class="about_h_0 m_t_45"><span class="red">V</span>ision</div>
+
+	<div class="matome_content_block m_t_30">
+		<div class="matome_content_block_text">
+			<pre><span class="f_s_150">全ての情報を最高のカタチで世界中に届ける</span></pre>
+		</div>
+	</div>
+
+
+	<div class="matome_content_block">
+		<div class="matome_content_block_line">
+			<pre> </pre>
+		</div>
+	</div>
+
+
+<!--
+
+-->
+
+<div class="about_h_0"><span class="red">M</span>ission</div>
+
+
+
+
+	<div class="matome_content_block">
+		<div class="matome_content_block_title">
+			<h2 class="h2_heading_1">テキストメディアの中でシェア率No.1になる</h2>
+		</div>
+	</div>
+
+
+	<div class="matome_content_block">
+		<div class="matome_content_block_text">
+			<pre>本気で読まれるメディアを目指し、自然にシェアされるコンテンツを創出していきます。</pre>
+		</div>
+	</div>
+
+
+	<div class="matome_content_block">
+		<div class="matome_content_block_title">
+			<h2 class="h2_heading_1">エディターという副業を創出する</h2>
+		</div>
+	</div>
+	<div class="matome_content_block">
+		<div class="matome_content_block_text">
+			<pre>またの名をSharetuberと呼んでいます。誰しもがエディターになれる自由があり、その機会を得る自由があります。業界No.1の「インセンティブ」を誇っているSharetubeですが、さらにこのレートを5倍～10倍にしたいと考えています。本業以上の副業を創出して社会の活性化を目指します。</pre>
+		</div>
+	</div>
 
 
 
 
 
+<div class="about_h_0"><span class="red">V</span>alue</div>
 
 
+	<div class="matome_content_block m_t_30">
+		<div class="matome_content_block_text">
+			<pre>Sharetubeがミッションを遂行してビジョンを達成するために守るべき項目です。
 
-
-
-
-
-
-
+・ユーザーに愛されるサービスを作ろう
+・最高のコンテンツを提供する努力を惜しまない
+・超中立の意識の中で情報をデザインする
+・全ての人にチャンスを
+・常識を疑え、捨てろ
+・サービスに国境はない
+・公正なビジネス、組織を作る
+・人を大事にしよう
+・クリエイティブに敬意を
+・全員がSharetuberに</pre>
+		</div>
+	</div>
 
 
 
