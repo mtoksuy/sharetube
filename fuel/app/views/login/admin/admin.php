@@ -22,9 +22,10 @@
 また、現状のまとめ作成ツールでは引用できる箇所が行き届いておりませんので、早急にこの部分を実装してまいります。</pre>
 		</div>
 	</div>
-<div class="matome_content_block">	<div class="matome_content_block_ballon">		<pre>2017年 09月19日：<b>サムネイル引用元</b>を記載できるように致しました。<em class="marker_1">「まとめ作成ツール」内にてスーパーリロード</em>よろしくお願い致します。
+<div class="matome_content_block">	<div class="matome_content_block_ballon">		<pre>2017年09月19日：<b>サムネイル引用元</b>を記載できるように致しました。<em class="marker_1">「まとめ作成ツール」内にてスーパーリロード</em>よろしくお願い致します。
+2017年09月20日：<b>見出し画像の引用元</b>を記載できるように致しました。<em class="marker_1">「まとめ作成ツール」内にてスーパーリロード</em>よろしくお願い致します。
 
-次回アップデートはアイテム：見出し画像に引用元を記載できるように開発してまいります。</pre>	</div>		</div>
+今週末までこの表示をさせていただきます。</pre>	</div>		</div>
 
 
 
@@ -150,14 +151,16 @@
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>08月22日〜09月19日</pre>
+						<pre>08月22日〜09月20日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.5.5</h3>
 						<pre>・サインアップ周りアップデート
 ・記事の更新日実装
 ・ユーザーページ：注目・殿堂タブ実装
-・サムネイル引用元実装</pre>
+・サムネイル引用元実装
+・見出し画像引用元実装
+・SharetubeのVision、Mssion、Valueを再定義</pre>
 					</dd>
 				</dl>
 			</li>
