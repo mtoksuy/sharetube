@@ -1276,12 +1276,19 @@ body {
     border: 1px solid #cfcfcf;
     border-radius: 2px;
     box-sizing: border-box;
-		font-weight: bold;
     color: #606060;
     font-size: 82%;
     padding: 5px;
 		width: 100%;
 }
+
+
+
+
+
+
+
+
 .heading_image_add_content_code {
 	float: left;
 	width: 60% !important;
@@ -1300,6 +1307,18 @@ body {
 }
 .heading_image_add_content_word {
 
+}
+
+
+
+
+
+
+.heading_image_add_content_quote {
+	margin: 0 0 5px;
+}
+.heading_image_add_content_quote_url {
+	margin: 0 0 5px;
 }
 .heading_image_add_content_button {
 	 margin: 0 0 0 275px;
@@ -2334,6 +2353,11 @@ body {
 	margin: 0 0 30px 0;
 	cursor: pointer;
 }
+.matome_content_block_heading_image_quote .blockquote_font {
+	line-height: 175%;
+}
+
+
 /**************
 まとめ内 コード
 **************/
