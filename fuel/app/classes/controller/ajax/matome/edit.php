@@ -27,6 +27,8 @@ class Controller_Ajax_Matome_Edit extends Controller {
 			$post["random_key"]       = $_POST["matome_thumbnail_data"];
 			$post["edit_primary_id"]  = $_POST["matome_edit_primary_id"];
 			$post["sp_thumbnail"]     = 1;
+			$post["thumbnail_quote_url"]   = $_POST["matome_thumbnail_quote_url"];
+			$post["thumbnail_quote_title"] = $_POST["matome_thumbnail_quote_title"];
 		}
 			//----
 			//編集

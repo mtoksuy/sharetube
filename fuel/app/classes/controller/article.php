@@ -54,9 +54,13 @@ class Controller_Article extends Controller_Article_Template {
 
 		// スマホ用サムネイルHTML生成
 		$sp_thumbnail_html = Model_Article_Html::sp_thumbnail_html_create($article_res);
+		// サムネイル引用HTML生成
+		$sp_thumbnail_quote_html = Model_Article_Html::thumbnail_quote_html_create('', true ,$article_res);
+
 		// sp_thumbnailデータセット
 		$this->article_template->view_data["sp_thumbnail"]->set('sp_thumbnail_data', array(
-			'sp_thumbnail_html' => $sp_thumbnail_html,
+			'sp_thumbnail_html'       => $sp_thumbnail_html,
+			'sp_thumbnail_quote_html' => $sp_thumbnail_quote_html,
 		), false);
 
 		// 記事のHTML生成

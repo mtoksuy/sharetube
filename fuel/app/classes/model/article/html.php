@@ -191,6 +191,7 @@ class Model_Article_Html extends Model {
 
 		// 記事HTML生成
 		foreach($article_res as $key => $value) {
+//pre_var_dump($value);
 			// テーマHTML生成
 			list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($value["tag"], 3600);
 		}
@@ -243,6 +244,8 @@ class Model_Article_Html extends Model {
 			$contents_html = Model_Article_Html::contents_html_create($value, $category_info_array);
 			// サムネイルHTML生成
 			$thumbnail_html = Model_Article_Html::thumbnail_html_create($value, $article_year_time, $preview_frg);
+			// サムネイル引用HTML生成
+			$thumbnail_quote_html = Model_Article_Html::thumbnail_quote_html_create($value);
 
 			// アーティクルボトムライクボックスHTML生成
 			$article_bottom_like_box_html = Model_Article_Html::article_bottom_like_box_html_create($value, $year_time, $preview_frg);
@@ -326,6 +329,7 @@ class Model_Article_Html extends Model {
 							'.$social_share_share_button_html.'
 						</div>
 						'.$thumbnail_html.'
+						'.$thumbnail_quote_html.'
 						'.$article_top_ad_html.'
 						<div class="article_list_contents_sub_text">
 							'.$value["sub_text"].'
@@ -409,6 +413,30 @@ class Model_Article_Html extends Model {
 					<img class="great_image_100 m_b_15" width="640" height="400" title="'.$value["title"].'" alt="'.$value["title"].'" src="'.HTTP.'assets/img/'.$draft.'article/'.$year_time.'/facebook_ogp_half/'.$value["thumbnail_image"].'">
 				</div>');
 		return $thumbnail_html;
+	}
+	//------------------------
+	//サムネイル引用元HTML生成
+	//------------------------
+	static function thumbnail_quote_html_create($value, $sp_check = false, $article_res = '') {
+		// 複雑にしてしまったが、上がPC用で下がSP用 どちらも出力される。CSSで制御
+		if($value['thumbnail_quote_url']) {
+			$thumbnail_quote_html = 
+				'<div class="'.$sp_class_word.'thumbnail_quote">
+					<p class="blockquote_font text_right m_b_0">サムネイル出典:<cite><a href="'.$value['thumbnail_quote_url'].'" target="_blank">'.$value['thumbnail_quote_title'].'</a></cite></p>			
+				</div>';
+		}
+		if($sp_check == true) {
+			if($value['thumbnail_quote_url']) {
+				$sp_class_word = 'sp_';
+				foreach($article_res as $key => $value) {
+					$thumbnail_quote_html = 
+						'<div class="'.$sp_class_word.'thumbnail_quote">
+							<p class="blockquote_font text_right m_b_0">サムネイル出典:<cite><a href="'.$value['thumbnail_quote_url'].'" target="_blank">'.$value['thumbnail_quote_title'].'</a></cite></p>			
+						</div>';
+				}
+			}
+		}
+		return $thumbnail_quote_html;
 	}
 	//------------
 	//タグHTML生成

@@ -181,6 +181,7 @@ http://sato-san.hatenadiary.jp/entry/2013/05/06/155919
 		// コンテンツ取得
 		foreach($simple_html_dom_object->find('.tweet-text') as $list) {
 			 $permalink_tweet_container_html .= $list->outertext;
+			 $innertext_tweet_container_html .= $list->innertext;
 		}
 //		var_dump($permalink_tweet_container_html);
 
@@ -364,6 +365,13 @@ var.1
 //		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"]')->item(0);
 		$twitter_tweet_text = $xpath_text->query('//p[@class="TweetTextSize TweetTextSize--jumbo js-tweet-text tweet-text"]')->item(0);
 //pre_var_dump($twitter_tweet_text);
+
+// ver.3
+// 09.14 イマココ < 問題。関数 getInnerHtml で行なっている箇所をdomであればどうすればいいかを考えて実相する
+//		$twitter_tweet_text = $innertext_tweet_container_html;
+
+
+
 
 /*
 

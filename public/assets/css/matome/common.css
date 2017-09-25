@@ -58,7 +58,7 @@ body
 中見出し
 *******/
 .h3_heading_1 {
-    margin: 0 0 5px;
+    margin: 0 0 10px;
     padding: 0 0 0 19px;
     position: relative;
 }     
@@ -592,6 +592,10 @@ body
 	margin: 0 0 30px 0;
 	cursor: pointer;
 }
+.matome_content_block_heading_image_quote .blockquote_font {
+	line-height: 175%;
+}
+
 /**************
 まとめ内 コード
 **************/
@@ -1046,6 +1050,12 @@ border-radius: 30px;
 	  top: 11px;
 	}
 	.matome_content_block_quote .blockquote_font {
+		line-height: 160%;
+	}
+	/******************
+	まとめ内 見出し画像
+	******************/
+	.matome_content_block_heading_image_quote .blockquote_font {
 		line-height: 160%;
 	}
 	/*************

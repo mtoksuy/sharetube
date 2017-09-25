@@ -2,12 +2,14 @@
 //ランダムキー生成
 //----------------
 function random_key_create() {
-var random_key = '';
-for (var i = 0 ; i < 10 ; i++) {
-  random_key = random_key + Math.floor(Math.random () * 10) + 1;
-}
+	var random_key = '';
+	for (var i = 0 ; i < 10 ; i++) {
+	  random_key = random_key + Math.floor(Math.random () * 10) + 1;
+	}
 	return random_key;
 }
+
+
 
 var thumbnail_flg = false;
 $(function () {
@@ -31,112 +33,164 @@ $(function () {
 		// インプットにランダムキー追加
 		$("#post_form").prepend('<input type="hidden" id="post_form_random_key" name="random_key" value="' + random_key + '">');
 		$("#thumbnail_form").prepend('<input type="hidden" id="thumbnail_form_random_key" name="random_key" value="' + random_key + '">');
-	/*
-		p($('#title').prop('value'));
-		p($('#title').prop('value'));
-	*/
+		
 		$(this).closest("form").submit();
 //		p($('#file'));
 
- var file = $(this).prop('files')[0];
-// 画像以外は処理を停止
-if (! file.type.match('image.*')) {
-	$('#thumbnail_form').before();
-	return;
-}
-//--------
-//画像表示
-//--------
-var reader = new FileReader();
-reader.onload = function() {
-	var img_src = $('<img id="reader_image">').attr( {
-		src:   reader.result,
-		style: 'width: 100%; height: auto;',
-	});
-$('#thumbnail_form').before(img_src);
-}
-reader.readAsDataURL(file);
-
-//		$('#thumbnail_form').before('<img src="'+ http +'assets/img/draft/article/'+year+'/'+random_key+'.jpg">');
+		 var file = $(this).prop('files')[0];
+		 // 画像以外は処理を停止
+		if(! file.type.match('image.*')) {
+			$('#thumbnail_form').before();
+			return;
+		}
+		//--------
+		//画像表示
+		//--------
+		var reader = new FileReader();
+		reader.onload = function() {
+			var img_src = $('<img id="reader_image">').attr( {
+				src:   reader.result,
+				style: 'width: 100%; height: auto;',
+			});
+			$('#thumbnail_form').before(img_src);
+		}
+		reader.readAsDataURL(file);
 		// フォーム非表示
 		$('#thumbnail_form').css( {
 			display: 'none',
 		});
 		// サムネイル削除ボタン生成
 		$('#thumbnail_form').after('<span class="thumbnail_form_delete_button" title="削除ボタン">×</span>');
-
-$('.thumbnail_form_delete_button').click(function() {
-	thumbnail_form_delete_button_click();
-});
-
-		// ajax
-/*
-		$.ajax( {
-			type: 'GET', 
-			url: http + 'ajax/thumbnail/',
-			data: {
-				
-			},
-			dataType: 'json',
-			cache: false,
-		  success: function(data) {
-				
-		  },
-			// エラー処理
-		  error: function(data) {
-				
-		  },
-		  complete: function(data) {
-
-		  }
-		}); // $.ajax({
-*/
-	});
-//--------------------
-//サムネイル削除ボタン
-//--------------------
-function thumbnail_form_delete_button_click() {
-	// 表示している画像削除
-	$('#reader_image').remove();
-	// 削除ボタン削除
-	$('.thumbnail_form_delete_button').remove();
-		// フォーム表示
-		$('#thumbnail_form').css( {
-			display: 'block',
+		// 大事 サムネイル削除
+		$('.thumbnail_form_delete_button').click(function() {
+			thumbnail_form_delete_button_click();
 		});
-//p($('#post_form_random_key'));
-// ランダムキー削除
-$('#post_form_random_key').remove();
-// ランダムキー削除
-$('#thumbnail_form_random_key').remove();
-// サムネイル削除
-$('#post_form_thumbnail_create').remove();
-//p($('#post_form_random_key'));
-}
+	}); // $("#file").change(function ()
+	//--------------------
+	//サムネイル削除ボタン
+	//--------------------
+	function thumbnail_form_delete_button_click() {
+		// 表示している画像削除
+		$('#reader_image').remove();
+		// 削除ボタン削除
+		$('.thumbnail_form_delete_button').remove();
+			// フォーム表示
+			$('#thumbnail_form').css( {
+				display: 'block',
+			});
+		// ランダムキー削除
+		$('#post_form_random_key').remove();
+		// ランダムキー削除
+		$('#thumbnail_form_random_key').remove();
+		// サムネイル削除
+		$('#post_form_thumbnail_create').remove();
+	}
+	//------------------------
+	//サムネイル削除ボタン実行
+	//------------------------
+	$('.thumbnail_form_delete_button').click(function() {
+		thumbnail_form_delete_button_click();
+	});
 
-/*
-$('.thumbnail_form_delete_button').click(function() {
-	p('クリック');
-/*
-$("#post_form").prepend('<input type="hidden" name="random_key" value="' + random_key + '">');
-$("#thumbnail_form").prepend('<input type="hidden" name="random_key" value="' + random_key + '">');
-<input type="hidden" value="1" name="thumbnail_create">
+	/*************************************
+	引用追加 チェックURLのタイトル自動取得
+	*************************************/
+	$('.postbox').on( {
+		'change': function() {
+			var val    = $(this).val();
+			var j_this = $(this);
+			var re     = /https|http/;
+			var test = val.match(re);
+			// 正しいURLか検査
+			if(test) {
+				// Ajaxを走らせる
+				$.ajax( {
+					type: 'POST', 
+					url: http+'ajax/matome/urltitleget/',
+					data: {
+						url: val,
+					},
+					dataType: 'json',
+					cache: false,
+					// Ajax完了後の挙動
+				  success: function(data) {
+						// チェック判別
+						if(data['check'] == true) {
+							j_this.next().val(data['title']);
+						}
+				  },
+				  error: function(data) {
+	
+				  },
+				  complete: function(data) {
+	
+				  }
+				});
+			}  // if(test) {
+		},
+		'keypress': function() {
+	
+		}
+	}, '.thumbnail_quote_url');
 
-p($('#post_form_random_key'));
-$('#post_form_random_key').remove();
-p($('#post_form_random_key'));
-
-});
-*/
-$('.thumbnail_form_delete_button').click(function() {
-	thumbnail_form_delete_button_click();
-});
 
 
 
-//-----------------------
-//
-//-----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /********************************
 アイテム 吹き出し追加フォーム生成
 ********************************/

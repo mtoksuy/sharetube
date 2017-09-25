@@ -115,6 +115,8 @@ class Model_Login_List_Edit_Basis extends Model {
 			tag             = '".$tag."', 
 			original        = '".$original."',
 			thumbnail_image = '".$thumbnail_image."',
+			thumbnail_quote_url   = '".$post['thumbnail_quote_url']."',
+			thumbnail_quote_title = '".$post['thumbnail_quote_title']."',
 			sp_thumbnail    = ".(int)$sp_thumbnail.", 
 			random_key      = '".$random_key."', 
 			update_time     = '".$create_date."'

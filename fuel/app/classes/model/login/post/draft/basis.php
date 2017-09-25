@@ -33,6 +33,8 @@ class Model_Login_Post_Draft_Basis extends Model {
 				tag ,
 				original,
 				thumbnail_image ,
+				thumbnail_quote_url ,
+				thumbnail_quote_title ,
 				sp_thumbnail , 
 				link ,
 				random_key,
@@ -49,6 +51,8 @@ class Model_Login_Post_Draft_Basis extends Model {
 				'".$article_create_data_array["tag"]."',
 				'".$article_create_data_array["original"]."',
 				'".$article_create_data_array["thumbnail_image"]."',
+				'".$article_create_data_array["thumbnail_quote_url"]."',
+				'".$article_create_data_array["thumbnail_quote_title"]."',
 				".$article_create_data_array["sp_thumbnail"].", 
 				'".$article_create_data_array["link"]."',
 				'".$article_create_data_array["random_key"]."',
@@ -68,18 +72,20 @@ class Model_Login_Post_Draft_Basis extends Model {
 //		var_dump($article_create_data_array);
 		DB::query("
 			UPDATE draft SET
-				category        = '".$article_create_data_array["category"]."' ,
-				title           = '".$article_create_data_array["title"]."' ,
-				sub_text        = '".$article_create_data_array["sub_text"]."' ,
-				contents        = '".$article_create_data_array["contents"]."' ,
-				text            = '".$article_create_data_array["text"]."' ,
-				tag             = '".$article_create_data_array["tag"]."' ,
-				original        = '".$article_create_data_array["original"]."' ,
-				thumbnail_image = '".$article_create_data_array["thumbnail_image"]."' ,
-				sp_thumbnail    = '".$article_create_data_array["sp_thumbnail"]."' , 
-				link            = '".$article_create_data_array["link"]."' ,
-				random_key      = '".$article_create_data_array["random_key"]."' ,
-				update_time     = '".$article_create_data_array["create_date"]."'
+				category              = '".$article_create_data_array["category"]."' ,
+				title                 = '".$article_create_data_array["title"]."' ,
+				sub_text              = '".$article_create_data_array["sub_text"]."' ,
+				contents              = '".$article_create_data_array["contents"]."' ,
+				text                  = '".$article_create_data_array["text"]."' ,
+				tag                   = '".$article_create_data_array["tag"]."' ,
+				original              = '".$article_create_data_array["original"]."' ,
+				thumbnail_image       = '".$article_create_data_array["thumbnail_image"]."' ,
+				thumbnail_quote_url   = '".$article_create_data_array["thumbnail_quote_url"]."' ,
+				thumbnail_quote_title = '".$article_create_data_array["thumbnail_quote_title"]."' ,
+				sp_thumbnail          = '".$article_create_data_array["sp_thumbnail"]."' , 
+				link                  = '".$article_create_data_array["link"]."' ,
+				random_key            = '".$article_create_data_array["random_key"]."' ,
+				update_time           = '".$article_create_data_array["create_date"]."'
 			WHERE 
 				primary_id = ".$article_create_data_array["draft_primary_id"]."")->execute();
 //UPDATE `fuel_sharetube`.`draft` SET `sub_text` = 'hjkh' WHERE `draft`.`primary_id` =55;

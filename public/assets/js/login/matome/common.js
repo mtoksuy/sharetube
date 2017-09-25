@@ -153,17 +153,23 @@ function matome_data_object_create() {
 	// カテゴリー取得
 	var matome_category       = $('.matome_category').val();
 	// サムネイル情報取得
-	var matome_thumbnail_data = $('#thumbnail_form input').val();
+	var matome_thumbnail_data        = $('#thumbnail_form input').val();
+	// サムネイル引用元URL
+	var matome_thumbnail_quote_url   = $('.thumbnail_quote_url').val();
+	// サムネイル引用元タイトル
+	var matome_thumbnail_quote_title = $('.thumbnail_quote_title').val();
 
 	var matome_data_object = {
-		matome_draft_save       : matome_draft_save,
-		matome_draft_primary_id : matome_draft_primary_id,
-		matome_edit_primary_id  : matome_edit_primary_id,
-		matome_html             : matome_html,
-		matome_title            : matome_title,
-		matome_tag              : matome_tag,
-		matome_category         : matome_category,
-		matome_thumbnail_data   : matome_thumbnail_data,
+		matome_draft_save            : matome_draft_save,
+		matome_draft_primary_id      : matome_draft_primary_id,
+		matome_edit_primary_id       : matome_edit_primary_id,
+		matome_html                  : matome_html,
+		matome_title                 : matome_title,
+		matome_tag                   : matome_tag,
+		matome_category              : matome_category,
+		matome_thumbnail_data        : matome_thumbnail_data,
+		matome_thumbnail_quote_url   : matome_thumbnail_quote_url, 
+		matome_thumbnail_quote_title : matome_thumbnail_quote_title, 
 	};
 //	p(matome_data_object);
 	return matome_data_object;
@@ -187,7 +193,7 @@ $('.postboxs').on( {
 			$('.matome_submit').css( {
 				'opacity' : '1',
 				'cursor' : 'pointer',
-			});			
+			});
 		},5000);
 		// サブミットが走ってない場合
 		if(submit_check != 'now') {
@@ -254,7 +260,6 @@ $('.postboxs').on( {
 		var postbox_contents = $(this).parents('.postbox_contents');
 		// matome_data_object生成
 		var matome_data_object = matome_data_object_create();
-//		p(matome_data_object);
 			// Ajaxを走らせる
 			$.ajax( {
 				type: 'POST', 

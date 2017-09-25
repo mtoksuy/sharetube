@@ -93,7 +93,7 @@
 					  	<li><a href="https://www.facebook.com/sharetube.jp/" target="_blank">Facebook</a></li>
 					  	<li><a href="https://twitter.com/Sharetube_jp" target="_blank">Twitter</a></li>
 					  	<li><a href="https://plus.google.com/+SharetubeJp0480" target="_blank">Google+</a></li>
-					  	<li><a href="http://localhost/sharetube/feed.xml">RSS配信</a></li>
+					  	<li><a href="<?php echo HTTP ?>feed.xml">RSS配信</a></li>
 					  	<li><a target="blank" href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fsharetube.jp%2Ffeed.xml">Feedlyで購読</a></li>
 						</ul>
 					</div> <!--  -->

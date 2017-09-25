@@ -1,9 +1,13 @@
+#wrapper {
+	background-color: #FFFFFF;
+}
+.main {
+	background-color: #FFFFFF;
+}
+
 
 .about {
-    background-color: #FCFCFC;
-    border-bottom: 2px solid #E7E7E7;
-    border-radius: 2px;
-    box-shadow: 0 0 0 2px #E7E7E7;
+	background-color: #FFFFFF;
     margin-bottom: 60px;
     padding: 15px;
     position: relative;
@@ -12,6 +16,15 @@
 .about_contents {
 
 }
+
+.about_h_0 {
+    color: rgba(0, 0, 0, 0.57);
+    font-size: 280%;
+    font-weight: bold;
+    position: relative;
+    top: 0;
+}
+
 
 /*************************
 メディアクエリ設定 0〜1023

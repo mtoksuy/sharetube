@@ -56,6 +56,8 @@ class Controller_Login_Admin_Matome extends Controller_Login_Template {
 					$article_array_data["sub_text"]        = $value["sub_text"];
 					$article_array_data["tag"]             = $value["tag"];
 					$article_array_data["thumbnail_image"] = $value["thumbnail_image"];
+					$article_array_data["thumbnail_quote_url"]   = $value["thumbnail_quote_url"];
+					$article_array_data["thumbnail_quote_title"] = $value["thumbnail_quote_title"];
 					$article_array_data["random_key"]      = $value["random_key"];
 					$article_array_data["draft"]           = $value["draft"];
 				}
@@ -75,6 +77,8 @@ class Controller_Login_Admin_Matome extends Controller_Login_Template {
 					$article_array_data["sub_text"]        = $value["sub_text"];
 					$article_array_data["tag"]             = $value["tag"];
 					$article_array_data["thumbnail_image"] = $value["thumbnail_image"];
+					$article_array_data["thumbnail_quote_url"]   = $value["thumbnail_quote_url"];
+					$article_array_data["thumbnail_quote_title"] = $value["thumbnail_quote_title"];
 					$article_array_data["random_key"]      = $value["random_key"];
 					$article_array_data["edit"]            = true;
 				}
