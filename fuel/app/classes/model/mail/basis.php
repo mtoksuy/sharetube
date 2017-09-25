@@ -216,9 +216,9 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
-	//------------------
-	//qbmailでメール送信
-	//------------------
+	//----------------------------------
+	//お問い合わせからの連絡をメール送信
+	//----------------------------------
 	public static function qbmail_post($post) {
 		$message = ("お問い合わせからフォーム送信されました。
 		お名前:{$post['name']}

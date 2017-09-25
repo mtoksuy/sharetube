@@ -6,40 +6,6 @@
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.5</p>
-
-
-
-
-
-	<div class="matome_content_block">
-		<div class="matome_content_block_enclosed">
-			<pre>[<b>引用に関する注意点</b>]
-最近、テキスト・画像を引用する場合に引用先を記載していないまとめが見受けられます。
-記載していませんと、元の保有者とトラブルになりますので必ず記載していただきますよう宜しくお願い致します。
-
-[<b>引用していないまとめに関して</b>]
-<b class="red">削除対象となります</b>。悪質であればアカウント停止の処置をおこわなければなりませんので守っていただくようお願い致します。
-また、現状のまとめ作成ツールでは引用できる箇所が行き届いておりませんので、早急にこの部分を実装してまいります。</pre>
-		</div>
-	</div>
-<div class="matome_content_block">	<div class="matome_content_block_ballon">		<pre>2017年09月19日：<b>サムネイル引用元</b>を記載できるように致しました。<em class="marker_1">「まとめ作成ツール」内にてスーパーリロード</em>よろしくお願い致します。
-2017年09月20日：<b>見出し画像の引用元</b>を記載できるように致しました。<em class="marker_1">「まとめ作成ツール」内にてスーパーリロード</em>よろしくお願い致します。
-
-今週末までこの表示をさせていただきます。</pre>	</div>		</div>
-
-
-
-
-
-
-						<p><a href="http://localhost/sharetube/rule/rule">利用規約</a>
-</p>
-
-
-
-
-
-
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
 						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
