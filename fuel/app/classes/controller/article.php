@@ -14,8 +14,10 @@ class Controller_Article extends Controller_Article_Template {
 		if (!$params && preg_match('/^[0-9]+$/', $method, $method_array)) {
 			// 記事があるかどうかを検査する
 			$is_article = Model_Info_Basis::is_article($method);
+//			var_dump($is_article);
 			// 作成されたまとめ かつ削除されたまとめか調べる
 			$is_article_delete = Model_Info_Basis::is_article_delete($method);
+//			var_dump($is_article_delete);
 			// 記事がある場合
 			if($is_article) {
 				return $this->action_index($method);

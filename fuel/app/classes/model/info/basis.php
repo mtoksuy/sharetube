@@ -256,10 +256,10 @@ class Model_Info_Basis extends Model {
 	public static function is_article($method, $article_type = 'article') {
 		$is_article = false;
 		$res = DB::query(
-			"SELECT *
+			"SELECT primary_id
 				FROM ".$article_type."
-				WHERE link = ".$method."
-				AND del = 0")->cached(3600)->execute();
+				WHERE primary_id = ".$method."
+				AND del = 0")->execute();
 		foreach($res as $key => $value) {
 //			var_dump($value);
 			$is_article = true;
