@@ -5,10 +5,16 @@
 
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.5</p>
+						<p>Sharetube version 5.5.6</p>
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
-						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
+						<p class="m_0">キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
+
+						<p><a href="<?php echo HTTP; ?>/rule/rule/" target="_blank">利用規約</a>を守り、健全な活動を行いましょう。</p>
+
+
+
+
 					</div>
 
 
@@ -70,12 +76,12 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p class="m_0">・おすすめテーマ一覧</p>
-					<p>・まとめ作成ツール：アイテム：Q＆A実装</p>
-
+					<p>・しばらくは理念と利用規約の浸透に向けての開発を行います。(2017年10月末辺りまで)</p>
 
 					<h3 class="h3_heading_1">バグリスト</h3>
-					<p>・まとめ作成ツール：リンクの中にある概要の中身にHTMLがあるとバグる(URL先のバグで)</p>
+					<p class="m_0">・まとめ作成ツール：アイテム：Twitterのコンテンツに <と>が含まれている場合バグる</p>
+					<p class="m_0">・まとめ作成ツール：アイテム：画像にてキャンセルをクリックすると引用情報が消える</p>
+					<p>・まとめ作成ツール：アイテム：リンクの中にある概要の中身にHTMLがあるとバグる(URL先のバグで)</p>
 
 
 				<h3 class="m_t_30 m_b_15 h3_heading_1">更新情報</h3>
@@ -110,6 +116,23 @@
 
 
 
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>09月20日〜09月26日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.6</h3>
+						<pre>・利用規約アップデート
+・まとめページのみキャッシュ緩和</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
