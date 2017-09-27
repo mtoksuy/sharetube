@@ -429,6 +429,67 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
+	//-----------------------------------
+	// 記事を削除した主旨を本人に報告する
+	//-----------------------------------
+	public static function article_delete_report($sharetube_user_data_array, $article_data_array) {
+		$message = ("お世話になっております
+Sharetubeサポートチームです
+
+サービスをご利用いただきましてありがとうございます。
+
+
+今回は".$sharetube_user_data_array['name']."様が書かれたまとめが
+利用規約の第7条（禁止事項）に抵触しており
+削除させていただいた事をご連絡させていただきます。
+
+[該当まとめ]
+".$article_data_array['title']."
+".HTTP.'article/'.$article_data_array['link']."/
+
+利用規約
+http://sharetube.jp/rule/rule/ 
+
+---
+
+なお、修正を行う意志がございましたら、まとめを戻しますので
+その際はこのメールアドレスにご連絡くださいますようよろしくお願い致します。
+
+---
+
+Sharetubeが考える理想のコンテンツは
+筆者自身の文章と引用の文章比率が
+7:3
+3:7
+が好ましいと考えております。
+また、将来的にまとめよりのコンテンツより
+記事よりのコンテンツをバックアップしていく方針ですので
+よろしくお願い致します。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '利用規約違反があったため該当まとめを削除いたしました',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
 
 
 

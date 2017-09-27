@@ -47,6 +47,13 @@ class Controller_Login_Admin_List_Delete extends Controller_Login_Template {
 			if($_SESSION['sharetube_id'] == $article_data_array['sharetube_id'] || $_SESSION['sharetube_id'] == 'mtoksuy') {
 				// まとめを削除
 				Model_Login_List_Basis::article_delete($method);
+				// 管理人が書いたまとめ以外を削除した場合
+				if($_SESSION['sharetube_id'] == 'mtoksuy' && $_SESSION['sharetube_id'] != $article_data_array['sharetube_id']) {
+					// Sharetubeのユーザーデータ取得
+					$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($article_data_array['sharetube_id']);
+					// 記事を削除した主旨を本人に報告する
+					Model_Mail_Basis::article_delete_report($sharetube_user_data_array, $article_data_array);
+				}
 				header('Location: '.HTTP.'login/admin/list/');
 				exit;
 			}
