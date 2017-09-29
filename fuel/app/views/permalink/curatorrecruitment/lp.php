@@ -5,7 +5,7 @@
 		<!-- meta -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<meta name="keywords" content="ライター, 募集, キュレーター, 稼ぐ, お小遣い, 在宅, SOHO, 仕事, ワークス, まとめ" />
+		<meta name="keywords" content="ライター, 募集, キュレーター, エディター, 稼ぐ, お小遣い, 在宅, SOHO, 仕事, ワークス, まとめ" />
 		<meta property="og:title" content="業界NO.1のインセンティブ報酬を支払うSharetubeでまとめを作成してみませんか？ " />
 		<meta property="og:type" content="website" />
 		<!-- icon -->
@@ -224,9 +224,9 @@
 
 					<!-- appeal_block -->
 					<div class="appeal_block">
-						<h2>こんな人が<span class="red">キュレーター</span>に向いています</h2>
+						<h2>こんな人が<span class="red">エディター</span>に向いています</h2>
 						<p class="appeal_p_4">主婦・学生などの時間に余裕のある方。専門的な仕事をしている方。</p>
-						<p class="appeal_p_4">探究心が強く、正しい情報をちゃんと世の中に出したいと考えている方がキュレーターに向いています。</p>
+						<p class="appeal_p_4">探究心が強く、正しい情報をちゃんと世の中に出したいと考えている方がエディターに向いています。</p>
 					</div>
 
 
@@ -247,24 +247,69 @@
 
 					<!-- appeal_block -->
 					<div class="appeal_block">
-						<h2>キュレーターが<span class="red">インセンティブ</span>をもらえる仕組み</h2>
-						<p class="appeal_p_4">バナーなどの広告をSharetubeが営業を行いページに表示していますので、キュレーターはまとめを作成する事だけに集中できます。近い将来「ネイティブ広告」も始まります。コンペ形式でキュレーター様にまとめを書いていただく形になりますのでぜひ参加して下さい。</p>
+						<h2>エディターが<span class="red">インセンティブ</span>をもらえる仕組み</h2>
+						<p class="appeal_p_4">バナーなどの広告をSharetubeが営業を行いページに表示していますので、エディターはまとめを作成する事だけに集中できます。近い将来「ネイティブ広告」も始まります。コンペ形式でエディター様にまとめを書いていただく形になりますのでぜひ参加して下さい。</p>
 						<p style="margin: 0px auto; text-align: center; font-weight: bold;">Sharetubeのマインドマップ図</p>
 						<img class="appeal_block_image_1" style="width: 700px;" width="640" height="400" title="Sharetubeのマインドマップ図" alt="Sharetubeのマインドマップ図" src="http://sharetube.jp/assets/img/article/image/image_33241.png" class="o_8">
 					</div>
 
 
+
+
+
+
 					<!-- appeal_block -->
 					<div class="appeal_block">
-						<h2>Share<span class="red">tube</span>のメディア理念</h2>
+						<div class="about_h_0 m_t_45 m_b_30 text_center"><span class="red">V</span>ision</div>
+						<p class="appeal_p_4 text_center">
+							<span class="f_s_150">「全ての情報を最高のカタチで世界中に届ける」</span>
+						</p>
+					</div>
+
+
+
+					<!-- appeal_block -->
+					<div class="appeal_block">
+						<div class="about_h_0 m_t_45 m_b_30 text_center"><span class="red">M</span>ission</div>
 						<p class="appeal_p_4">
 							<span class="f_s_150">「テキストメディアの中でシェア率No.1になる。」</span>
 						</p>
+						<p class="appeal_p_4">本気で読まれるメディアを作り、自然にシェアされるコンテンツを創出していきます</p>
+
+						<p class="appeal_p_4 m_t_30">
+							<span class="f_s_150">「エディターという副業を創出する」</span>
+						</p>
+						<p class="appeal_p_4">またの名をSharetuberと呼んでいます。誰しもがエディターになれる自由があり、その機会を得る自由があります。業界No.1の「インセンティブ」を誇っているSharetubeですが、さらにこのレートを5倍～10倍にしたいと考えています。本業以上の副業を創出して社会の活性化を目指します。</p>
+
+
+
+
+
 					</div>
+
+
+
+
+
+
+
+
+
 					<!-- appeal_block -->
 					<div class="appeal_block">
-						<h2>本業以上の<span class="red">副業</span>を創出するため</h2>
-						<p class="appeal_p_4">業界No.1の「インセンティブ」を誇っているSharetubeですが、将来的にこのレートを5倍～10倍にしたいと考えています。本業以上の副業を創出して社会の活性化を目指します。</p>
+						<div class="about_h_0 m_t_45 m_b_30 text_center"><span class="red">V</span>alue</div>
+						<p class="appeal_p_4">
+Sharetubeがミッションを遂行してビジョンを達成するために守るべき項目です。</p>
+						<p class="appeal_p_4">・ユーザーに愛されるサービスを作ろう<br>
+・最高のコンテンツを提供する努力を惜しまない<br>
+・超中立の意識の中で情報をデザインする<br>
+・全ての人にチャンスを<br>
+・常識を疑え、捨てろ<br>
+・サービスに国境はない<br>
+・公正なビジネス、組織を作る<br>
+・人を大事にしよう<br>
+・クリエイティブに敬意を<br>
+・全員がSharetuberに</p>
 					</div>
 
 

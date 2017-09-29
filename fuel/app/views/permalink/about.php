@@ -201,8 +201,6 @@ http://ecofuture.co.jp/topics/?p=363
 	<div class="matome_content_block">
 		<div class="matome_content_block_text">
 			<pre>Sharetubeはシェアしたくなるコンテンツが集まる場所として作りました。情報をデザインしてオリジナルのコンテンツをアップロードして情報発信できるキュレーションサービスです。</pre>
-
-
 		</div>
 	</div>
 

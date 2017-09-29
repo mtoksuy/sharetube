@@ -57,17 +57,21 @@ class Controller_Ajax_Matome_linkdataget extends Controller {
 		// 置換（削除）
 		$healthy = array('"', "'", '&#10;');
 		$title = str_replace($healthy, '', $title);
+
+		// タイトルのサイズを68にする
+		$article_title_data_array = array();
+		$article_title_data_array['article_contents'] = $title;
+		$title = Model_Article_Html::meta_description_html_create($article_title_data_array, 68);
+
 		//////////
 		//概要取得
 		//////////
 		$subject = str_replace('/', '', $subject);
 
-
 //		$pattern = '/<meta(.+?)description(.+?)content="(.+?)">/i';  > を削除しただけ 2017.07.14 松岡
 		$pattern = '/<meta(.+?)description(.+?)content="(.+?)"/i';
 		// 概要検索
 		preg_match($pattern, $subject, $description_array);
-
 /*
   [3]=>
   string(1390) "でんぱ組.incは秋葉原ディアステージに所属しアニメ・漫画・ゲームなどの趣味に特化したコアなオタクでもある古川未鈴、相沢梨紗、夢眠ねむ、成瀬瑛美、最上もが、藤咲彩音の6人によるジャパニーズポップカルチャー最先端アイドルユニット。最上もがについて。" /><style>figure{margin:0}.tmblr-iframe{position:absolute}.tmblr-i
@@ -85,10 +89,18 @@ class Controller_Ajax_Matome_linkdataget extends Controller {
 			// null削除
 			if($description == null){$description = '';}
 		}
+		// メタ概要HTML生成
+		$article_data_array = array();
+		$article_data_array['article_contents'] = $description;
+		// 記事概要取得
+		$description = Model_Article_Html::meta_description_html_create($article_data_array, 168);
+
 		// Twitterだったら
 		if(preg_match('/twitter.com/', $url)) {
 			$description = str_replace('最新ツイート', 'Twtterアカウント。', $description);
 		}
+//pre_var_dump($summary_contents);
+
 //小笠原茉由(@chunma04)さん | Twitter
 //小笠原茉由 (@chunma04)さんの最新ツイート。
 

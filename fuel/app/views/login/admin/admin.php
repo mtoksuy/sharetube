@@ -5,10 +5,16 @@
 
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.5</p>
+						<p>Sharetube version 5.5.6</p>
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
-						<p>キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
+						<p class="m_0">キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
+
+						<p><a href="<?php echo HTTP; ?>/rule/rule/" target="_blank">利用規約</a>を守り、健全な活動を行いましょう。</p>
+
+
+
+
 					</div>
 
 
@@ -67,21 +73,26 @@
 					<p class="m_0">・人気まとめ1週間：1日</p>
 					<p class="m_0">・人気まとめ1ヶ月：3日</p>
 					<p class="m_0">・ユーザーページ：15分</p>
+					<p class="m_0">・テーマページ：1日</p>
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p class="m_0">・おすすめテーマ一覧</p>
-					<p>・まとめ作成ツール：アイテム：Q＆A実装</p>
-
+					<p>・しばらくは理念と利用規約の浸透に向けての開発を行います。(2017年10月末辺りまで)</p>
 
 					<h3 class="h3_heading_1">バグリスト</h3>
-					<p>・まとめ作成ツール：リンクの中にある概要の中身にHTMLがあるとバグる(URL先のバグで)</p>
+					<p class="m_0">・まとめ作成ツール：アイテム：Twitterのコンテンツに <と>が含まれている場合バグる</p>
+					<p>・まとめ作成ツール：アイテム：リンクの中にある概要の中身にHTMLがあるとバグる(URL先のバグで)</p>
 
 
 				<h3 class="m_t_30 m_b_15 h3_heading_1">更新情報</h3>
 <div class="matome_content_block">
 	<div class="matome_content_block_timeline">
 		<ol>
+
+
+
+
+
 
 
 
@@ -106,6 +117,33 @@
 
 
 
+
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>09月20日〜09月30日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.6</h3>
+						<pre>・利用規約アップデート
+・まとめページのみキャッシュ緩和
+・利用規約違反まとめを削除した時に自動連絡実装
+・まとめ作成ツール：アイテム：画像にて修正をクリックしてからキャンセルをクリックすると引用情報が消えるバグ修正
+・まとめ作成ツール：アイテム：リンクの概要が長い時そのまま表示されるのを修正
+・feed.xmlが生成されていなかった問題を修正
+・sitemap.xmlが生成されていなかった問題を修正
+・テーマページをスマホで閲覧した時に最適化した情報位置にアップデート</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 

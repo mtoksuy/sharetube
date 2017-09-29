@@ -268,13 +268,14 @@ $('.matome').on( {
 			// 元データがある場合
 			else {
 				// コンテンツ抽出
-				var image_html = image_add.find('.image_add_content_left').html();
-				var image_url  = image_add.find('.great_image_set_100 p a').attr('href');
-				var title      = image_add.find('.image_add_content_title').val();
-				var word       = image_add.find('.image_add_content_word').val();
-
+				var image_html  = image_add.find('.image_add_content_left').html();
+				var image_url   = image_add.find('.great_image_set_100 p a').attr('href');
+				var title       = image_add.find('.image_add_content_title').val();
+				var word        = image_add.find('.image_add_content_word').val();
+				var quote_url   = image_add.find('.image_add_content_quote_url').val();
+				var quote_title = image_add.find('.image_add_content_quote_title').val();
 				// 画像追加
-				$(this).parents('.image_add').before(image_html_2(image_url, title, word)); 
+				$(this).parents('.image_add').before(image_html_2(image_url, title, word, quote_url, quote_title)); 
 				// 自要素削除
 				image_add.remove();
 			}

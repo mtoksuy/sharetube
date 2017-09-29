@@ -176,6 +176,19 @@ font-weight: bold;
 .appeal_float_block_right {
 	float: left;
 }
+/**/
+.about_h_0 {
+    color: rgba(0, 0, 0, 0.57);
+    font-size: 280%;
+    font-weight: bold;
+    position: relative;
+    top: 0;
+}
+
+
+
+
+
 /********
 フッター
 ********/

@@ -49,9 +49,10 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 			$user_res = DB::query("
 				SELECT * 
 					FROM user
-					WHERE all_page_view > 100
+					WHERE all_page_view > 500
 					ORDER BY all_page_view DESC")->execute();
 			foreach($user_res as $key => $value) {
+//pre_var_dump($value);
 				$user_array[$key]         = $value["sharetube_id"];
 				$user_channel_array[$key] = array(HTTP.'channel/'.$value["sharetube_id"].'/');
 				// Sharetubeユーザーの書いた記事数を取得
@@ -60,10 +61,12 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 				$page_number = ($article_count/10);
 				// 端数切り捨て
 				$page_number = (int)floor($page_number);
+				// ページング追加
 				for($i = 1;$i <= $page_number; $i++) {
-					$user_channel_array[$key][$i] = $user_channel_array[$key][0].$i.'/';
+//					$user_channel_array[$key][$i] = $user_channel_array[$key][0].$i.'/';
 				} // for($i = 1;$i <= $page_number; $i++) {
 			}
+//pre_var_dump($user_channel_array);
 			////////////
 			//まとめ生成
 			////////////
@@ -92,6 +95,12 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 </url>
 ';
 			}
+				$recommendarticle_loc = 
+'<url>
+	<loc>'.HTTP.'recommendarticle/</loc>
+	<priority>0.6</priority>
+</url>
+';
 			////////////
 			//新着まとめ
 			////////////
@@ -107,24 +116,37 @@ class Controller_Login_Admin_Sitemap extends Controller_Login_Template {
 </url>
 ';
 			for($count = 2; $new_article_paging_data_array['max_paging_num'] >= $count; $count++) {
+/*
 				$newarticle_loc .= 
 '<url>
 	<loc>'.HTTP.'newarticle/'.$count.'/</loc>
 	<priority>0.7</priority>
 </url>
 ';
+*/
 			}
+			////////////////////
+			//殿堂まとめ_loc生成
+			////////////////////
+				$famearticle_loc .= 
+'<url>
+	<loc>'.HTTP.'famearticle/</loc>
+	<priority>0.6</priority>
+</url>
+';
 			////////
 			//テーマ
 			////////
 			$theme_res = DB::query("
 				SELECT * 
 				FROM theme 
-				WHERE del = 0")->execute();
+				WHERE del = 0
+				AND article_count > 5")->execute();
 			///////////////
 			//theme_loc生成
 			///////////////
 			foreach($theme_res as $key => $value) {
+//pre_var_dump($key);
 				$theme_loc .= 
 '<url>
 	<loc>'.HTTP.'theme/'.$value['primary_id'].'/</loc>
@@ -229,7 +251,11 @@ $sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>
   <loc>http://sharetube.jp/permalink/ch_thread_design_1.php</loc>
   <priority>0.7</priority>
 </url>
-'.$matome_loc.$theme_loc.$user_channel_loc.$category_loc.$recommendarticle_loc.$newarticle_loc.$archive_loc.'</urlset>';
+<url>
+  <loc>http://sharetube.jp/themelist/</loc>
+  <priority>0.7</priority>
+</url>
+'.$matome_loc.$theme_loc.$user_channel_loc.$category_loc.$recommendarticle_loc.$newarticle_loc.$famearticle_loc.$archive_loc.'</urlset>';
 
 
 

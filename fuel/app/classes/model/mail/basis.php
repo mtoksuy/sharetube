@@ -193,6 +193,38 @@ http://sharetube.jp/
 ログインページ
 http://sharetube.jp/login/
 
+利用規約
+http://sharetube.jp/rule/rule/
+
+---------------------
+
+[コンテンツを作成するにあたって]
+Sharetubeは引用を徹底してまいります。
+しっかりと利用規約を守った健全な活動をお願い申し上げます。
+
+
+[記事タイプに関して]
+・引用を多様に差し込むまとめ型
+・筆者が全文を書く記事型
+・引用と筆者の言葉を重ねるマルチ型
+
+が、ございます
+その中でも
+引用とエディターの言葉を重ねるマルチ型をお勧めしています。
+割合としてはオリジナル文字7：引用文字3の割合が好まれます。
+
+
+[まとめを書くにあたってのノウハウ]
+PVを集めるために絶対に必要な7つのルール
+http://sharetube.jp/article/2814/
+
+
+[参考にするまとめ一覧]
+殿堂まとめ
+http://sharetube.jp/famearticle/
+
+---------------------
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Sharetube - シェアしたくなるコンテンツが集まる、集まる。
 発行：Sharetube[シェアチューブ]サポートチーム
@@ -390,6 +422,67 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			'from'    => 'Sharetube <info@sharetube.jp>',
 			'to'      => $mail_address,
 			'subject' => 'Sharetube[パスワード再設定の発行が行われました]',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+	//-----------------------------------
+	// 記事を削除した主旨を本人に報告する
+	//-----------------------------------
+	public static function article_delete_report($sharetube_user_data_array, $article_data_array) {
+		$message = ("お世話になっております
+Sharetubeサポートチームです
+
+サービスをご利用いただきましてありがとうございます。
+
+
+今回は".$sharetube_user_data_array['name']."様が書かれたまとめが
+利用規約の第7条（禁止事項）に抵触しており
+削除させていただいた事をご連絡させていただきます。
+
+[該当まとめ]
+".$article_data_array['title']."
+".HTTP.'article/'.$article_data_array['link']."/
+
+利用規約
+http://sharetube.jp/rule/rule/ 
+
+---
+
+なお、修正を行う意志がございましたら、まとめを戻しますので
+その際はこのメールアドレスにご連絡くださいますようよろしくお願い致します。
+
+---
+
+Sharetubeが考える理想のコンテンツは
+筆者自身の文章と引用の文章比率が
+7:3
+3:7
+が好ましいと考えております。
+また、将来的にまとめよりのコンテンツより
+記事よりのコンテンツをバックアップしていく方針ですので
+よろしくお願い致します。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '利用規約違反があったため該当まとめを削除いたしました',
 			'message' => $message,
 			'param'   => array(
 				'host'     => 'localhost',
