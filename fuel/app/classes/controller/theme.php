@@ -70,12 +70,6 @@ class Controller_Theme extends Controller_Theme_Template {
 		// 合体
 		$theme_list_html = $theme_list_html.$paging_html;
 
-		// コンテンツセット
-		$this->theme_template->view_data["content"]->set('content_data', array(
-			'theme_count_html' => $theme_count_html,
-			'content_html' => $theme_list_html,
-		), false);
-
 		// シャッフル記事データ取得
 		$shuffle_res = Model_Article_Basis::article_shuffle_get($method, 'article', 1);
 		// シャッフルボタン記事link生成
@@ -84,8 +78,6 @@ class Controller_Theme extends Controller_Theme_Template {
 		$this->theme_template->view_data["header"]->set('header_data', array(
 			'shuffle_article_url' => $shuffle_article_link,
 		), false);
-
-
 
 
 
@@ -104,15 +96,33 @@ class Controller_Theme extends Controller_Theme_Template {
 		// 関連テーマHTML生成
 		$theme_relation_html = Model_Theme_Html::theme_relation_html_create($theme_res, $theme_relation_2_array, 3600);
 
+		// モバイル判別するPHPクラスライブラリを利用した機種判別
+		$detect = Model_info_Basis::mobile_detect_create();
+		// 実際に設定する場所
+		if($detect->isMobile() | $detect->isTablet()) {
+			$mobile_theme_curator_ranking_html = $theme_curator_ranking_html;
+			$theme_curator_ranking_html        = '';
+			$mobile_theme_relation_html        = $theme_relation_html;
+			$theme_relation_html               = '';
+		}
+			else {
+
+			}
 
 		// サイドバーコンテンツセット
 		$this->theme_template->view_data["sidebar"]->set('sidebar_data', array(
 			'theme_data_html'            => $theme_data_html,
 			'theme_curator_ranking_html' => $theme_curator_ranking_html,
 			'theme_relation_html'        => $theme_relation_html,
-			
 		),false);
 
+		// コンテンツセット
+		$this->theme_template->view_data["content"]->set('content_data', array(
+			'theme_count_html'                  => $theme_count_html,
+			'content_html'                      => $theme_list_html,
+			'mobile_theme_curator_ranking_html' => $mobile_theme_curator_ranking_html,
+			'mobile_theme_relation_html'        => $mobile_theme_relation_html,
+		), false);
 
 		// アーカイブデータ取得
 		list($first_article_res, $last_article_res) = Model_Archive_Basis::archive_first_last_data_get();

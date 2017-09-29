@@ -201,7 +201,7 @@ http://localhost/sharetube/channel/mosimo/like/8/
 		// 実際に設定する場所
 		if($detect->isMobile() | $detect->isTablet()) {
 			$mobile_user_join_theme_html = $user_join_theme_html;
-			$user_join_theme_html = '';
+			$user_join_theme_html        = '';
 		}
 			else {
 
