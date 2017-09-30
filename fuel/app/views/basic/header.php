@@ -65,7 +65,7 @@
 							</div>
 						</li>
 						<li class="navi_items">
-							<span><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></span>
+							<span><a href="<?php echo HTTP; ?>signup/">アカウント作成</a></span>
 						</li>
 						<li class="navi_items">
 							<span><a href="<?php echo HTTP; ?>login/">ログイン</a></span>
