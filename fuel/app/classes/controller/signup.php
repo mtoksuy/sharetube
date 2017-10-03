@@ -23,7 +23,6 @@ class Controller_Signup extends Controller_Signup_Template {
 		// cssデータセット
 		$this->signup_template->view_data["external_css"] = View::forge('signup/externalcss');
 		$post  = Model_Security_Basis::post_security();
-
 		// ログインチェック
 		$login_check = Model_Login_Basis::login_check();
 		// ログインしている場合
