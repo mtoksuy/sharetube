@@ -1,0 +1,134 @@
+#wrapper {
+
+}
+
+.signup {
+    float: none;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 500px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.signup {
+
+}
+.signup_content {
+	background: #fff none repeat scroll 0 0;
+	box-shadow: none;
+	padding: 10px;
+	border : none;
+}
+.signup_content h2 {
+    color: #66757f;
+    display: block;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    position: relative;
+    border-bottom: 0px solid #e1e8ed;
+    box-shadow: 0 0px 0 #fff;
+    text-shadow: 0 0px 0 rgba(255, 255, 255, 0.6);
+}
+.signup_content strong {
+    color: #474747;
+    font-weight: 500;
+}
+.signup_content .field {
+    display: block;
+    margin: 15px auto 5px 0;
+		position: relative;
+}
+.signup_content form {
+
+}
+.signup_content input {
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    color: #474747;
+		box-sizing: border-box;
+    font-size: 82%;
+    margin: 0;
+    outline: 0 none;
+    padding: 15px;
+    transition: background 0.2s linear 0s;
+		width: 100%;
+		-webkit-appearance: none;
+}
+.signup_content input:focus {
+    border: 1px solid #ff3f3f;
+}
+
+.signup_content input[type="text"] {
+
+}
+.signup_content input[type="password"] {
+
+}
+.signup_content button[type="submit"] {
+    background-color: #ff3f3f;
+    border: medium none #ff3f3f;
+    border-radius: 5px;
+    color: #fcfcfc;
+		margin: 30px 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+/************
+
+************/
+.real_time_check {
+    display: block;
+    left: 101%;
+    position: absolute;
+    top: 9px;
+    width: 200px;
+}
+.real_time_check .typcn-tick {
+		font-size : 20px;
+}
+.real_time_check .typcn-times {
+		font-size : 20px;
+}
+
+
+
+
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+
+
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 768px) {
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 420px) {
+
+
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 360px) {
+
+
+}
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 320px) {
+
+
+}

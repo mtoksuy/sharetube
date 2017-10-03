@@ -182,28 +182,4 @@ $(function() {
 				}
 		},
 	}, '.signup_form_password');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }); // $(function() {
