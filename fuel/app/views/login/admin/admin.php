@@ -5,7 +5,7 @@
 
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.6</p>
+						<p>Sharetube version 5.5.7</p>
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
 						<p class="m_0">キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
@@ -113,6 +113,27 @@
 
 
 
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>09月30日〜10月03日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.7</h3>
+						<pre>・新規登録時に利用規約の同意を追加する
+・アカウント作成周りのデザイン一新
+・アカウント作成機能でリアルタイムでidが使えるかどうかがわかる機能追加</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
