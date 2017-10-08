@@ -54,6 +54,8 @@
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/usersetupedit/">アカウント設定</a></dd>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/userbankedit/">報酬受け取り先編集</a></dd>
 
+								<dt>再編集</dt>
+								<dd><a href="<?php echo Uri::base(); ?>login/admin/matome/delete/list/">削除一覧</a></dd>
 
 
 
