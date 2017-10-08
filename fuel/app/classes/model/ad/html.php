@@ -815,10 +815,14 @@ $fluct_mobile_interstitial_ad_html = '';
 //geniee
 ////////
 // pc
-$geniee_pc_sidebar_top_ad_html          = '';
-$geniee_pc_sidebar_under_ad_html        = '';
-$geniee_pc_article_middle_left_ad_html  = '';
-$geniee_pc_article_middle_right_ad_html = '';
+$geniee_pc_sidebar_top_ad_html          = '<!--  ad tags Size: 300x250 ZoneId:1219425-->
+<script type="text/javascript" src="http://js.gsspcln.jp/t/219/425/a1219425.js"></script>';
+$geniee_pc_sidebar_under_ad_html        = '<!--  ad tags Size: 300x250 ZoneId:1219426-->
+<script type="text/javascript" src="http://js.gsspcln.jp/t/219/426/a1219426.js"></script>';
+$geniee_pc_article_middle_left_ad_html  = '<!--  ad tags Size: 300x250 ZoneId:1219428-->
+<script type="text/javascript" src="http://js.gsspcln.jp/t/219/428/a1219428.js"></script>';
+$geniee_pc_article_middle_right_ad_html = '<!--  ad tags Size: 300x250 ZoneId:1219438-->
+<script type="text/javascript" src="http://js.gsspcln.jp/t/219/438/a1219438.js"></script>';
 $geniee_pc_article_under_ad_html        = '';
 
 // mobile
@@ -834,50 +838,16 @@ $geniee_mobile_middle_5_ad_html         = '<!--  ad tags Size: 300x250 ZoneId:12
 <script type="text/javascript" src="http://js.gsspcln.jp/t/202/035/a1202035.js"></script>';
 $geniee_mobile_middle_6_ad_html         = '<!--  ad tags Size: 300x250 ZoneId:1202036-->
 <script type="text/javascript" src="http://js.gsspcln.jp/t/202/036/a1202036.js"></script>';
+$geniee_mobile_content_middle_1_ad_html = '<!--  ad tags Size: 300x250 ZoneId:1219401-->
+<script type="text/javascript" src="http://js.gsspcln.jp/t/219/401/a1219401.js"></script>';
+$geniee_mobile_content_middle_2_ad_html = '<!--  ad tags Size: 300x250 ZoneId:1219417-->
+<script type="text/javascript" src="http://js.gsspcln.jp/t/219/417/a1219417.js"></script>';
 $geniee_mobile_relation_ad_html         = '';
 $geniee_mobile_header_ad_html           = '';
 $geniee_mobile_infeed_ad_html           = '<!--  ad tags Size: 0x0 ZoneId:1202037-->
 <script type="text/javascript" src="http://js.gsspcln.jp/t/202/037/a1202037.js"></script>';
 $geniee_mobile_interstitial_ad_html     = '<!--  ad tags Size: 300x250 ZoneId:1197383-->
 <script type="text/javascript" src="http://js.gsspcln.jp/t/197/383/a1197383.js"></script>';
-
-/*
-<script>
-(function(window, document) {
-    var BLOCK_REFERRER_LIST = [
-"yahoo.co.jp",
-"www.google.co.jp"
-];
-    
-    var DELIVERY_PROBABILITY = 30;
-    if(is_delivery()) {
-        document.write('<script type="text/javascript" src="http://js.gsspcln.jp/t/197/383/a1197383.js"></sc' + 'ript>');
-    }
-    function is_delivery() {
-      if(isBlockRefferer(BLOCK_REFERRER_LIST)) return false;
-      
-      if(isDiceLimitaion()) return false;
-      return true;
-    }
-    function isDiceLimitaion() {
-      var r = Math.floor(Math.random() * 100) + 1;
-      if(r <= DELIVERY_PROBABILITY) return false;
-      return true;
-    }
-    function isBlockRefferer(list) {
-var l = list.length;
-var ref = document.referrer;
-var i;
-for(i = 0;i < l; i++) {
-if(ref.indexOf(list[i]) !== -1) return true;
-}}
-    
-    
-
-})(window, document);
-</script>
-*/
-
 
 $geniee_mobile_orverlay_ad_html         = '<!--  ad tags Size: 320x50 ZoneId:1197386-->
 <script type="text/javascript" src="http://js.gsspcln.jp/t/197/386/a1197386.js"></script>';
@@ -973,6 +943,8 @@ $maverick_mobile_orverlay_ad_html         = '';
 					'ミドル_4'             => $geniee_mobile_middle_4_ad_html, 
 					'ミドル_5'             => $geniee_mobile_middle_5_ad_html, 
 					'ミドル_6'             => $geniee_mobile_middle_6_ad_html, 
+					'記事中ミドル_1'       => $geniee_mobile_content_middle_1_ad_html, 
+					'記事中ミドル_2'       => $geniee_mobile_content_middle_2_ad_html, 
 					'記事中関連記事'       => $geniee_mobile_relation_ad_html, 
 					'ヘッダー'             => $geniee_mobile_header_ad_html, 
 					'インフィード'         => $geniee_mobile_infeed_ad_html,
@@ -1076,6 +1048,12 @@ $maverick_mobile_orverlay_ad_html         = '';
 				break;
 				case 'ミドル_6':
 					$ad_html = $all_ad_html_array[$mobile_ad_network]["mobile"]["ミドル_6"];
+				break;
+				case '記事中ミドル_1':
+					$ad_html = $all_ad_html_array[$mobile_ad_network]["mobile"]["記事中ミドル_1"];
+				break;
+				case '記事中ミドル_2':
+					$ad_html = $all_ad_html_array[$mobile_ad_network]["mobile"]["記事中ミドル_2"];
 				break;
 				case '記事中関連記事':
 					$ad_html = $all_ad_html_array[$mobile_ad_network]["mobile"]["記事中関連記事"];

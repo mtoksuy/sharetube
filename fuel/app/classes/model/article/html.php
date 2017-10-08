@@ -167,21 +167,26 @@ class Model_Article_Html extends Model {
 		$ad_html = Model_Ad_Html::ad_html_create($detect, 'geniee','レクタングル');
 
 		// Fluct広告
+/*
 		$ad_middle_left_html   = Model_Ad_Html::fluct_ad_html_create($detect, 'ミドル左', 'ミドル_1');
 		$ad_middle_right_html  = Model_Ad_Html::fluct_ad_html_create($detect, 'ミドル右', 'none');
 		$ad_article_under_html = Model_Ad_Html::fluct_ad_html_create($detect, '記事下', 'ミドル_2');
-
+*/
 
 		// 全ての広告別array取得
 		$all_ad_html_array = Model_Ad_Html::all_ad_html_array_get();
-		// アドネットワークをランダムで取得
-		$ad_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee','geniee','geniee', 'geniee', 'geniee', 'geniee', 'addways', 'addways', 'addways'));
 
-		$ad_network_name_under = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee'));
+
+		// アドネットワークをランダムで取得
+		$ad_pc_network_name_left      = Model_Ad_Basis::ad_network_random_get(array('fluct', 'fluct','fluct','fluct', 'fluct', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee'));
+		$ad_mobile_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee','geniee','geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'addways'));
+		$ad_pc_network_name_right     = $ad_pc_network_name_left;
+		$ad_mobile_network_name_under = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee', 'geniee'));
+
 		// 広告ネットワーク指定アドhtml生成
-		$ad_middle_left_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_left, 'ミドル左', 'ミドル_1');
-		$ad_middle_right_html  = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'fluct', 'ミドル右', 'none');
-		$ad_article_under_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_under, 'ミドル右', 'ミドル_2');
+		$ad_middle_left_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, $ad_pc_network_name_left, $ad_mobile_network_name_left, 'ミドル左', 'ミドル_1');
+		$ad_middle_right_html  = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, $ad_pc_network_name_right, 'fluct', 'ミドル右', 'none');
+		$ad_article_under_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, $ad_pc_network_name_right, $ad_mobile_network_name_under, 'ミドル右', 'ミドル_2');
 		$ad_article_infeed_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'geniee', 'none', 'インフィード');
 		$ad_article_interstitial_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'geniee', 'none', 'インタースティシャル');
 
@@ -426,7 +431,6 @@ class Model_Article_Html extends Model {
 				</div>';
 		}
 		if($sp_check == true) {
-			if($value['thumbnail_quote_url']) {
 				$sp_class_word = 'sp_';
 				foreach($article_res as $key => $value) {
 					$thumbnail_quote_html = 
@@ -434,7 +438,6 @@ class Model_Article_Html extends Model {
 							<p class="blockquote_font text_right m_b_0">サムネイル出典:<cite><a href="'.$value['thumbnail_quote_url'].'" target="_blank">'.$value['thumbnail_quote_title'].'</a></cite></p>			
 						</div>';
 				}
-			}
 		}
 		return $thumbnail_quote_html;
 	}
