@@ -49,6 +49,27 @@ body {
 	font-size: 82%;
 	padding: 5px 3px;
 }
+.matome_delete_edit {
+	background-color: #ee5036;
+	border: 1px solid #ff3f3f;
+	border-radius: 3px;
+	color: #fcfcfc;
+	cursor: pointer;
+	font-size: 82%;
+	padding: 5px 3px;
+}
+.matome_reapply {
+	background-color: #ee5036;
+	border: 1px solid #ff3f3f;
+	border-radius: 3px;
+	color: #fcfcfc;
+	cursor: pointer;
+	font-size: 82%;
+	padding: 5px 3px;
+}
+
+
+
 
 
 .matome_draft:active {

@@ -34,7 +34,7 @@ class Model_Login_Matome_Delete_Html extends Model {
 						<ul class="clearfix">
 							<li><a target="_blank" href="'.HTTP.'login/admin/matome/delete/edit/'.$value["primary_id"].'/">再編集する</a></li>
 							<li><a href="'.HTTP.'login/admin/matome/delete/preview/?p='.$value["primary_id"].'" target="_blank">確認する</a></li>
-							<li style="float: right;"><a href="'.HTTP.'login/admin/delete/list/delete/'.$value["primary_id"].'/">本当に削除する</a></li>
+							<li style="float: right;"><a href="'.HTTP.'login/admin/matome/delete/delete/'.$value["primary_id"].'/">本当に削除する</a></li>
 						</ul>
 					</div>
 				</div>';

@@ -1,9 +1,5 @@
+			<!-- サムネイルで使用 -->
 			<iframe name="shumbnail_iframe" id="" style="display: none;"></iframe>
-
-
-
-
-
 				<!-- 文字カウントツール -->
 				<div class="text_count_tool clearfix">
 					<div class="text_count_tool_inner">
@@ -14,15 +10,14 @@
 						</div>
 					</div>
 				</div>
-<!--
-低
-中
-高
-最高
-超絶
-神
--->
-
+				<!--
+				低
+				中
+				高
+				最高
+				超絶
+				神
+				-->
 				<!-- 文字装飾ツール -->
 				<div class="text_design_tool clearfix">
 					<div class="text_design_tool_content">
@@ -44,7 +39,6 @@
 							<li class="text_design_tool_content_list_marker">
 								<input type="button" class="text_design_tool_content_list_marker_button" value="マーカー">
 							</li>
-
 <!--
 							<li class="text_design_tool_content_list_text_red_color">
 								<input type="button" class="text_design_tool_content_list_text_red_color_button" value="文字[赤]">
@@ -105,26 +99,6 @@
 								<div class="matome">
 									<div class="matome_content">
 										<?php echo $post_data["post"]["sub_text"]; ?>
-
-										<?php 
-
-/*
-			// iTunes_app_スクレイピング
-			$itunes_app_data_array = Model_Login_Itunesappscraping_Basis::itunes_app_scraping();
-			// iTunes_app_html生成
-			$itunes_app_html       = Model_Login_Itunesappscraping_Html::itunes_app_html_create($itunes_app_data_array);
-*/
-/*
-echo '<pre>';
-//var_dump($itunes_app_data_array);
-echo '</pre>';
-*/
- ?>
-
-
-
-
-
 									</div> <!-- matome_content -->
 								</div> <!-- matome -->
 							</div> <!-- new_post_contents -->
@@ -136,8 +110,16 @@ echo '</pre>';
 								<h3>公開</h3>
 								<div class="postbox_contents">
 									<?php 
+										// 削除済みまとめの場合
+										if($post_data["post"]["delete_edit"]) {
+												echo '<a id="post-preview" target="_blank" href="'.HTTP.'login/admin/matome/delete/preview/?p='.$post_data["post"]["primary_id"].'/" class="preview_button">プレビュー</a>
+<input class="matome_delete_edit" type="submit" name="delete_edit" value="編集して保存">
+												<input class="matome_reapply" type="submit" name="reapply" value="申請する">';
+											echo '<input class="matome_edit_primary_id" type="hidden" name="matome_edit_primary_id" value="'.$post_data["post"]["primary_id"].'">';
+											echo '<input type="hidden" value="true" name="matome_delete_save" class="matome_delete_save">';
+										}
 										// エディットの場合
-										if($post_data["post"]["edit"]) {
+										else if($post_data["post"]["edit"]) {
 											echo '<input class="matome_edit" type="submit" name="edit" value="編集する">';
 											echo '<input class="matome_edit_primary_id" type="hidden" name="matome_edit_primary_id" value="'.$post_data["post"]["primary_id"].'">';
 										}
@@ -147,6 +129,7 @@ echo '</pre>';
 												<input class="matome_draft" type="submit" name="draft" value="下書きとして保存">
 												<input class="matome_submit" type="submit" name="submit" value="投稿する">';
 											}
+
 									// 下書きの場合 matome_draft_save matome_draft_primary_id
 									if((int)$post_data["post"]["draft"] == 1) {
 										echo '<input class="matome_draft_save" type="hidden" name="matome_draft_save" value="true">';

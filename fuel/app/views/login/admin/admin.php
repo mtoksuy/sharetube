@@ -2,7 +2,7 @@
 				<div class="article_list">
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
-
+					<?php if($_SESSION["sharetube_id"] == 'maverick') { echo '[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。'; } ?>
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.7</p>

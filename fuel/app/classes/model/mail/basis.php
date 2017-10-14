@@ -509,6 +509,68 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
+	//---------------------------------------------
+	// 削除済み記事を申請した時に送られてくるメール
+	//---------------------------------------------
+	public static function delete_article_reapply_report($sharetube_user_data_array, $article_create_data_array) {
+// イマココ
+		$message = ("削除済みのまとめが再編集され公開の申請が行われました。
+
+
+
+");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => 'system_report@sharetube.jp',
+			'subject' => '削除済みのまとめが再編集され公開の申請が行われました',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

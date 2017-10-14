@@ -22,6 +22,7 @@ class Model_Login_Matome_Delete_Basis extends Model {
 			LIMIT 0 , 500")->execute();
 		return $delete_article_list_get_res;
 	}
+/*
 	//----------------
 	//下書きデータ取得
 	//----------------
@@ -44,4 +45,7 @@ class Model_Login_Matome_Delete_Basis extends Model {
 				draft = 0
 			WHERE primary_id = $method;")->execute();
 	}
+*/
+
+
 }

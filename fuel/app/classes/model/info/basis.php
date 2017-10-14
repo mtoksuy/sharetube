@@ -250,6 +250,36 @@ class Model_Info_Basis extends Model {
 		}
 		return $article_data_array;
 	}
+	//--------------------------
+	//削除済みまとめのデータ取得
+	//--------------------------
+	public static function delete_article_data_get($method) {
+		$article_res = DB::query("
+			SELECT * 
+			FROM article 
+			WHERE primary_id = ".(int)$method."
+			AND del = 1
+			AND true_del = 0
+			LIMIT 0, 1")->execute();
+		foreach($article_res as $key => $value) {
+			$delete_article_data_array = array();
+			$delete_article_data_array['primary_id']      = $value['primary_id'];
+			$delete_article_data_array['sharetube_id']    = $value['sharetube_id'];
+			$delete_article_data_array['category']        = $value['category'];
+			$delete_article_data_array['title']           = $value['title'];
+			$delete_article_data_array['sub_text']        = $value['sub_text'];
+			$delete_article_data_array['tag']             = $value['tag'];
+			$delete_article_data_array['thumbnail_image'] = $value['thumbnail_image'];
+			$delete_article_data_array['sp_thumbnail']    = $value['sp_thumbnail'];
+			$delete_article_data_array['link']            = $value['link'];
+			$delete_article_data_array['matome_frg']      = $value['matome_frg'];
+			$delete_article_data_array['random_key']      = $value['random_key'];
+			$delete_article_data_array['del']             = $value['del'];
+			$delete_article_data_array['create_time']     = $value['create_time'];
+			$delete_article_data_array['update_time']     = $value['update_time'];
+		}
+		return $delete_article_data_array;
+	}
 	//----------------------------
 	//記事があるかどうかを検査する
 	//----------------------------
@@ -299,6 +329,29 @@ class Model_Info_Basis extends Model {
 		}
 		return $is_article;
 	}
+	//--------------------------------------
+	//削除された記事かあるかどうかを検査する
+	//--------------------------------------
+	public static function is_delete_article($method) {
+		$is_delete_article = false;
+		$is_delete_article_res = DB::query(
+			"SELECT * 
+				FROM article
+				WHERE primary_id = ".(int)$method."
+				AND del = 1
+				AND true_del = 0")->execute();
+		foreach($is_delete_article_res as $key => $value) {
+//			pre_var_dump($value);
+			$is_delete_article = true;
+		}
+		return $is_delete_article;
+	}
+
+
+
+
+
+
 	//----------------
 	//ユーザー情報取得
 	//----------------
