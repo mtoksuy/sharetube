@@ -31,6 +31,17 @@
 								<?php if($_SESSION["sharetube_id"] == 'mtoksuy') { echo '<dd><a href="'.Uri::base().'login/admin/post/">新規追加(廃止)</a></dd>'; } ?>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/list/">投稿一覧</a></dd>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/draft/list/">下書き一覧</a></dd>
+
+
+								<dt>再編集</dt>
+								<dd><a href="<?php echo Uri::base(); ?>login/admin/matome/delete/list/">削除一覧</a></dd>
+
+
+
+
+
+
+
 								<dt>アナリティクス</dt>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/analytics/">サマリー(30日間)</a></dd>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/analytics/limit/30/new_articles/">サマリー(新着のみ)</a></dd>
@@ -53,9 +64,6 @@
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/userprofileedit/">プロフィール編集</a></dd>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/usersetupedit/">アカウント設定</a></dd>
 								<dd><a href="<?php echo Uri::base(); ?>login/admin/userbankedit/">報酬受け取り先編集</a></dd>
-
-								<dt>再編集</dt>
-								<dd><a href="<?php echo Uri::base(); ?>login/admin/matome/delete/list/">削除一覧</a></dd>
 
 
 

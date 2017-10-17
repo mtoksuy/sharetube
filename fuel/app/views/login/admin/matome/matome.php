@@ -115,6 +115,11 @@
 												echo '<a id="post-preview" target="_blank" href="'.HTTP.'login/admin/matome/delete/preview/?p='.$post_data["post"]["primary_id"].'/" class="preview_button">プレビュー</a>
 <input class="matome_delete_edit" type="submit" name="delete_edit" value="編集して保存">
 												<input class="matome_reapply" type="submit" name="reapply" value="申請する">';
+													// 許可する・許可しない
+													if($_SESSION['sharetube_id'] == 'mtoksuy') {
+														echo '<input class="matome_reapply_authorization" type="submit" name="authorization" value="許可する">';
+														echo '<input class="matome_reapply_no_authorization" type="submit" name="no_authorization" value="許可しない">';
+													}
 											echo '<input class="matome_edit_primary_id" type="hidden" name="matome_edit_primary_id" value="'.$post_data["post"]["primary_id"].'">';
 											echo '<input type="hidden" value="true" name="matome_delete_save" class="matome_delete_save">';
 										}

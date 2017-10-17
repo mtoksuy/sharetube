@@ -245,6 +245,7 @@ class Model_Info_Basis extends Model {
 			$article_data_array['matome_frg']      = $value['matome_frg'];
 			$article_data_array['random_key']      = $value['random_key'];
 			$article_data_array['del']             = $value['del'];
+			$article_data_array['true_del']        = $value['true_del'];
 			$article_data_array['create_time']     = $value['create_time'];
 			$article_data_array['update_time']     = $value['update_time'];
 		}

@@ -460,7 +460,7 @@ $('.postboxs').on( {
 						// 2.1秒後
 						setTimeout(function() {
 							// リダイレクト
-//						  location.href= http+'login/admin/';
+						  location.href= http+'login/admin/';
 						}, 2100);  // 全てのブラウザで動作
 				  },
 				  error: function(data) {
@@ -483,6 +483,177 @@ $('.postboxs').on( {
 		} // if(submit_check != 'now') {
 	}
 }, '.matome_reapply');
+
+/**************
+まとめ 許可する
+**************/
+$('.postboxs').on( {
+	'click' : function(event) {
+		// サブミットチェック
+		submit_check = $('.matome_reapply_authorization').attr('reapply-check');
+		// サブミットチェック切り替え
+		setTimeout(function() {
+			// サブミットが走っていない事に変更
+			$('.matome_reapply_authorization').attr('reapply-check', 'none');
+			// 戻す
+			$('.matome_reapply_authorization').css( {
+				'opacity' : '1',
+				'cursor' : 'pointer',
+			});
+		},5000);
+		// サブミットが走ってない場合
+		if(submit_check != 'now') {
+			// サブミットが走っている事を追加
+			$('.matome_reapply_authorization').attr('reapply-check', 'now');
+			// 走っている事を表示で示す
+			$('.matome_reapply_authorization').css( {
+				'opacity' : '0.7',
+				'cursor' : 'default',
+			});
+			// matome_data_object生成
+			var matome_data_object = matome_data_object_create();
+			// サムネイルがある場合
+			if(matome_data_object["matome_thumbnail_data"]) {
+				// Ajaxを走らせる
+				$.ajax( {
+					type: 'POST', 
+					url: http+'ajax/matome/reapplyauthorization/',
+					data: matome_data_object,
+					dataType: 'json',
+					cache: false,
+					// Ajax完了後の挙動
+				  success: function(data) {
+						//--------------------------
+						//公開が完了いたしました表示
+						//--------------------------
+						swal({
+						  title: "公開が完了いたしました",
+						  text: "2秒後、ダッシュボードに移動します",
+						  timer: 2000,
+						  showConfirmButton: false
+						});
+						// 2.1秒後
+						setTimeout(function() {
+							// リダイレクト
+						  location.href= http+'login/admin/';
+						}, 2100);  // 全てのブラウザで動作
+				  },
+				  error: function(data) {
+	
+				  },
+				  complete: function(data) {
+	
+				  }
+				}); // $.ajax( {
+			} // if(matome_data_object["matome_thumbnail_data"]) {
+				// サムネイルがない場合
+				else {
+					swal({
+					  title: "サムネイルを設定して下さい",
+					  text: "メッセージは1秒後に消えます",
+					  timer: 1200,
+					  showConfirmButton: false
+					});	
+				}
+		} // if(submit_check != 'now') {
+	}
+}, '.matome_reapply_authorization');
+/****************
+まとめ 許可しない
+****************/
+$('.postboxs').on( {
+	'click' : function(event) {
+		// サブミットチェック
+		submit_check = $('.matome_reapply_no_authorization').attr('reapply-check');
+		// サブミットチェック切り替え
+		setTimeout(function() {
+			// サブミットが走っていない事に変更
+			$('.matome_reapply_no_authorization').attr('reapply-check', 'none');
+			// 戻す
+			$('.matome_reapply_no_authorization').css( {
+				'opacity' : '1',
+				'cursor' : 'pointer',
+			});
+		},5000);
+		// サブミットが走ってない場合
+		if(submit_check != 'now') {
+			// サブミットが走っている事を追加
+			$('.matome_reapply_no_authorization').attr('reapply-check', 'now');
+			// 走っている事を表示で示す
+			$('.matome_reapply_no_authorization').css( {
+				'opacity' : '0.7',
+				'cursor' : 'default',
+			});
+			// matome_data_object生成
+			var matome_data_object = matome_data_object_create();
+			// サムネイルがある場合
+			if(matome_data_object["matome_thumbnail_data"]) {
+				// Ajaxを走らせる
+				$.ajax( {
+					type: 'POST', 
+					url: http+'ajax/matome/reapplynoauthorization/',
+					data: matome_data_object,
+					dataType: 'json',
+					cache: false,
+					// Ajax完了後の挙動
+				  success: function(data) {
+						//--------------------------
+						//公開が完了いたしました表示
+						//--------------------------
+						swal({
+						  title: "許可しない趣旨を送信しました",
+						  text: "2秒後、ダッシュボードに移動します",
+						  timer: 2000,
+						  showConfirmButton: false
+						});
+						// 2.1秒後
+						setTimeout(function() {
+							// リダイレクト
+						  location.href= http+'login/admin/';
+						}, 2100);  // 全てのブラウザで動作
+				  },
+				  error: function(data) {
+	
+				  },
+				  complete: function(data) {
+	
+				  }
+				}); // $.ajax( {
+			} // if(matome_data_object["matome_thumbnail_data"]) {
+				// サムネイルがない場合
+				else {
+					swal({
+					  title: "サムネイルを設定して下さい",
+					  text: "メッセージは1秒後に消えます",
+					  timer: 1200,
+					  showConfirmButton: false
+					});	
+				}
+		} // if(submit_check != 'now') {
+	}
+}, '.matome_reapply_no_authorization');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -399,7 +399,6 @@ class Model_Article_Html extends Model {
 	//サムネイルHTML生成
 	//------------------
 	static function thumbnail_html_create($value, $year_time, $preview_frg) {
-//		var_dump($value);
 		switch($preview_frg) {
 			case false:
 				$draft = '';
@@ -413,6 +412,18 @@ class Model_Article_Html extends Model {
 
 			break;
 		}
+		// 削除済みの場合
+		switch($value['del']) {
+			case 1:
+				$draft = '';
+			// 緊急策 松岡
+			$year_time = (int)substr($value['create_time'], 0, 4);
+			break;
+			default:
+
+			break;
+		}
+
 			$thumbnail_html = ('
 				<div class="article_thumbnail">
 					<img class="great_image_100 m_b_15" width="640" height="400" title="'.$value["title"].'" alt="'.$value["title"].'" src="'.HTTP.'assets/img/'.$draft.'article/'.$year_time.'/facebook_ogp_half/'.$value["thumbnail_image"].'">

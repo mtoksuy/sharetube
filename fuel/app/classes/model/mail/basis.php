@@ -513,12 +513,15 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 	// 削除済み記事を申請した時に送られてくるメール
 	//---------------------------------------------
 	public static function delete_article_reapply_report($sharetube_user_data_array, $article_create_data_array) {
-// イマココ
 		$message = ("削除済みのまとめが再編集され公開の申請が行われました。
 
+[申請者]
+".$sharetube_user_data_array['name']."
+".HTTP."channel/".$sharetube_user_data_array['sharetube_id']."/
 
-
-");
+[申請されたまとめ]
+".$article_create_data_array['title']."
+".HTTP."login/admin/matome/delete/edit/".$article_create_data_array['link']."/");
 
 		$post_array = array(
 			'from'    => 'Sharetube <info@sharetube.jp>',
@@ -536,6 +539,123 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
+	//-------------------------------------
+	// 削除済み記事を許可した時に送るメール
+	//-------------------------------------
+	public static function delete_article_reapply_authorization_report($sharetube_user_data_array, $article_create_data_array) {
+		$message = ("申請したまとめの公開許可がおりました。
+
+[公開されたまとめ]
+".$article_create_data_array['title']."
+".HTTP."article/".$article_create_data_array['link']."/");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '申請したまとめの公開許可がおりました',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+	//---------------------------------------
+	// 削除済み記事を許可しない時に送るメール
+	//---------------------------------------
+	public static function delete_article_reapply_no_authorization_report($sharetube_user_data_array, $article_create_data_array) {
+		$message = ("申請したまとめの公開許可がおりませんでした。
+
+利用規約違反部分を再編集を行った上で申請をお願いいたします。
+
+[申請したまとめ]
+".$article_create_data_array['title']."
+".HTTP."login/admin/matome/delete/edit/".$article_create_data_array['link']."/");
+
+
+// イマココ
+//もう一度正しいメールアドレスに送ることを確認する
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '申請したまとめの公開許可がおりませんでした',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

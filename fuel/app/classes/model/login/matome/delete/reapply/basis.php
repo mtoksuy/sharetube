@@ -21,4 +21,19 @@ class Model_Login_Matome_Delete_Reapply_Basis extends Model {
 			AND true_del       = 0")->execute();
 		return $delete_article_data_get_res;
 	}
+	//--------------------------
+	//申請されたまとめを公開する
+	//--------------------------
+	static function delete_article_reapply_authorization($article_create_data_array) {
+		$delete_article_data_get_res = DB::query("
+			UPDATE article 
+				SET del = 0
+				WHERE primary_id = ".(int)$article_create_data_array['link']."")->execute();
+	}
+
+
+
+
+
+
 }

@@ -20,8 +20,10 @@ class Model_Login_Matome_Delete_Html extends Model {
 		$create_date       = date('Y-m-d H:i:s', $unix_time);
 		$article_year_time = date('Y', $unix_time);
 
+//pre_var_dump($value);
 		// 緊急策 松岡
 		$random_key_year = (int)substr($value['random_key'], 0, 4);
+		$random_key_year = (int)$create_date;
 
 			$article_list_html .= '
 				<div class="article_list_content">
