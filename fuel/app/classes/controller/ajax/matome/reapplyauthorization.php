@@ -38,11 +38,15 @@ class Controller_Ajax_Matome_Reapplyauthorization extends Controller {
 				// 削除済み記事データ取得
 				$delete_article_data_array = Model_Login_Matome_Delete_Basis::delete_article_data_array_get($post['edit_primary_id']);
 				// Sharetubeのユーザーデータ取得
-				$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($article_create_data_array['sharetube_id']);
+				$sharetube_user_data_array = Model_Info_Basis::sharetube_user_data_get($delete_article_data_array['sharetube_id']);
 				// 申請されたまとめを公開する
 				Model_Login_Matome_Delete_Reapply_Basis::delete_article_reapply_authorization($delete_article_data_array);
 				// 削除済み記事を許可した時に送るメール
 				Model_Mail_Basis::delete_article_reapply_authorization_report($sharetube_user_data_array, $delete_article_data_array);
+
+
+
+
 			} // if($post == true) {
 
 		header ("Content-Type: text/javascript; charset=utf-8");

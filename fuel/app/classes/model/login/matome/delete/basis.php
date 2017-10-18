@@ -18,6 +18,7 @@ class Model_Login_Matome_Delete_Basis extends Model {
 			FROM article
 			WHERE sharetube_id = '".$_SESSION["sharetube_id"]."'
 			AND del            = 1
+			AND true_del       = 0
 			ORDER BY article.primary_id DESC
 			LIMIT 0 , 500")->execute();
 		return $delete_article_list_get_res;
@@ -52,7 +53,17 @@ class Model_Login_Matome_Delete_Basis extends Model {
 		}
 		return $delete_article_data_array;
 	}
-
+	//--------------------------------
+	//削除済みのまとめを本当に削除する
+	//--------------------------------
+	static public function delete_article_true_delete($matome_number) {
+		DB::query("
+			UPDATE article
+				SET 
+					true_del = 1
+				WHERE
+					primary_id = ".$matome_number."")->execute();
+	}
 
 
 

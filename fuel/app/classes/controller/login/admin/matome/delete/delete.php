@@ -1,22 +1,23 @@
 <?php 
 /**
- * 下書きを削除するコントローラー
+ * 削除済みまとめを本当に削除するコントローラー
  * 
  * 
  * 
  * 
  */
 
-class Controller_Login_Admin_Draft_List_Delete extends Controller_Login_Template {
+class Controller_Login_Admin_Matome_Delete_Delete extends Controller_Login_Template {
 	// ルーター
 	public function router($method, $params) {
 //		var_dump($method, $params);
 		// セグメント審査と軽い記事審査
 		if (!$params && preg_match('/^[0-9]+$/', $method, $method_array)) {
-			$is_article = Model_Info_Basis::is_draft_article($method);
-//			var_dump($is_article);
-			// 下書きがある場合
-			if($is_article) {
+			// 削除された記事かあるかどうかを検査する
+			$is_delete_article = Model_Info_Basis::is_delete_article($method);
+//			var_dump($is_delete_article);
+			// 削除された記事がある場合
+			if($is_delete_article) {
 				return $this->action_index($method);
 			}
 				// エラー
@@ -35,21 +36,60 @@ class Controller_Login_Admin_Draft_List_Delete extends Controller_Login_Template
 	}
 	// アクション
 	public function action_index($method) {
-		// 数字にキャスト
-		$method = (int)$method;
-		// ログインチェック
-		$login_check = Model_Login_Basis::login_check();
-		if($login_check) {
-			// 下書きを削除
-			Model_Login_List_Draft_Basis::draft_article_delete($method);
-			header('Location: '.HTTP.'login/admin/draft/list/');
-			exit;
-//			return $this->login_admin_template;
+		$matome_number = (int)$method;
+
+		// 記事データ取得
+		$article_data_get_res = Model_Login_Matome_Delete_Edit_Basis::delete_article_data_get($matome_number);
+		$article_array_data = array();
+		// $article_array_data生成
+		foreach($article_data_get_res as $key => $value) {
+			$article_array_data["primary_id"]            = $value["primary_id"];
+			$article_array_data["sharetube_id"]          = $value["sharetube_id"];
+			$article_array_data["category"]              = $value["category"];
+			$article_array_data["title"]                 = $value["title"];
+			$article_array_data["sub_text"]              = $value["sub_text"];
+			$article_array_data["tag"]                   = $value["tag"];
+			$article_array_data["thumbnail_image"]       = $value["thumbnail_image"];
+			$article_array_data["thumbnail_quote_url"]   = $value["thumbnail_quote_url"];
+			$article_array_data["thumbnail_quote_title"] = $value["thumbnail_quote_title"];
+			$article_array_data["random_key"]            = $value["random_key"];
+			$article_array_data["delete_edit"]           = true;
 		}
+
+		$login_check = Model_Login_Basis::login_check();
+		// ログインチェック
+		if($login_check) {
+			// 書いた人チェック
+			if($article_array_data["sharetube_id"] == $_SESSION["sharetube_id"] || $_SESSION["sharetube_id"] == 'mtoksuy') {
+				// 削除済みのまとめを本当に削除する
+				Model_Login_Matome_Delete_Basis::delete_article_true_delete($matome_number);
+					header('Location: '.HTTP.'login/admin/matome/delete/list/');
+					exit;
+			}
+				// 他のアカウントのまとめならadminに戻る
+				else {
+					header('Location: '.HTTP.'login/admin/');
+					exit;
+				}
+		} // if($login_check) {
+			// ログインしてなかったらトップに飛ぶ
 			else {
 				header('Location: '.HTTP.'');
 				exit;
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 	//------------
 	//エラーページ
