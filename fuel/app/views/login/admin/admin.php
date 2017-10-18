@@ -2,12 +2,24 @@
 				<div class="article_list">
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
-
+					<?php if($_SESSION["sharetube_id"] == 'maverick') { echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; } ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.6</p>
+						<p>Sharetube version 5.5.7</p>
+
+<div class="matome_content_block">	<div class="matome_content_block_enclosed">		<pre><b>削除されたまとめを再編集できる機能実装</b>
+
+メールベースでやり取りを行なっていましたが、サービス内で非公開のまま再編集ができるようになりました。</pre>	</div>							</div>
+
+
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
+
+
+
+
+
+
 						<p class="m_0">キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
 
 						<p><a href="<?php echo HTTP; ?>/rule/rule/" target="_blank">利用規約</a>を守り、健全な活動を行いましょう。</p>
@@ -113,6 +125,29 @@
 
 
 
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>09月30日〜10月17日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.7</h3>
+						<pre>・新規登録時に利用規約の同意を追加する
+・アカウント作成周りのデザイン一新
+・アカウント作成機能でリアルタイムでidが使えるかどうかがわかる機能追加
+・利用規約アップデート
+・削除されたまとめを再編集できる機能実装</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 

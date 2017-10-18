@@ -20,7 +20,6 @@
 		<link rel="apple-touch-icon" href="<?php echo HTTP; ?>assets/img/icon/apple_touch_icon_1.png" />
 		<link rel="apple-touch-icon-precomposed" href="<?php echo HTTP; ?>assets/img/icon/apple_touch_icon_1.png" />
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/article/common.css" type="text/css">
-		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/signup/common.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/permalink/curatorrecruitment/lp/common.css" type="text/css">
 	</head>
 
@@ -134,7 +133,8 @@
 											<button class="signup_form_button o_8" type="submit">Sharetubeに登録する</button>
 										</form> <!-- フォーム -->
 									</div>
-								</div>
+									<p style="font-size: 12px; line-height: 160%; margin: 0px 0px -15px;">アカウントを作成すると、<a target="_blank" href="http://localhost/sharetube/rule/rule/">利用規約</a>に同意したことになります。健全な活動を行ない、ユーザーに喜ばれるコンテンツを作成しましょう。</p>
+								</div> <!-- signup -->
 							</div>
 							<div class="registration_button o_8 clearfix">
 								<a href="<?php echo HTTP; ?>curatorrecruitment/lp/signup/" target="_blank">今すぐ無料登録してまとめを書く</a>

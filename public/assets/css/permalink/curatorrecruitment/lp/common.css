@@ -16,17 +16,121 @@
 基本設定
 *******/
 .signup {
-width: 437px;
+	width: 437px;
 	float: right;
 }
 .main {
-    max-width: none;
+	max-width: none;
 }
 .main_contents {
     float: none;
 		max-width: none;
 		width: auto;
 }
+/************************
+サインアップCSSからの移植
+************************/
+.signup_content {
+	background: #fff none repeat scroll 0 0;
+	box-shadow: none;
+	border: 1px solid #e1e8ed;
+	padding: 10px;
+}
+.signup_content h2 {
+    border-bottom: 1px solid #e1e8ed;
+    box-shadow: 0 1px 0 #fff;
+    color: #66757f;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.signup_content strong {
+    color: #474747;
+    font-weight: 500;
+}
+.signup_content .field {
+    display: block;
+    margin: 6px auto;
+}
+.signup_content form {
+
+}
+.signup_content input {
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 3px;
+    color: #474747;
+    font-size: 82%;
+    margin: 0;
+    outline: 0 none;
+    padding: 5px;
+    transition: background 0.2s linear 0s;
+    width: 404px;
+		-webkit-appearance: none;
+}
+.signup_content input:focus {
+    border: 1px solid #ff3f3f;
+}
+
+.signup_content input[type="text"] {
+
+}
+.signup_content input[type="password"] {
+
+}
+.signup_content button[type="submit"] {
+    background-color: #ff3f3f;
+    border: #ff3f3f;
+    border-radius: 2px;
+    color: #fcfcfc;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    height: 30px;
+    position: relative;
+}
+/***
+
+***/
+.appeal_block {
+    margin: 50px auto;
+    width: 1024px;
+}
+.appeal_block h2 {
+    text-align: center;
+}
+.registration_button {
+    margin: 50px auto;
+    width: 500px;
+}
+.registration_button a {
+    background-color: #ff3f3f;
+    border: 1px solid #ff3f3f;
+    border-radius: 2px;
+    color: #fcfcfc;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /***************
 ファーストビュー
 ****************/
@@ -213,6 +317,42 @@ font-weight: bold;
     list-style: outside none none;
     margin: 0 15px 0 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*********
 
 *********/

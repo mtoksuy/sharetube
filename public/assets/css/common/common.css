@@ -460,6 +460,10 @@ a:hover {
   color: green;
 }
 
+.check_green {
+  color: #6EC02A;
+}
+
 .word {
   font-size: 130%;
   margin: 15px 0;

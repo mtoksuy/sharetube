@@ -1,18 +1,12 @@
-body {
- background-color: #ffffff;
-}
 #wrapper {
- background-color: #ffffff;
-}
-.main {
- background-color: #ffffff;
+
 }
 
-
-.main_contents {
+.signup {
     float: none;
     margin: 0 auto;
     max-width: 500px;
+    width: 500px;
     word-break: break-all;
     word-wrap: break-word;
 }
@@ -23,6 +17,7 @@ body {
 	background: #fff none repeat scroll 0 0;
 	box-shadow: none;
 	padding: 10px;
+	border : none;
 }
 .signup_content h2 {
     color: #66757f;
@@ -32,6 +27,9 @@ body {
     margin-bottom: 12px;
     padding: 10px 12px;
     position: relative;
+    border-bottom: 0px solid #e1e8ed;
+    box-shadow: 0 0px 0 #fff;
+    text-shadow: 0 0px 0 rgba(255, 255, 255, 0.6);
 }
 .signup_content strong {
     color: #474747;
@@ -101,81 +99,36 @@ body {
 
 
 
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 1024px) {
 
 
-
-
-
-
-
-
-/***
-
-***/
-.appeal_block {
-    margin: 50px auto;
-    width: 1024px;
 }
-.appeal_block h2 {
-    text-align: center;
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 768px) {
 }
-.registration_button {
-    margin: 50px auto;
-    width: 500px;
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 420px) {
+
+
 }
-.registration_button a {
-    background-color: #ff3f3f;
-    border: 1px solid #ff3f3f;
-    border-radius: 2px;
-    color: #fcfcfc;
-    cursor: pointer;
-    display: block;
-    font-weight: bold;
-    padding: 20px;
-    position: relative;
-    text-align: center;
+/*********
+
+*********/
+@media screen and (min-width: 0px) and (max-width: 360px) {
+
+
 }
+/*********
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/************************
-メディアクエリ設定 0〜320
-************************/
+*********/
 @media screen and (min-width: 0px) and (max-width: 320px) {
-	/****
-	about
-	****/
-	.about {
 
-	}
+
 }

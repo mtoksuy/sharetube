@@ -1,23 +1,15 @@
 			<?php
-//			var_dump($sign_data);
+//			pre_var_dump($sign_data);
 			?>
 
 
-<div style="float: left; background-color: #FCFCFC; margin: 0px 15px 0px 0px; width: 245px; height: 205px; border: 1px solid #e1e8ed;">	
-	<p class="m_0">
-		<a href="<?php echo HTTP; ?>curatorrecruitment/" target="_blank">
-			<img width="245" height="205" title="" alt="" src="http://sharetube.jp/assets/img/article/image/image_3784.png" class="o_8">
-		</a>
-	</p>
-</div>
-
 <div class="signup">
 	<div class="signup_content clearfix">
-	  <h2><strong>Sharetubeで情報をまとめてみませんか?</strong></h2>
+	  <h2><strong>Sharetubeで情報をまとめてみよう</strong></h2>
 	
 	  <form method="post" id="signup_form" class="signup_form" action="">
 	    <div class="field">
-	      <input type="text" placeholder="Sharetube ID(半角英数字)" value="<?php echo $_POST["sharetube_id"]; ?>" maxlength="20" name="sharetube_id" autocomplete="off">
+	      <input type="text" class="signup_form_sharetube_id" placeholder="Sharetube ID(半角英数字)" value="<?php echo $_POST["sharetube_id"]; ?>" maxlength="20" name="sharetube_id" autocomplete="off">
 	    </div>
 			<?php 
 				if($sign_data["user_sharetube_id_check"] === null) {
@@ -31,7 +23,7 @@
 						}
  ?>
 	    <div class="field">
-	      <input type="email" placeholder="メールアドレス" value="<?php echo $_POST["email"]; ?>" name="email" autocomplete="off">
+	      <input type="email" class="signup_form_email" placeholder="メールアドレス" value="<?php echo $_POST["email"]; ?>" name="email" autocomplete="off">
 	    </div>
 			<?php 
 				if($sign_data["user_email_check"] === null) {
@@ -45,7 +37,7 @@
 						}
  ?>
 	    <div class="field">
-	      <input type="password" placeholder="パスワード(英数字のみ4文字以上)" name="password">
+	      <input type="password" class="signup_form_password" placeholder="パスワード(英数字のみ4文字以上)" name="password">
 	    </div>
 			<?php 
 				if($sign_data["user_password_check"] === null) {
@@ -55,8 +47,10 @@
 						 echo '<p class="red">4文字以下か使用できない文字列が含まれています</p>';
 					} ?>
 	    <button class="signup_form_button o_8" type="submit">
-	      Sharetubeに登録する
+	      アカウント作成
 	    </button>
 	  </form>
+<p>
+アカウントを作成すると、<a href="<?php echo HTTP; ?>rule/rule/" target="_blank">利用規約</a>に同意したことになります。健全な活動を行ない、ユーザーに喜ばれるコンテンツを作成しましょう。</p>
 	</div>
 </div>

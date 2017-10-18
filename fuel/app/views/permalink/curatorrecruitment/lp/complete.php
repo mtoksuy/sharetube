@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>新規登録完了 | 業界NO.1のインセンティブ報酬を支払うSharetubeでまとめを作成してみませんか？</title>
+		<title>アカウント作成完了 | 業界NO.1のインセンティブ報酬を支払うSharetubeでまとめを作成してみませんか？</title>
 		<!-- meta -->
 		<meta charset="UTF-8">
 		<meta name="robots" content="noindex">
@@ -19,7 +19,6 @@
 		<link rel="apple-touch-icon" href="<?php echo HTTP; ?>assets/img/icon/apple_touch_icon_1.png" />
 		<link rel="apple-touch-icon-precomposed" href="<?php echo HTTP; ?>assets/img/icon/apple_touch_icon_1.png" />
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/article/common.css" type="text/css">
-		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/signup/common.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/permalink/curatorrecruitment/lp/common.css" type="text/css">
 	</head>
 
@@ -37,7 +36,7 @@
 					<div class="logo">
 						<h1>
 							<a class="o_8" href="<?php echo HTTP; ?>">
-								<img src="<?php echo HTTP; ?>assets/img/logo/logo_27.png" width="155" height="59" alt="シェアチューブ" title="シェアチューブ">
+								<img src="<?php echo HTTP; ?>assets/img/logo/logo_29.png" width="135" height="36" alt="シェアチューブ" title="シェアチューブ">
 							</a>
 						</h1>
 					</div>
@@ -62,41 +61,6 @@
 						<a href="<?php echo HTTP; ?>login/" target="_blank">ログインページに行く</a>
 					</div>
 			</div>
-			<!-- footer -->
-			<footer class="footer clear">
-				<!-- footer_contents -->
-				<div class="footer_contents clearfix">
-					<div class="footer_contents_box clearfix">
-						<h5>Sharetubeについて</h5>
-						<ul>
-							<li>ボックス</li>
-							<li><a href="<?php echo HTTP; ?>about/">Sharetubeについて</a></li>
-							<li><a href="<?php echo HTTP; ?>contact/">お問い合わせ</a></li>
-							<li><a href="<?php echo HTTP; ?>sitemap/">サイトマップ</a></li>
-							<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
-							<li><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></li>
-							<li><a href="<?php echo HTTP; ?>signup/">Sharetubeアカウント作成</a></li>
-							<li><a target="_blank" href="<?php echo HTTP; ?>login/">ログイン</a></li>
-							<li><a href="<?php echo HTTP; ?>curatorrecruitment/">キュレーター募集</a></li>
-							<li><a href="<?php echo HTTP; ?>curatorrecruitment/">まとめインセンティブについて</a></li>
-							<li><a href="<?php echo HTTP; ?>authorrecruiting/">ライター募集</a></li>
-							<li><a href="<?php echo HTTP; ?>permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="footer_bottom">
-					<div class="footer_bottom_contents">
-						<!-- コピーライト -->
-						<section id="copy">
-							<p class="m_0">&copy; 2016 <a href="<?php echo HTTP; ?>">Sharetube</a></p>
-						</section>
-						<!--  -->
-						<div class="footer_bottom_contents_outer">
-								<div class="footer_bottom_contents_logo"></div>
-						</div>
-					</div>
-				</div>
-			</footer>
 		</div>
 		<!-- jQueryプラグイン -->
 		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/common/jquery-1.9.1-min.js"></script>

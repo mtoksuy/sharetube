@@ -1,4 +1,10 @@
 
+<style>
+.main_contents {
+    max-width: none;
+}
+</style>
+
 <div class="signup">
 	<div class="first_view_block clearfix">
 		<div class="first_view_block_content clearfix">

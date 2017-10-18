@@ -183,8 +183,8 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 ---------------------
 [登録情報]
 
-sharetube_id: {$post['sharetube_id']}
-パスワード: {$password_hidden_string}
+sharetube_id：{$post['sharetube_id']}
+パスワード：{$password_hidden_string}
 ---------------------
 
 Sharetube
@@ -199,19 +199,33 @@ http://sharetube.jp/rule/rule/
 ---------------------
 
 [コンテンツを作成するにあたって]
-Sharetubeは引用を徹底してまいります。
+Sharetubeは引用を行う場合ルールを徹底してまいります。
 しっかりと利用規約を守った健全な活動をお願い申し上げます。
 
 
+[注意するポイント]
+簡略版の利用規約
+第7条（禁止事項）
+・・著作権、特許権等の知的財産権を侵害する行為
+・・宣伝や商用を目的とした広告・勧誘その他の行為。ただし、当社が特別認めたまとめではこの限りではありません。
+・・引用元が単一サイト・単一記事でまとめを作成する行為
+・・単一記事の内容を全引用してまとめを作成する行為
+・・常識の範囲を超えて引用(3分の1以上引用するなど)する行為
+・・引用を引用する行為
+・・引用のみでまとめを作成する行為
+・・引用元と同じタイトルまたはタイトルに転載してまとめを作成する行為
+・・引用元にはない虚偽のコンテンツを引用しているかのように見せかける行為
+・・引用を行わず転載する行為(第7条1.1に当たる)
+・・引用元がある画像を使用して引用を行わない行為(第7条1.1に当たる)
+・・画像の引用元をページ単位で引用しない行為(トップページを引用・画像ファイルそのものを引用するなど)
+・ユーザーは、以上の各項の他、当社が不適切であると判断する行為を行ってはなりません。
+
+
 [記事タイプに関して]
-・引用を多様に差し込むまとめ型
 ・筆者が全文を書く記事型
 ・引用と筆者の言葉を重ねるマルチ型
-
-が、ございます
-その中でも
-引用とエディターの言葉を重ねるマルチ型をお勧めしています。
-割合としてはオリジナル文字7：引用文字3の割合が好まれます。
+マルチ型のコンテンツを作成する場合は
+割合としてオリジナル文字7：引用文字3の割合が好まれます。
 
 
 [まとめを書くにあたってのノウハウ]
@@ -450,22 +464,26 @@ Sharetubeサポートチームです
 
 [該当まとめ]
 ".$article_data_array['title']."
-".HTTP.'article/'.$article_data_array['link']."/
+".HTTP."article/".$article_data_array['link']."/
 
 利用規約
 http://sharetube.jp/rule/rule/ 
 
 ---
 
-なお、修正を行う意志がございましたら、まとめを戻しますので
-その際はこのメールアドレスにご連絡くださいますようよろしくお願い致します。
+なお、違反部分を修正を行いまして、再度公開するための申請ができます。
+
+[再編集する場合]
+".HTTP."login/admin/matome/delete/edit/".$article_data_array['link']."/
+利用規約違反の詳細を再編集ページ上記に追記いたしますので確認よろしくお願いいたします。
 
 ---
 
 Sharetubeが考える理想のコンテンツは
 筆者自身の文章と引用の文章比率が
+5:5
+または
 7:3
-3:7
 が好ましいと考えております。
 また、将来的にまとめよりのコンテンツより
 記事よりのコンテンツをバックアップしていく方針ですので
@@ -495,6 +513,191 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
+	//---------------------------------------------
+	// 削除済み記事を申請した時に送られてくるメール
+	//---------------------------------------------
+	public static function delete_article_reapply_report($sharetube_user_data_array, $delete_article_data_array) {
+		$message = ("削除済みのまとめが再編集され公開の申請が行われました。
+
+[申請者]
+".$sharetube_user_data_array['name']."
+".HTTP."channel/".$sharetube_user_data_array['sharetube_id']."/
+
+[申請されたまとめ]
+".$delete_article_data_array['title']."
+".HTTP."login/admin/matome/delete/edit/".$delete_article_data_array['link']."/");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => 'system_report@sharetube.jp',
+			'subject' => '削除済みのまとめが再編集され公開の申請が行われました',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+	//-------------------------------------
+	// 削除済み記事を許可した時に送るメール
+	//-------------------------------------
+	public static function delete_article_reapply_authorization_report($sharetube_user_data_array, $delete_article_data_array) {
+		$message = ("申請したまとめの公開許可がおりました。
+
+[公開されたまとめ]
+".$delete_article_data_array['title']."
+".HTTP."article/".$delete_article_data_array['link']."/");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '申請したまとめの公開許可がおりました',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+	//---------------------------------------
+	// 削除済み記事を許可しない時に送るメール
+	//---------------------------------------
+	public static function delete_article_reapply_no_authorization_report($sharetube_user_data_array, $delete_article_data_array) {
+		$message = ("申請したまとめの公開許可がおりませんでした。
+
+利用規約違反部分を再編集を行った上で申請をお願いいたします。
+
+[申請したまとめ]
+".$delete_article_data_array['title']."
+".HTTP."login/admin/matome/delete/edit/".$delete_article_data_array['link']."/");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '申請したまとめの公開許可がおりませんでした',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

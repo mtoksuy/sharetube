@@ -20,8 +20,10 @@
 		<link rel="apple-touch-icon" href="<?php echo HTTP; ?>assets/img/icon/apple_touch_icon_1.png" />
 		<link rel="apple-touch-icon-precomposed" href="<?php echo HTTP; ?>assets/img/icon/apple_touch_icon_1.png" />
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/article/common.css" type="text/css">
-		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/signup/common.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/permalink/curatorrecruitment/lp/common.css" type="text/css">
+
+
+		<link rel="stylesheet" href="<?php echo HTTP; ?>assets/css/permalink/curatorrecruitment/lp/signup/common.css" type="text/css">
 	</head>
 
 	<body>
@@ -38,7 +40,7 @@
 					<div class="logo">
 						<h1>
 							<a class="o_8" href="<?php echo HTTP; ?>">
-								<img src="<?php echo HTTP; ?>assets/img/logo/logo_27.png" width="155" height="59" alt="シェアチューブ" title="シェアチューブ">
+								<img src="<?php echo HTTP; ?>assets/img/logo/logo_29.png" width="135" height="36" alt="シェアチューブ" title="シェアチューブ">
 							</a>
 						</h1>
 					</div>
@@ -53,11 +55,6 @@
 						<div class="first_view_block_content clearfix">
 							<h1></h1>
 							<div class="block clearfix">
-								<div class="signup clearfix" style="float: none; margin: 0px auto;">
-									<div class="signup_content clearfix">
-										<h2>
-											<strong>今すぐ無料登録してまとめを書く</strong>
-										</h2>
 <?php 
 	// ポスト取得
 	$post = Library_Security_Basis::post_security();
@@ -80,32 +77,43 @@
 		if(!$user_sharetube_id_check) {
 			$sharetube_id_caution_text = '<p class="red">既に登録されているidか登録できない文字列が含まれています</p>';
 		}
+			else {
+				$sharetube_id_caution_text = '<p class="green">このidは使用できます</p>';
+			}
 		if(!$user_email_check) {
 			$email_caution_text = '<p class="red">既に登録されているかメールアドレスが間違っています</p>';
 		}
+			else {
+				$email_caution_text = '<p class="green">このメールアドレスは使用できます</p>';
+			}
 		if(!$user_password_check) {
 			$password_caution_text = '<p class="red">4文字以下か使用できない文字列が含まれています</p>';
 		}
 	}
 	?>
-										<!-- フォーム -->
-										<form method="post" id="signup_form" class="signup_form" action="">
-											<div class="field">
-												<input type="text" placeholder="Sharetube ID(半角英数字)" value="<?php echo $post['sharetube_id'] ;?>" maxlength="20" name="sharetube_id" autocomplete="off">
-											</div>
-											<?php echo $sharetube_id_caution_text; ?>
-
-											<div class="field">
-												<input type="email" placeholder="メールアドレスを入力" value="<?php echo $post['email'] ;?>" name="email" autocomplete="off">
-											</div>
-											<?php echo $email_caution_text; ?>
-											<div class="field">
-												<input type="password" placeholder="パスワード(半角英数字のみ4文字以上)" name="password">
-											</div>
-											<?php echo $password_caution_text; ?>
-
-											<button class="signup_form_button o_8" type="submit">Sharetubeに登録する</button>
-										</form> <!-- フォーム -->
+								<div class="signup">
+									<div class="signup_content clearfix">
+									  <h2><strong>Sharetubeで情報をまとめてみよう</strong></h2>
+									
+									  <form method="post" id="signup_form" class="signup_form" action="">
+									    <div class="field">
+									      <input type="text" class="signup_form_sharetube_id" placeholder="Sharetube ID(半角英数字)" value="<?php echo $_POST["sharetube_id"]; ?>" maxlength="20" name="sharetube_id" autocomplete="off">
+									    </div>
+												<?php echo $sharetube_id_caution_text; ?>
+									    <div class="field">
+									      <input type="email" class="signup_form_email" placeholder="メールアドレス" value="<?php echo $_POST["email"]; ?>" name="email" autocomplete="off">
+									    </div>
+												<?php echo $email_caution_text; ?>
+									    <div class="field">
+									      <input type="password" class="signup_form_password" placeholder="パスワード(英数字のみ4文字以上)" name="password">
+									    </div>
+												<?php echo $password_caution_text; ?>
+									    <button class="signup_form_button o_8" type="submit">
+									      アカウント作成
+									    </button>
+									  </form>
+								<p>
+								アカウントを作成すると、<a href="<?php echo HTTP; ?>rule/rule/" target="_blank">利用規約</a>に同意したことになります。健全な活動を行ない、ユーザーに喜ばれるコンテンツを作成しましょう。</p>
 									</div>
 								</div>
 							</div>
@@ -123,6 +131,8 @@
 		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/common/jquery-1.9.1-min.js"></script>
 		<!-- 自作プラグイン -->
 		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/common/common.js"></script>
+			<!-- Signup用プラグイン -->
+			<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/signup/common.js"></script>
 
 			<?php 
 			if($_SERVER["HTTP_HOST"] == "localhost") {
