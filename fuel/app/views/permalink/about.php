@@ -246,7 +246,7 @@ http://ecofuture.co.jp/topics/?p=363
 
 	<div class="matome_content_block">
 		<div class="matome_content_block_title">
-			<h2 class="h2_heading_1">エディターという副業を創出する</h2>
+			<h2 class="h2_heading_1">エディターというシゴトを創出する</h2>
 		</div>
 	</div>
 	<div class="matome_content_block">

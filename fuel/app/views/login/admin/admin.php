@@ -7,10 +7,6 @@
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.7</p>
 
-<div class="matome_content_block">	<div class="matome_content_block_enclosed">		<pre><b>削除されたまとめを再編集できる機能実装</b>
-
-メールベースでやり取りを行なっていましたが、サービス内で非公開のまま再編集ができるようになりました。</pre>	</div>							</div>
-
 
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 						<br>
@@ -20,7 +16,8 @@
 
 
 
-						<p class="m_0">キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
+						<p class="m_0">エディター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
+						<p class="m_0">本人の文章が主で、引用はあくまでも従です。</p>
 
 						<p><a href="<?php echo HTTP; ?>/rule/rule/" target="_blank">利用規約</a>を守り、健全な活動を行いましょう。</p>
 
