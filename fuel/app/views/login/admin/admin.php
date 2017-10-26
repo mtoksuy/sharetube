@@ -130,6 +130,32 @@
 
 
 
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>10月17日〜10月25日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.8</h3>
+						<pre>・ログイン履歴記録実装(現時点では管理人のみ閲覧可能)</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
+
+
+
+
+
 			<li class="pointline clearfix">
 				<dl>
 					<dt>

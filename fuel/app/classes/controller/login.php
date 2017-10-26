@@ -26,6 +26,7 @@ class Controller_Login extends Controller_Login_Template {
 				$lohin_message = '';
 				// ログインを試す
 				if($post == true) {
+					// ログイン
 					$lohin_message = Model_Login_Basis::login($post);
 				}
 				// ビュー
