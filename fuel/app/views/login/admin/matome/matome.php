@@ -99,6 +99,206 @@
 								<div class="matome">
 									<div class="matome_content">
 										<?php echo $post_data["post"]["sub_text"]; ?>
+
+
+
+
+
+
+
+
+<div class="multi_app_add">	<div class="multi_app_add_content">		<div class="matome_content_block_multi_app">
+		<div class="matome_content_block_multi_app_title">
+			<h3>polca (ポルカ)</h3>
+		</div>
+		<div class="matome_content_block_multi_app_content clearfix">
+			<div class="matome_content_block_multi_app_icon">
+				<a target="_blank" class="o_8" href="https://itunes.apple.com/jp/app/polca/id1230285916?l=ja&amp;mt=8">
+				<img width="200" src="http://localhost/sharetube/assets/img/itunes/app/887.jpg">
+				</a>
+			</div>
+			<div class="matome_content_block_multi_app_data clearfix">
+				<div class="matome_content_block_multi_app_apple_data_badge">
+					<a target="_blank" class="o_8" href="https://itunes.apple.com/jp/app/polca/id1230285916?l=ja&amp;mt=8">
+						<img width="120" height="36" src="http://localhost/sharetube/assets/img/common/appstore.svg">
+					</a>
+				</div>
+				<div class="matome_content_block_multi_app_google_data_badge">
+		<a target="_blank" class="o_8" href="https://play.google.com/store/apps/details?id=jp.camp_fire.app.android.polca">
+			<img width="120" height="36" src="http://localhost/sharetube/assets/img/common/googleplay.svg">
+		</a>
+	</div>
+
+				<div class="matome_content_block_multi_app_data_rating">
+					<span class="typcn typcn-star"></span>
+<span class="typcn typcn-star"></span>
+<span class="typcn typcn-star-outline"></span>
+<span class="typcn typcn-star-outline"></span>
+<span class="typcn typcn-star-outline"></span>
+
+					<span class="rating_number">(63 件)</span>
+				</div>
+			</div> <!-- matome_content_block_multi_app_data -->
+		</div> <!-- clearfix -->
+	</div> <!-- matome_content_block_multi_app -->		<textarea placeholder="multi_appの紹介コメントを入力" class="multi_app_add_content_word"></textarea><div class="multi_app_add_content_button clearfix">			<div class="multi_app_add_content_button_left">				<div class="multi_app_add_content_submit" data-check="true">保存</div>			</div>			<div class="multi_app_add_content_button_right">				<div class="multi_app_add_content_cancel">キャンセル</div>			</div>		</div>	</div> <!-- multi_app_add_content --></div>
+
+
+<div class="multi_app_add">	<div class="multi_app_add_content">		<div class="matome_content_block_multi_app">
+		<div class="matome_content_block_multi_app_title">
+			<h3>polca (ポルカ)</h3>
+		</div>
+		<div class="matome_content_block_multi_app_content clearfix">
+			<div class="matome_content_block_multi_app_icon">
+				<a target="_blank" class="o_8" href="https://itunes.apple.com/jp/app/polca/id1230285916?l=ja&amp;mt=8">
+				<img width="200" src="http://localhost/sharetube/assets/img/itunes/app/887.jpg">
+				</a>
+			</div>
+			<div class="matome_content_block_multi_app_data clearfix">
+				<div class="matome_content_block_multi_app_apple_data_badge">
+					<a target="_blank" class="o_8" href="https://itunes.apple.com/jp/app/polca/id1230285916?l=ja&amp;mt=8">
+						<img width="120" height="36" src="http://localhost/sharetube/assets/img/common/appstore.svg">
+					</a>
+				</div>
+				<div class="matome_content_block_multi_app_google_data_badge">
+		<a target="_blank" class="o_8" href="https://play.google.com/store/apps/details?id=jp.camp_fire.app.android.polca">
+			<img width="120" height="36" src="http://localhost/sharetube/assets/img/common/googleplay.svg">
+		</a>
+	</div>
+
+				<div class="matome_content_block_multi_app_data_rating">
+					<span class="typcn typcn-star"></span>
+<span class="typcn typcn-star"></span>
+<span class="typcn typcn-star-outline"></span>
+<span class="typcn typcn-star-outline"></span>
+<span class="typcn typcn-star-outline"></span>
+
+					<span class="rating_number">(63 件)</span>
+				</div>
+			</div> <!-- matome_content_block_multi_app_data -->
+		</div> <!-- clearfix -->
+	</div> <!-- matome_content_block_multi_app -->		<textarea placeholder="multi_appの紹介コメントを入力" class="multi_app_add_content_word"></textarea><div class="multi_app_add_content_button clearfix">			<div class="multi_app_add_content_button_left">				<div class="multi_app_add_content_submit" data-check="true">保存</div>			</div>			<div class="multi_app_add_content_button_right">				<div class="multi_app_add_content_cancel">キャンセル</div>			</div>		</div>	</div> <!-- multi_app_add_content --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="matome_content_block_multi_app">
+	<div class="matome_content_block_multi_app_title">
+		<h3>polca (ポルカ)</h3>
+	</div>
+	<div class="clearfix">
+		<div class="matome_content_block_multi_app_icon">
+			<img width="200" src="http://localhost/sharetube/assets/img/itunes/app/707.jpg">
+		</div>
+		<div class="matome_content_block_multi_app_data clearfix">
+
+			<div class="matome_content_block_multi_app_apple_data_badge">
+				<a target="_blank" class="o_8" href="https://itunes.apple.com/jp/app/polca/id1230285916?l=ja&amp;mt=8">
+					<img height="36" width="120" src="http://localhost/sharetube/assets/img/common/appstore.svg">
+				</a>
+			</div>
+			<div class="matome_content_block_multi_app_google_data_badge">
+				<a target="_blank" class="o_8" href="https://play.google.com/store/apps/details?id=jp.camp_fire.app.android.polca">
+					<img height="36" width="120" src="http://localhost/sharetube/assets/img/common/googleplay.svg">
+				</a>
+			</div>
+			<div class="matome_content_block_multi_app_data_rating">
+				<span class="typcn typcn-star"></span>
+				<span class="typcn typcn-star"></span>
+				<span class="typcn typcn-star-outline"></span>
+				<span class="typcn typcn-star-outline"></span>
+				<span class="typcn typcn-star-outline"></span>
+				<span class="rating_number">(63 件)</span>
+			</div>
+		</div>
+		<!-- matome_content_block_multi_app_data -->
+	</div>
+	<!-- clearfix -->
+	<div class="matome_content_block_multi_app_word">
+		<pre></pre>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 									</div> <!-- matome_content -->
 								</div> <!-- matome -->
 							</div> <!-- new_post_contents -->

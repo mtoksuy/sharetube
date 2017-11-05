@@ -1526,6 +1526,126 @@ body {
 	padding: 1px 5px;
 	cursor: pointer;
 }
+/******************
+アイテム アプリ追加
+*******************/
+.multi_app_add {
+	margin: 30px 0;
+}
+.multi_app_add_content {
+
+}
+.multi_app_add_content_check_box {
+	margin: 0 0 1px 0;
+}
+.multi_app_add_content textarea {
+	box-sizing: border-box;
+	height: 60px;
+	color: #474747;
+	border: 1px solid #cfcfcf;
+	border-radius: 2px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 5px;
+	margin-top: -20px;
+	resize: none;
+	width: 100%;
+  font-family: "游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+    font-size: 94%;
+}
+
+
+.multi_app_add_content span.red {
+    margin: 0 5px 0 -13px;
+    position: relative;
+    top: 5px;
+}
+.multi_app_add_content input[type="text"] {
+    background-color: #fbfbfb;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #606060;
+    font-size: 82%;
+		margin: 0 0 5px;
+    padding: 5px;
+		width: 60%;
+}
+.multi_app_add_content_url {
+/*
+	float: left;
+	width: 60% !important;
+*/
+}
+.multi_app_add_content_check_box_description {
+	margin: 0 0 4px;
+}
+.multi_app_add_content_check_box_description input {
+    background-color: #fbfbfb;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 100%;
+    padding: 0;
+    width: 25px;
+}
+
+.multi_app_add_content_check {
+    background-color: #505050;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    color: #eeeeee;
+    cursor: pointer;
+    float: left;
+    font-size: 82%;
+    line-height: 200%;
+    margin: 0 0 0 5px;
+    padding: 0 5px;
+
+}
+.multi_app_add_content_word {
+/*
+	margin: 6px 0 0 0;
+*/
+}
+.multi_app_add_content_button {
+
+}
+.multi_app_add_content_button_left {
+	float: left;
+	margin: 0 5px 0 0;
+}
+
+.multi_app_add_content_submit {
+	background-color: #505050;
+	border: 1px solid #dfdfdf;
+	border-radius: 2px;
+	color: #eeeeee;
+	cursor: pointer;
+	padding: 1px 5px;
+}
+
+.multi_app_add_content_button_right {
+	float: left;
+}
+.multi_app_add_content_cancel {
+	background-color: #fcfcfc;
+	border: 1px solid #cfcfcf;
+	border-radius: 2px;
+	padding: 1px 5px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 /********************
 アイテム 吹き出し追加
 ********************/
@@ -2537,6 +2657,103 @@ border-radius: 30px;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
+
+/*****************
+まとめ内 マルチapp
+*****************/
+.matome_content_block_multi_app {
+	margin: 0 0 30px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_title {
+    margin: 0 0 10px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_title h3 {
+
+}
+
+.matome_content_block_multi_app .matome_content_block_multi_app_icon {
+	float: left;
+	width: 68px;
+	box-sizing: border-box;
+	padding: 0px 10px 10px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_icon a {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_icon img {
+    width: 100%;
+    height: auto;
+		border-radius: 16px;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data {
+    float: left;
+    width: 260px;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data span {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_apple_data_badge {
+    float: left;
+    width: 50%;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_apple_data_badge span {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_google_data_badge {
+    float: left;
+    width: 50%;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_google_data_badge span {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data_more {
+    border: 1px solid #009BD8;
+    border-radius: 2px;
+    color: #009BD8;
+    display: inline;
+    padding: 5px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data_rating {
+    float: left;
+    width: 100%;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data_rating .typcn {
+    color: orange;
+    margin: 0px -6px 0 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data_badge {
+	margin: 10px 0 4px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_word {
+	margin: 0px 0 0 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_word pre {
+    border-left: 2px solid #dddddd;
+    font-family: "游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+    font-size: 94%;
+    margin: 0;
+    padding: 0 0 0 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /****************
 まとめ内 吹き出し
 ****************/

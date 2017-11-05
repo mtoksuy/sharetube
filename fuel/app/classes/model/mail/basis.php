@@ -580,6 +580,191 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
+	//-----------------------------------
+	// アクセス1週間のレポート NULLの場合
+	//-----------------------------------
+	public static function access_1week_null_report($sharetube_user_data_array) {
+		$message = ("Sharetubeをご利用くださいましてありがとうございます。
+
+1週間のアクセスレポートです
+0 PV
+
+---
+
+残念ながらまだコンテンツが作成されていませんでした。
+
+
+
+Sharetubeは日々成長しています
+新たな機能も実装され新たなエディターも増え
+コンテンツが書きやすい場所になっております。
+
+".$sharetube_user_data_array['sharetube_id']."様も時間がある時にコンテンツを作成してみませんか？
+わからない事がありましたら
+お問い合わせ
+http://sharetube.jp/contact/
+からお気軽のご連絡ください。
+
+ログイン
+http://sharetube.jp/login/
+
+
+Sharetubeはいつまでも待っています
+
+[Vision]
+全ての情報を最高のカタチで世界中に届ける
+
+[Mission]
+テキストメディアの中でシェア率No.1になる
+エディターというシゴトを創出する
+
+このビジョンとミッションを達成するために運営しております。
+
+どうかお力をお貸しいただけたら幸いです。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '1週間のアクセスレポート',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+//			Model_Mail_Basis::qbmail_send($post_array);
+	}
+	//------------------------
+	// アクセス1週間のレポート
+	//------------------------
+	public static function access_1week_report($sharetube_user_data_array, $access_summary_value) {
+		$message = ("Sharetubeをご利用くださいましてありがとうございます。
+
+1週間のアクセスレポートです！
+".$access_summary_value." PV
+
+---
+
+Sharetubeは日々成長しています
+新たな機能も実装され新たなエディターも増え
+コンテンツが書きやすい場所になっております。
+
+わからない事がありましたら
+お問い合わせ
+http://sharetube.jp/contact/
+からお気軽のご連絡ください。
+
+ログイン
+http://sharetube.jp/login/
+
+
+Sharetubeはいつまでも待っています
+
+[Vision]
+全ての情報を最高のカタチで世界中に届ける
+
+[Mission]
+テキストメディアの中でシェア率No.1になる
+エディターというシゴトを創出する
+
+このビジョンとミッションを達成するために運営しております。
+
+どうかお力をお貸しいただけたら幸いです。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '1週間のアクセスレポート',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

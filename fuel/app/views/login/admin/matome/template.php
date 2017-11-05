@@ -84,6 +84,9 @@
 		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/login/matome/contents.js"></script>
 		<!-- matome line プラグイン -->
 		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/login/matome/line.js"></script>
+		<!-- matome multi_app プラグイン -->
+		<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/login/matome/multi_app.js"></script>
+
 
 
 		<!-- matome text_design_tool プラグイン -->
