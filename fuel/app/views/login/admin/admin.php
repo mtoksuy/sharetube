@@ -5,7 +5,7 @@
 					<?php if($_SESSION["sharetube_id"] == 'maverick') { echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; } ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.7</p>
+						<p>Sharetube version 5.5.8</p>
 
 
 						<p style="border-bottom:1px solid #dddddd;"> </p>
@@ -85,7 +85,10 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p>・しばらくは理念と利用規約の浸透に向けての開発を行います。(2017年10月末辺りまで)</p>
+					<p class="m_0">・カスタマーチャット</p>
+					<p class="m_0">・まとめをお気に入りにする</p>
+					<p class="m_0">・マイページデザイン再アップロード</p>
+					<p>・アンケートを募集してそれをコンテンツ化</p>
 
 					<h3 class="h3_heading_1">バグリスト</h3>
 					<p class="m_0">・まとめ作成ツール：アイテム：Twitterのコンテンツに <と>が含まれている場合バグる</p>
@@ -137,7 +140,7 @@
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>10月17日〜10月25日</pre>
+						<pre>10月17日〜11月06日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.5.8</h3>
