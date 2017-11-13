@@ -86,6 +86,8 @@ $minute_time = ((15*60)/5);
 $do_num = $user_count / $minute_time;
 // 切り上げ
 $do_num = (int)ceil($do_num);
+// テスト
+//$do_num = 50;
 
 //$do_num = 50;
 //var_dump($do_num);
@@ -150,9 +152,11 @@ $week_1_time = 604800;
 						FROM access_summary
 						WHERE sharetube_id = '".$user_value['sharetube_id']."'
 						AND create_time > '".date('Y-m-d', (time() - $week_1_time))." 00:00:00'
-						AND create_time < '2017-10-26 23:59:59'")->execute();
+						AND create_time < '".date('Y-m-d', time())." 23:59:59'")->execute();
+//						var_dump($access_summary_res);
 					foreach($access_summary_res as $access_summary_key => $access_summary_value) {
 						// 削除されていないユーザーにメールを送る && メールを許可しているユーザー
+//						var_dump($access_summary_value);
 						if($user_value['del'] == 0 && $user_value['mail_delivery_ok'] == 1) {
 //							var_dump($access_summary_value['SUM(count)']);
 							// NULLの場合
