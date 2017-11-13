@@ -11,6 +11,7 @@ class Model_Mail_Basis extends Model {
 		require_once PATH."assets/library/qdmail/qdmail.php";
 		require_once PATH."assets/library/qdmail/qdsmtp.php";
 
+
 //			$mail = & new Qdmail(); ??
 			$mail = new Qdmail();
 
@@ -594,7 +595,6 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 残念ながらまだコンテンツが作成されていませんでした。
 
 
-
 Sharetubeは日々成長しています
 新たな機能も実装され新たなエディターも増え
 コンテンツが書きやすい場所になっております。
@@ -608,8 +608,6 @@ http://sharetube.jp/contact/
 ログイン
 http://sharetube.jp/login/
 
-
-Sharetubeはいつまでも待っています
 
 [Vision]
 全ての情報を最高のカタチで世界中に届ける
@@ -644,14 +642,14 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 				'pass'     => '',),
 		);
 			// qbメール送信
-//			Model_Mail_Basis::qbmail_send($post_array);
+			Model_Mail_Basis::qbmail_send($post_array);
 	}
 	//------------------------
 	// アクセス1週間のレポート
 	//------------------------
 	public static function access_1week_report($sharetube_user_data_array, $access_summary_value) {
 		$message = ("Sharetubeをご利用くださいましてありがとうございます。
-
+".$sharetube_user_data_array['name']."様
 1週間のアクセスレポートです！
 ".$access_summary_value." PV
 
@@ -669,8 +667,7 @@ http://sharetube.jp/contact/
 ログイン
 http://sharetube.jp/login/
 
-
-Sharetubeはいつまでも待っています
+-----------
 
 [Vision]
 全ての情報を最高のカタチで世界中に届ける
@@ -678,10 +675,6 @@ Sharetubeはいつまでも待っています
 [Mission]
 テキストメディアの中でシェア率No.1になる
 エディターというシゴトを創出する
-
-このビジョンとミッションを達成するために運営しております。
-
-どうかお力をお貸しいただけたら幸いです。
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Sharetube - シェアしたくなるコンテンツが集まる、集まる。

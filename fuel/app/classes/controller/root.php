@@ -13,6 +13,21 @@ class Controller_Root extends Controller_Basic_Template {
 	}
 	// 基本アクション
 	public function action_index() {
+
+/*
+$res = DB::query("SELECT * FROM `article` WHERE `sharetube_id` = 'mosimo' AND `del` = 0 ")->execute();
+foreach($res as $key => $value) {
+	echo ($value['primary_id'].'|');
+}
+*/
+
+/*
+var_dump(password_hash('melg'));
+var_dump(sha1('melg12345'));
+*/
+
+
+
 		// セグメント情報取得
 		$segment_info_get_array = Model_Info_Basis::segment_info_get();
 		// タイトルセット
