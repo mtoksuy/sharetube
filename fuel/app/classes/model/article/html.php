@@ -1410,6 +1410,8 @@ $social_share_html = '
 
 			// 改行を消す&タブ削除
 			$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
+			// 出典元タグを取り除く
+			$article_contests = preg_replace('/<div class="image_quote">.+?<\/div>/', '', $article_contests);
 			// HTMLタグを取り除く
 			$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
 			// 追加を取り除く
