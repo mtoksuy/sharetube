@@ -15,7 +15,8 @@ class Controller_Root extends Controller_Basic_Template {
 	public function action_index() {
 
 /*
-$res = DB::query("SELECT * FROM `article` WHERE `sharetube_id` = 'mosimo' AND `del` = 0 ")->execute();
+ユーザーの書いた記事idを取得
+$res = DB::query("SELECT * FROM `article` WHERE `sharetube_id` = 'girl_club' AND `del` = 0 ")->execute();
 foreach($res as $key => $value) {
 	echo ($value['primary_id'].'|');
 }
@@ -25,6 +26,40 @@ foreach($res as $key => $value) {
 var_dump(password_hash('melg'));
 var_dump(sha1('melg12345'));
 */
+
+
+/*
+echo 4690+
+5612+
+4795+
+5082+
+3469+
+4200+
+3968+
+2970;
+
+34786
+*/
+
+/*
+echo 4026+
+6497+
+3143+
+9419+
+11155+
+11659+
+11013+
+10139+
+11112+
+8401;
+
+86564 
+*/
+
+
+
+
+
 
 
 
@@ -134,7 +169,7 @@ var_dump(sha1('melg12345'));
 
 
 
-		// シャッフル記事データ取得 
+		// シャッフル記事データ取得
 //		$shuffle_res = Model_Article_Basis::article_shuffle_get(0, 'article', 4);
 		// シャッフル記事HTML生成
 //		$shuffle_html = Model_Article_Html::article_shuffle_html_create($shuffle_res, 'article');
@@ -148,9 +183,15 @@ var_dump(sha1('melg12345'));
 		$this->basic_template->view_data["header"]->set('header_data', array(
 			'shuffle_article_url' => $shuffle_article_link,
 		), false);
+
+
+		// PRまとめHTML生成
+		$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
+
 		// サイドバーコンテンツセット
 		$this->basic_template->view_data["sidebar"]->set('sidebar_data', array(
 			'popular_html' => $popular_html,
+			'pr_html'      => $pr_html,
 			'related_html' => '',
 			'shuffle_html' => '',
 		),false);
