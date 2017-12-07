@@ -2,7 +2,9 @@
 				<div class="article_list">
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
-					<?php if($_SESSION["sharetube_id"] == 'maverick') { echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; } ?>
+					<?php if($_SESSION["sharetube_id"] == 'maverick') {
+// echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; 
+} ?>
 
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.8</p>
@@ -137,6 +139,35 @@
 
 
 
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>11月14日〜12月07日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.9</h3>
+						<pre>・インセンティブレートを0.085円から0.115円に
+・Sharetubeヘルプセンター実装
+</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
+
+
+
+
+
+
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
@@ -149,6 +180,7 @@
 ・パスワード再設定ページのタイトル修正
 ・注目や殿堂で表示される概要でアイテム：画像で表示される出典元を非表示へアップデート
 ・引用やサムネイルでの出典で表示されるタイトルを短く出力されるようにアップデート
+・インセンティブレートを0.08円から0.085円に
 </pre>
 					</dd>
 				</dl>
