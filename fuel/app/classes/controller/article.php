@@ -132,9 +132,15 @@ class Controller_Article extends Controller_Article_Template {
 		// profile_cardHTML生成
 		$profile_card_html = Model_Channel_Html::profile_card_html_create($sharetube_user_data_array, $article_count);
 
+		// PRまとめデータ取得
+//			$pr_res = Model_Article_Basis::article_pr_get();
+		// PRまとめHTML生成
+		$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
+
 		// サイドバーコンテンツセット
 		$this->article_template->view_data["sidebar"]->set('sidebar_data', array(
 			'popular_html' => $popular_html,
+			'pr_html' => $pr_html,
 			'related_html' => '',
 			'shuffle_html' => '',
 			'profile_card_html' => $profile_card_html,

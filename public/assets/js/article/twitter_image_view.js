@@ -148,10 +148,12 @@ function gallery_box_content_image_rsize_calculation(img) {
 		amazon_link_image_check  = $(this).parents('.amazon_link_image');
 		amazon_link_text_check   = $(this).parents('.amazon_link_text');
 		amazon_link_detail_check = $(this).parents('.amazon_link_detail');
+		amazon_link_detail_check = $(this).parents('.amazon_link_detail');
 
-		gallery_cell_check       = $(this).parents('.gallery-cell');
-		matome_content_block_itunes_app_icon_check = $(this).parents('.matome_content_block_itunes_app_icon');
+		gallery_cell_check                               = $(this).parents('.gallery-cell');
+		matome_content_block_itunes_app_icon_check       = $(this).parents('.matome_content_block_itunes_app_icon');
 		matome_content_block_itunes_app_data_badge_check = $(this).parents('.matome_content_block_itunes_app_data_badge');
+		matome_content_block_multi_app_check             = $(this).parents('.matome_content_block_multi_app');
 
 
 		tweet_content_icon_check = tweet_content_icon_check.attr('class');
@@ -159,22 +161,15 @@ function gallery_box_content_image_rsize_calculation(img) {
 		amazon_link_text_check   = amazon_link_text_check.attr('class');
 		amazon_link_detail_check = amazon_link_detail_check.attr('class');
 		gallery_cell_check       = gallery_cell_check.attr('class');
-		matome_content_block_itunes_app_icon_check = matome_content_block_itunes_app_icon_check.attr('class');
+		matome_content_block_itunes_app_icon_check       = matome_content_block_itunes_app_icon_check.attr('class');
 		matome_content_block_itunes_app_data_badge_check = matome_content_block_itunes_app_data_badge_check.attr('class');
-
+		matome_content_block_multi_app_check             = matome_content_block_multi_app_check.attr('class');
 
 		if(tweet_content_icon_check) {
 
 		}
 			else if(amazon_link_image_check) {
-/*
-				if($(this).width() == 1) {
 
-				}
-					else {
-						image_list_object = image_list_object.add($(this));
-					}
-*/
 			}
 				else if(amazon_link_text_check) {
 	
@@ -191,9 +186,12 @@ function gallery_box_content_image_rsize_calculation(img) {
 					else if(matome_content_block_itunes_app_data_badge_check) {
 		
 					}
-						else {
-							image_list_object = image_list_object.add($(this));
+						else if(matome_content_block_multi_app_check) {
+			
 						}
+							else {
+								image_list_object = image_list_object.add($(this));
+							}
 	});
 	//----------------
 	//モーダル画面開く
@@ -204,16 +202,20 @@ function gallery_box_content_image_rsize_calculation(img) {
 			amazon_link_image_check  = $(this).parents('.amazon_link_image');
 			amazon_link_text_check   = $(this).parents('.amazon_link_text');
 			gallery_cell_check       = $(this).parents('.gallery-cell');
-			matome_content_block_itunes_app_icon_check = $(this).parents('.matome_content_block_itunes_app_icon');
+			matome_content_block_itunes_app_icon_check       = $(this).parents('.matome_content_block_itunes_app_icon');
 			matome_content_block_itunes_app_data_badge_check = $(this).parents('.matome_content_block_itunes_app_data_badge');
+			matome_content_block_multi_app_check             = $(this).parents('.matome_content_block_multi_app');
 
 
 			tweet_content_icon_check = tweet_content_icon_check.attr('class');
 			amazon_link_image_check  = amazon_link_image_check.attr('class');
 			amazon_link_text_check   = amazon_link_text_check.attr('class');
 			gallery_cell_check       = gallery_cell_check.attr('class');
-			matome_content_block_itunes_app_icon_check = matome_content_block_itunes_app_icon_check.attr('class');
+			matome_content_block_itunes_app_icon_check       = matome_content_block_itunes_app_icon_check.attr('class');
 			matome_content_block_itunes_app_data_badge_check = matome_content_block_itunes_app_data_badge_check.attr('class');
+			matome_content_block_multi_app_check             = matome_content_block_multi_app_check.attr('class');
+
+
 
 			if(tweet_content_icon_check) {
 				return true;
@@ -231,6 +233,9 @@ function gallery_box_content_image_rsize_calculation(img) {
 							return true;	
 						}
 						else if(matome_content_block_itunes_app_data_badge_check) {
+							return true;	
+						}
+						else if(matome_content_block_multi_app_check) {
 							return true;	
 						}
 				else {

@@ -301,6 +301,13 @@ class Model_Article_Html extends Model {
 			$related_html                      = Model_Article_Html::article_inside_related_html_create($related_res, $related_count, 'article' ,$ad_article_infeed_html);
 //		var_dump($related_html);
 
+
+			// PRまとめデータ取得
+//			$pr_res = Model_Article_Basis::article_pr_get();
+			// PRまとめHTML生成
+			$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
+
+
 			// 前のまとめ、次のまとめTML生成
 			$detail_press_bottom_html = Model_Article_Html::article_previous_next_html_create($article_primary_id, $article_type);
 
@@ -354,6 +361,8 @@ class Model_Article_Html extends Model {
 					'.$related_theme_html.'
 					<!-- 関連まとめ -->
 					'.$related_html.'
+					<!-- PRまとめ -->
+						'.$pr_html.'
 					<!-- 宣伝 -->
 					'.$facebook_like_please_html.'
 					<!-- 前後のまとめ -->
@@ -662,8 +671,6 @@ class Model_Article_Html extends Model {
 			$title        = htmlspecialchars_decode($value["title"], ENT_NOQUOTES);
 			// タイトルを82文字に丸める
 			$title = mb_strimwidth($title, 0, 74, "...", 'utf8');
-
-
 
 
 //				var_dump($value["primary_id"]);
@@ -1410,6 +1417,8 @@ $social_share_html = '
 
 			// 改行を消す&タブ削除
 			$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
+			// 出典元タグを取り除く
+			$article_contests = preg_replace('/<div class="image_quote">.+?<\/div>/', '', $article_contests);
 			// HTMLタグを取り除く
 			$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
 			// 追加を取り除く
@@ -1743,6 +1752,119 @@ var_dump($end_point);
 		}
 		return $fame_article_badge_html;
 	}
+	//----------------------
+	//記事内PRまとめHTML生成
+	//----------------------
+	static function article_inside_pr_html_create($related_res, $article_type = 'article') {
+/*
+		// 回す
+		foreach($related_res as $key => $value) {
+			$card_li = Model_Article_Html::article_card_li_html_create($value, $card_li, $article_type);
+		} // foreach($related_res as $key => $value) {
+*/
+$card_li = '<li class="o_8">
+					<article>
+						<div class="category_band news_gossip_color">ニュース・ゴシップ</div>													<a href="http://ad.aspm.jp/2Y0gQm/">
+							<div class="inner clearfix">
+								<img width="200" height="104" alt="恒例の【DMMの10円セール】が今回はなんと5日開催！！！今買うのが超絶お得！ジャンルは「同人ゲー」！【画像・参考サイト付】" src="http://sharetube.jp/assets/img/article/image/image_66852.jpg" class="">
+								<div class="shuffle_article_contents_title clearfix">
+									<span>恒例の【DMMの10円セール】が今回はなんと5日開催！！！今買うのが超絶お得！ジャンルは「同人ゲー」！【画像・参考サイト付】</span>
+								</div>
+							</div>
+						</a>
+					</article>
+				</li>';
+$card_li = '';
+		if($card_li) {
+			// 合体
+			$related_html = ('
+				<nav class="article_inside_pr_article">
+					<div class="article_inside_pr_article_content">
+						<div class="article_inside_pr_article_header">
+							<span>PRまとめ</span>
+							<span class="article_inside_pr_article_header_line"> </span>
+						</div>
+						<ul class="clearfix">
+							'.$card_li.'
+						</ul>
+					</div>
+				</nav>');
+		}
+//			var_dump($related_html);
+		return $related_html;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

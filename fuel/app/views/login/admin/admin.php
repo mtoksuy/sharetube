@@ -2,25 +2,23 @@
 				<div class="article_list">
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
-					<?php if($_SESSION["sharetube_id"] == 'maverick') { echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; } ?>
+					<?php if($_SESSION["sharetube_id"] == 'maverick') {
+// echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; 
+} ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.7</p>
-
-<div class="matome_content_block">	<div class="matome_content_block_enclosed">		<pre><b>削除されたまとめを再編集できる機能実装</b>
-
-メールベースでやり取りを行なっていましたが、サービス内で非公開のまま再編集ができるようになりました。</pre>	</div>							</div>
+						<p>Sharetube version 5.5.8</p>
 
 
 						<p style="border-bottom:1px solid #dddddd;"> </p>
+
+						<p class="m_0">今月はまとめ作成ツールの使いやすさを徹底的にアップデートしてまいります。</p>
+						<p>修正してほしい箇所がございましたらお問い合わせにてご連絡ください。</p>
+
 						<br>
 
-
-
-
-
-
-						<p class="m_0">キュレーター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
+						<p class="m_0">エディター様が欲しい機能がございましたら気軽に<a href="<?php echo HTTP; ?>/contact/" target="_blank">お問い合わせ</a>からご連絡お願い致します。</p>
+						<p class="m_0">本人の文章が主で、引用はあくまでも従です。</p>
 
 						<p><a href="<?php echo HTTP; ?>/rule/rule/" target="_blank">利用規約</a>を守り、健全な活動を行いましょう。</p>
 
@@ -89,7 +87,10 @@
 					<p>・サイトマップ：1日</p>
 
 					<h3 class="h3_heading_1">実装予定表</h3>
-					<p>・しばらくは理念と利用規約の浸透に向けての開発を行います。(2017年10月末辺りまで)</p>
+					<p class="m_0">・カスタマーチャット</p>
+					<p class="m_0">・まとめをお気に入りにする</p>
+					<p class="m_0">・マイページデザイン再アップロード</p>
+					<p>・アンケートを募集してそれをコンテンツ化</p>
 
 					<h3 class="h3_heading_1">バグリスト</h3>
 					<p class="m_0">・まとめ作成ツール：アイテム：Twitterのコンテンツに <と>が含まれている場合バグる</p>
@@ -123,6 +124,67 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>11月14日〜12月07日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.9</h3>
+						<pre>・インセンティブレートを0.085円から0.115円に
+・Sharetubeヘルプセンター実装
+</pre>
+					</dd>
+				</dl>
+			</li>
+
+
+
+
+
+
+
+
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>10月17日〜11月14日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.8</h3>
+						<pre>・ログイン履歴記録実装(現時点では管理人のみ閲覧可能)
+・まとめ作成：アイテム：アプリ実装(iPhone・Androidのアプリボタンを挿入できる)
+・パスワード再設定ページのタイトル修正
+・注目や殿堂で表示される概要でアイテム：画像で表示される出典元を非表示へアップデート
+・引用やサムネイルでの出典で表示されるタイトルを短く出力されるようにアップデート
+・インセンティブレートを0.08円から0.085円に
+</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 

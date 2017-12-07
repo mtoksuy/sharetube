@@ -11,6 +11,7 @@ class Model_Mail_Basis extends Model {
 		require_once PATH."assets/library/qdmail/qdmail.php";
 		require_once PATH."assets/library/qdmail/qdsmtp.php";
 
+
 //			$mail = & new Qdmail(); ??
 			$mail = new Qdmail();
 
@@ -201,24 +202,7 @@ http://sharetube.jp/rule/rule/
 [コンテンツを作成するにあたって]
 Sharetubeは引用を行う場合ルールを徹底してまいります。
 しっかりと利用規約を守った健全な活動をお願い申し上げます。
-
-
-[注意するポイント]
-簡略版の利用規約
-第7条（禁止事項）
-・・著作権、特許権等の知的財産権を侵害する行為
-・・宣伝や商用を目的とした広告・勧誘その他の行為。ただし、当社が特別認めたまとめではこの限りではありません。
-・・引用元が単一サイト・単一記事でまとめを作成する行為
-・・単一記事の内容を全引用してまとめを作成する行為
-・・常識の範囲を超えて引用(3分の1以上引用するなど)する行為
-・・引用を引用する行為
-・・引用のみでまとめを作成する行為
-・・引用元と同じタイトルまたはタイトルに転載してまとめを作成する行為
-・・引用元にはない虚偽のコンテンツを引用しているかのように見せかける行為
-・・引用を行わず転載する行為(第7条1.1に当たる)
-・・引用元がある画像を使用して引用を行わない行為(第7条1.1に当たる)
-・・画像の引用元をページ単位で引用しない行為(トップページを引用・画像ファイルそのものを引用するなど)
-・ユーザーは、以上の各項の他、当社が不適切であると判断する行為を行ってはなりません。
+自分自身の文章を主として引用を従としたコンテンツ作成をお願いいたします。
 
 
 [記事タイプに関して]
@@ -597,6 +581,183 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
 			// qbメール送信
 			Model_Mail_Basis::qbmail_send($post_array);
 	}
+	//-----------------------------------
+	// アクセス1週間のレポート NULLの場合
+	//-----------------------------------
+	public static function access_1week_null_report($sharetube_user_data_array) {
+		$message = ("Sharetubeをご利用くださいましてありがとうございます。
+
+1週間のアクセスレポートです
+0 PV
+
+---
+
+残念ながらまだコンテンツが作成されていませんでした。
+
+
+Sharetubeは日々成長しています
+新たな機能も実装され新たなエディターも増え
+コンテンツが書きやすい場所になっております。
+
+".$sharetube_user_data_array['sharetube_id']."様も時間がある時にコンテンツを作成してみませんか？
+わからない事がありましたら
+お問い合わせ
+http://sharetube.jp/contact/
+からお気軽のご連絡ください。
+
+ログイン
+http://sharetube.jp/login/
+
+
+[Vision]
+全ての情報を最高のカタチで世界中に届ける
+
+[Mission]
+テキストメディアの中でシェア率No.1になる
+エディターというシゴトを創出する
+
+このビジョンとミッションを達成するために運営しております。
+
+どうかお力をお貸しいただけたら幸いです。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '1週間のアクセスレポート',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+	//------------------------
+	// アクセス1週間のレポート
+	//------------------------
+	public static function access_1week_report($sharetube_user_data_array, $access_summary_value) {
+		$message = ("Sharetubeをご利用くださいましてありがとうございます。
+".$sharetube_user_data_array['name']."様
+1週間のアクセスレポートです！
+".$access_summary_value." PV
+
+---
+
+Sharetubeは日々成長しています
+新たな機能も実装され新たなエディターも増え
+コンテンツが書きやすい場所になっております。
+
+わからない事がありましたら
+お問い合わせ
+http://sharetube.jp/contact/
+からお気軽のご連絡ください。
+
+ログイン
+http://sharetube.jp/login/
+
+-----------
+
+[Vision]
+全ての情報を最高のカタチで世界中に届ける
+
+[Mission]
+テキストメディアの中でシェア率No.1になる
+エディターというシゴトを創出する
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sharetube - シェアしたくなるコンテンツが集まる、集まる。
+発行：Sharetube[シェアチューブ]サポートチーム
+http://sharetube.jp/
+
+お問合せ: http://sharetube.jp/contact/
+COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.");
+
+
+		$post_array = array(
+			'from'    => 'Sharetube <info@sharetube.jp>',
+			'to'      => $sharetube_user_data_array['email'],
+			'subject' => '1週間のアクセスレポート',
+			'message' => $message,
+			'param'   => array(
+				'host'     => 'localhost',
+				'port'     => 25,
+				'from'     => 'info@sharetube.jp', 
+				'protocol' => 'SMTP',
+				'user'     => '',
+				'pass'     => '',),
+		);
+			// qbメール送信
+			Model_Mail_Basis::qbmail_send($post_array);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1134,7 +1134,34 @@ $('.matome').on( {
 				</div> <!-- itunes_app_add -->');
 				$(this).parents('.matome_content_block').remove();
 			break;
+			///////////////
+			// アプリの場合
+			///////////////
+			case 'matome_content_block_multi_app':
+				// word抽出
+				var matome_content_block_multi_app_word = $(this).parents('.matome_content_block').find('.matome_content_block_multi_app_word pre').html();
+				// word削除
+				$(this).parents('.matome_content_block').find('.matome_content_block_multi_app_word').remove();
+				// コンテンツ抽出
+				var matome_content_block_multi_app_html = $(this).parents('.matome_content_block').find('.matome_content_block_multi_app').selfHtml();
+				var check = true;
 
+			$(this).parents('.matome_content_block').before('<div class="multi_app_add">\
+					<div class="multi_app_add_content">\
+						'+matome_content_block_multi_app_html+'\
+						<textarea class="multi_app_add_content_word" placeholder="multi_appの紹介コメントを入力">'+matome_content_block_multi_app_word+'</textarea>\
+						<div class="multi_app_add_content_button clearfix">\
+							<div class="multi_app_add_content_button_left">\
+								<div class="multi_app_add_content_submit" data-check="'+check+'">保存</div>\
+							</div>\
+							<div class="multi_app_add_content_button_right">\
+								<div class="multi_app_add_content_cancel" data-check="'+check+'" data-word="'+matome_content_block_multi_app_word+'">キャンセル</div>\
+							</div>\
+						</div>\
+					</div> <!-- multi_app_add_content -->\
+				</div> <!-- multi_app_add -->');
+				$(this).parents('.matome_content_block').remove();
+			break;
 			///////////////
 			// ballonの場合
 			///////////////
@@ -1211,6 +1238,68 @@ $('.matome').on( {
 		event_textarea.autosize();
 	},
 }, '.edit');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*****************
 アイテムリスト変更
 *****************/
@@ -1253,6 +1342,7 @@ $('.item_add').on( {
 							<ul class="item_add_content_list">\
 								<li class="item_add_content_list_amazon">Amazon</li>\
 								<li class="item_add_content_list_amazon_review">Amazonレビュー</li>\
+								<li class="item_add_content_list_multi_app">アプリ</li>\
 								<li class="item_add_content_list_itunes_app">iTunes_App</li>\
 								<li class="item_add_content_list_code">コード</li>\
 								<li class="item_add_content_list_contents">目次</li>\
@@ -1265,6 +1355,7 @@ $('.item_add').on( {
 							'<div class="item_add_content clearfix">\
 								<span class="item_add_content_title"><span class="typcn typcn-plus"></span>アイテムを追加</span>\
 								<ul class="item_add_content_list">\
+									<li class="item_add_content_list_multi_app">アプリ</li>\
 									<li class="item_add_content_list_itunes_app">iTunes_App</li>\
 									<li class="item_add_content_list_code">コード</li>\
 									<li class="item_add_content_list_contents">目次</li>\
@@ -1456,6 +1547,7 @@ $('.matome').on( {
 							<ul class="item_between_add_content_list">\
 								<li class="item_between_add_content_list_amazon">Amazon</li>\
 								<li class="item_between_add_content_list_amazon_review">Amazonレビュー</li>\
+								<li class="item_between_add_content_list_multi_app">アプリ</li>\
 								<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
 								<li class="item_between_add_content_list_code">コード</li>\
 								<li class="item_between_add_content_list_contents">目次</li>\
@@ -1469,6 +1561,7 @@ $('.matome').on( {
 								<span class="item_between_add_content_cancel"><span class="typcn typcn-times"></span></span>\
 								<span class="item_between_add_content_list_change_3"><span class="typcn typcn-arrow-repeat"></span></span>\
 								<ul class="item_between_add_content_list">\
+									<li class="item_between_add_content_list_multi_app">アプリ</li>\
 									<li class="item_between_add_content_list_itunes_app">iTunes_App</li>\
 									<li class="item_between_add_content_list_code">コード</li>\
 									<li class="item_between_add_content_list_contents">目次</li>\

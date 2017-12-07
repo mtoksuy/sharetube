@@ -42,6 +42,8 @@ class Model_Login_Basis extends Model {
 			setcookie('sharetube_login_key', md5($post["login_pass"]), time() + 2592000, '/');
 			// ユーザーがログインしたらお知らせのメールを送信する
 			Model_Mail_Basis::login_account_report_mail($_SESSION);
+			// ログイン履歴登録
+			Model_Login_Basis::login_history_record($_SESSION["sharetube_id"]);
 			header('Location: '.HTTP.'login/admin/');
 			exit;
 		}
@@ -122,5 +124,18 @@ class Model_Login_Basis extends Model {
 		setcookie('sharetube_login_key', '',time()-10000, '/');
 		header('location: '.HTTP.'');
 		exit;
+	}
+	//----------------------
+	//ログイン履歴を記録する
+	//----------------------
+	public static function login_history_record($sharetube_id) {
+		DB::query("
+			INSERT INTO login_history (
+				sharetube_id
+			)
+			VALUES (
+				'".$sharetube_id."'
+			)
+		")->execute();
 	}
 }

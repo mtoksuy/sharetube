@@ -743,6 +743,83 @@ border-radius: 30px;
   width: 100%;
   height: auto;
 }
+/*****************
+まとめ内 マルチapp
+*****************/
+.matome_content_block_multi_app {
+	margin: 0 0 30px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_title {
+    margin: 0 0 10px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_title h3 {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_icon {
+	float: left;
+	width: 68px;
+	box-sizing: border-box;
+	padding: 0px 10px 10px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_icon a {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_icon img {
+    width: 100%;
+    height: auto;
+		border-radius: 16px;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data {
+    float: left;
+    width: 260px;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data span {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_apple_data_badge {
+    float: left;
+    width: 50%;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_apple_data_badge span {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_google_data_badge {
+    float: left;
+    width: 50%;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_google_data_badge span {
+
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data_more {
+    border: 1px solid #009BD8;
+    border-radius: 2px;
+    color: #009BD8;
+    display: inline;
+    padding: 5px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data_rating {
+    float: left;
+    width: 100%;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data_rating .typcn {
+    color: orange;
+    margin: 0px -6px 0 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_data_badge {
+	margin: 10px 0 4px 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_word {
+	margin: 0px 0 0 0;
+}
+.matome_content_block_multi_app .matome_content_block_multi_app_word pre {
+    border-left: 2px solid #dddddd;
+    font-family: "游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+    font-size: 94%;
+    margin: 0;
+    padding: 0 0 0 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
 /****************
 まとめ内 吹き出し
 ****************/
@@ -1131,6 +1208,34 @@ border-radius: 30px;
 	}
 	.matome_content_block_contents ul {
 		padding: 0;
+	}
+}
+/************************
+メディアクエリ設定 0〜414
+************************/
+@media screen and (min-width: 0px) and (max-width: 414px) and (min-width: 0px) and (max-width: 414px) {
+
+
+}
+/************************
+メディアクエリ設定 0〜375
+************************/
+@media screen and (min-width: 0px) and (max-width: 375px) and (min-width: 0px) and (max-width: 375px) {
+
+
+}
+/************************
+メディアクエリ設定 0〜360
+************************/
+@media screen and (min-width: 0px) and (max-width: 360px) and (min-width: 0px) and (max-width: 360px) {
+	/*****************
+	まとめ内 マルチapp
+	*****************/
+	.matome_content_block_multi_app .matome_content_block_multi_app_icon {
+	    width: 17%;
+	}
+	.matome_content_block_multi_app .matome_content_block_multi_app_data {
+	    width: 83%;
 	}
 }
 /************************

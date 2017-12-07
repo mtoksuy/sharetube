@@ -10,18 +10,21 @@ class Controller_Ajax_Matome_Urltitleget extends Controller {
 	public function action_index() {
 		// 変数
 		$url = $_POST['url'];
+		//リファラを設定
+		$referer = 'http://sharetube.jp/';
 		// 偽装オプション
 		$options = array(
 		  'http' => array(
 		    'method' => 'GET',
 		    'header' => 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0',
+//        'header'=>'User-Agent: Mozilla/5.0 (Windows NT 5.1; rv:13.0) Gecko/20100101 Firefox/13.0.1\r\nReferer: '.$referer.'',
+//				'header' => 'User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)',
 		  ),
 		);
 		// 偽装コンテキスト作成
 		$context = stream_context_create($options);
 		// スクレイピング
 		$subject = file_get_contents($url, false, $context);
-
 		/********************************************
 		file_get_contents()で文字化けさせない方法
 		http://gokexn.blog.fc2.com/blog-entry-91.html
@@ -54,6 +57,8 @@ class Controller_Ajax_Matome_Urltitleget extends Controller {
 		// 置換（削除）
 		$healthy = array('"', "'", '&#10;');
 		$title = str_replace($healthy, '', $title);
+		// 本文を60文字に丸める
+		$title = mb_strimwidth($title, 0, 60, "...", 'utf8');
 
 		if($title) {
 			$check = true;

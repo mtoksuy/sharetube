@@ -128,4 +128,112 @@ while($rating_i > 0) {
 	</div> <!-- matome_content_block_itunes_app -->';
 		return $itunes_app_html;
 	}
+
+	//------------------
+	//multi_app_html生成
+	//------------------
+	public static function multi_app_html_create($multi_app_data_array, $googlepalay_app_url) {
+		// 追加
+		$multi_app_data_array['multi_app_url'] = $multi_app_data_array['itunes_app_url'];
+//		var_dump($multi_app_data_array);
+/*
+		$multi_app_data_array = array();
+		$multi_app_data_array['title']        = $title_html;
+		$multi_app_data_array['developer']    = $developer_html;
+		$multi_app_data_array['description']  = $description_html;
+		$multi_app_data_array['price']        = $price_html;
+		$multi_app_data_array['category']     = $category_html;
+		$multi_app_data_array['release_date'] = $release_date_html;
+		$multi_app_data_array['version']      = $version_html;
+		$multi_app_data_array['size']         = $size_html;
+		$multi_app_data_array['system_cover'] = $system_cover_html;
+		$multi_app_data_array['rating']       = $rating_html;
+		$multi_app_data_array['rating_count'] = $rating_count_html;
+		$multi_app_data_array['icon']         = $icon_html;
+		$multi_app_data_array['screen_shots'] = $iphone_screen_shots_array[1];
+*/
+
+
+
+
+
+
+////////////////
+//ratingHTML生成
+////////////////
+//$multi_app_data_array['rating'] = (int)floor($multi_app_data_array['rating']);
+$multi_app_data_array['rating'] = (int)floor($multi_app_data_array['rating']*2);
+$rating_i = 10;
+while($rating_i > 0) {
+	if($multi_app_data_array['rating'] >= 2) {
+		$rating_i--;
+		$rating_i--;
+		$multi_app_data_array['rating']--;
+		$multi_app_data_array['rating']--;
+		$rating_html .= '<span class="typcn typcn-star"></span>
+';
+	}
+		else if($multi_app_data_array['rating'] == 1) {
+			$rating_i--;
+			$rating_i--;
+			$multi_app_data_array['rating']--;
+			$rating_html .= '<span class="typcn typcn-star-half-outline"></span>
+';
+		}
+			else {
+				$rating_i--;
+				$rating_i--;
+				$multi_app_data_array['rating']--;
+				$multi_app_data_array['rating']--;
+				$rating_html .= '<span class="typcn typcn-star-outline"></span>
+';
+		}
+}
+
+///////////////////
+//グーグルプレイURL
+///////////////////
+if($googlepalay_app_url) {
+	$google_play_badge_html = 
+		'<div class="matome_content_block_multi_app_google_data_badge">
+		<a href="'.$googlepalay_app_url.'" class="o_8" target="_blank">
+			<img height="36" width="120" src="'.HTTP.'assets/img/common/googleplay.svg">
+		</a>
+	</div>
+';
+}
+else {
+	$google_play_badge_html = 
+		'<div class="matome_content_block_multi_app_google_data_badge"> </div>
+';
+}
+
+
+		$multi_app_html = 
+'<div class="matome_content_block_multi_app">
+		<div class="matome_content_block_multi_app_title">
+			<h3>'.$multi_app_data_array['title'].'</h3>
+		</div>
+		<div class="matome_content_block_multi_app_content clearfix">
+			<div class="matome_content_block_multi_app_icon">
+				<a href="'.$multi_app_data_array['multi_app_url'].'" class="o_8" target="_blank">
+				<img width="200" src="'.HTTP.'assets/img/itunes/app/'.$multi_app_data_array['icon_run'][0].'">
+				</a>
+			</div>
+			<div class="matome_content_block_multi_app_data clearfix">
+				<div class="matome_content_block_multi_app_apple_data_badge">
+					<a href="'.$multi_app_data_array['multi_app_url'].'" class="o_8" target="_blank">
+						<img height="36" width="120" src="'.HTTP.'assets/img/common/appstore.svg">
+					</a>
+				</div>
+				'.$google_play_badge_html.'
+				<div class="matome_content_block_multi_app_data_rating">
+					'.$rating_html.'
+					<span class="rating_number">('.$multi_app_data_array['rating_count'].')</span>
+				</div>
+			</div> <!-- matome_content_block_multi_app_data -->
+		</div> <!-- clearfix -->
+	</div> <!-- matome_content_block_multi_app -->';
+		return $multi_app_html;
+	}
 }

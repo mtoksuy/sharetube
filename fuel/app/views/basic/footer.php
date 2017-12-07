@@ -36,8 +36,11 @@
 						<h5>Sharetubeについて</h5>
 						<ul>
 							<li><a href="<?php echo HTTP; ?>about/">Sharetubeについて</a></li>
-							<li><a href="<?php echo HTTP; ?>rule/rule">利用規約</a></li>
 							<li><a href="<?php echo HTTP; ?>contact/">お問い合わせ</a></li>
+							<li><a href="<?php echo HTTP; ?>rule/rule/">利用規約</a></li>
+							<li><a href="<?php echo HTTP; ?>help/">Sharetubeヘルプセンター</a></li>
+
+
 <!--
 
 							<li><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></li>
@@ -56,9 +59,10 @@
 
 
 
+							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_9.pdf" target="_blank">広告掲載について</a></li>
 
 
-							<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_8.pdf" target="_blank">広告掲載について</a></li>
+
 <!--
 							<li><a href="<?php echo HTTP; ?>permalink/ch_thread_design_1.php">2ちゃんねるスレッドテキストベースまとめツール Var.1.00</a></li>
 -->

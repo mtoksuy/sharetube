@@ -35,6 +35,8 @@ class Controller_Reissue extends Controller_Reissue_Template {
 	//インデックスアクション
 	//----------------------
 	public function action_index() {
+		// タイトルセット
+		$this->reissue_template->view_data['title'] = 'パスワード再設定｜'.TITLE;
 		if($_POST) {
 			// ポストの中身をエンティティ化する
 			$post = Model_Security_Basis::post_security();
@@ -59,6 +61,8 @@ class Controller_Reissue extends Controller_Reissue_Template {
 	//ハッシュアクション
 	//------------------
 	public function action_hash() {
+		// タイトルセット
+		$this->reissue_template->view_data['title'] = 'パスワード再設定｜'.TITLE;
 		// ゲットの中身をエンティティ化する
 		$get = Model_Security_Basis::get_security();
 		$post = Model_Security_Basis::post_security();
@@ -98,6 +102,8 @@ class Controller_Reissue extends Controller_Reissue_Template {
 	//コンプリートページ
 	//------------------
 	public function action_complete() {
+		// タイトルセット
+		$this->reissue_template->view_data['title'] = 'パスワード再設定｜'.TITLE;
 		 // コンテンツセット
 		$this->reissue_template->view_data['content']->set('content_data', array(
 			'content_html' => '<p>パスワードを再設定完了いたしました。</p>',

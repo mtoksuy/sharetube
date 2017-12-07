@@ -64,7 +64,7 @@
 <!--
 										<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
 -->
-										<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_8.pdf" target="_blank">広告掲載について</a></li>
+										<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_9.pdf" target="_blank">広告掲載について</a></li>
 									</ul>
 								</dd>
 							</dl>
@@ -119,6 +119,7 @@
 								</dd>
 							</dl>
 						</li>
+
 
 
 
