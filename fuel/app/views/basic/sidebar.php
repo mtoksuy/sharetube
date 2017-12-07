@@ -39,8 +39,10 @@
 ?>
 
 <?php echo $sidebar_data["popular_html"]; ?>
+<?php echo $sidebar_data["pr_html"]; ?>
 <?php echo $sidebar_data["related_html"]; ?>
 <?php echo $sidebar_data["shuffle_html"]; ?>
+
 
 <div class="sidebar_ad">
 	<?php // 広告配信
@@ -88,12 +90,8 @@
 		<ul>
 			<li>© <?php echo date('Y'); ?> Sharetube</li>
 			<li><a href="<?php echo HTTP; ?>about/">Sharetubeについて</a></li>
-			<li><a href="<?php echo HTTP; ?>rule/rule">利用規約</a></li>
-<!--
-			<li><a href="<?php echo HTTP; ?>/">ヘルプ</a></li>
-			<li><a href="<?php echo HTTP; ?>/">規約</a></li>
--->
 			<li><a href="<?php echo HTTP; ?>contact/">お問い合わせ</a></li>
+			<li><a href="<?php echo HTTP; ?>rule/rule">利用規約</a></li>
 			<li><a href="<?php echo HTTP; ?>sitemap/">サイトマップ</a></li>
 			<li><a href="<?php echo HTTP; ?>signup/">まとめ作成</a></li>
 			<li><a href="<?php echo HTTP; ?>signup/">Sharetubeアカウント作成</a></li>
@@ -102,9 +100,7 @@
 			<li><a href="<?php echo HTTP; ?>curatorrecruitment/lp/">業界NO.1のインセンティブ報酬</a></li>
 			<li><a href="<?php echo HTTP; ?>curatorlist/">キュレーターリスト</a></li>
 			<li><a href="<?php echo HTTP; ?>themelist/">テーマ一覧</a></li>
-<!--
-			<li><a href="<?php echo HTTP; ?>permalink/recruitment_ads.php">広告掲載について</a></li>
--->
+			<li><a href="<?php echo HTTP; ?>help/">Sharetubeヘルプセンター</a></li>
 			<li><a href="<?php echo HTTP; ?>assets/pdf/sharetube_document_9.pdf" target="_blank">広告掲載について</a></li>
 
 
