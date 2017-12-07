@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+/***
+body
+***/
+#wrapper {
+	background-color: #ffffff;
+}
+.main {
+	background-color: #ffffff;
+}
+/*********
+コンテンツ
+*********/
+.main_contents {
+	float: none;
+	margin: 0;
+	max-width: none;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.sidebar {
+	float: none;
+	display: none;
+}
+/*****
+ヘルプ
+*****/
+.help {
+
+}
+.help_content {
+
+}
+
+.help_content_title {
+	margin: 0 0 30px;
+}
+
+.help_content_block {
+	margin: 0 0 30px;
+}
+.help_content_block_title {
+
+}
+.help_content_block_section {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.help_content_block_section li {
+
+}
+/*********
+コンテンツ
+*********/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************
+メディアクエリ設定 0〜480
+************************/
+@media screen and (min-width: 0px) and (max-width: 480px) and (min-width: 0px) and (max-width: 480px) {
+
+}
+/************************
+メディアクエリ設定 0〜414
+************************/
+@media screen and (min-width: 0px) and (max-width: 414px) and (min-width: 0px) and (max-width: 414px) {
+
+
+}
+/************************
+メディアクエリ設定 0〜375
+************************/
+@media screen and (min-width: 0px) and (max-width: 375px) and (min-width: 0px) and (max-width: 375px) {
+
+
+}
+/************************
+メディアクエリ設定 0〜360
+************************/
+@media screen and (min-width: 0px) and (max-width: 360px) and (min-width: 0px) and (max-width: 360px) {
+
+}
+/************************
+メディアクエリ設定 0〜320
+************************/
+@media screen and (min-width: 0px) and (max-width: 320px) and (min-width: 0px) and (max-width: 320px) {
+
+}
