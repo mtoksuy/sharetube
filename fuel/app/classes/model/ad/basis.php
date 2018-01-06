@@ -104,6 +104,8 @@ class Model_Ad_Basis extends Model {
 			'怖いサイコパス',
 			'脱原発',
 			'ペニス',
+			'ヌード',
+			'巨乳',
 
 			'STAP現象',
 			'排毒',

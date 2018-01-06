@@ -14,6 +14,7 @@ class Controller_Root extends Controller_Basic_Template {
 	// 基本アクション
 	public function action_index() {
 
+
 /*
 ユーザーの書いた記事idを取得
 $res = DB::query("SELECT * FROM `article` WHERE `sharetube_id` = 'girl_club' AND `del` = 0 ")->execute();
