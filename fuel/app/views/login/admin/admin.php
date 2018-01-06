@@ -7,7 +7,7 @@
 } ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.8</p>
+						<p>Sharetube version 5.5.9</p>
 
 
 						<p style="border-bottom:1px solid #dddddd;"> </p>
