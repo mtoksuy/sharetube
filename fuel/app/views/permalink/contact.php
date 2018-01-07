@@ -2,9 +2,14 @@
 	<div class="contact">
 		<div class="contact_contents">
 			<h3>お問い合わせ</h3>
-			<p class="m_t_15">ご意見、ご要望、お問い合わせはこちらからどうぞよろしくお願い致します</p>
+			<p class="m_t_15">ご意見、ご要望、お問い合わせはこちらからどうぞよろしくお願い致します。</p>
 
+<!--
 			<p>広告掲載や記事広告を検討している場合はこちら<a href="http://sharetube.jp/permalink/recruitment_ads.php" target="_blank">Sharetube基本情報と広告タイプ 一覧表</a>をご確認お願い致します。</p>
+-->
+
+			<p>広告掲載や記事広告を検討している場合はこちら<a href="http://sharetube.jp/assets/pdf/sharetube_document_9.pdf" target="_blank">広告掲載について</a>をご確認お願い致します。</p>
+
 
 			<p>送り頂いたお問い合わせ内容は毎日、目を通すようにしています。返信に関しましては、なるべく早く返信出来るように努力致しますので些細な事でも気軽にお問い合わせをしてください。ご連絡お待ちしてしております。</p>
 

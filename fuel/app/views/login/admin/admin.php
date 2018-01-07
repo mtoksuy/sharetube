@@ -7,13 +7,12 @@
 } ?>
 
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.9</p>
+						<p>Sharetube version 5.5.10</p>
 
 
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 
-						<p class="m_0">今月はまとめ作成ツールの使いやすさを徹底的にアップデートしてまいります。</p>
-						<p>修正してほしい箇所がございましたらお問い合わせにてご連絡ください。</p>
+						<p></p>
 
 						<br>
 
@@ -138,6 +137,22 @@
 
 
 
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>12月07日〜01月07日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.10</h3>
+						<pre>・お問い合わせページ更新
+・lp更新
+</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
