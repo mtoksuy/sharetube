@@ -6,6 +6,9 @@
 // echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; 
 } ?>
 
+
+
+
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.10</p>
 

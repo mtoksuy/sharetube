@@ -84,7 +84,7 @@ class Controller_Theme extends Controller_Theme_Template {
 
 		// テーマデータHTML生成
 		$theme_data_html = Model_Theme_Html::theme_data_html_create($theme_res);
-		// ーマのキュレーターランキングarray取得
+		// テーマのキュレーターランキングarray取得
 		$theme_curator_ranking_array = Model_Theme_Basis::theme_curator_ranking_array_get($theme_res);
 		// テーマのキュレーターランキングhtml生成
 		$theme_curator_ranking_html = Model_Theme_Html::theme_curator_ranking_html_create($theme_curator_ranking_array);

@@ -83,6 +83,9 @@ class Model_Article_Html extends Model {
 
 			// 改行を消す&タブ削除
 			$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
+
+			// 本文を5680文字に丸める
+			$article_contests = mb_strimwidth($article_contests, 0, 5680, "...", 'utf8'); // 応急処置 2018.01.31 なぜこれで直るかはわからん 下記のpreg_replaceが重すぎた
 			// HTMLタグを取り除く
 			$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
 			// 追加を取り除く

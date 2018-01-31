@@ -15,9 +15,10 @@ class Controller_Root extends Controller_Basic_Template {
 	public function action_index() {
 
 
+
+//ユーザーの書いた記事idを取得
 /*
-ユーザーの書いた記事idを取得
-$res = DB::query("SELECT * FROM `article` WHERE `sharetube_id` = 'girl_club' AND `del` = 0 ")->execute();
+$res = DB::query("SELECT * FROM `article` WHERE `sharetube_id` = 'tokkioo' AND `del` = 0 ")->execute();
 foreach($res as $key => $value) {
 	echo ($value['primary_id'].'|');
 }
