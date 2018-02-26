@@ -882,6 +882,8 @@ class Model_Login_Post_Basis extends Model {
 
 			// コンテンツテキスト合体
 			$contents_text = $value["sub_text"].$value["text"];
+			// 本文を12800文字に丸める
+			$contents_text = mb_strimwidth($contents_text, 0, 12800, "...", 'utf8'); // 応急処置 2018.01.31 なぜこれで直るかはわからん 下記のpreg_replaceが重すぎた
 			// HTMLタグを取り除く
 			$contents_text = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $contents_text);
 			// 本文を512文字に丸める
@@ -969,6 +971,8 @@ class Model_Login_Post_Basis extends Model {
 			$contents_text = $value["sub_text"].$value["text"];
 			// 改行&タブを消す
 			$contents_text = str_replace(array("\r\n","\r","\n","\t"), '', $contents_text);
+			// 本文を12800文字に丸める
+			$contents_text = mb_strimwidth($contents_text, 0, 12800, "...", 'utf8'); // 応急処置 2018.01.31 なぜこれで直るかはわからん 下記のpreg_replaceが重すぎた
 			// HTMLタグを取り除く
 			$contents_text = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $contents_text);
 			// 本文を512文字に丸める
@@ -1069,6 +1073,8 @@ class Model_Login_Post_Basis extends Model {
 			$contents_text = $value["sub_text"].$value["text"];
 			// 改行&タブを消す
 			$contents_text = str_replace(array("\r\n","\r","\n","\t"), '', $contents_text);
+			// 本文を12800文字に丸める
+			$contents_text = mb_strimwidth($contents_text, 0, 12800, "...", 'utf8'); // 応急処置 2018.01.31 なぜこれで直るかはわからん 下記のpreg_replaceが重すぎた
 			// HTMLタグを取り除く
 			$contents_text = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $contents_text);
 			// 本文を512文字に丸める

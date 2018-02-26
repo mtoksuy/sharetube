@@ -947,6 +947,8 @@ class Model_Article_Html extends Model {
 	static function meta_description_html_create($article_data_array, $description_length) {
 		// 改行&タブを消す
 		$article_contests = str_replace(array("\r\n","\r","\n","\t"), '', $article_data_array["article_contents"]);
+		// 本文を5680文字に丸める
+		$article_contests = mb_strimwidth($article_contests, 0, 5680, "...", 'utf8'); // 応急処置 2018.01.31 なぜこれで直るかはわからん 下記のpreg_replaceが重すぎた
 		// HTMLタグを取り除く
 		$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
 		// 追加を取り除く
@@ -1422,6 +1424,8 @@ $social_share_html = '
 			$article_contests = str_replace(array("\r\n", "\r", "\n", "\t"), '', $value["sub_text"].$value["text"]);
 			// 出典元タグを取り除く
 			$article_contests = preg_replace('/<div class="image_quote">.+?<\/div>/', '', $article_contests);
+			// 本文を5680文字に丸める
+			$article_contests = mb_strimwidth($article_contests, 0, 5680, "...", 'utf8'); // 応急処置 2018.01.31 なぜこれで直るかはわからん 下記のpreg_replaceが重すぎた
 			// HTMLタグを取り除く
 			$article_contests = preg_replace('/<("[^"]*"|\'[^\']*\'|[^\'">])*>/', '', $article_contests);
 			// 追加を取り除く
