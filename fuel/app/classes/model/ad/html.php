@@ -902,6 +902,30 @@ $maverick_mobile_infeed_ad_html           = '<div class="cirqua-slot" data-slot-
 $maverick_mobile_interstitial_ad_html     = '';
 $maverick_mobile_orverlay_ad_html         = '';
 
+
+////////
+//ネンド
+////////
+// pc
+$nend_pc_sidebar_top_ad_html          = '';
+$nend_pc_sidebar_under_ad_html        = '';
+$nend_pc_article_middle_left_ad_html  = '';
+$nend_pc_article_middle_right_ad_html = '';
+$nend_pc_article_under_ad_html        = '';
+
+// mobile
+$nend_mobile_middle_1_ad_html         = '';
+$nend_mobile_middle_2_ad_html         = '';
+$nend_mobile_middle_3_ad_html         = '';
+$nend_mobile_middle_4_ad_html         = '';
+$nend_mobile_middle_5_ad_html         = '';
+$nend_mobile_middle_6_ad_html         = '';
+$nend_mobile_relation_ad_html         = '';
+$nend_mobile_header_ad_html           = '';
+$nend_mobile_infeed_ad_html           = '';
+$nend_mobile_interstitial_ad_html     = '';
+$nend_mobile_orverlay_ad_html         = '<div><script type="text/javascript" src="http://bibincom.com/ad/225_sharetube.jp.js"></script></div>';
+
 		// 広告タグ群array作成
 		$all_ad_html_array = array(
 			'fluct' => array(
@@ -1019,6 +1043,29 @@ $maverick_mobile_orverlay_ad_html         = '';
 					'インフィード'         => $addways_mobile_infeed_ad_html,
 					'オーバーレイ'         => $addways_mobile_orverlay_ad_html, 
 					'インタースティシャル' => $addways_mobile_interstitial_ad_html,
+				),
+			),
+			'nend' => array(
+				'pc' => array(
+					'サイドバー右上' => '', 
+					'サイドバー右下' => '',
+					'ミドル左'       => '',
+					'ミドル右'       => '',	
+					'記事下'         => '',
+					'none'           => '',
+				),
+				'mobile' => array(
+					'ミドル_1'             => '', 
+					'ミドル_2'             => '', 
+					'ミドル_3'             => '', 
+					'ミドル_4'             => '', 
+					'ミドル_5'             => '', 
+					'ミドル_6'             => '', 
+					'記事中関連記事'       => '', 
+					'ヘッダー'             => '', 
+					'インフィード'         => '',
+					'オーバーレイ'         => $nend_mobile_orverlay_ad_html, 
+					'インタースティシャル' => '',
 				),
 			),
 		);
