@@ -139,11 +139,24 @@ class Controller_Article extends Controller_Article_Template {
 
 		// サイドバーコンテンツセット
 		$this->article_template->view_data["sidebar"]->set('sidebar_data', array(
-			'popular_html' => $popular_html,
-			'pr_html' => $pr_html,
-			'related_html' => '',
-			'shuffle_html' => '',
+			'popular_html'      => $popular_html,
+			'pr_html'           => $pr_html,
+			'related_html'      => '',
+			'shuffle_html'      => '',
 			'profile_card_html' => $profile_card_html,
+		),false);
+
+
+
+		// まとめのテーマ取得
+		$theme_list = Model_Article_Html::article_theme_get($article_res);
+		// テーマHTML生成
+		list($tag_array, $tag_html) = Model_Article_Html::article_tag_html_create($theme_list, 3600);
+		// インタースティシャル広告判定
+		$ad_article_interstitial_check = Model_Ad_Basis::interstitial_permission_theme_ad_html_get($tag_array, $ad_article_interstitial_html);
+		// モバイルアドコンテンツセット
+		$this->article_template->view_data["mobile_ad"]->set('content_data', array(
+			'ad_article_interstitial_check' => $ad_article_interstitial_check,
 		),false);
 
 		// 追加コンテンツ コンテンツセット

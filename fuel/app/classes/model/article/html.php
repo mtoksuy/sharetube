@@ -2069,4 +2069,16 @@ $card_li = '';
 			}
 		return $social_share_html;
 	}
+	//------------------
+	//まとめのテーマ取得
+	//------------------
+	public static function article_theme_get($article_res) {
+		foreach($article_res as $key => $value) {
+			$theme_list = $value['tag'];
+		}
+		return $theme_list;
+	}
+
+
+
 }
