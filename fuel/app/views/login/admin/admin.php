@@ -2,75 +2,6 @@
 				<div class="article_list">
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
-					<?php if($_SESSION["sharetube_id"] == 'maverick') {
-// echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; 
-} ?>
-					<?php if($_SESSION["sharetube_id"] == 'soisenaruuuu' || $_SESSION["sharetube_id"] == 'mtokfdfdfsuy') {
- echo '<p style="margin: 0; color: red;">['.$_SESSION["sharetube_id"].'さんへのご連絡]</p>
-<p style="margin: 0;">先日メールにてご連絡をさせていただいたのですが、応答・改善がありませんでしたのでこちらに書かせていただきます。</p>
-
-
-
-<pre style="font-family: 游ゴシック体,Yu Gothic,YuGothic,ヒラギノ角ゴシック Pro,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,Osaka,ＭＳ Ｐゴシック,MS PGothic,sans-serif; font-size: 94%; margin: 0; white-space: pre-wrap; word-wrap: break-word;">お世話になっております
-Sharetubeサポートチームです
-
-サービスをご利用くださいまして大変ありがとうございます。
-
-
-この度はsoisenaru様が作成していただいた記事に使用している
-画像に関しましてご連絡を差し上げました。
-
-Sharetubeは基本的に大元の情報を大事にしています。
-テキスト・画像も原本元がありましたら
-そちらのURLを引用元としてテキスト・画像を記事中に掲載していただきますようお願いいたします。
-
-
-なお、過去の記事に関しましては大変と思われますので新規で作成する記事からで大丈夫です。
-
-----
-
-引用ルールの共有をもう一度したいと考えています。
-
-Sharetubeは転載に関してものすごく敏感に考えております。
-16文字以上同等の文章であればアイテム：引用でコンテンツを作成してください。
-引用するにあたって常識の範囲に抑えてください。(全体で3分の1以下など)
-
-なぜここまで気にするのかと言いますと
-もう既に賠償金を支払う問題が複数起きているからです。
-
-
-今一度利用規約を読んでもらえると助かるのですが
-利用規約
-http://sharetube.jp/rule/rule/
-
-第5条（ユーザーの責任）
-
-3.本サービス上においてユーザーが開示した、テキスト、音声、動画、画像および画像に付随する情報、個人情報や位置情報などを含む全ての情報に関する責任 は、ユーザー各自にあります。従って、当社はユーザーが本サービスにおいて開示した情報の内容について、一切の責任を負いません。
-4.ユーザーが他人の名誉を毀損した場合、プライバシー権を侵害した場合、著作権法に違反する行為を行った場合その他他人の権利を侵害した場合、当該ユーザーは自身の責任と費用において解決しなければならず、当社は一切の責任を負いません。
-5.ユーザーが開示した情報が原因となって迷惑を受けたとする者が現れた場合には、当該ユーザーは自身の責任と費用において解決しなければならず、当社は一切の責任を負いません。
-
-というルールになっておりますので
-サポートチームとしても裁判沙汰でユーザー様を失うのは本意ではありません。
-
-
-作る側も引用される側も見る側も良い関係を築いていけるようよろしくお願い致します。
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sharetube - シェアしたくなるコンテンツが集まる、集まる。
-発行：Sharetube[シェアチューブ]サポートチーム
-http://sharetube.jp/
-
-お問合せ: http://sharetube.jp/contact/
-COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.
-</pre>';
-} ?>
-
-
-
-
-
-
-
 					<div class="m_b_30">
 						<p>Sharetube version 5.5.10</p>
 
@@ -208,7 +139,7 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.
 			<li class="pointline clearfix">
 				<dl>
 					<dt>
-						<pre>12月07日〜02月26日</pre>
+						<pre>12月07日〜07月10日</pre>
 					</dt>
 					<dd>
 						<h3>Var.5.5.10</h3>
@@ -216,6 +147,8 @@ COPYRIGHT(C) Sharetube ALL RIGHTS RESERVED.
 ・lp更新
 ・サービス全体で起こっていた接続が途切れる問題を解決
 ・スマホ広告(オーバーレイ)を差し替えテスト
+・DB文を見直し接続スピード改善(約1/80)
+・全体を見直し軽妙なバグフィックス
 </pre>
 					</dd>
 				</dl>
