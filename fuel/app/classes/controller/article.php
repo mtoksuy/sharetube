@@ -10,6 +10,8 @@
 class Controller_Article extends Controller_Article_Template {
 	// ルーター
 	public function router($method, $params) {
+		// intに戻す
+		$method = (int)$method;
 		// セグメント審査と軽い記事審査
 		if (!$params && preg_match('/^[0-9]+$/', $method, $method_array)) {
 			// 記事があるかどうかを検査する

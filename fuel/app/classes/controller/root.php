@@ -18,8 +18,9 @@ class Controller_Root extends Controller_Basic_Template {
 //echo hash('sha256', 'イーサリアム初めて採掘いたします。');
 // 1d6f658298c68cf204ea3d05449d3a52eb97dce59b689ec3660e484e3c45e1ba
 //ユーザーの書いた記事idを取得
+
 /*
-$res = DB::query("SELECT * FROM `article` WHERE `sharetube_id` = 'tokkioo' AND `del` = 0 ")->execute();
+$res = DB::query("SELECT * FROM `article` WHERE `sharetube_id` = 'komakoma02' AND `del` = 0 ")->execute();
 foreach($res as $key => $value) {
 	echo ($value['primary_id'].'|');
 }
@@ -74,13 +75,6 @@ echo ( 15456+
 
 
 */
-
-
-
-
-
-
-
 
 
 

@@ -16,7 +16,7 @@
 		<h2>あとはログインして<span class="red">まとめを書く</span>だけ</h2>
 		<p style="text-align: center; margin: 45px auto -40px;">さあ、あなたも伝えたい情報をまとめてよう。</p>
 		<div class="registration_button o_8 clearfix">
-			<a href="http://localhost/sharetube/login/" target="_blank">ログインページに行く</a>
+			<a href="<?php echo HTTP; ?>login/" target="_blank">ログインページに行く</a>
 		</div>
 	</div>
 </div>

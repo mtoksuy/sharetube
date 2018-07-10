@@ -1,8 +1,4 @@
 
-
-
-
-
 			<!-- top_header -->
 			<div class="top_header clearfix">
 				<div class="top_header_contents">
