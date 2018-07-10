@@ -129,12 +129,19 @@ class Model_Article_Basis extends Model {
 	//------------------------
 	static function article_shuffle_get($article_primary_id, $article_type = 'article', $limit_num = 8) {
 //		echo $limit_num;
-		$shuffle_res = DB::query("
-			SELECT *
+		$shuffle_id = DB::query("
+			SELECT primary_id
 			FROM article
 			WHERE primary_id != $article_primary_id
 			AND del           = 0
 			ORDER BY RAND() LIMIT 0, $limit_num")->cached(3600)->execute();
+			foreach($shuffle_id as $kye => $value) {
+				$primary_id = $value['primary_id'];
+			}
+		$shuffle_res = DB::query("
+			SELECT primary_id
+			FROM article
+			WHERE primary_id = $primary_id")->cached(3600)->execute();
 			return $shuffle_res;
 	}
 	//-------------------------------------------
