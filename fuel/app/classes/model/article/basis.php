@@ -1222,5 +1222,29 @@ foreach($save_array as $k => $v) {
 		}
 		return $recommend_check;
 	}
+	//------------------
+	//PRの記事だけを抽出
+	//------------------
+	public static function article_pr_res_get($article_array) {
+		foreach($article_array as $key => $value) {
+			$article_value .= $value.',';
+		}
+		// 文末の特定の文字削除
+		$article_value = rtrim($article_value, ',');
+
+		$pr_res = DB::query("
+			SELECT *
+			FROM article
+			WHERE primary_id IN (".$article_value.") 
+		")->cached(3600)->execute();
+		return $pr_res;
+	}
+
+
+
+
+
+
+
 
 }

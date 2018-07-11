@@ -305,10 +305,11 @@ class Model_Article_Html extends Model {
 //		var_dump($related_html);
 
 
+
 			// PRまとめデータ取得
-//			$pr_res = Model_Article_Basis::article_pr_get();
+			$pr_res = Model_Article_Basis::article_pr_res_get(array(11705,1705,1434,555));
 			// PRまとめHTML生成
-			$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
+//			$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
 
 
 			// 前のまとめ、次のまとめTML生成
@@ -1762,13 +1763,13 @@ var_dump($end_point);
 	//----------------------
 	//記事内PRまとめHTML生成
 	//----------------------
-	static function article_inside_pr_html_create($related_res, $article_type = 'article') {
-/*
+	static function article_inside_pr_html_create($pr_res, $article_type = 'article') {
 		// 回す
-		foreach($related_res as $key => $value) {
+		foreach($pr_res as $key => $value) {
+//			var_dump($value);
 			$card_li = Model_Article_Html::article_card_li_html_create($value, $card_li, $article_type);
 		} // foreach($related_res as $key => $value) {
-*/
+/*
 $card_li = '<li class="o_8">
 					<article>
 						<div class="category_band news_gossip_color">ニュース・ゴシップ</div>													<a href="http://ad.aspm.jp/2Y0gQm/">
@@ -1781,7 +1782,8 @@ $card_li = '<li class="o_8">
 						</a>
 					</article>
 				</li>';
-$card_li = '';
+*/
+//$card_li = '';
 		if($card_li) {
 			// 合体
 			$related_html = ('
