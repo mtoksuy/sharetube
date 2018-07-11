@@ -144,26 +144,29 @@ function gallery_box_content_image_rsize_calculation(img) {
 //	var image_url_list    = '';
 	// 画像抜き出し
 	article_list_contents_sub_text_img.each( function(key, value) {
-		tweet_content_icon_check = $(this).parents('.tweet_content_icon');
-		amazon_link_image_check  = $(this).parents('.amazon_link_image');
-		amazon_link_text_check   = $(this).parents('.amazon_link_text');
-		amazon_link_detail_check = $(this).parents('.amazon_link_detail');
-		amazon_link_detail_check = $(this).parents('.amazon_link_detail');
-
+		// オブジェクトに入れない画像群
+		tweet_content_icon_check                         = $(this).parents('.tweet_content_icon');
+		amazon_link_image_check                          = $(this).parents('.amazon_link_image');
+		amazon_link_text_check                           = $(this).parents('.amazon_link_text');
+		amazon_link_detail_check                         = $(this).parents('.amazon_link_detail');
+		amazon_link_detail_check                         = $(this).parents('.amazon_link_detail');
 		gallery_cell_check                               = $(this).parents('.gallery-cell');
 		matome_content_block_itunes_app_icon_check       = $(this).parents('.matome_content_block_itunes_app_icon');
 		matome_content_block_itunes_app_data_badge_check = $(this).parents('.matome_content_block_itunes_app_data_badge');
 		matome_content_block_multi_app_check             = $(this).parents('.matome_content_block_multi_app');
+		ads_image_check                                  = $(this).parents('.ads_image');
 
 
-		tweet_content_icon_check = tweet_content_icon_check.attr('class');
-		amazon_link_image_check  = amazon_link_image_check.attr('class');
-		amazon_link_text_check   = amazon_link_text_check.attr('class');
-		amazon_link_detail_check = amazon_link_detail_check.attr('class');
-		gallery_cell_check       = gallery_cell_check.attr('class');
+		tweet_content_icon_check                         = tweet_content_icon_check.attr('class');
+		amazon_link_image_check                          = amazon_link_image_check.attr('class');
+		amazon_link_text_check                           = amazon_link_text_check.attr('class');
+		amazon_link_detail_check                         = amazon_link_detail_check.attr('class');
+		gallery_cell_check                               = gallery_cell_check.attr('class');
 		matome_content_block_itunes_app_icon_check       = matome_content_block_itunes_app_icon_check.attr('class');
 		matome_content_block_itunes_app_data_badge_check = matome_content_block_itunes_app_data_badge_check.attr('class');
 		matome_content_block_multi_app_check             = matome_content_block_multi_app_check.attr('class');
+		ads_image_check                                  = ads_image_check.attr('class');
+
 
 		if(tweet_content_icon_check) {
 
@@ -189,6 +192,9 @@ function gallery_box_content_image_rsize_calculation(img) {
 						else if(matome_content_block_multi_app_check) {
 			
 						}
+						else if(ads_image_check) {
+
+						}
 							else {
 								image_list_object = image_list_object.add($(this));
 							}
@@ -198,23 +204,24 @@ function gallery_box_content_image_rsize_calculation(img) {
 	//----------------
 	$('.article_list').on( {
 		'click' : function(event) {
-			tweet_content_icon_check = $(this).parents('.tweet_content_icon');
-			amazon_link_image_check  = $(this).parents('.amazon_link_image');
-			amazon_link_text_check   = $(this).parents('.amazon_link_text');
-			gallery_cell_check       = $(this).parents('.gallery-cell');
+			// モーダルにしたくない画像群
+			tweet_content_icon_check                         = $(this).parents('.tweet_content_icon');
+			amazon_link_image_check                          = $(this).parents('.amazon_link_image');
+			amazon_link_text_check                           = $(this).parents('.amazon_link_text');
+			gallery_cell_check                               = $(this).parents('.gallery-cell');
 			matome_content_block_itunes_app_icon_check       = $(this).parents('.matome_content_block_itunes_app_icon');
 			matome_content_block_itunes_app_data_badge_check = $(this).parents('.matome_content_block_itunes_app_data_badge');
 			matome_content_block_multi_app_check             = $(this).parents('.matome_content_block_multi_app');
+			ads_image_check                                  = $(this).parents('.ads_image');
 
-
-			tweet_content_icon_check = tweet_content_icon_check.attr('class');
-			amazon_link_image_check  = amazon_link_image_check.attr('class');
-			amazon_link_text_check   = amazon_link_text_check.attr('class');
-			gallery_cell_check       = gallery_cell_check.attr('class');
+			tweet_content_icon_check                         = tweet_content_icon_check.attr('class');
+			amazon_link_image_check                          = amazon_link_image_check.attr('class');
+			amazon_link_text_check                           = amazon_link_text_check.attr('class');
+			gallery_cell_check                               = gallery_cell_check.attr('class');
 			matome_content_block_itunes_app_icon_check       = matome_content_block_itunes_app_icon_check.attr('class');
 			matome_content_block_itunes_app_data_badge_check = matome_content_block_itunes_app_data_badge_check.attr('class');
 			matome_content_block_multi_app_check             = matome_content_block_multi_app_check.attr('class');
-
+			ads_image_check                                  = ads_image_check.attr('class');
 
 
 			if(tweet_content_icon_check) {
@@ -237,6 +244,9 @@ function gallery_box_content_image_rsize_calculation(img) {
 						}
 						else if(matome_content_block_multi_app_check) {
 							return true;	
+						}
+						else if(ads_image_check) {
+							return true;
 						}
 				else {
 					$('#wrapper').before('\
