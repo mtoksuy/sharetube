@@ -9,7 +9,14 @@
 		// 全ての広告別array取得
 		$all_ad_html_array = Model_Ad_Html::all_ad_html_array_get();
 		// アドネットワークをランダムで取得
-		$ad_network_name = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee', 'geniee'));
+		// インタースティシャルのみgenieeとfluctを表示する
+		if($content_data['ad_article_interstitial_check']) {
+			$ad_network_name = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee'));
+		}
+			else {
+				$ad_network_name = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'nend', 'nend'));
+			}
+
 		// 広告ネットワーク指定アドhtml生成
 		$ad_mobile_orverlay_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name, 'none', 'オーバーレイ');
 

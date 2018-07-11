@@ -137,5 +137,3 @@
 			'.$ad_sidebar_4_html.
 		'</div>';
 ?>
-
-

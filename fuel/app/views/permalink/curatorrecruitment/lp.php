@@ -171,10 +171,10 @@
 
 
 
-						<img class="appeal_block_image_1" width="640" height="400" title="1PVのレート" alt="1PVのレート" src="<?php echo HTTP; ?>assets/img/article/image/image_4972.png">
+						<img class="appeal_block_image_1" width="640" height="400" title="1PVのレート" alt="1PVのレート" src="http://sharetube.jp/assets/img/article/image/image_78789.png" style="margin:0 auto 15px;">
 						<div class="appeal_float_block clearfix">
 							<div class="appeal_float_block_left">
-								<img class="appeal_block_image_2" width="640" height="400" title="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" alt="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" src="http://sharetube.jp/assets/img/article/image/image_3779.png" class="o_8">
+								<img class="appeal_block_image_2" width="640" height="400" title="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" alt="Sharetubeと他社の比較レート(10,000PVの場合)グラフ" src="http://sharetube.jp/assets/img/article/image/image_78788.png" class="o_8">
 							</div>
 							<div class="appeal_float_block_right">
 								<h3>マツオカソウヤさんの場合</h3>
@@ -186,7 +186,12 @@
 					<div class="appeal_block">
 						<h2><span class="red">認知度アップ</span>にも繋がります</h2>
 						<p>しっかりとしたユーザーページ とアイコン・自己紹介文・運営サイト・SNSリンクを設定できて、作成したまとめにもプロフィールが載るので認知度アップにも繋がります。</p>
+<!--
 						<img class="appeal_block_image_2" width="640" height="400" title="" alt="" src="<?php echo HTTP; ?>assets/img/curatorrecruitment/lp/channel_view_1.jpg" class="o_8">
+-->
+						<img class="appeal_block_image_2" width="640" height="400" title="" alt="" src="http://sharetube.jp/assets/img/article/image/image_78804.png" class="o_8">
+
+
 					</div>
 					<!-- appeal_block -->
 					<div class="appeal_block">

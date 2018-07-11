@@ -1,4 +1,5 @@
 
+
 			<!-- jQueryプラグイン -->
 			<script type="text/javascript" src="<?php echo HTTP; ?>assets/js/common/jquery-1.9.1-min.js"></script>
 			<!-- 自作プラグイン -->
@@ -52,5 +53,6 @@
 						ga('require', 'displayfeatures');
 						ga('send', 'pageview');
 					</script>
+
 				<?php 
 				} ?>

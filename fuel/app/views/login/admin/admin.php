@@ -2,18 +2,13 @@
 				<div class="article_list">
 					<?php echo '<h2 class="h2_heading_1 m_0 m_b_30">ようこそ'.$_SESSION["sharetube_id"].'さん</h2>'; ?>
 
-					<?php if($_SESSION["sharetube_id"] == 'maverick') {
-// echo '<p>[削除&修正報告] sharetube.jp/article/5540/(http://sharetube.jp/channel/maverick/49/あたり) まで完了してます。</p>'; 
-} ?>
-
 					<div class="m_b_30">
-						<p>Sharetube version 5.5.9</p>
+						<p>Sharetube version 5.5.10</p>
 
 
 						<p style="border-bottom:1px solid #dddddd;"> </p>
 
-						<p class="m_0">今月はまとめ作成ツールの使いやすさを徹底的にアップデートしてまいります。</p>
-						<p>修正してほしい箇所がございましたらお問い合わせにてご連絡ください。</p>
+						<p></p>
 
 						<br>
 
@@ -138,6 +133,27 @@
 
 
 
+
+
+
+			<li class="pointline clearfix">
+				<dl>
+					<dt>
+						<pre>12月07日〜07月11日</pre>
+					</dt>
+					<dd>
+						<h3>Var.5.5.10</h3>
+						<pre>・お問い合わせページ更新
+・lp更新
+・サービス全体で起こっていた接続が途切れる問題を解決
+・スマホ広告(オーバーレイ)を差し替えテスト
+・DB文を見直し接続スピード改善(約1/80)
+・全体を見直し軽妙なバグフィックス
+・モーダル機能アップデート
+</pre>
+					</dd>
+				</dl>
+			</li>
 
 
 
