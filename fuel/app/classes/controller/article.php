@@ -135,9 +135,9 @@ class Controller_Article extends Controller_Article_Template {
 		$profile_card_html = Model_Channel_Html::profile_card_html_create($sharetube_user_data_array, $article_count);
 
 		// PRまとめデータ取得
-			$pr_res = Model_Article_Basis::article_pr_res_get(array(11705,1705,1434,555));
+			$pr_res = Model_Article_Basis::article_pr_res_get(array(12277));
 		// PRまとめHTML生成
-//		$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
+		$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
 		// サイドバーコンテンツセット
 		$this->article_template->view_data["sidebar"]->set('sidebar_data', array(
 			'popular_html'      => $popular_html,
