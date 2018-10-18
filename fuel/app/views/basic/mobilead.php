@@ -15,6 +15,7 @@
 		}
 			else {
 				$ad_network_name = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'nend', 'nend'));
+				$ad_network_name = Model_Ad_Basis::ad_network_random_get(array('fluct', 'fluct', 'fluct', 'fluct', 'fluct', 'fluct', 'fluct', 'geniee', 'fluct', 'fluct'));
 			}
 
 		// 広告ネットワーク指定アドhtml生成

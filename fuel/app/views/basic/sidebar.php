@@ -37,7 +37,7 @@
 		$ad_sidebar_2_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_network_name_sidebar_2, 'none', 'ミドル_4');
 		echo '<div class="sidebar_ad" style="margin-top: 30px;">'.$ad_sidebar_2_html.'</div>';
 ?>
-<?php echo $sidebar_data["pr_html"]; ?>
+<?php // echo $sidebar_data["pr_html"]; ?>
 <?php echo $sidebar_data["popular_html"]; ?>
 <?php echo $sidebar_data["related_html"]; ?>
 <?php echo $sidebar_data["shuffle_html"]; ?>

@@ -307,9 +307,9 @@ class Model_Article_Html extends Model {
 
 
 			// PRまとめデータ取得
-			$pr_res = Model_Article_Basis::article_pr_res_get(array(12277));
+//			$pr_res = Model_Article_Basis::article_pr_res_get(array(12277));
 			// PRまとめHTML生成
-			$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
+//			$pr_html = Model_Article_Html::article_inside_pr_html_create($pr_res, 'article');
 
 
 			// 前のまとめ、次のまとめTML生成
