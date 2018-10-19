@@ -507,10 +507,9 @@ ad-generation ミドル_7 48381
 		return $ad_html;
 	}
 	//----------------
-	//広告指定配信関数
+	//広告指定配信関数(現在使用していない 2018.10.19 松岡)
 	//----------------
 	public static function ad_html_create($detect, $ad_network = 'i-mobile', $type = 'レクタングル') {
-
 		// fluctの広告array
 		$fluct_array = array();
 
@@ -632,7 +631,7 @@ ad-generation ミドル_7 48381
 		return $ad_html;
 	}
 	//---------------------
-	//全ての広告別array取得
+	//全ての広告別array取得(メインで使用)
 	//---------------------
 	public static function all_ad_html_array_get() {
 		///////
@@ -926,6 +925,68 @@ $nend_mobile_infeed_ad_html           = '';
 $nend_mobile_interstitial_ad_html     = '';
 $nend_mobile_orverlay_ad_html         = '<div><script type="text/javascript" src="http://bibincom.com/ad/225_sharetube.jp.js"></script></div>';
 
+////////
+//adstir
+////////
+// pc
+$adstir_pc_sidebar_top_ad_html          = '<script type="text/javascript">
+var adstir_vars = {
+  ver: "4.0",
+  app_id: "MEDIA-c97382b0",
+  ad_spot: 1,
+  center: false
+};
+</script>
+<script type="text/javascript" src="https://js.ad-stir.com/js/adstir.js"></script>';
+$adstir_pc_sidebar_under_ad_html        = '';
+$adstir_pc_article_middle_left_ad_html  = '';
+$adstir_pc_article_middle_right_ad_html = '';
+$adstir_pc_article_under_ad_html        = '';
+
+// mobile
+$adstir_mobile_middle_1_ad_html         = '<script type="text/javascript">
+var adstir_vars = {
+  ver: "4.0",
+  app_id: "MEDIA-5fcd8603",
+  ad_spot: 2,
+  center: false
+};
+</script>
+<script type="text/javascript" src="https://js.ad-stir.com/js/adstir.js"></script>';
+$adstir_mobile_middle_2_ad_html         = '';
+$adstir_mobile_middle_3_ad_html         = '';
+$adstir_mobile_middle_4_ad_html         = '';
+$adstir_mobile_middle_5_ad_html         = '';
+$adstir_mobile_middle_6_ad_html         = '';
+$adstir_mobile_relation_ad_html         = '';
+$adstir_mobile_header_ad_html           = '';
+$adstir_mobile_infeed_ad_html           = '';
+$adstir_mobile_interstitial_ad_html     = '<script type="text/javascript">
+var adstir_vars = {
+  ver: "4.0",
+  type: "interstitial",
+  app_id: "MEDIA-5fcd8603",
+  ad_spot: 1
+};
+</script>
+<script type="text/javascript" src="https://js.ad-stir.com/js/adstir.js"></script>';
+$adstir_mobile_orverlay_ad_html         = '';
+$adstir_mobile_inlead_ad_html           = '<script type="text/javascript">
+var adstir_vars = {
+  ver: "4.0",
+  type: "video",
+  app_id: "MEDIA-5fcd8603",
+  ad_spot: 3,
+  floating: false
+};
+</script>
+<script type="text/javascript" src="https://js.ad-stir.com/js/adstir_video.js"></script>';
+
+
+
+
+
+
 		// 広告タグ群array作成
 		$all_ad_html_array = array(
 			'fluct' => array(
@@ -1068,11 +1129,39 @@ $nend_mobile_orverlay_ad_html         = '<div><script type="text/javascript" src
 					'インタースティシャル' => '',
 				),
 			),
+			'adstir' => array(
+				'pc' => array(
+					'サイドバー右上' => $adstir_pc_sidebar_top_ad_html, 
+					'サイドバー右下' => '',
+					'ミドル左'       => '',
+					'ミドル右'       => '',	
+					'記事下'         => '',
+					'none'           => '',
+				),
+				'mobile' => array(
+					'ミドル_1'             => $adstir_mobile_middle_1_ad_html, 
+					'ミドル_2'             => '', 
+					'ミドル_3'             => '', 
+					'ミドル_4'             => '', 
+					'ミドル_5'             => '', 
+					'ミドル_6'             => '', 
+					'記事中関連記事'       => '', 
+					'ヘッダー'             => '', 
+					'インフィード'         => '',
+					'オーバーレイ'         => '', 
+					'インタースティシャル' => $adstir_mobile_interstitial_ad_html,
+					'インリード'           => $adstir_mobile_inlead_ad_html,
+				),
+			),
+
+
+
+
 		);
 		return $all_ad_html_array;
 	}
 	//--------------------------------
-	//広告ネットワーク指定アドhtml生成
+	//広告ネットワーク指定アドhtml生成(ここでhtml生成)
 	//--------------------------------
 	public static function all_ad_html_create($all_ad_html_array, $detect, $pc_ad_network = 'fluct', $mobile_ad_network = 'fluct', $pc_type =  'サイドバー右上', $mobile_type = 'ミドル_1') {
 		// 実際に設定する場所
