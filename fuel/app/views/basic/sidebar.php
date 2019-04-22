@@ -11,12 +11,13 @@
 		// 全ての広告別array取得
 		$all_ad_html_array = Model_Ad_Html::all_ad_html_array_get();
 		// アドネットワークをランダムで取得
-		$ad_pc_network_name_sidebar_1     = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee'));
+		$ad_pc_network_name_sidebar_1     = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee'));
 		$ad_mobile_network_name_sidebar_1 = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee'));
 		// 広告ネットワーク指定アドhtml生成
 		$ad_sidebar_1_html   = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, $ad_pc_network_name_sidebar_1, $ad_mobile_network_name_sidebar_1, 'サイドバー右上', 'ミドル_3');
 		echo ($ad_sidebar_1_html); ?>
 </div>
+
 
 <?php echo $sidebar_data["profile_card_html"]; ?>
 

@@ -630,9 +630,9 @@ ad-generation ミドル_7 48381
 			} // else if($ad_network == 'geniee') {
 		return $ad_html;
 	}
-	//---------------------
+	//-----------------------------------
 	//全ての広告別array取得(メインで使用)
-	//---------------------
+	//-----------------------------------
 	public static function all_ad_html_array_get() {
 		///////
 		//fluct

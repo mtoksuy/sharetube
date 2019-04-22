@@ -182,11 +182,11 @@ class Model_Article_Html extends Model {
 
 		// アドネットワークをランダムで取得
 		$ad_pc_network_name_left      = Model_Ad_Basis::ad_network_random_get(array('fluct', 'fluct','fluct','fluct', 'fluct', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee'));
-		$ad_mobile_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee','geniee','geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'addways'));
+		$ad_mobile_network_name_left  = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee','geniee','geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee', 'geniee'));
 		$ad_pc_network_name_right     = $ad_pc_network_name_left;
 		$ad_mobile_network_name_under = Model_Ad_Basis::ad_network_random_get(array('fluct', 'geniee', 'geniee', 'geniee', 'geniee'));
-		$ad_mobile_network_name_interstitial = Model_Ad_Basis::ad_network_random_get(array('geniee', 'adstir', 'adstir'));
-		$ad_mobile_network_name_interstitial = Model_Ad_Basis::ad_network_random_get(array('geniee'));
+		$ad_mobile_network_name_interstitial = Model_Ad_Basis::ad_network_random_get(array('geniee', 'geniee', 'geniee'));
+		$ad_mobile_network_name_interstitial = Model_Ad_Basis::ad_network_random_get(array('geniee', 'adstir', 'adstir', 'adstir'));
 
 
 		// 広告ネットワーク指定アドhtml生成
@@ -195,6 +195,8 @@ class Model_Article_Html extends Model {
 		$ad_article_under_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, $ad_pc_network_name_right, $ad_mobile_network_name_under, 'ミドル右', 'ミドル_2');
 		$ad_article_infeed_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'geniee', 'none', 'インフィード');
 		$ad_article_interstitial_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', $ad_mobile_network_name_interstitial, 'none', 'インタースティシャル');
+		$ad_article_inlead_html = Model_Ad_Html::all_ad_html_create($all_ad_html_array, $detect, 'fluct', 'adstir', 'none', 'インリード');
+
 
 		// まとめ内広告トップ・ボトム広告HTML生成
 		list($article_top_ad_html, $article_under_ad_html) = Model_Article_Html::matome_top_bottom_ad_html_create($detect, $ad_middle_left_html, $ad_middle_right_html, $ad_article_under_html);
@@ -350,6 +352,8 @@ class Model_Article_Html extends Model {
 						'.$thumbnail_html.'
 						'.$thumbnail_quote_html.'
 						'.$article_top_ad_html.'
+						'.$ad_article_inlead_html.'
+
 						<div class="article_list_contents_sub_text">
 							'.$value["sub_text"].'
 						</div>
